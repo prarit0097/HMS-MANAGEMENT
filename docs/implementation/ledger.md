@@ -10,3 +10,9 @@
 - Ruling: shared current checkout on isolated feature branch; no new worktree without owner preference. No initial runtime baseline existed, so no application test pass is claimed.
 - Preflight interface scan and rulings: docs/implementation/phase-a-contract.md.
 - Remaining: implement/review/test Phase A, then continue subsequent planned slices until completion or usage stop.
+
+## Completed bounded units
+
+- Usage guard:8 subprocess behaviour tests RED->GREEN; root commit e4a25b3 pushed/remote verified. Native heartbeat active, no cooldown triggered at last48% minimum remaining.
+- Security primitives:22 tests/25subtests rerun GREEN; module only, request/edge integration pending. Security engineer's integrated threat notes sent to backend: strict boolean config, frame header middleware, CSRF/login/branch isolation, proxy boundary. Full runtime initially404 while in progress; not a shipped pass.
+- Platform-agent scripts tests observed in RED while their checker did not yet exist; kept out of the security-primitives commit. Do not mistake a shared in-progress test discovery for final integrated results.

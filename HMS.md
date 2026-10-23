@@ -72,6 +72,7 @@ These are intended combined capabilities, not claims of unique inventions or pro
 | Database | PostgreSQL | Not provisioned |
 | Background work | Celery; durable broker, proposed RabbitMQ | Not configured |
 | Disposable cache/rate limit | Redis where justified | Not configured |
+| IP policy primitives | Framework-independent trusted-proxy resolver and allow/deny evaluator | Implemented;22 tests/25 subtests passed. Request middleware/admin policy UI still in progress/planned |
 | Files | Private cloud object storage, encrypted and access-controlled | Not provisioned |
 | Runtime | Containerised services; production Linux; local Windows development supported | Not configured |
 | Remote MCP | Authenticated HTTP endpoint with supported MCP transport/version | Not implemented |
@@ -282,6 +283,13 @@ For every change add: ID/date; request and reason; changed behaviour/files/pages
 - Verification: eight usage-guard behaviour tests initially failed because implementation was absent, then all eight passed; includes exact threshold, weekly limit, missing/nonfinite data, preserved cooldown and recovered restart. No app-security/load/capacity claim.
 - Scheduling: native heartbeat created successfully, id continue-hms-after-usage-cooldown. Initial snapshot66%primary/65%weekly remaining; latest boundary52%primary/63%weekly remaining, so no cooldown started. No reset credit used.
 - Publication: commit subject `build: start team execution with tested usage checkpoint guard`; current branch feat/hms-foundation. Subsequent agent work is uncommitted until integrated/tested/documented.
+
+### CHG-0005 — 23 October 2026 — Verified IP policy primitives
+
+- Security agent delivered backend/apps/security/ip_policy.py, package exports and pure tests. Trusted proxies resolved right-to-left; untrusted forwarded headers ignored; IPv4/mapped-IPv6 canonicalised; CIDR/blocklist precedence and malformed/oversized-chain fail-closed behaviour covered.
+- Evidence: agent reported RED assertions against an interface skeleton, then GREEN. Coordinator reran `python -m pytest backend/apps/security/tests/test_ip_policy.py -q`:22 passed,25 subtests passed. A simultaneous broad scripts test discovery also saw8 expected RED tests from the platform agent's not-yet-implemented documentation checker; those uncommitted tests are not included in this change. Usage guard8 still pass.
+- Scope/limits: pure IP evaluator only; this commit does not prove deployed edge firewall, middleware, admin lockout recovery, MFA or production security. Backend integration is under implementation.
+- Publication: `feat: add tested trusted-proxy and IP policy primitives`; no migrations, real records or deployment.
 
 ## 18. Technical references
 

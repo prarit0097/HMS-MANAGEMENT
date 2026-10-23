@@ -430,6 +430,8 @@ Consumes: AccessContext and reviewed identity provider/session strategy; produce
 
 ### Task 03 — IP policy and cloud-edge trust boundary
 
+Partial evidence23October2026: pure resolver/evaluator complete and independently rerun22 tests/25 subtests passed. Full request integration, edge/network, policy-management UI and timed rollback remain open; do not mark Task03 fully complete.
+
 Files: `backend/apps/security/{ip_policy,policy_changes,middleware}.py`, `backend/apps/security/tests/test_ip_policy.py`, `frontend/src/features/admin/ip-policy/`, proposed `infra/edge/` config.
 Consumes: Task 02; produces section 8 IP evaluation/preview functions. Pages M06/M07 and access-denied behaviour.
 
