@@ -1,8 +1,8 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.9.2 | Updated: 24 October 2026, Asia/Calcutta
+Document version: 1.10.0 | Updated: 24 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
-Current state: **OWNER-SCHEDULED RESUME PENDING — 24 October 2026, 04:30 AM IST**, subject to authenticated all-window usage>10%. Prior stop/history preserved; original 05:21:54 AM deadline superseded only by this explicit owner instruction. Verified source16b6ca3 and restricted live preview47b3618 unchanged. First resume: ICTHospital reference comparison, then pending network design. Full HMS/release gates remain.
+Current state: **ACTIVE — owner-scheduled 24 October 04:30 AM IST resume verified.** Authenticated23October23:02:32UTC primary100%/weekly84%remaining; later bounded check90%/83%. ICTHospital comparison is documentation/planning input only; Task03 exact network contract remains in design. Verified source16b6ca3 and restricted live preview47b3618 unchanged; full HMS/release gates remain.
 
 ## 1. Read this first
 
@@ -61,6 +61,14 @@ These are intended combined capabilities, not claims of unique inventions or pro
 - Organisation/branch scope built into identity, data access and operations.
 - One master-admin control plane for security policies, IP rules, audit, backups, imports/exports and MCP clients.
 - MCP tools reuse the same authorisation/business rules as ordinary users; AI is an additional client, not a privileged bypass.
+
+### External HMS reference reviewed —24October2026
+
+[ICTHospital source comparison](docs/research/2026-10-24-icthospital-comparison.md) pins commit e506dfb553f7d146a6d0cddc136ffd5b6c9bdb09 and maps useful workflows to this project. Keep Django/DRF, React/TypeScript and PostgreSQL; most registration/appointment/admission/prescription/dispensing/part-payment concepts already exist in our design. No foreign code/assets/dependencies/schema were adopted. Root GPLv3 versus Composer MIT metadata remains unresolved for any future material copying.
+
+A dedicated laboratory lifecycle is an explicitly deferred, unapproved extension candidate: current test alerts do not implement ordering/specimens/verified partial results. Reporting design will independently define source-linked compatible-unit supply, invoice-wise receivable ageing and census/bed-time occupancy with historical capacity. Preserve historical catalogue labels/prices alongside stable identities and immutable signed/final versions. Outbound reminders remain unconfigured pending consent, provider/cost, disclosure and delivery contracts; actual call-center integration stays deferred. These are planning refinements, no new page ID/API/permission/migration or delivered feature.
+
+Evidence: two source specialists plus fresh independent documentation review; three Minor citation/length-of-stay clarifications corrected. Actual upstream CI39252436524 has160tests/474assertions passing in SQLite but dependency audit failing3advisories/2packages; no local upstream execution or production readiness claim. Our own doc-only8b70d6eCI40031346794 observed successful; application-source301/72/19 evidence remains historical and livepreview separate.
 
 ## 5. Technical direction and actual implementation
 
@@ -489,3 +497,10 @@ Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration
 
 - Owner scheduled resume override at 2026-10-23T22:04:30Z: resume 24 October 2026 at 04:30 AM IST (2026-10-23T23:00:00Z), replacing the former 23:51:54.627991Z deadline only. Authenticated usage at scheduling: primary2%remaining, weekly85%remaining; 100% recovery is owner expectation, not verified. No implementation before the new time; resume only all applicable windows available and>10%. Original18:21:54.627991Z stop/history preserved, no new low-reading deadline/reset credit. Same heartbeat now daily04:30 local wake; future fresh<=10% stops still require checkpoint+330minutes and updating this same heartbeat. First resume task: source/licence/security/feature comparison of ictinnovations/ICTHospital against plan.md, then pending network-access design freeze. No code copied or source implementation/deployment performed by this scheduling change. Scheduling is best effort; PC/Codex/repository/credentials must be available.
 - Evidence: authenticated usage, existing heartbeat update success and saved scheduling/docs checks; no application tests rerun for this documentation-only change. Publication SHA verified separately.
+
+### CHG-0023 —24October2026 — Resume verified and ICTHospital reference comparison
+
+- Owner04:30scheduled resume reached; authenticated23:02:32UTC primary100%/weekly84%, later90%/83%. Local usage guard returns continue/minimum83%; previous stop and override history preserved, no reset credit. Same heartbeat maintained for this chat.
+- New source-pinned research maps existing workflows, deferred laboratory gap, reporting definitions, snapshot integrity and unconfigured reminder candidates. Root licence/manifest mismatch blocks material copying; no dependencies/code/assets/runtime/API/schema/permissions/deployment changed. Simple hospital UX and API-first stack retained.
+- Independent feature/security and fresh documentation reviews completed; no Important/Critical documentation blockers found, three Minor evidence refinements fixed. Local docs/links/API-map/staged-whitespace/private-credential checks recorded at publication; no application tests rerun for research. Actual upstream160test success and failed dependency audit are not our own runtime assurance. Latest own prior doc CI40031346794success verified.
+- Next: freeze/review Task03 network contract and OpenAPI/page map before RED implementation; network designer/pre-code specialist working in exclusive draft/read-only roles. Full hospital release and existing47b3618preview unchanged. Commit subject: docs: compare ICTHospital workflows and resume verified development.

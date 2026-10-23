@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.9.2,24October2026: owner schedules04:30AM IST resume (23October23:00UTC), superseding only former05:21:54deadline. All-window usage>10% still required; latestprimary2%/weekly85%. No implementation resumed. First compare ICTHospital repository to this plan; then freeze pending network-access contract. Verified source/live preview unchanged.
+**Status:** Version1.10.0,24October2026: owner04:30AM IST resume verified at23:02:32UTC primary100%/weekly84% (later90%/83%). ICTHospital reference comparison complete as research, no imported code/new module delivery. Task03 network contract/OpenAPI freeze and independent pre-code review next; full product/release gates incomplete, preview47b3618unchanged.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -637,6 +637,16 @@ Per-task test names above define their assertions. Additional narrow tests are a
 | Call center | Integration boundaries only now; do not request product/API details as current blocker |
 | Premises/norms | Owner-managed; no further investigation required for this software task |
 
+### ICTHospital reference dispositions —24October2026
+
+Source-pinned [comparison and evidence](docs/research/2026-10-24-icthospital-comparison.md) is planning input, not permission to copy code or add an unreviewed release. Existing 92-page catalogue/39implemented APIs remain unchanged. Keep the API-first stack; resolve GPLv3/MIT metadata and provenance before any material reuse. Public-disk clinical files, global roles, reusable verification codes, unauthorised reminder jobs and destructive/unlocked corrections are not acceptable patterns for our requirements; source concerns are not executed exploit findings.
+
+- [x] Review actual source against existing pages/tasks, architecture, licensing and exact upstream CI outcomes; fresh independent documentation review and Minor corrections.
+- [ ] Task05/11 contract design: pin historical medicine/service labels, clinical units and tariff values alongside stable IDs; regression `test_catalogue_rename_does_not_rewrite_signed_order_or_final_bill`. Existing signed/final correction invariants remain mandatory.
+- [ ] Task16/G01/G02 design: define invoice-wise remaining receivable ageing (`test_mixed_due_dates_age_remaining_invoice_allocations`), source-linked compatible-unit ordered/dispensed/returned quantities (`test_supply_report_compares_same_units_and_order_sources`), census or bed-time occupancy/historical usable capacity (`test_same_day_turnover_does_not_inflate_occupancy`) and explicit length-of-stay cohort/day rounding. Freeze metric/API permissions/freshness/limits before code.
+- [ ] Candidate only, no release commitment: decide whether in-house laboratory, external-lab handoff or neither belongs in a later release. D05 alerts are not a laboratory portal. If activated, first add complete page/action/API/specimen/result/verification/amendment/critical-result permissions and acceptance, then its own task; do not implement from this note.
+- [ ] Candidate only, unconfigured: review outbound appointment/payment reminders under S07/R12/M16/M19 with consent/preferences, minimum disclosure, Indian numbers, provider/cost, quiet hours, idempotent delivery/retry and service authority. This does not authorise external messages, paid provisioning or call-center implementation.
+
 ## 16. Evidence log and readiness
 
 ### Verified administration history / own activity —23October2026
@@ -761,3 +771,5 @@ Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration
 - 1.9.1 —23October2026: auditactualCIgreen301/72/19, network-access planningdraft; new10%usagecheckpoint18:21:54UTC/330min cooldown to23:51:54UTC, sourceverified/previewunchanged.
 
 - 1.9.2 —24October2026: Owner scheduled resume override at 2026-10-23T22:04:30Z: resume 24 October 2026 at 04:30 AM IST (2026-10-23T23:00:00Z), replacing the former 23:51:54.627991Z deadline only. Authenticated usage at scheduling: primary2%remaining, weekly85%remaining; 100% recovery is owner expectation, not verified. No implementation before the new time; resume only all applicable windows available and>10%. Original18:21:54.627991Z stop/history preserved, no new low-reading deadline/reset credit. Same heartbeat now daily04:30 local wake; future fresh<=10% stops still require checkpoint+330minutes and updating this same heartbeat. First resume task: source/licence/security/feature comparison of ictinnovations/ICTHospital against plan.md, then pending network-access design freeze. No code copied or source implementation/deployment performed by this scheduling change. Scheduling is best effort; PC/Codex/repository/credentials must be available.
+
+- 1.10.0 —24October2026: authenticated scheduled resume; source-pinned ICTHospital comparison, bounded reviews, future lab candidate/reporting/reminder design dispositions and no imported code or deployed changes.
