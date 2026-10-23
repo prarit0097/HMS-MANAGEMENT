@@ -1,8 +1,8 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.5.0 | Updated: 23 October 2026, Asia/Calcutta
+Document version: 1.5.1 | Updated: 23 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
-Current state: **HOSTINGER AUTHENTICATED PREVIEW DEPLOYED; incomplete Phase A, synthetic data only.** Owner authorised hms.praritsidana.com on the existing multi-app VPS and expressly waived the saved cooldown for this deployment. Owner subsequently explicitly resumed general development at09:12:37Z with recovered usage; old deadline is waived by that latest instruction. New <=10% checkpoints still trigger330minute cooldowns. Source [reception reliability](docs/implementation/reception-reliability-contract.md) is implemented/verified (PostgreSQL123passed/25subtests, frontend20passed/build); deployed preview remains47b3618 until separately updated. See [deployment evidence/runbook](docs/operations/HOSTINGER-PREVIEW.md).
+Current state: **HOSTINGER AUTHENTICATED PREVIEW DEPLOYED; incomplete Phase A, synthetic data only.** Owner authorised hms.praritsidana.com on the existing multi-app VPS and expressly waived the saved cooldown for this deployment. Owner subsequently explicitly resumed general development at09:12:37Z with recovered usage; old deadline is waived by that latest instruction. New <=10% checkpoints still trigger330minute cooldowns. Source [reception reliability](docs/implementation/reception-reliability-contract.md) is implemented/verified (PostgreSQL123passed/25subtests, frontend20passed/build); deployed preview remains47b3618 until separately updated. See [deployment evidence/runbook](docs/operations/HOSTINGER-PREVIEW.md). New active source plan: [branch/bed master configuration](docs/implementation/resource-administration-contract.md), contract frozen before implementation.
 
 ## 1. Read this first
 
@@ -77,7 +77,7 @@ These are intended combined capabilities, not claims of unique inventions or pro
 | Runtime | Containerised services; production Linux; local Windows development supported | Hostinger preview runs dedicated Gunicorn/systemd/static Nginx and private containerised PostgreSQL; development Compose remains separate |
 | Remote MCP | Authenticated HTTP endpoint with supported MCP transport/version | Not implemented |
 | Cloud provider | Hostinger existing VPS selected for this authenticated preview; private database, future file storage unprovisioned | Dedicated /opt/hms preview resources created on owner existing VPS |
-| CI/testing | pytest, Vitest/component tests and contract/docs checks; remaining e2e/security/load gates | Current source actual PostgreSQL123passed/25subtests; frontend20passed/typecheck/build; OpenAPI/map checked. Initial47b3618GitHubCI independently verified all3jobs passed. New source CI pending until observed; preview deployment evidence remains separate |
+| CI/testing | pytest, Vitest/component tests and contract/docs checks; remaining e2e/security/load gates | Current source actual PostgreSQL123passed/25subtests; frontend20passed/typecheck/build; OpenAPI/map checked. 03c5634GitHubCI independently verified all3jobs passed (123backend/20frontend/19root checks); next source changes await own CI. Preview deployment evidence remains separate |
 
 The language direction is the current planning baseline from previous recommendations, not proof of delivered capacity. Supported mutually compatible versions will be pinned and recorded before scaffolding. Docker Compose is a proposed local integration tool, not an automatic production deployment architecture.
 
@@ -343,6 +343,14 @@ For every change add: ID/date; request and reason; changed behaviour/files/pages
 - Evidence: frontend5principal RED tests then20passed/typecheck/build; backend reliability RED24failed/9passed plus array/nested RED then37GREEN; independent fresh reviewer26isolated probes found2Important500cases and1Minorlength mismatch. Root reproduced37case safety suite RED27failed/10passed, fixed, targeted74passed, final actual PostgreSQL123passed/25subtests/no skips/warnings in8.60s; migration drift clean. Tests use isolated DB, app CREATEDB revoked afterward. OpenAPI validator/map/link/whitespace checks passed.
 - Actual initial47b3618GitHub push workflow39929354427 verified all3jobs success:48backend/25subtests,11frontend,19root checks. New source commit CI result is not assumed. No deferred bounded review finding; full hospital/security/staff/live-browser gates remain.
 - Deployment distinction: existing Hostinger authenticated synthetic preview stays47b3618; new migration/source is verified but not deployed in this change. No real hospital data or other VPS app changes. Publication subject feat: make reception retries and patient workflows reliable; final remoteSHA supplied in handoff.
+
+### CHG-0011 —23October2026 — Freeze bounded branch/bed master configuration
+
+- Current reception source03c5634 actual GitHubCI run39932864508 independently verified success:123backend/25subtests,20frontend/build,19root/OpenAPI/Compose/docs checks. Push/remote SHA verified, deployment remains47b3618.
+- Design: resource-administration-contract.md freezes page/action/data/permission/failure/tests before code. OpenAPI0.2.0/page map add5operations (23total): scoped organisation branch GET/POST, bed GET/POST and versioned unoccupied-bed PATCH. Only new platform.configure master role grant; never operational/clinical rights.
+- Planned data: Bed.version and AuditEvent.details migration, atomic allocation increments, allowlisted nonclinical config before/after snapshots; not yet claimed implemented by this contract. Occupied/reserved/active-admission edits409; no deletion/manual admission override. No100bed cap or first100branch-choice cap.
+- Source UI plan: simple branch/bed configuration within current summary organisation, paged lists/branch selection, retained errors and conflict reload. Staff/MFA/multi-org switching/clinical products remain separate. Case-insensitive code/bed collision protected under service locks; config creates may409 on retry, not generic idempotency guarantee.
+- Preflight reviewer found no design blocker; backend/frontend RED-first assignments isolated. Ruling: current summary organisation bounds UI, explicit org-scoped APIs can serve other assigned org; wrong assumption costs later selector work, not wider data access. OpenAPI validator/map/local-link checks passed before code; full implementation tests/review pending.
 
 ## 18. Technical references
 

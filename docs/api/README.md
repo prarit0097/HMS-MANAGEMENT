@@ -1,6 +1,6 @@
-# Phase A API contract
+# HMS API and bounded master configuration
 
-[openapi-v1.yaml](openapi-v1.yaml) is OpenAPI 3.0.3 expressed using the JSON subset of YAML 1.2. This keeps the local page-action checker dependency-free; standard OpenAPI tooling can read the file. [page-actions-v1.json](page-actions-v1.json) maps each of the 18 bounded operations to the relevant [plan page](../../plan.md). SYSTEM denotes the health probe rather than a staff page. API contract existence does not establish implementation, test coverage or deployment; those are recorded in [HMS.md](../../HMS.md) and the [ledger](../implementation/ledger.md).
+[openapi-v1.yaml](openapi-v1.yaml) is OpenAPI 3.0.3 expressed using the JSON subset of YAML 1.2. This keeps the local page-action checker dependency-free; standard OpenAPI tooling can read the file. [page-actions-v1.json](page-actions-v1.json) maps each of the23bounded operations to the relevant [plan page](../../plan.md). SYSTEM denotes the health probe rather than a staff page. API contract existence does not establish implementation, test coverage or deployment; those are recorded in [HMS.md](../../HMS.md) and the [ledger](../implementation/ledger.md).
 
 The frontend currently combines page subsets into Overview, Patients, Appointments, Bed board and Master administration tabs. A mapped API action is not automatically a claim that its UI control exists. Future catalogue fields such as patient clinical history, payer summaries, reservations and discharge are outside Phase A.
 
@@ -22,7 +22,13 @@ Source reliability extension (not present in the initial47b3618deployed preview)
 
 `GET beds/?status=available` and the other exact documented bed statuses filter before count/pagination within permitted branches; unknown status400. Validation field errors are arrays of plain messages, including nested errors. Nonobject JSON mutation/login bodies and unsupported keyed file payloads return structured400 rather than500. No upload capability is introduced.
 
-Bed availability is read-only except initial admission allocation. Exclusive-room/villa reservations, transfers, discharge and cleaning actions remain deferred. Therapy counts return `null`, never fabricated zero. No patient-record DELETE operation exists. Clinical signing/final bills and corrections belong to later reviewed contracts.
+Operational bed availability changes through initial admission allocation. The new source configuration contract below adds only master-controlled nonoccupied readiness/configuration, not clinical/financial discharge or housekeeping task completion. Exclusive-room/villa reservations, transfers and discharge remain deferred. Therapy counts return `null`, never fabricated zero. No patient-record DELETE operation exists. Clinical signing/final bills and corrections belong to later reviewed contracts.
+
+## Master configuration extension — design source before implementation
+
+Five additional operations under `/platform/organisations/{organisation_id}/` list/create branches and beds and version-edit bed configuration. They require separate platform.configure from a master membership in that organisation; no patient/clinical permission follows. Scope is checked before guessed org/branch/bed IDs are returned. List results remain bounded/paged; UI currently operates within the existing summary organisation.
+
+Creates reject duplicate case-insensitive code/bed numbers with409 and do not claim generic idempotency-key semantics. Bed edits require expected_version and permit only available/cleaning/blocked states, never edits to occupied/reserved or active-admission beds. Planned Bed.version increments on allocation/configuration and transactional nonclinical audit snapshots protect traceability. This contract is not delivery evidence; read [the active configuration contract](../implementation/resource-administration-contract.md) and ledger for actual implementation/testing. No delete/manual occupancy/clinical-signing path is added.
 
 ## Validation and compatibility
 

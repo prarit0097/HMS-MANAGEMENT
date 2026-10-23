@@ -1,5 +1,12 @@
 # SDD ledger — plan: plan.md
 
+## Active master branch/bed configuration —23October2026
+
+- Reception03c5634push/remote verified; actualGitHubCI39932864508success123backend/25subtests,20frontend/build,19root/OpenAPI/Compose/docs. No workflow change needed.
+- New exact resource-administration-contract.md and OpenAPI/pageaction5operations frozen/validated before code;23total sourceoperations. Backend/frontend exclusive path assignments with RED tests; third independent security role reviewed design, no material blocker. Owner continuation and usage minimum43% allowed assignment, same threshold rule retained.
+- Ruling: configuration UI uses existing current summary organisation while APIs carry explicit authorisedorg; multi-org selector/staff/MFA remain separate. Cost if insufficient is later UI/context work, never implicit wider scope. Nonmastercannotconfigure; configuration grant never implies clinical/operational action.
+- Planned Bed.version/AuditEvent.details, locks, collision checks, no edits to occupied/reserved/active admission; verify actual PostgreSQL race and audit snapshots. No code delivery claimed merely because design exists. Existing Hostinger preview remains47b3618.
+
 ## Reception reliability source delivered —23October2026
 
 - Frozen contract and OpenAPI preceded code; backend33-case RED24failed/9passed, then error-array3failed, nested-error RED, and final37reliability cases GREEN. Backend local84passed/2PG-only skips; check/drift passed. Coordinator actual PostgreSQL pre-review86passed/25subtests; no production schema changed.

@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "scope": "Phase A subset of plan.md page catalogue. API contract existence is distinct from implementation/verification/deployment. Frontend combines subset pages into tabs; not every API action has a UI control yet.",
   "actions": [
     {
@@ -127,6 +127,41 @@
       "action": "View nonclinical administration inventory",
       "operation_id": "getPlatformSummary",
       "permission": "platform.read"
+    },
+    {
+      "id": "M02.listConfigurationBranches",
+      "page": "M02",
+      "action": "List branches",
+      "operation_id": "listConfigurationBranches",
+      "permission": "platform.configure"
+    },
+    {
+      "id": "M02.createConfigurationBranch",
+      "page": "M02",
+      "action": "Create branch",
+      "operation_id": "createConfigurationBranch",
+      "permission": "platform.configure"
+    },
+    {
+      "id": "M14.listConfigurationBeds",
+      "page": "M14",
+      "action": "List bed configuration",
+      "operation_id": "listConfigurationBeds",
+      "permission": "platform.configure"
+    },
+    {
+      "id": "M14.createConfigurationBed",
+      "page": "M14",
+      "action": "Create bed",
+      "operation_id": "createConfigurationBed",
+      "permission": "platform.configure"
+    },
+    {
+      "id": "M14.changeConfigurationBed",
+      "page": "M14",
+      "action": "Edit available bed configuration",
+      "operation_id": "changeConfigurationBed",
+      "permission": "platform.configure"
     }
   ],
   "deferred_actions": [

@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.5.0,23October2026: authenticated Hostinger preview deployed at hms.praritsidana.com, synthetic use only. Owner explicitly authorised deployment and waived active cooldown for that deployment; owner subsequently resumed general development at09:12:37Z, explicitly superseding that old deadline. Future <=10% stops remain. Active source slice: [reception reliability contract](docs/implementation/reception-reliability-contract.md), implemented/verified source123PostgreSQL tests/25subtests,20frontend tests/build; deployment remains initial47b3618. [Preview execution plan](docs/implementation/hostinger-preview-plan.md) and [operations/evidence](docs/operations/HOSTINGER-PREVIEW.md). Full92-page product/release gates remain open.
+**Status:** Version1.5.1,23October2026: authenticated Hostinger preview deployed at hms.praritsidana.com, synthetic use only. Owner explicitly authorised deployment and waived active cooldown for that deployment; owner subsequently resumed general development at09:12:37Z, explicitly superseding that old deadline. Future <=10% stops remain. Active source slice: [reception reliability contract](docs/implementation/reception-reliability-contract.md), implemented/verified source123PostgreSQL tests/25subtests,20frontend tests/build; deployment remains initial47b3618. [Preview execution plan](docs/implementation/hostinger-preview-plan.md) and [operations/evidence](docs/operations/HOSTINGER-PREVIEW.md). Full92-page product/release gates remain open.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -430,7 +430,7 @@ Consumes: AccessContext and reviewed identity provider/session strategy; produce
 
 ### Task 03 — IP policy and cloud-edge trust boundary
 
-Partial evidence23October2026: pure resolver/evaluator complete and independently rerun22 tests/25 subtests passed. Full request integration, edge/network, policy-management UI and timed rollback remain open; do not mark Task03 fully complete.
+Partial evidence23October2026: pure resolver/evaluator complete and independently rerun22 tests/25 subtests passed. Request middleware and preview edge/network integration are verified; policy-management UI and timed rollback/recovery remain open; do not mark Task03 fully complete.
 
 Files: `backend/apps/security/{ip_policy,policy_changes,middleware}.py`, `backend/apps/security/tests/test_ip_policy.py`, `frontend/src/features/admin/ip-policy/`, proposed `infra/edge/` config.
 Consumes: Task 02; produces section 8 IP evaluation/preview functions. Pages M06/M07 and access-denied behaviour.
@@ -635,6 +635,13 @@ Per-task test names above define their assertions. Additional narrow tests are a
 
 ## 16. Evidence log and readiness
 
+### Active master branch/bed configuration —23October2026
+
+- [x] Scoped5operation OpenAPI/page-action contract frozen before code in resource-administration-contract.md; permission/failure/audit/version/occupancy design preflight reviewed with no blocker.
+- [ ] Backend master-only org-scoped branch/bed services, version/audit migration and concurrency tests RED->GREEN; frontend simple/paged configuration forms with permission/error states.
+- [ ] Fresh review, actual PostgreSQL/UI/build/API/docs checks, living-document updates and verified publication. Full staff/MFA/resource-rate/clinical modules are not included; existing live preview remains47b3618.
+
+
 ### Active reception reliability slice —23October2026
 
 - [x] Owner-resume instruction recorded; authenticated primary76%/weekly51%remaining, guard continue, old cooldown waived explicitly, same heartbeat updated.
@@ -701,3 +708,5 @@ Create feature branches/PRs when repository protection or agreed workflow requir
 - Documentation correction23October2026: repair coordinator Windows encoding/newline mistake; actual47b3618GitHubCI verified all3jobs successful. Error response scalar-vs-array parity finding added to active backend RED-first scope.
 
 - 1.5.0 —23October2026: reception reliability source delivered, optional atomic scoped create keys, global bed filtering, patient corrections/versioned rescheduling/paged choices, safe object/error validation; actual PostgreSQL123passed/25subtests,frontend20passed/build. New migration/source not deployed; full-module/release gates remain open.
+
+- 1.5.1 —23October2026: actual reception03c5634CI success recorded; freeze master branch/bed configuration23-operation catalogue before implementation.
