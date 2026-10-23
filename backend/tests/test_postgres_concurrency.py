@@ -38,3 +38,33 @@ def test_postgres_two_allocators_cannot_claim_the_same_bed():
     assert Admission.objects.filter(bed=bed, status='active').count() == 1
     bed.refresh_from_db()
     assert bed.status == 'occupied'
+
+@pytest.mark.django_db(transaction=True)
+def test_postgres_same_key_concurrent_registration_has_one_result_and_audit():
+    from uuid import uuid4
+    from rest_framework.test import APIClient
+    from apps.core.models import AuditEvent
+    if connection.vendor != 'postgresql':
+        pytest.skip('Requires PostgreSQL unique-key waits and concurrent connections.')
+    org = Organisation.objects.create(name='Synthetic idempotency race')
+    branch = Branch.objects.create(organisation=org, code='RETRY', name='Synthetic retry')
+    actor = get_user_model().objects.create_user(username='synthetic-retry-race')
+    Membership.objects.create(user=actor, branch=branch, role='reception')
+    key = str(uuid4())
+    barrier = Barrier(2)
+    def register(_):
+        close_old_connections()
+        try:
+            client = APIClient()
+            client.force_login(get_user_model().objects.get(pk=actor.pk))
+            barrier.wait(timeout=10)
+            response = client.post('/api/v1/patients/', {'branch': str(branch.pk), 'full_name': 'Synthetic concurrent retry'}, format='json', HTTP_IDEMPOTENCY_KEY=key)
+            return response.status_code, response.json()
+        finally:
+            close_old_connections()
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        results = list(executor.map(register, range(2)))
+    assert [status for status, _ in results] == [201, 201]
+    assert results[0][1]['id'] == results[1][1]['id']
+    assert Patient.objects.count() == 1
+    assert AuditEvent.objects.filter(action='patient.created').count() == 1

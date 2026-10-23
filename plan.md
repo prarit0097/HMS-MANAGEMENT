@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.4.1,23October2026: authenticated Hostinger preview deployed at hms.praritsidana.com, synthetic use only. Owner explicitly authorised deployment and waived active cooldown for that deployment; owner subsequently resumed general development at09:12:37Z, explicitly superseding that old deadline. Future <=10% stops remain. Active source slice: [reception reliability contract](docs/implementation/reception-reliability-contract.md), not yet delivered by contract presence. [Preview execution plan](docs/implementation/hostinger-preview-plan.md) and [operations/evidence](docs/operations/HOSTINGER-PREVIEW.md). Full92-page product/release gates remain open.
+**Status:** Version1.5.0,23October2026: authenticated Hostinger preview deployed at hms.praritsidana.com, synthetic use only. Owner explicitly authorised deployment and waived active cooldown for that deployment; owner subsequently resumed general development at09:12:37Z, explicitly superseding that old deadline. Future <=10% stops remain. Active source slice: [reception reliability contract](docs/implementation/reception-reliability-contract.md), implemented/verified source123PostgreSQL tests/25subtests,20frontend tests/build; deployment remains initial47b3618. [Preview execution plan](docs/implementation/hostinger-preview-plan.md) and [operations/evidence](docs/operations/HOSTINGER-PREVIEW.md). Full92-page product/release gates remain open.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -639,8 +639,8 @@ Per-task test names above define their assertions. Additional narrow tests are a
 
 - [x] Owner-resume instruction recorded; authenticated primary76%/weekly51%remaining, guard continue, old cooldown waived explicitly, same heartbeat updated.
 - [x] API/page/action/permission/failure/acceptance design frozen in reception-reliability-contract.md; optional UUID Idempotency-Key and beds status filter added to OpenAPI before implementation.
-- [ ] Backend atomic retry ledger/current-permission replay/global bed filtering with actual PostgreSQL concurrent regression; frontend demographic/reschedule/paged choices/stable-key recovery RED->GREEN; actual GitHubCI inspection.
-- [ ] Fresh review, integrated test evidence and same-commit living docs; push/remoteSHA. Existing deployed preview47b3618 unchanged by source planning.
+- [x] Backend atomic retry ledger/scoped replay/global filtering; actual final PostgreSQL123tests/25subtests, including same-key/same-bed races. Frontend corrections/reschedule/paged choices/stable-key recovery20tests/build GREEN. Initial47b3618GitHubCI actually inspected, all3jobs successful.
+- [x] Fresh review and RED->GREEN fixes for2Importantmalformed-input500cases; Minorname limits aligned; integrated tests/OpenAPI/docs/whitespace passed and living docs updated. PublicationSHA at handoff. Existing deployed preview47b3618 unchanged by source delivery.
 
 
 ### Hostinger preview — current23October2026
@@ -699,3 +699,5 @@ Create feature branches/PRs when repository protection or agreed workflow requir
 - 1.4.1 —23October2026: owner explicitly resumes general development, prior cooldown waived with authenticated minimum51%remaining; freeze reception retry/correction/reschedule/selection contracts before implementation; same heartbeat updated.
 
 - Documentation correction23October2026: repair coordinator Windows encoding/newline mistake; actual47b3618GitHubCI verified all3jobs successful. Error response scalar-vs-array parity finding added to active backend RED-first scope.
+
+- 1.5.0 —23October2026: reception reliability source delivered, optional atomic scoped create keys, global bed filtering, patient corrections/versioned rescheduling/paged choices, safe object/error validation; actual PostgreSQL123passed/25subtests,frontend20passed/build. New migration/source not deployed; full-module/release gates remain open.

@@ -92,3 +92,15 @@ class AuditEvent(UUIDModel):
     object_id = models.CharField(max_length=36, blank=True)
     branch = models.ForeignKey(Branch, null=True, on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True)
+
+
+class IdempotencyRecord(UUIDModel):
+    """Create-result pointers only; never store request or response payloads."""
+    actor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
+    operation = models.CharField(max_length=32)
+    key = models.UUIDField()
+    fingerprint = models.CharField(max_length=64)
+    result_id = models.UUIDField(null=True)
+
+    class Meta:
+        constraints = [models.UniqueConstraint(fields=['actor', 'operation', 'key'], name='unique_actor_operation_key')]

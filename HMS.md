@@ -1,8 +1,8 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.4.1 | Updated: 23 October 2026, Asia/Calcutta
+Document version: 1.5.0 | Updated: 23 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
-Current state: **HOSTINGER AUTHENTICATED PREVIEW DEPLOYED; incomplete Phase A, synthetic data only.** Owner authorised hms.praritsidana.com on the existing multi-app VPS and expressly waived the saved cooldown for this deployment. Owner subsequently explicitly resumed general development at09:12:37Z with recovered usage; old deadline is waived by that latest instruction. New <=10% checkpoints still trigger330minute cooldowns. Active source slice: [reception reliability](docs/implementation/reception-reliability-contract.md); deployed preview remains47b3618 until separately updated. See [deployment evidence/runbook](docs/operations/HOSTINGER-PREVIEW.md).
+Current state: **HOSTINGER AUTHENTICATED PREVIEW DEPLOYED; incomplete Phase A, synthetic data only.** Owner authorised hms.praritsidana.com on the existing multi-app VPS and expressly waived the saved cooldown for this deployment. Owner subsequently explicitly resumed general development at09:12:37Z with recovered usage; old deadline is waived by that latest instruction. New <=10% checkpoints still trigger330minute cooldowns. Source [reception reliability](docs/implementation/reception-reliability-contract.md) is implemented/verified (PostgreSQL123passed/25subtests, frontend20passed/build); deployed preview remains47b3618 until separately updated. See [deployment evidence/runbook](docs/operations/HOSTINGER-PREVIEW.md).
 
 ## 1. Read this first
 
@@ -77,7 +77,7 @@ These are intended combined capabilities, not claims of unique inventions or pro
 | Runtime | Containerised services; production Linux; local Windows development supported | Hostinger preview runs dedicated Gunicorn/systemd/static Nginx and private containerised PostgreSQL; development Compose remains separate |
 | Remote MCP | Authenticated HTTP endpoint with supported MCP transport/version | Not implemented |
 | Cloud provider | Hostinger existing VPS selected for this authenticated preview; private database, future file storage unprovisioned | Dedicated /opt/hms preview resources created on owner existing VPS |
-| CI/testing | pytest, Vitest/component tests and contract/docs checks; remaining e2e/security/load gates | Actual VPS PostgreSQL48pass/25subtests; frontend11pass/typecheck/build; HTTPS/session/CSRF/edge/backup smoke passed; GitHubCI separate/unverified |
+| CI/testing | pytest, Vitest/component tests and contract/docs checks; remaining e2e/security/load gates | Current source actual PostgreSQL123passed/25subtests; frontend20passed/typecheck/build; OpenAPI/map checked. Initial47b3618GitHubCI independently verified all3jobs passed. New source CI pending until observed; preview deployment evidence remains separate |
 
 The language direction is the current planning baseline from previous recommendations, not proof of delivered capacity. Supported mutually compatible versions will be pinned and recorded before scaffolding. Docker Compose is a proposed local integration tool, not an automatic production deployment architecture.
 
@@ -99,7 +99,7 @@ Planned repository ownership and function interfaces are in plan.md. Any changed
 
 Phase A implementation-path ruling: this bounded slice uses `backend/hms/` for configuration and `backend/apps/core/` for initial relational models, serializers, scoped services and API handlers. Security primitives are in `backend/apps/security/`. This differs from the future per-domain package map in plan.md; future clinical/finance/dataops modules must be split deliberately with migrations/contracts, not duplicated or assumed already present. Patient identity currently has a home-branch scope; full cross-branch chart/identity sharing is not implemented.
 
-Current source API contract is [OpenAPI v1](docs/api/openapi-v1.yaml), with [page-action map](docs/api/page-actions-v1.json) and [compatibility/security notes](docs/api/README.md). Contract validation is separate from runtime parity. Current deployed47b3618 has no generic create-request idempotency keys; patient/appointment creation retries can duplicate records. New source contract plans optional per-user/operation UUID Idempotency-Key for three creates, atomic result references with permission rechecks, and browser stable logical-form keys. It is not implemented/verified merely because the contract exists; legacy calls without the optional header retain duplicate risk.
+Current source API contract is [OpenAPI v1](docs/api/openapi-v1.yaml), with [page-action map](docs/api/page-actions-v1.json) and [compatibility/security notes](docs/api/README.md). Contract validation is separate from runtime parity. Current deployed47b3618 has no generic create-request idempotency keys; patient/appointment creation retries can duplicate records. Verified source now implements optional per-user/operation UUID Idempotency-Key on three creates, atomic result references with current permission rechecks, and browser stable logical-form keys. Current deployed preview lacks it until updated; legacy calls without optional header retain duplicate risk. Source also implements global bed status filtering, demographic correction UI, versioned appointment rescheduling and paged patient selection. core0002 migration adds a fingerprint/result-only retry ledger; no PII payload copy or automatic expiry.
 
 ## 7. Identity, data and branch principles
 
@@ -334,6 +334,15 @@ For every change add: ID/date; request and reason; changed behaviour/files/pages
 
 - Coordinator corrected a Windows text-write encoding/newline mistake in the preceding documentation commit. Normalised HMS.md/plan.md/usage checkpoint to UTF-8/LF without changing approved product scope or deployment. No runtime code or patient data affected.
 - Re-run whitespace, links/API-map and commit-synchronisation checks at publication. Actual GitHubCI for47b3618 independently verified successful: backend48passed/25subtests, frontend11passed/build, root19tests/OpenAPI/Compose/docs gate. A separately discovered Error field_errors scalar-vs-array parity bug is assigned to active backend slice with RED tests, not yet fixed by this documentation change.
+
+### CHG-0010 —23October2026 — Verified reception reliability and malformed-input safety
+
+- Backend: optional Idempotency-Key UUID on patient/appointment/admission creates; canonical fingerprint/result-only ledger core0002 with unique actor/operation/key, atomic domain+audit write, scoped current projection replay. Same key/body201same entity, changed body409, malformed key400, failed validation/domain claim rolled back. Legacy no-header clients retain duplicate risk; no expiry yet. Permission/branch/read-only fields rechecked on every replay.
+- Frontend: demographic correction through existing PATCH, scheduled rescheduling with expected_version and stale409 recovery, patient selector pagination, server-filtered bed status/counts, stable per-form UUID across failed saves and clear key-conflict recovery; names max160matches backend. No UI-authoritative writes/hidden endpoints/localStorage payloads. Demographic edits remain last-authorised-write, not signed-record concurrency guarantees.
+- API: optional header/status contract extensions frozen first, response operations/permissions preserved; error arrays normalised. Login/strict serializers reject nonobject bodies400; keyed multipart unsupported field validates before fingerprint, preventing500. No upload feature added.
+- Evidence: frontend5principal RED tests then20passed/typecheck/build; backend reliability RED24failed/9passed plus array/nested RED then37GREEN; independent fresh reviewer26isolated probes found2Important500cases and1Minorlength mismatch. Root reproduced37case safety suite RED27failed/10passed, fixed, targeted74passed, final actual PostgreSQL123passed/25subtests/no skips/warnings in8.60s; migration drift clean. Tests use isolated DB, app CREATEDB revoked afterward. OpenAPI validator/map/link/whitespace checks passed.
+- Actual initial47b3618GitHub push workflow39929354427 verified all3jobs success:48backend/25subtests,11frontend,19root checks. New source commit CI result is not assumed. No deferred bounded review finding; full hospital/security/staff/live-browser gates remain.
+- Deployment distinction: existing Hostinger authenticated synthetic preview stays47b3618; new migration/source is verified but not deployed in this change. No real hospital data or other VPS app changes. Publication subject feat: make reception retries and patient workflows reliable; final remoteSHA supplied in handoff.
 
 ## 18. Technical references
 

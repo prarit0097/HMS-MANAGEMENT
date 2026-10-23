@@ -1,7 +1,11 @@
+import hashlib
+import json
+from uuid import UUID
+
 from django.db import transaction, IntegrityError
 from django.shortcuts import get_object_or_404
 from rest_framework.exceptions import APIException, ValidationError
-from .models import Patient, Appointment, Encounter, Bed, Admission, AuditEvent
+from .models import Patient, Appointment, Encounter, Bed, Admission, AuditEvent, IdempotencyRecord
 from .authorization import permitted_branches
 
 class Conflict(APIException):
@@ -11,6 +15,41 @@ class Conflict(APIException):
 
 def audit(user, action, obj):
     AuditEvent.objects.create(actor=user, action=action, object_id=str(obj.pk), branch_id=getattr(obj, 'branch_id', None))
+
+
+def idempotent_create(user, operation, key, payload, create, replay):
+    """The unique claim, domain write and audit share one commit.
+
+    A concurrent insert waits on the unique constraint. get_or_create's
+    savepoint recovers its loser, which then locks and reads the committed
+    result. A failed create rolls back its claim, allowing corrected retries.
+    Both callbacks retain the normal API validation/permission ceiling.
+    """
+    if key is None:
+        return create()
+    try:
+        if len(key) != 36:
+            raise ValueError
+        parsed_key = UUID(key)
+        if str(parsed_key) != key.lower():
+            raise ValueError
+    except (ValueError, TypeError, AttributeError):
+        raise ValidationError({'Idempotency-Key': 'Use a UUID idempotency key.'})
+    fingerprint = hashlib.sha256(json.dumps(payload, sort_keys=True, separators=(',', ':'), ensure_ascii=True, allow_nan=False).encode('utf-8')).hexdigest()
+    with transaction.atomic():
+        record, created = IdempotencyRecord.objects.get_or_create(
+            actor=user, operation=operation, key=parsed_key,
+            defaults={'fingerprint': fingerprint},
+        )
+        if not created:
+            record = IdempotencyRecord.objects.select_for_update().get(pk=record.pk)
+            if record.fingerprint != fingerprint:
+                raise Conflict('This request key was used with different details. Verify the previous result before trying a new request.')
+            return replay(record.result_id)
+        result = create()
+        record.result_id = result.pk
+        record.save(update_fields=['result_id'])
+        return result
 
 @transaction.atomic
 def register_patient(user, validated):

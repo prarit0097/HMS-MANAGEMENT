@@ -31,6 +31,8 @@ class StrictSerializer(serializers.ModelSerializer):
             if 'branch' in self.fields and not self.fields['branch'].read_only:
                 self.fields['branch'] = ScopedBranchField(queryset=Branch.objects.filter(id__in=ids))
     def to_internal_value(self, data):
+        if not isinstance(data, dict):
+            raise serializers.ValidationError({'non_field_errors': 'Send a JSON object with named fields.'})
         unknown = set(data) - set(self.fields)
         read_only = {key for key in data if key in self.fields and self.fields[key].read_only}
         if unknown or read_only:
@@ -40,7 +42,7 @@ class StrictSerializer(serializers.ModelSerializer):
 class PatientSerializer(StrictSerializer):
     capability = 'patients.write'
     def to_internal_value(self, data):
-        if self.instance is not None and 'branch' in data:
+        if self.instance is not None and isinstance(data, dict) and 'branch' in data:
             raise serializers.ValidationError({'branch': 'The registration branch cannot be changed.'})
         return super().to_internal_value(data)
     class Meta:
@@ -69,6 +71,8 @@ class AppointmentChange(serializers.Serializer):
     reason = serializers.CharField(max_length=500, required=False, allow_blank=True)
     status = serializers.ChoiceField(choices=Appointment.STATUSES, required=False)
     def to_internal_value(self, data):
+        if not isinstance(data, dict):
+            raise serializers.ValidationError({'non_field_errors': 'Send a JSON object with named fields.'})
         unknown = set(data) - set(self.fields)
         if unknown:
             raise serializers.ValidationError({key: 'This field cannot be changed.' for key in unknown})

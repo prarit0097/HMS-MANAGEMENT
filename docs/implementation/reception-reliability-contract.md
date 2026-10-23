@@ -19,15 +19,18 @@ Owner authorised continued implementation23October2026; this implements existing
 - Threat review: key cannot grant authority, arbitrary/read-only fields rejected, bounded key syntax/input, no PII in request ledger, invalid status cannot bypass branch filters. Fingerprint avoids raw payload retention; authenticated actors still require future global quotas/rate limits.
 - Failures: successful response lost, payload changed, validation fails, service transaction fails, concurrent replay, original entity later changed, stale reschedule, no available beds, patient beyond first25, branch switch while form open.
 - Backend RED tests before implementation: same-key replay once; changed-body409; malformed400; validation failure key reusable; removed-grant replay denied; users isolated; status filtering count before pagination; PostgreSQL concurrent identical key produces one registration and one audit. Then code/migration and full backend suite, migration drift/check.
+- Confirmed contract parity addition: manual DRF ValidationError dictionaries currently produce scalar field_errors values, conflicting with OpenAPI arrays/frontend types. RED runtime tests for invalid limit/date/q precede normalising each field error to an array of plain strings. Preserve status/code/message; do not stringify nested structures into opaque Python representations.
 - Frontend RED tests: demographic PATCH fields; reschedule expected_version and409; patient second-page selection; available-bed server filtering; failed create retry sends same header, changed ambiguous payload does not silently get a new key. Then typecheck/full tests/build and inspect error/empty/keyboard behaviour.
 - Root API source: add optional UUID Idempotency-Key to three POST operations and status query enum to beds GET before code. Page-action operations/permissions unchanged. Validate OpenAPI/map/docs and actual GitHub CI evidence separately; do not equate VPS tests to CI.
 
 ## Task sequence and interfaces
 
-- [ ] Root freezes this contract and OpenAPI extensions; implementation agents report preflight mismatches and RED evidence before production code.
-- [ ] Backend adds idempotency model/migration/service + scoped create replay and server status filter. Consumes exact existing serializers/services; produces unchanged response schemas plus header/status semantics above. Own backend/ only.
-- [ ] Frontend adds reliable create-form keys, demographic/reschedule UI and paged patient/server-filtered bed choices. Consumes existing API plus frozen extensions. Own frontend/ only; extract small helpers/components if current compressed pages need it, avoid whole-app rewrite.
-- [ ] Platform inspects actual latest GitHub workflow results, repairs only demonstrated CI failures, reports exact workflow/run evidence. Own .github/ only with coordinator agreement.
-- [ ] Fresh independent review; fix important findings with failing tests first. Coordinator runs integrated real PostgreSQL + frontend/docs checks, updates HMS.md/plan.md/ledger, commits/pushes and verifies remote SHA. No automatic production readiness claim.
+- [x] Root froze contract/OpenAPI before production code; both agents reported no material mismatch and actual RED tests.
+- [x] Backend atomic idempotency model/migration/service, scoped replay, status filtering and array error parity. Actual final PostgreSQL123tests/25subtests passed; no drift. Own backend/ only; coordinator made reviewed robustness fixes.
+- [x] Frontend demographic/reschedule/paged selection/stable key recovery implemented; final20tests/typecheck/build passed. Five principal regressions observed RED; name input limits aligned160.
+- [x] Platform verified actual47b3618GitHubCI push run39929354427: all3jobs passed; no workflow mutation required. New source commit CI remains separate until observed.
+- [x] Fresh review completed; two Important malformed-body/fingerprint500findings reproduced in37-case suite (27failed/10passed), fixed to structured400, targeted74passed and final actual PostgreSQL123passed/25subtests. Minor160-vs200input limit aligned; no deferred finding from this bounded review. Publication/remote SHA is reported at coordinator handoff, no hospital production readiness claim.
+
+Review scope limits: full hospital release gates, live staff/browser acceptance, deployment and deferred clinical/financial product remain unverified/planned. Source slice is complete and verified; live preview remains47b3618 pending separate update.
 
 The initial optional-header compatibility choice deliberately retains legacy missing-key duplicate risk. Full sensitive-read audit/MFA/staff administration and remaining clinical/financial portals stay planned; this slice must not claim them.

@@ -16,10 +16,20 @@ from django.db.models import Q, Prefetch
 from django.utils import timezone
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.shortcuts import get_object_or_404
 from .models import Branch, Membership, Patient, Appointment, Encounter, Bed, Admission
 from .authorization import current_user, permitted_branches
 from .serializers import PatientSerializer, AppointmentSerializer, AppointmentChange, BedSerializer, AdmissionSerializer
 from . import services
+
+
+def error_messages(value):
+    if isinstance(value, dict):
+        return [message for child in value.values() for message in error_messages(child)]
+    if isinstance(value, (list, tuple)):
+        return [message for child in value for message in error_messages(child)]
+    return [str(value)]
+
 
 def safe_exception_handler(exc, context):
     response = exception_handler(exc, context)
@@ -28,7 +38,7 @@ def safe_exception_handler(exc, context):
         code = getattr(exc, 'default_code', 'request_failed')
         response.data = {'code': code, 'message': 'Please check the supplied fields.' if response.status_code == 400 else str(getattr(exc, 'detail', 'Request denied.'))}
         if fields:
-            response.data['field_errors'] = fields
+            response.data['field_errors'] = {key: error_messages(values) for key, values in fields.items()}
     return response
 
 @api_view(['GET'])
@@ -52,6 +62,8 @@ class Login(APIView):
             return self.cache_format % {'scope': self.scope, 'ident': getattr(request, 'verified_client_ip', request.META.get('REMOTE_ADDR', 'unknown'))}
     throttle_classes = [LoginThrottle]
     def post(self, request):
+        if not isinstance(request.data, dict):
+            raise ValidationError({'non_field_errors': 'Send a JSON object with named fields.'})
         if not isinstance(request.data.get('username'), str) or not isinstance(request.data.get('password'), str) or len(request.data.get('username', '')) > 150 or len(request.data.get('password', '')) > 1024:
             return Response({'code': 'invalid_credentials', 'message': 'Unable to sign in with these details.'}, status=401)
         user = authenticate(request, username=request.data.get('username', ''), password=request.data.get('password', ''))
@@ -81,7 +93,29 @@ def search_query(request):
         raise ValidationError({'q': 'Search must be 200 characters or fewer.'})
     return query
 
-class PatientList(generics.ListCreateAPIView):
+class ReliableCreateMixin:
+    def create(self, request, *args, **kwargs):
+        # Check the action before validating related IDs or inspecting a key.
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(data=request.data)
+        # Validate object shape/unknown fields/files before canonical fingerprinting.
+        serializer.is_valid(raise_exception=True)
+
+        def create():
+            self.perform_create(serializer)
+            return serializer.instance
+
+        def replay(result_id):
+            result = get_object_or_404(queryset, pk=result_id)
+            serializer.is_valid(raise_exception=True)
+            return result
+
+        result = services.idempotent_create(request.user, self.idempotency_operation, request.headers.get('Idempotency-Key'), request.data, create, replay)
+        return Response(self.get_serializer(result).data, status=201)
+
+
+class PatientList(ReliableCreateMixin, generics.ListCreateAPIView):
+    idempotency_operation = 'patients.create'
     serializer_class = PatientSerializer
     def get_queryset(self):
         action = 'patients.write' if self.request.method == 'POST' else 'patients.read'
@@ -105,7 +139,8 @@ class PatientDetail(generics.RetrieveUpdateAPIView):
             result = serializer.save()
             services.audit(self.request.user, 'patient.changed', result)
 
-class AppointmentList(generics.ListCreateAPIView):
+class AppointmentList(ReliableCreateMixin, generics.ListCreateAPIView):
+    idempotency_operation = 'appointments.create'
     serializer_class = AppointmentSerializer
     def get_queryset(self):
         branches = permitted_branches(self.request.user, 'appointments.write' if self.request.method == 'POST' else 'appointments.read', self.request.query_params.get('branch'))
@@ -134,9 +169,16 @@ class BedList(generics.ListAPIView):
     serializer_class = BedSerializer
     def get_queryset(self):
         branches = permitted_branches(self.request.user, 'beds.read', self.request.query_params.get('branch'))
-        return Bed.objects.filter(branch_id__in=branches).prefetch_related(Prefetch('admissions', queryset=Admission.objects.filter(status='active').select_related('patient')))
+        queryset = Bed.objects.filter(branch_id__in=branches)
+        selected_status = self.request.query_params.get('status')
+        if selected_status is not None:
+            if selected_status not in dict(Bed.STATUSES):
+                raise ValidationError({'status': 'Select a valid bed status.'})
+            queryset = queryset.filter(status=selected_status)
+        return queryset.prefetch_related(Prefetch('admissions', queryset=Admission.objects.filter(status='active').select_related('patient')))
 
-class AdmissionList(generics.ListCreateAPIView):
+class AdmissionList(ReliableCreateMixin, generics.ListCreateAPIView):
+    idempotency_operation = 'admissions.create'
     serializer_class = AdmissionSerializer
     def get_queryset(self):
         branches = permitted_branches(self.request.user, 'admissions.write' if self.request.method == 'POST' else 'admissions.read', self.request.query_params.get('branch'))

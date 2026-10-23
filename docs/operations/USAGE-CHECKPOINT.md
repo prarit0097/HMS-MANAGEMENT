@@ -14,7 +14,7 @@ automation_interval_minutes: 330
 
 Historical stop:6%remaining at05:02:15Z; checkpoint safely pushed. Owner first waived cooldown only for Hostinger deployment, then explicitly resumed general development with this later instruction. Deployed restricted synthetic preview remains as documented in HOSTINGER-PREVIEW.md.
 
-Current active slice: reception-reliability-contract.md. Bed101selector is already fixed/deployed; do not repeat it. Continue scoped retry safety, demographic/reschedule UI, global bed filter/patient selection and actual CI verification. Remaining clinical/finance/MCP/backups/security gates stay planned.
+Current completed source slice: reception-reliability-contract.md, final PostgreSQL123tests/25subtests and frontend20tests/build passed, review fixes applied. Bed101selector is already fixed/deployed; do not repeat it. New source migration/reliability UI has not updated the initial47b3618preview. Next: verify latest published CI, then plan scoped staff/branch/resource administration and security/MFA identity before clinical workflows. Remaining clinical/finance/MCP/backups/security gates stay planned. Read ledger/Git to avoid repeating completed work.
 
 Before substantive work and bounded task boundaries, coordinator calls get_usage_limits and prefers rateLimitsByLimitId. remaining=100-usedPercent. Check primary and secondary applicable windows. A low weekly window may require longer than330minutes; never resume below threshold or consume reset credits automatically. Unknown usage means do not start a new large work unit until visibility returns.
 

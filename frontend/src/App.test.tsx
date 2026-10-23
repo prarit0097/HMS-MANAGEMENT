@@ -50,12 +50,13 @@ it('shows login after an anonymous session and reports invalid credentials witho
 });
 it('admits into an available bed beyond the first 100 records through paginated choices', async () => {
   let admission: Record<string,string> | undefined;
-  const beds = Array.from({length:101}, (_,index)=>({id:`bed-${index+1}`,number:String(index+1),room_number:'A',category:'general',status:index===100?'available':'occupied',patient_name:null,admission_id:null,branch:'b1'}));
+  const beds = Array.from({length:126}, (_,index)=>({id:`bed-${index+1}`,number:String(index+1),room_number:'A',category:'general',status:index>=100?'available':'occupied',patient_name:null,admission_id:null,branch:'b1'}));
   server((url,options)=>{
     if(url.includes('beds/?')) {
       const params=new URL(url,'http://localhost').searchParams;
       const offset=Number(params.get('offset')||0),limit=Number(params.get('limit')||25);
-      return Response.json({count:beds.length,results:beds.slice(offset,offset+limit)});
+      const matches=params.get('status')?beds.filter(bed=>bed.status===params.get('status')):beds;
+      return Response.json({count:matches.length,results:matches.slice(offset,offset+limit)});
     }
     if(url.includes('patients/?'))return Response.json({count:1,results:[{id:'patient-1',full_name:'Synthetic Admission',uhid:'TEST-1',phone:'',branch:'b1'}]});
     if(url.endsWith('admissions/')&&options?.method==='POST') {admission=JSON.parse(String(options.body));return Response.json({id:'admission-1'},{status:201});}
@@ -66,24 +67,24 @@ it('admits into an available bed beyond the first 100 records through paginated 
   await userEvent.click(screen.getByRole('button',{name:'New admission'}));
   const dialog=within(screen.getByRole('dialog'));
   await userEvent.click(await dialog.findByRole('button',{name:/Synthetic Admission/}));
-  for(let page=0;page<4;page++){
+  for(let page=0;page<1;page++){
     const navigation=within(dialog.getByRole('navigation',{name:'Bed choices'}));
     await waitFor(()=>expect(navigation.getByRole('button',{name:'Next beds'})).toBeEnabled());
     await userEvent.click(navigation.getByRole('button',{name:'Next beds'}));
   }
-  await dialog.findByRole('option',{name:'Bed 101 · Room A · General'});
-  await userEvent.selectOptions(dialog.getByRole('combobox',{name:/Available bed/}),'bed-101');
+  await dialog.findByRole('option',{name:'Bed 126 · Room A · General'});
+  await userEvent.selectOptions(dialog.getByRole('combobox',{name:/Available bed/}),'bed-126');
   await userEvent.click(dialog.getByRole('button',{name:'Previous beds'}));
   expect(dialog.getByRole('combobox',{name:/Available bed/})).toHaveValue('');
   await waitFor(()=>expect(dialog.getByRole('button',{name:'Next beds'})).toBeEnabled());
   await userEvent.click(dialog.getByRole('button',{name:'Next beds'}));
-  await dialog.findByRole('option',{name:'Bed 101 · Room A · General'});
+  await dialog.findByRole('option',{name:'Bed 126 · Room A · General'});
   expect(dialog.getByRole('combobox',{name:/Available bed/})).toHaveValue('');
-  await userEvent.selectOptions(dialog.getByRole('combobox',{name:/Available bed/}),'bed-101');
+  await userEvent.selectOptions(dialog.getByRole('combobox',{name:/Available bed/}),'bed-126');
   await userEvent.type(dialog.getByRole('textbox',{name:/Treating doctor/}),'Dr Synthetic');
   await userEvent.click(dialog.getByRole('button',{name:'Admit patient'}));
   await screen.findByText('Patient admitted and bed allocated.');
-  expect(admission).toMatchObject({patient:'patient-1',bed:'bed-101',treating_doctor:'Dr Synthetic'});
+  expect(admission).toMatchObject({patient:'patient-1',bed:'bed-126',treating_doctor:'Dr Synthetic'});
 });
 it('lets staff retry failed admission bed choices without silently accepting a bed', async()=>{
   let fail=true;
