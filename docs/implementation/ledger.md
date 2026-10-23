@@ -1,5 +1,13 @@
 # SDD ledger — plan: plan.md
 
+## General development resumed by owner —23October2026
+
+- Latest owner explicitly requests further work now and cooldown adjustment. Authenticated primary76%remaining/weekly51%remaining at09:12:37Z, so minimum51% permits work. Old05:02checkpoint/10:32deadline archived and explicitly waived by owner; no reset credit; future <=10% creates fresh330minute deadline. Current local guard returns continue; existing heartbeat updated in place.
+- Ruling: owner-resume instruction supersedes earlier deployment-only exception and saved deadline; cost if misread is lost cooldown protection, so both usage windows verified before any work. Generic future threshold rule unchanged.
+- Active exact contract reception-reliability-contract.md; OpenAPI extensions precede code. Backend/frontend assigned exclusive ownership and RED-first tests; third specialist inspects actualGitHubCI. No duplicate still-running team; agent list initially root only.
+- Ruling: optional create key preserves API clients while current frontend adopts stable logical-form keys; legacy missing-key callers retain duplicate risk. Fingerprint/result-only ledger, current scoped replay checks. Cost: cannot claim universal idempotentcreates until policy changes; no clinical/financial protection implied.
+- Current source planning not delivery: deployed restricted preview remains47b3618. Full product/release gates remain open.
+
 ## Owner-authorised Hostinger preview — 23October2026
 
 - Owner authorised isolated current-slice deployment and explicitly waived current cooldown for deployment only; general development deadline/future usage rule unchanged, no reset credit. Minimum52%remaining at bounded deployment check.

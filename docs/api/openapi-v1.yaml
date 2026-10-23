@@ -526,11 +526,25 @@
                 }
               }
             }
+          },
+          "409": {
+            "description": "Key already used with different payload; verify existing record before starting a new request."
           }
         },
         "parameters": [
           {
             "$ref": "#/components/parameters/CSRFToken"
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "description": "Optional UUID scoped to current user and operation. Same body replays the same authorised entity with201; different body409. No request payload stored. Omitting key retains duplicate risk.",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "maxLength": 36
+            }
           }
         ],
         "requestBody": {
@@ -817,11 +831,25 @@
                 }
               }
             }
+          },
+          "409": {
+            "description": "Key already used with different payload; verify existing record before starting a new request."
           }
         },
         "parameters": [
           {
             "$ref": "#/components/parameters/CSRFToken"
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "description": "Optional UUID scoped to current user and operation. Same body replays the same authorised entity with201; different body409. No request payload stored. Omitting key retains duplicate risk.",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "maxLength": 36
+            }
           }
         ],
         "requestBody": {
@@ -991,6 +1019,22 @@
           },
           {
             "$ref": "#/components/parameters/BranchFilter"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "Exact status filter before count/pagination, within authorised branches. Unknown value400.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "available",
+                "occupied",
+                "reserved",
+                "cleaning",
+                "blocked"
+              ]
+            }
           }
         ]
       }
@@ -1135,6 +1179,17 @@
         "parameters": [
           {
             "$ref": "#/components/parameters/CSRFToken"
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "description": "Optional UUID scoped to current user and operation. Same body replays the same authorised entity with201; different body409. No request payload stored. Omitting key retains duplicate risk.",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "maxLength": 36
+            }
           }
         ],
         "requestBody": {
