@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "HMS API and bounded master configuration",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "description": "Frozen first-slice design source, not a claim that every operation is verified or deployed. Session and CSRF protected hospital workspace. All capabilities outside this catalogue are deferred."
   },
   "servers": [
@@ -177,6 +177,26 @@
                 }
               }
             }
+          },
+          "202": {
+            "description": "Password accepted; bound MFA challenge only, not an authenticated session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MfaPending"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Security storage/key unavailable; no password-only fallback.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         },
         "security": [],
@@ -251,8 +271,8 @@
       "post": {
         "operationId": "logout",
         "summary": "End current session",
-        "description": "End current session",
-        "x-permission": "authenticated",
+        "description": "Explicit CSRF-protected logout cancels both full and anonymous pending sessions, including stale epoch.",
+        "x-permission": "",
         "responses": {
           "204": {
             "description": "Signed out; no response body."
@@ -292,7 +312,8 @@
           {
             "$ref": "#/components/parameters/CSRFToken"
           }
-        ]
+        ],
+        "security": []
       }
     },
     "/branches/": {
@@ -2101,6 +2122,842 @@
           }
         }
       }
+    },
+    "/auth/security/": {
+      "get": {
+        "operationId": "getSecurityStatus",
+        "summary": "Read own factor/session status",
+        "description": "Read own factor/session status. Self-only, no-store; exact state/threat rules in identity-security-contract.md. All secrets transient; CSRF and network policy apply.",
+        "x-permission": "authenticated",
+        "responses": {
+          "200": {
+            "description": "Success; secret issuance is never replayed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SecurityStatus"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON envelope/fields; plain field error arrays.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid/expired proof or session; generic, no secret details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by session, MFA, current permission, IP policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Security state changed or confirmation consumed; restart safely.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Shared trusted-IP/account/challenge budget exceeded; Retry-After.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Security storage/key unavailable; no password-only fallback.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/security/enrollment/": {
+      "post": {
+        "operationId": "startMfaEnrollment",
+        "summary": "Start session-bound authenticator setup",
+        "description": "Start session-bound authenticator setup. Self-only, no-store; exact state/threat rules in identity-security-contract.md. All secrets transient; CSRF and network policy apply.",
+        "x-permission": "authenticated",
+        "responses": {
+          "201": {
+            "description": "Success; secret issuance is never replayed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EnrollmentIssued"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON envelope/fields; plain field error arrays.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid/expired proof or session; generic, no secret details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by session, MFA, current permission, IP policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Security state changed or confirmation consumed; restart safely.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Shared trusted-IP/account/challenge budget exceeded; Retry-After.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Security storage/key unavailable; no password-only fallback.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/CSRFToken"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OptionalSecurityProof"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/security/enrollment/{enrollment_id}/confirm/": {
+      "post": {
+        "operationId": "confirmMfaEnrollment",
+        "summary": "Confirm authenticator and issue recovery codes once",
+        "description": "Confirm authenticator and issue recovery codes once. Self-only, no-store; exact state/threat rules in identity-security-contract.md. All secrets transient; CSRF and network policy apply.",
+        "x-permission": "authenticated",
+        "responses": {
+          "200": {
+            "description": "Success; secret issuance is never replayed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BackupCodesIssued"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON envelope/fields; plain field error arrays.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid/expired proof or session; generic, no secret details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by session, MFA, current permission, IP policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Security state changed or confirmation consumed; restart safely.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Shared trusted-IP/account/challenge budget exceeded; Retry-After.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Security storage/key unavailable; no password-only fallback.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/CSRFToken"
+          },
+          {
+            "name": "enrollment_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EnrollmentConfirm"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/mfa/verify/": {
+      "post": {
+        "operationId": "verifyMfaChallenge",
+        "summary": "Complete bound second-factor challenge",
+        "description": "Complete bound second-factor challenge. Self-only, no-store; exact state/threat rules in identity-security-contract.md. All secrets transient; CSRF and network policy apply.",
+        "x-permission": "",
+        "responses": {
+          "200": {
+            "description": "Success; secret issuance is never replayed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CurrentUser"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON envelope/fields; plain field error arrays.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid/expired proof or session; generic, no secret details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by session, MFA, current permission, IP policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Security state changed or confirmation consumed; restart safely.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Shared trusted-IP/account/challenge budget exceeded; Retry-After.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Security storage/key unavailable; no password-only fallback.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/CSRFToken"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MfaVerify"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/security/backup-codes/rotate/": {
+      "post": {
+        "operationId": "rotateBackupCodes",
+        "summary": "Replace own recovery codes once",
+        "description": "Replace own recovery codes once. Self-only, no-store; exact state/threat rules in identity-security-contract.md. All secrets transient; CSRF and network policy apply.",
+        "x-permission": "authenticated",
+        "responses": {
+          "200": {
+            "description": "Success; secret issuance is never replayed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BackupCodesIssued"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON envelope/fields; plain field error arrays.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid/expired proof or session; generic, no secret details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by session, MFA, current permission, IP policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Security state changed or confirmation consumed; restart safely.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Shared trusted-IP/account/challenge budget exceeded; Retry-After.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Security storage/key unavailable; no password-only fallback.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/CSRFToken"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityProof"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/security/disable/": {
+      "post": {
+        "operationId": "disableMfa",
+        "summary": "Disable own authenticator with current proof",
+        "description": "Disable own authenticator with current proof. Self-only, no-store; exact state/threat rules in identity-security-contract.md. All secrets transient; CSRF and network policy apply.",
+        "x-permission": "authenticated",
+        "responses": {
+          "200": {
+            "description": "Success; secret issuance is never replayed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SecurityStatus"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON envelope/fields; plain field error arrays.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid/expired proof or session; generic, no secret details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by session, MFA, current permission, IP policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Security state changed or confirmation consumed; restart safely.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Shared trusted-IP/account/challenge budget exceeded; Retry-After.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Security storage/key unavailable; no password-only fallback.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/CSRFToken"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityProof"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/security/sessions/revoke/": {
+      "post": {
+        "operationId": "revokeOwnSessions",
+        "summary": "Revoke own other/all sessions",
+        "description": "Revoke own other/all sessions. Self-only, no-store; exact state/threat rules in identity-security-contract.md. All secrets transient; CSRF and network policy apply.",
+        "x-permission": "authenticated",
+        "responses": {
+          "204": {
+            "description": "Success; secret issuance is never replayed."
+          },
+          "400": {
+            "description": "Invalid JSON envelope/fields; plain field error arrays.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid/expired proof or session; generic, no secret details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by session, MFA, current permission, IP policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Security state changed or confirmation consumed; restart safely.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Shared trusted-IP/account/challenge budget exceeded; Retry-After.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Security storage/key unavailable; no password-only fallback.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/CSRFToken"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SessionRevoke"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/security/step-up/": {
+      "post": {
+        "operationId": "stepUpSecurity",
+        "summary": "Refresh own privileged action proof",
+        "description": "Refresh own privileged action proof. Self-only, no-store; exact state/threat rules in identity-security-contract.md. All secrets transient; CSRF and network policy apply.",
+        "x-permission": "authenticated",
+        "responses": {
+          "200": {
+            "description": "Success; secret issuance is never replayed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StepUpResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid JSON envelope/fields; plain field error arrays.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid/expired proof or session; generic, no secret details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by session, MFA, current permission, IP policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Security state changed or confirmation consumed; restart safely.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Shared trusted-IP/account/challenge budget exceeded; Retry-After.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Security storage/key unavailable; no password-only fallback.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/CSRFToken"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SecurityProof"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/security/password/": {
+      "post": {
+        "operationId": "changeOwnPassword",
+        "summary": "Change own password and revoke prior sessions",
+        "description": "Change own password and revoke prior sessions. Self-only, no-store; exact state/threat rules in identity-security-contract.md. All secrets transient; CSRF and network policy apply.",
+        "x-permission": "authenticated",
+        "responses": {
+          "204": {
+            "description": "Success; secret issuance is never replayed."
+          },
+          "400": {
+            "description": "Invalid JSON envelope/fields; plain field error arrays.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid/expired proof or session; generic, no secret details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by session, MFA, current permission, IP policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Security state changed or confirmation consumed; restart safely.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Shared trusted-IP/account/challenge budget exceeded; Retry-After.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Security storage/key unavailable; no password-only fallback.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/CSRFToken"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PasswordChange"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -3302,6 +4159,311 @@
             }
           }
         }
+      },
+      "SecurityProof": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "current_password": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1024,
+            "writeOnly": true
+          },
+          "method": {
+            "type": "string",
+            "enum": [
+              "totp",
+              "backup_code"
+            ]
+          },
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "writeOnly": true,
+            "description": "Authenticator or single-use recovery code; leading zeros preserved, never logged."
+          }
+        },
+        "required": [
+          "current_password",
+          "method",
+          "code"
+        ]
+      },
+      "OptionalSecurityProof": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "current_password": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1024,
+            "writeOnly": true
+          },
+          "method": {
+            "type": "string",
+            "enum": [
+              "totp",
+              "backup_code"
+            ]
+          },
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "writeOnly": true,
+            "description": "Authenticator or single-use recovery code; leading zeros preserved, never logged."
+          }
+        },
+        "required": [
+          "current_password"
+        ]
+      },
+      "SecurityStatus": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
+          "backup_codes_remaining": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "session_factor_verified_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "privileged_mfa_required": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "enabled",
+          "backup_codes_remaining",
+          "version",
+          "session_factor_verified_at",
+          "privileged_mfa_required"
+        ]
+      },
+      "MfaPending": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "mfa_required"
+            ]
+          },
+          "methods": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "totp",
+                "backup_code"
+              ]
+            }
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "code",
+          "methods",
+          "expires_at"
+        ]
+      },
+      "MfaVerify": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "method": {
+            "type": "string",
+            "enum": [
+              "totp",
+              "backup_code"
+            ]
+          },
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "writeOnly": true,
+            "description": "Authenticator or single-use recovery code; leading zeros preserved, never logged."
+          }
+        },
+        "required": [
+          "method",
+          "code"
+        ]
+      },
+      "EnrollmentIssued": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "enrollment_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "secret": {
+            "type": "string",
+            "description": "Show once, transient memory only; no external QR service."
+          },
+          "otpauth_uri": {
+            "type": "string"
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "enrollment_id",
+          "secret",
+          "otpauth_uri",
+          "expires_at"
+        ]
+      },
+      "EnrollmentConfirm": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 6,
+            "maxLength": 6,
+            "writeOnly": true,
+            "description": "Authenticator or single-use recovery code; leading zeros preserved, never logged.",
+            "pattern": "^[0-9]{6}$"
+          }
+        },
+        "required": [
+          "code"
+        ]
+      },
+      "BackupCodesIssued": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "security": {
+            "$ref": "#/components/schemas/SecurityStatus"
+          },
+          "backup_codes": {
+            "type": "array",
+            "minItems": 10,
+            "maxItems": 10,
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Fa-f0-9]{8}-[A-Fa-f0-9]{32}$"
+            },
+            "description": "One-time response; hashes only stored server-side."
+          }
+        },
+        "required": [
+          "security",
+          "backup_codes"
+        ]
+      },
+      "SessionRevoke": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "current_password": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1024,
+            "writeOnly": true
+          },
+          "method": {
+            "type": "string",
+            "enum": [
+              "totp",
+              "backup_code"
+            ]
+          },
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "writeOnly": true,
+            "description": "Authenticator or single-use recovery code; leading zeros preserved, never logged."
+          },
+          "scope": {
+            "type": "string",
+            "enum": [
+              "others",
+              "all"
+            ]
+          }
+        },
+        "required": [
+          "current_password",
+          "scope"
+        ]
+      },
+      "PasswordChange": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "current_password": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1024,
+            "writeOnly": true
+          },
+          "method": {
+            "type": "string",
+            "enum": [
+              "totp",
+              "backup_code"
+            ]
+          },
+          "code": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80,
+            "writeOnly": true,
+            "description": "Authenticator or single-use recovery code; leading zeros preserved, never logged."
+          },
+          "new_password": {
+            "type": "string",
+            "minLength": 12,
+            "maxLength": 128,
+            "writeOnly": true
+          }
+        },
+        "required": [
+          "current_password",
+          "new_password"
+        ]
+      },
+      "StepUpResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "verified_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "verified_at",
+          "expires_at"
+        ]
       }
     }
   },

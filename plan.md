@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.7.0,23October2026: scoped staff access delivered in source with4APIs/27total, core0004, active-membership enforcement and branch-focused UI. Actual PostgreSQL213passed/25subtests, frontend49passed/typecheck/build; two Important review issues fixed with7RED regressions. MFA contract next; full Task02/release gates incomplete. Live preview47b3618unchanged; future<=10usage rule remains.
+**Status:** Version1.7.1,23October2026: scoped staff access delivered in source with4APIs/27total, core0004, active-membership enforcement and branch-focused UI. Actual PostgreSQL213passed/25subtests, frontend49passed/typecheck/build; two Important review issues fixed with7RED regressions. MFA/security contract and9APIextensions frozen36total/27implemented; independent pre-code review and RED-first implementation next; full Task02/release gates incomplete. Live preview47b3618unchanged; future<=10usage rule remains.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -637,6 +637,13 @@ Per-task test names above define their assertions. Additional narrow tests are a
 
 ## 16. Evidence log and readiness
 
+### Active identity security —23October2026
+
+- [x] Exact identity-security-contract.md and OpenAPI0.4/page-map9operations frozen36total; official PyOTP/Fernet/Django/NIST/OWASP research and separate pre-code threat review. Existing-factor proof, anonymous CSRF and locked revocation design explicit.
+- [ ] Backend encrypted factor/challenge/recovery/attempt/epoch state,9self APIs and policy integration with observed RED tests; direct-service ceilings and actualPG races.
+- [ ] Frontend login202 second step and Account security with transient secrets/confirmation/plain policy guidance; RED/full tests/typecheck/build.
+- [ ] Fresh source review, root actualPG/frontend/root/API/docs checks and coherent verified push/actualCI. Live47b3618unchanged; full recovery/read audit/clinical product incomplete.
+
 ### Active staff access —23October2026
 
 - [x] Owner direct-resume waiver/current usage recorded, historical checkpoint preserved, same heartbeat updated; latest2ca8239actualCI all3jobs success.
@@ -726,3 +733,5 @@ Create feature branches/PRs when repository protection or agreed workflow requir
 - 1.6.1 —23October2026: owner resumes13:36:49UTC waiving oldcooldown; resourceCI verified; freeze staffaccess4operations/27total and scoped suspension/version/privacy tests beforecode; MFA researched separately.
 
 - 1.7.0 —23October2026: verified scoped staff access, active branch permissions and revocation/snapshot consistency;213PG/49frontend, MFA next, preview separate.
+
+- 1.7.1 —23October2026: staff actualCI verified, frozen9operation identity-security contract/API before code, dedicated encryption/replay/session/counter/privileged MFA design.

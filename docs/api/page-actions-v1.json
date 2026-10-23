@@ -1,5 +1,5 @@
 {
-  "version": "0.3.0",
+  "version": "0.4.0",
   "scope": "Phase A subset of plan.md page catalogue. API contract existence is distinct from implementation/verification/deployment. Frontend combines subset pages into tabs; not every API action has a UI control yet.",
   "actions": [
     {
@@ -35,7 +35,7 @@
       "page": "S08",
       "action": "Sign out",
       "operation_id": "logout",
-      "permission": "authenticated"
+      "permission": ""
     },
     {
       "id": "S04.branches",
@@ -190,6 +190,69 @@
       "action": "Page branch choices for staff assignments",
       "operation_id": "listStaffBranchOptions",
       "permission": "platform.staff.manage"
+    },
+    {
+      "id": "S05.getSecurityStatus",
+      "page": "S05",
+      "action": "Read own factor/session status",
+      "operation_id": "getSecurityStatus",
+      "permission": "authenticated"
+    },
+    {
+      "id": "S05.startMfaEnrollment",
+      "page": "S05",
+      "action": "Start session-bound authenticator setup",
+      "operation_id": "startMfaEnrollment",
+      "permission": "authenticated"
+    },
+    {
+      "id": "S05.confirmMfaEnrollment",
+      "page": "S05",
+      "action": "Confirm authenticator and issue recovery codes once",
+      "operation_id": "confirmMfaEnrollment",
+      "permission": "authenticated"
+    },
+    {
+      "id": "S02.verifyMfaChallenge",
+      "page": "S02",
+      "action": "Complete bound second-factor challenge",
+      "operation_id": "verifyMfaChallenge",
+      "permission": ""
+    },
+    {
+      "id": "S05.rotateBackupCodes",
+      "page": "S05",
+      "action": "Replace own recovery codes once",
+      "operation_id": "rotateBackupCodes",
+      "permission": "authenticated"
+    },
+    {
+      "id": "S05.disableMfa",
+      "page": "S05",
+      "action": "Disable own authenticator with current proof",
+      "operation_id": "disableMfa",
+      "permission": "authenticated"
+    },
+    {
+      "id": "S05.revokeOwnSessions",
+      "page": "S05",
+      "action": "Revoke own other/all sessions",
+      "operation_id": "revokeOwnSessions",
+      "permission": "authenticated"
+    },
+    {
+      "id": "S05.stepUpSecurity",
+      "page": "S05",
+      "action": "Refresh own privileged action proof",
+      "operation_id": "stepUpSecurity",
+      "permission": "authenticated"
+    },
+    {
+      "id": "S05.changeOwnPassword",
+      "page": "S05",
+      "action": "Change own password and revoke prior sessions",
+      "operation_id": "changeOwnPassword",
+      "permission": "authenticated"
     }
   ],
   "deferred_actions": [

@@ -1,6 +1,6 @@
 # HMS API and bounded master configuration
 
-[openapi-v1.yaml](openapi-v1.yaml) is OpenAPI 3.0.3 expressed using the JSON subset of YAML 1.2. This keeps the local page-action checker dependency-free; standard OpenAPI tooling can read the file. [page-actions-v1.json](page-actions-v1.json) maps each of the27bounded operations to the relevant [plan page](../../plan.md). SYSTEM denotes the health probe rather than a staff page. API contract existence does not establish implementation, test coverage or deployment; those are recorded in [HMS.md](../../HMS.md) and the [ledger](../implementation/ledger.md).
+[openapi-v1.yaml](openapi-v1.yaml) is OpenAPI 3.0.3 expressed using the JSON subset of YAML 1.2. This keeps the local page-action checker dependency-free; standard OpenAPI tooling can read the file. [page-actions-v1.json](page-actions-v1.json) maps each of the36bounded operations(27implemented staff/foundation plus9identity-security design operations) to the relevant [plan page](../../plan.md). SYSTEM denotes the health probe rather than a staff page. API contract existence does not establish implementation, test coverage or deployment; those are recorded in [HMS.md](../../HMS.md) and the [ledger](../implementation/ledger.md).
 
 The frontend currently combines page subsets into Overview, Patients, Appointments, Bed board and Master administration tabs. A mapped API action is not automatically a claim that its UI control exists. Future catalogue fields such as patient clinical history, payer summaries, reservations and discharge are outside Phase A.
 
@@ -33,6 +33,10 @@ Operational bed availability changes through initial admission allocation. The n
 Five additional operations under `/platform/organisations/{organisation_id}/` list/create branches and beds and version-edit bed configuration. They require separate platform.configure from a master membership in that organisation; no patient/clinical permission follows. Scope is checked before guessed org/branch/bed IDs are returned. List results remain bounded/paged; UI currently operates within the existing summary organisation.
 
 Creates reject duplicate case-insensitive code/bed numbers with409 and do not claim generic idempotency-key semantics. Bed edits require expected_version and permit only available/cleaning/blocked states, never edits to occupied/reserved or active-admission beds. Bed.version increments on allocation/configuration; transactional allowlisted nonclinical audit snapshots protect traceability. Actual PostgreSQL166tests/25subtests passed, including a deterministic FK-deadlock regression observed RED then GREEN with branch FOR NO KEY UPDATE. Read [the configuration contract](../implementation/resource-administration-contract.md) and ledger for scope/evidence. Existing initial47b3618preview has not received this source/migration. No delete/manual occupancy/clinical-signing path is added.
+
+## Identity security extension — frozen design, implementation pending
+
+Nine self-only security operations plus login202/anonymous CSRF logout are frozen in [identity-security contract](../implementation/identity-security-contract.md). Authenticator secrets use dedicated encrypted row-bound state, recovery codes hash-only, shared DB attempt/replay/epoch checks, stable-user locking and fresh proof for sensitive changes. Production privileged writes require enrolled/fresh MFA as well as ordinary action permissions; setup remains reachable. No current implementation/deployment claim. TOTP is not phishing resistant; human recovery/key provisioning/read audit remain release gates. No outbound QR service or persisted browser secret.
 
 ## Validation and compatibility
 

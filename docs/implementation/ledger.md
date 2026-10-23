@@ -1,5 +1,12 @@
 # SDD ledger — plan: plan.md
 
+## Identity security design frozen —23October2026
+
+- Staff69f4fda push/remoteSHA verified and actualGitHubCI39968605247success213PG/25subtests,49frontend/build,19root/contract/Compose/docs at14:20:02UTC. No live deployment;47b3618preserved.
+- Freeze identity-security-contract.md/OpenAPI0.4/page-map9selfsecurity operations36total before production code. Login202partial, explicitanonymousCSRF/logout, encrypted row-boundFernet TOTP, one-usehash recovery, server-boundgeneration/challenge, persistent throttles, auth_epoch and privilegedwriteMFA with stableUser locks. Fresh pre-code specialist blocked missingexistingfactor/CSRF/retainedauth/inflightrevocation designs; root incorporated decisions before implementation.
+- Ruling: TOTP localfactor fits existingstack withoutnewpaidprovider; costifinsufficient futureWebAuthn/federation. Lockedsecurity/platformwrites serializewithrevocation, ordinaryalreadyinflightmayfinish; no universalcancellationclaim. Legacyepoch0onlyuntilactivation remainscompatible; no adoptinglatestepochaftertransaction. Fullrecovery/read-audit/realrelease remainseparate. Rootalonecommits; subsequentbackend/frontendownexclusivepathsandREDtests, thenfreshreview/actualPG.
+- Beforecode OpenAPIvalidator/source-map/locallinks passed; implementation and final runtime tests pending. Authenticatedminimum30%remaining at lastboundedcheck, nocooldown/newresetcredit.
+
 ## Staff access verified source —23October2026
 
 - Delivered core0004 active membership/revision and4staff APIs/27total; staff-only branch options, create password validation/hashing, versioned scope edits, org suspension/restore, independent global account state, self-edit denial and secret-free allowlisted audit. Frontend named paged assignments, masked/cleared secret,409retention/ambiguoussave guidance; branch_permissions narrows operational controls without changing admin union.
