@@ -172,4 +172,3 @@ class NetworkPolicyTests(unittest.TestCase):
             digest = sha256(json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=True).encode("utf-8")).hexdigest()
             with self.subTest(value=value), self.assertRaises(ValueError):
                 self.module.validate_saved_policy(value, digest)
-

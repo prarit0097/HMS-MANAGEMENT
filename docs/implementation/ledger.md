@@ -1,5 +1,10 @@
 # SDD ledger — plan: plan.md
 
+## B2a snapshot selection frozen —24October2026
+
+- Frozen B2a contract network-snapshot-contract.md defines exact NetworkSnapshot/NetworkStateUnavailable/load_network_snapshot internal interfaces, one joined read, strict candidate/fallback/reciprocal preview/bindings/revision/time validation, pending finish metadata null and fixed deadline fallback with independent policy dictionaries. No auth/environment lookup, API, mutation or middleware activation in this unit. Independent pre-code review found no Important blocker; three precisions incorporated before code. Pending preview is required; null preview belongs to terminal OOB history only. Backwards clock fails closed. B1ca8dd41actualCI40039667570all3jobs success verified. A trailing blank at parsertest EOF was flagged by prior whitespace check but the PowerShell batch continued to commit; removed now without behaviour/assertion changes. Future commits follow separately inspected checks. No new app tests claimed for this design/formatting change.
+- Local docs/schema/map/link/stagedsecret checks at publication; no new application suite for design/format-only.
+
 ## Network StageB1 verified / runtime still pending —24October2026
 
 - Parser17RED then39pass168subtests; schemafieldmap beforemodeldiscoveryRED, final33SQLitepasses.5models/core0007/unboundbaseline; noHTTP/middleware/currentuser/capability/operator/owner/edgeactivation. RulingdecimalCIDRsuffix1..3digits/pretrim64 resolvesundocumentednetmaskgrammar, no widerpolicy.
