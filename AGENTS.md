@@ -28,4 +28,4 @@ Owner's usage rule: coordinator checks authenticated get_usage_limits at start a
 
 Report what changed, tests actually run, unfinished checks and verified push SHA. Leave work recoverable. Maintain explicit planned/implemented/verified/deployed distinctions in HMS.md.
 
-An explicit later owner instruction can waive an existing cooldown; record the instruction/time and authenticated usage in checkpoint/ledger, preserve history and update the same heartbeat. Recovery alone never waives a deadline. Latest recorded owner general-resume override:23October2026 at09:12:37Z; future <=10% stops remain mandatory.
+An explicit later owner instruction can waive an existing cooldown; record the instruction/time and authenticated usage in checkpoint/ledger, preserve history and update the same heartbeat. Recovery alone never waives a deadline. Latest recorded owner general-resume override:23October2026 at13:36:49Z; future <=10% stops remain mandatory.

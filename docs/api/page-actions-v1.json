@@ -1,5 +1,5 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "scope": "Phase A subset of plan.md page catalogue. API contract existence is distinct from implementation/verification/deployment. Frontend combines subset pages into tabs; not every API action has a UI control yet.",
   "actions": [
     {
@@ -162,6 +162,34 @@
       "action": "Edit available bed configuration",
       "operation_id": "changeConfigurationBed",
       "permission": "platform.configure"
+    },
+    {
+      "id": "M03.listStaffAccess",
+      "page": "M03",
+      "action": "List staff organisation access",
+      "operation_id": "listStaffAccess",
+      "permission": "platform.staff.manage"
+    },
+    {
+      "id": "M03.createStaffAccess",
+      "page": "M03",
+      "action": "Create staff account",
+      "operation_id": "createStaffAccess",
+      "permission": "platform.staff.manage"
+    },
+    {
+      "id": "M04.changeStaffAccess",
+      "page": "M04",
+      "action": "Edit staff grants or suspend hospital access",
+      "operation_id": "changeStaffAccess",
+      "permission": "platform.staff.manage"
+    },
+    {
+      "id": "M04.listStaffBranchOptions",
+      "page": "M04",
+      "action": "Page branch choices for staff assignments",
+      "operation_id": "listStaffBranchOptions",
+      "permission": "platform.staff.manage"
     }
   ],
   "deferred_actions": [

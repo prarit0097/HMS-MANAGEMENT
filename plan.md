@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.6.0,23October2026: reception reliability and scoped master resource configuration source verified (actual PostgreSQL166passed/25subtests,frontend30passed/build); current code checkpoint is not a full hospital release. Initial live preview remains47b3618. New usage9%remaining stop09:49:16UTC; earliest15:19:16UTC (8:49:16PM IST), all windows>10required. New work paused, checkpoint publication allowed. Earlier owner resume waived old deadline only; follow current USAGE-CHECKPOINT.md.
+**Status:** Version1.6.1,23October2026: owner explicitly resumed at13:36:49UTC and waived old15:19deadline with authenticated primary100%/weekly40%remaining. Resource2ca8239CI verified166backend/30frontend/19root checks. New scoped staff-access contract/OpenAPI27operations frozen before code; implementation/RED tests in progress, MFA design separate. Existing live preview47b3618unchanged; all future<=10usage checkpoints/release gates remain.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -635,6 +635,14 @@ Per-task test names above define their assertions. Additional narrow tests are a
 
 ## 16. Evidence log and readiness
 
+### Active staff access —23October2026
+
+- [x] Owner direct-resume waiver/current usage recorded, historical checkpoint preserved, same heartbeat updated; latest2ca8239actualCI all3jobs success.
+- [x] staff-access-contract.md and4OpenAPI/page-action extensions frozen; security/design preflight reviewed. Staff-only branch-option lookup avoids broad resource-write grant; total27operations.
+- [ ] Backend scoped create/list/grants/suspension/active-membership ceiling/version/audit with RED/current-permission/race tests; frontend simple password-safe/paged assignment forms.
+- [ ] Fresh review and actualPostgreSQL/full UI/API/docs checks, living docs and verified publication. MFA remains separate design/review, not a checked Task02completion. No automatic live preview update.
+
+
 ### Verified master branch/bed source checkpoint —23October2026
 
 - [x] Scoped5operation OpenAPI/page-action contract frozen before code in resource-administration-contract.md; permission/failure/audit/version/occupancy design preflight reviewed with no blocker.
@@ -712,3 +720,5 @@ Create feature branches/PRs when repository protection or agreed workflow requir
 - 1.5.1 —23October2026: actual reception03c5634CI success recorded; freeze master branch/bed configuration23-operation catalogue before implementation.
 
 - 1.6.0 —23October2026: master resource source complete/verified166PostgreSQL/25subtests,30frontend/build, deterministic FKdeadlock RED->GREEN; new9%usage checkpoint09:49:16UTC, earliest15:19:16UTC. No live update or realpatient cutover.
+
+- 1.6.1 —23October2026: owner resumes13:36:49UTC waiving oldcooldown; resourceCI verified; freeze staffaccess4operations/27total and scoped suspension/version/privacy tests beforecode; MFA researched separately.

@@ -1,5 +1,13 @@
 # SDD ledger — plan: plan.md
 
+## Owner resumes / staff-access design —23October2026
+
+- Direct owner Continue limit aa gyi hai puri at13:36:49UTC waives old15:19:16deadline; authenticated primary100%/weekly40%, then guardminimum39%continue. Preserve09:49stop/history and future<=10/330min rule; same heartbeat updated, no reset credits. All previous implementation agents completed before fresh assignments.
+- Actual resource2ca8239CI39935239961 success from all logs:166backend/25subtests/check/drift,30frontend/typecheck/build,19root/OpenAPI/Compose/docs. No CI code change required. Initial preview47b3618 remains separate.
+- Active staff-access-contract.md/OpenAPI0.3/page-map4operations27total frozen before code. Backend/frontend RED-first isolated ownership; independent security preflight found no design blocker, clarified global-disabled account status remains readonly, and frontend caught staff-only branch-option requirement. Added dedicated staff/branches GET rather than broadening resource configuration rights.
+- Ruling: organisation suspension revokes current permissions through Membership.is_active while preserving other-org accounts/sessions; global active identity/password reset separate. Legacy revision0read only avoids GET mutations, newstaff1.100assignment batch bound notcapacitycap. Cost if insufficient: deliberate future identity/UI expansion, no silent authority widening.
+- MFA/challenge/encryption/recovery researched separately from staff implementation; no MFA delivery or live update claimed. Next verify staff scope/audit/password/race/UI with actualPG and fresh review before publication.
+
 ## Resource source complete / new usage stop —23October2026
 
 - Backend configuration RED25failed/1passed, then pinned final162passed/4PGskips/25subtests; category-required parity separatelyRED201vs400 fixed. New resource_admin module,5org-scoped platform.configure APIs,0003Bed.version/AuditEvent.details, allocation version increment and audit snapshots; no clinicalgrant/delete/manualoccupancy. Initial global-Python RED was corrected to pinned Django5.2.18 verification.

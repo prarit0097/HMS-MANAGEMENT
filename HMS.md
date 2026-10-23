@@ -1,8 +1,8 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.6.0 | Updated: 23 October 2026, Asia/Calcutta
+Document version: 1.6.1 | Updated: 23 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
-Current state: **USAGE COOLDOWN / VERIFIED SOURCE CHECKPOINT; initial Hostinger preview remains47b3618.** Reception reliability and scoped branch/bed configuration source implemented/verified (actual PostgreSQL166passed/25subtests,frontend30passed/typecheck/build). New threshold9%remaining at2026-10-23T09:49:16UTC; earliest resume2026-10-23T15:19:16UTC (23October8:49:16PM IST), only if all applicable windows recover above10%. Earlier owner resume waived only old deadline. No new assignments/features during this cooldown; checkpoint publication only. [Resource contract](docs/implementation/resource-administration-contract.md), [usage state](docs/operations/USAGE-CHECKPOINT.md), [deployed preview evidence](docs/operations/HOSTINGER-PREVIEW.md).
+Current state: **OWNER-RESUMED DEVELOPMENT; staff-access design frozen, implementation in progress.** Owner explicitly instructed Continue at2026-10-23T13:36:49UTC with authenticated primary100%/weekly40%remaining, waiving prior15:19:16UTC deadline; future<=10%stops remain mandatory. Published resource2ca8239 actual GitHubCI passed166backend/25subtests,30frontend/build,19rootchecks. Active [staff-access contract](docs/implementation/staff-access-contract.md); MFA remains design research. Existing Hostinger preview stays47b3618 until separately updated; no real-data hospital release.
 
 ## 1. Read this first
 
@@ -360,6 +360,15 @@ For every change add: ID/date; request and reason; changed behaviour/files/pages
 - Review/fix: independent security bounded80backendSQLite/10frontend tests plus source review no extra Important/Critical. Coordinator discovered FK-lock cycle; deterministic actualPGRED1deadlock failure, no_key branch locking fixGREEN1passed, full actualPG166passed/25subtests/0skips/0warnings9.67seconds, system/drift clean. Final coordinator frontend30passed/typecheck/build. No independent full hospital approval claimed.
 - Data/operations: migrations verified only in isolated test database, app CREATEDB revoked afterwards. Existing47b3618Hostingerpreview unchanged; no realdata/otherapp/deployment changes. NewsourceCI pending until observed. Source OpenAPI/map/links/whitespace/credential checks at publication; finalSHA in handoff.
 - Usage: new9%primary/40%weekly remaining observed09:49:16UTC. Stop assignments (agents already completed), fresh guard checkpoint and same heartbeat330minute update; earliest15:19:16UTC/8:49:16PM IST. No reset credit or deadline extension. Earlier owner general resume does not waive this new checkpoint. Next resume verifies latest CI then plans staff identity/MFA before further clinical scope; full product remains incomplete.
+
+### CHG-0013 —23October2026 — Owner-resume override and scoped staff-access contract
+
+- Latest direct owner instruction Continue limit aa gyi hai puri at13:36:49UTC explicitly resumes now, superseding prior15:19:16cooldown. Authenticated primary100%/weekly40%remaining; local guard continue atminimum39%; preserve historical checkpoint state. Same heartbeat updated in place, no reset credits, no duplicate running team. Future<=10stops still330minute minimum.
+- Actual latest resource2ca8239pushCI39935239961success verified from all job logs:166backend/25subtests11.20seconds/check/drift,30frontend/typecheck/build,19root/OpenAPI/Compose/docs. No CI mutation required; Node action deprecation warning remains nonblocking.
+- New frozen staff-access-contract.md and OpenAPI0.3.0/page map4operations (27total) before production code: org-scoped staff GET/POST/PATCH and staff-specific paged branch-option GET under platform.staff.manage. Permission scope/password/state/error/race/UI/test design documented and independently preflight reviewed. Models/grants/UI are planned, not delivered by this contract.
+- Planned data: Membership.is_active authoritative scope and StaffAccessRevision lazy legacy0/new1; role replacement/suspension audited with allowlisted IDs/roles, no passwords/name/body copies. Org lock plus post-lock actor grant recheck protects mutual-admin suspension. Global account_active stays readonly; suspension revokes hospital permissions without globally disabling other organisations. Staff branch lookup avoids widening configuration rights.
+- Rulings: owner direct resume waives only old deadline; source staff suspends organisation grants, not global account/session identity.1..100assignment request boundary is not hospital record capacity. Legacy0avoids hidden GET writes. Costs if scope insufficient are explicit future identity/UI migration; no broader authority granted.
+- MFA researched separately with official sources before choosing secret/challenge/recovery/session architecture. No MFA/password reset/deployment completion claim. Backend/frontend RED-first exclusive assignments and security preflight underway; coordinator owns docs/Git.
 
 ## 18. Technical references
 
