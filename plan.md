@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.7.2,23October2026: USAGE STOP primary9%/weekly25%; checkpoint14:38:35.257381UTC, earliest20:08:35.257381UTC (24October1:38:35AM IST) plus allwindows>10. Staff69f4fda verified/CIgreen. Identity9newops36total source WIP236PG/25subtests/64frontend-agent pass, known proof-age-after-lock and security coverage/review unfinished. Preview47b3618unchanged; no implementation during cooldown.
+**Status:** Version1.7.3,23October2026: owner resumes17:44:21UTC with primary100%/weekly100% remaining, explicitly waiving old20:08:35deadline. Identity source6660bb0WIP: reproduce/fix bed-edit regression and proof freshness after organisation-lock waits, complete missing negative/concurrency scenarios, independent review and verified publication. Existing livepreview47b3618unchanged; future10%rule remains.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -740,3 +740,5 @@ Create feature branches/PRs when repository protection or agreed workflow requir
 
 
 Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration stale-bed-edit test could not find Edit bed101 within timed wait); agent earlier64passed. Coordinator typecheck/build still passed. Affected test isolated rerun is recorded in ledger/handoff; this does not establish a repaired full suite. No source changes after stop. Investigate/repeat full suite after cooldown before marking identity delivered.
+
+- 1.7.3 —23October2026: owner17:44:21resume/both100%waives only olddeadline; continue exact identity WIP regression/security coverage with no repeated deployment.

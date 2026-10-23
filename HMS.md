@@ -1,8 +1,8 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.7.2 | Updated: 23 October 2026, Asia/Calcutta
+Document version: 1.7.3 | Updated: 23 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
-Current state: **USAGE CHECKPOINT — development stopped; identity-security source is WIP pending security fixes/coverage.** New9%primary/25%weekly reading triggered checkpoint2026-10-23T14:38:35.257381Z; earliest resume2026-10-23T20:08:35.257381Z (24October1:38:35AM IST), only with all windows>10%. Staff69f4fda verified/published; identity source candidate236PostgreSQL/25subtests and64frontend-agent tests pass but security review/edge cases remain. Preview47b3618unchanged. No new work during cooldown; prior owner waiver applied only to olddeadline.
+Current state: **OWNER-RESUMED DEVELOPMENT; identity-security source remains WIP pending fixes and final review.** Direct Continue at2026-10-23T17:44:21UTC with authenticated primary100%/weekly100%remaining waives old20:08:35deadline only; future<=10%checkpoints remain mandatory. Resume6660bb0 reproducible bed-edit failure, proof-age recheck after lock and missing negative/race coverage. Prior236PG/25subtests passed; rootfrontend63pass/1fail, build passed. Preview47b3618unchanged.
 
 ## 1. Read this first
 
@@ -425,3 +425,9 @@ References guide implementation; they do not certify the incomplete application 
 
 
 Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration stale-bed-edit test could not find Edit bed101 within timed wait); agent earlier64passed. Coordinator typecheck/build still passed. Affected test isolated rerun is recorded in ledger/handoff; this does not establish a repaired full suite. No source changes after stop. Investigate/repeat full suite after cooldown before marking identity delivered.
+
+### CHG-0017 —23October2026 — Owner resumes identity completion
+
+- Direct owner continue at17:44:21UTC, authenticated both windows100%remaining, waives old20:08:35deadline. Preserve priorcheckpoint/history; localguardcontinue and sameheartbeat updated, no reset credit consumed. Future<=10%stops mandatory.
+- Active contract unchanged: identity-security-contract.md, source6660bb0WIP. Pre-code plan resumes exact reproducible bed-edit failure, proof-age-after-lock and named negative/race coverage before review/verification/publication. No new API/schema/production change in this resume record.
+- HMS/plan/AGENTS/ledger/checkpoint updated coherently; doc links/API map checked at publication. No new passing application test/deployment claimed merely by resuming. Existing preview47b3618preserved.

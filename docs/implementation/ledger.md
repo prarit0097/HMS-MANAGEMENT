@@ -1,5 +1,11 @@
 # SDD ledger — plan: plan.md
 
+## Owner resumes identity completion —23October2026
+
+- Direct owner continue100%limit at17:44:21UTC waives prior20:08:35deadline. Authenticated get_usage_limits reports both primary and weekly100%remaining; no reset credit consumed by agent. Old14:38stop/deadline/history preserved; local guard archived then continue, same heartbeat updated. All previous agents completed, no duplicate running team.
+- Resume6660bb0 first incomplete identity tasks: reproduce bed-edit Edit bed101 test failure with systematic debugging, RED proof-age-after-orglock then repair, missing encrypted-state/challenge/enrollment/counter/CSRF and full PostgreSQL races, fresh review/fullchecks. No initial deployment/staff work repeated. Backend/frontend exclusive path ownership, root alone docs/Git; security/CI specialists in batches.
+- Ruling: direct resume instruction supersedes only this existing cooldown; recovery alone would not. Future<=10%creates fresh330minute stop. Source WIP and existing synthetic preview47b3618remain separate.
+
 ## NEW usage checkpoint / identity WIP —23October2026
 
 - Coordinator checkpoint frontend repeat failed reproducibly: full63passed/1failed, isolated stale-bed-edit test also1failed/9skipped (cannot find Edit bed101 at resource-administration.test.tsx:48). Typecheck/build passed. Earlier agent64pass is not current full-suite approval. Resume must diagnose this exact regression with systematic debugging before claiming GREEN; no source repair performed during cooldown.

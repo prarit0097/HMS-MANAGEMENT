@@ -2,12 +2,14 @@
 
 Owner instruction: when any applicable Codex usage window has 10% or less remaining, checkpoint HMS.md and stop new work; resume no earlier than 5 hours30minutes later and only with recovered usage.
 
-State: COOLDOWN_CHECKPOINTED
+State: ACTIVE_OWNER_RESUMED
+
+Latest owner instruction at17:44:21UTC: continue 100% limit avaliable hai ab. Authenticated primary100%/weekly100%remaining; direct resume waives prior20:08:35deadline. Prior14:38checkpoint/history preserved here and ledger/ignoredguardarchive. No reset credit consumed by agent; future<=10stops mandatory. Resume source6660bb0 known frontend failure and pending identity proof-age/edge cases, no deployment.
 
 Current unresolved frontend evidence: coordinator full63passed/1failed and isolated1failed/9skipped, stale-bed-edit Edit bed101 not found; earlier agent64green does not override this repeatable failure. First resume diagnoses it alongside proof-age-after-lock and missing security scenarios. No implementation during cooldown.
-checkpoint_at_utc: 2026-10-23T14:38:35.257381Z
-resume_not_before_utc: 2026-10-23T20:08:35.257381Z
-owner_resume_at_utc: 2026-10-23T13:36:49Z
+checkpoint_at_utc: null
+resume_not_before_utc: null
+owner_resume_at_utc: 2026-10-23T17:44:21Z
 
 NEW STOP23October2026: authenticatedprimary9%remaining/weekly25%; earliestresume24October1:38:35AM IST and allwindows>10. Activeagentsstopped, identitysourceWIP236PG/25subtests/64frontend-agent, proof-age-after-orglockwait and negative/racecoverage/fullreview pending. Resume exactledger tasks, no newworkduringcooldown. Sameheartbeatupdated, noresetcredit/deadlineextension. Current owner message below predates this newcheckpoint and does not waiveit.
 
