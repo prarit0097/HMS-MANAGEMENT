@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.6.1,23October2026: owner explicitly resumed at13:36:49UTC and waived old15:19deadline with authenticated primary100%/weekly40%remaining. Resource2ca8239CI verified166backend/30frontend/19root checks. New scoped staff-access contract/OpenAPI27operations frozen before code; implementation/RED tests in progress, MFA design separate. Existing live preview47b3618unchanged; all future<=10usage checkpoints/release gates remain.
+**Status:** Version1.7.0,23October2026: scoped staff access delivered in source with4APIs/27total, core0004, active-membership enforcement and branch-focused UI. Actual PostgreSQL213passed/25subtests, frontend49passed/typecheck/build; two Important review issues fixed with7RED regressions. MFA contract next; full Task02/release gates incomplete. Live preview47b3618unchanged; future<=10usage rule remains.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -419,6 +419,8 @@ Consumes: approved stack/version/deployment choices; produces runnable synthetic
 
 ### Task 02 — Organisation, branches, identity, permissions, MFA and audit
 
+Partial source evidence: staff-access-contract.md delivered4APIs, core0004active memberships/revision, scoped password-safe UI and current branch controls. ActualPG213passed/25subtests and frontend49passed/build; fresh review consistency findings fixed. MFA/session/recovery/read audit and full Task02remain unchecked. Actual paths backend/apps/core/staff_access.py, authorization.py, core migration0004, frontend/src/StaffAdministration.tsx; future package split remains deliberate.
+
 Files: `backend/apps/platform/{models,contracts,authorization,api}.py`, `backend/apps/security/{models,sessions,audit}.py`, `frontend/src/features/{auth,admin}/`, `backend/apps/platform/tests/test_access.py`, `backend/apps/security/tests/test_sessions.py`.
 Consumes: AccessContext and reviewed identity provider/session strategy; produces `authorize()` and server-derived context for every later task. Pages S01–S08, M01–M05, M08/M20/M21.
 
@@ -639,8 +641,8 @@ Per-task test names above define their assertions. Additional narrow tests are a
 
 - [x] Owner direct-resume waiver/current usage recorded, historical checkpoint preserved, same heartbeat updated; latest2ca8239actualCI all3jobs success.
 - [x] staff-access-contract.md and4OpenAPI/page-action extensions frozen; security/design preflight reviewed. Staff-only branch-option lookup avoids broad resource-write grant; total27operations.
-- [ ] Backend scoped create/list/grants/suspension/active-membership ceiling/version/audit with RED/current-permission/race tests; frontend simple password-safe/paged assignment forms.
-- [ ] Fresh review and actualPostgreSQL/full UI/API/docs checks, living docs and verified publication. MFA remains separate design/review, not a checked Task02completion. No automatic live preview update.
+- [x] Backend scoped create/list/grants/suspension/active-membership ceiling/version/audit with RED/current-permission/race tests; frontend password-safe/paged assignment forms and branch-specific operational controls. core0004; no global identity disable or clinical authority.
+- [x] Fresh review resolved two Important races and Minor response-cap mismatch;7consistency RED->GREEN plus mixed-branch API/UI RED->GREEN. Final actual PostgreSQL213passed/25subtests/check/drift; frontend49passed/typecheck/build. API/docs/root verification and publication tracked in ledger/handoff. MFA remains separate, Task02 incomplete; preview47b3618unchanged.
 
 
 ### Verified master branch/bed source checkpoint —23October2026
@@ -722,3 +724,5 @@ Create feature branches/PRs when repository protection or agreed workflow requir
 - 1.6.0 —23October2026: master resource source complete/verified166PostgreSQL/25subtests,30frontend/build, deterministic FKdeadlock RED->GREEN; new9%usage checkpoint09:49:16UTC, earliest15:19:16UTC. No live update or realpatient cutover.
 
 - 1.6.1 —23October2026: owner resumes13:36:49UTC waiving oldcooldown; resourceCI verified; freeze staffaccess4operations/27total and scoped suspension/version/privacy tests beforecode; MFA researched separately.
+
+- 1.7.0 —23October2026: verified scoped staff access, active branch permissions and revocation/snapshot consistency;213PG/49frontend, MFA next, preview separate.

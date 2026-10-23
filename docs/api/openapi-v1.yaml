@@ -2266,6 +2266,16 @@
             "items": {
               "type": "string"
             }
+          },
+          "branch_permissions": {
+            "type": "object",
+            "description": "Additive selected-branch capability map derived only from active memberships; union permissions remains for navigation/admin.",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
           }
         },
         "required": [
@@ -3153,7 +3163,6 @@
           "assignments": {
             "type": "array",
             "minItems": 1,
-            "maxItems": 100,
             "items": {
               "type": "object",
               "additionalProperties": false,

@@ -1,5 +1,5 @@
 export interface Branch { id: string; name: string; code: string }
-export interface User { id: number; username: string; name: string; roles: string[]; branches: Branch[]; permissions: string[] }
+export interface User { id: number; username: string; name: string; roles: string[]; branches: Branch[]; permissions: string[]; branch_permissions?:Record<string,string[]> }
 export interface List<T> { results: T[]; count: number }
 export interface Patient { id: string; uhid: string; full_name: string; phone: string; date_of_birth: string | null; age: number | null; gender: string; city: string; branch: string; created_at: string }
 export interface Appointment { id: string; patient: string; patient_name: string; doctor_name: string; scheduled_at: string; status: string; reason: string; branch: string; version: number }

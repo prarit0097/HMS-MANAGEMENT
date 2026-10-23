@@ -175,3 +175,38 @@ def test_postgres_configuration_edit_racing_allocation_is_serialised():
         assert bed.number == 'R1' and bed.version == 2
         assert not AuditEvent.objects.filter(action='bed.changed').exists()
     assert Admission.objects.filter(bed=bed, status='active').count() == 1
+
+@pytest.mark.django_db(transaction=True)
+def test_postgres_staff_admins_cannot_mutually_suspend():
+    """Organisation lock serialises competing writers before actor recheck."""
+    if connection.vendor != 'postgresql':
+        pytest.skip('Requires PostgreSQL organisation row locks and concurrent connections.')
+    from rest_framework.exceptions import PermissionDenied
+    from apps.core.staff_access import change_staff, staff_organisation
+    from apps.core.models import AuditEvent, StaffAccessRevision
+    org=Organisation.objects.create(name='Synthetic staff race')
+    branch=Branch.objects.create(organisation=org,name='Synthetic',code='STAFFRACE')
+    actors=[get_user_model().objects.create_user(username=f'synthetic-staff-race-{i}') for i in range(2)]
+    for actor in actors:
+        Membership.objects.create(user=actor,branch=branch,role='master_admin')
+    barrier=Barrier(2)
+    def suspend(index):
+        close_old_connections()
+        try:
+            actor=get_user_model().objects.get(pk=actors[index].pk)
+            # Both requests passed their preliminary API permission decision.
+            staff_organisation(actor,org.pk)
+            barrier.wait(timeout=10)
+            try:
+                change_staff(actor,org.pk,actors[1-index].pk,{'expected_version':0,'status':'suspended'})
+                return 'changed'
+            except PermissionDenied:
+                return 'denied'
+        finally:
+            close_old_connections()
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        results=list(executor.map(suspend,range(2)))
+    assert sorted(results)==['changed','denied']
+    assert Membership.objects.filter(branch=branch,is_active=True,role='master_admin').count()==1
+    assert StaffAccessRevision.objects.filter(organisation=org).count()==1
+    assert AuditEvent.objects.filter(action='staff.changed').count()==1

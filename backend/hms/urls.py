@@ -8,3 +8,10 @@ urlpatterns += [
     path('api/v1/platform/organisations/<uuid:organisation_id>/beds/', resource_admin.ConfigurationBeds.as_view()),
     path('api/v1/platform/organisations/<uuid:organisation_id>/beds/<uuid:pk>/', resource_admin.ConfigurationBedDetail.as_view()),
 ]
+
+from apps.core import staff_access
+urlpatterns += [
+    path('api/v1/platform/organisations/<str:organisation_id>/staff/', staff_access.StaffList.as_view()),
+    path('api/v1/platform/organisations/<str:organisation_id>/staff/branches/', staff_access.StaffBranches.as_view()),
+    path('api/v1/platform/organisations/<str:organisation_id>/staff/<int:pk>/', staff_access.StaffDetail.as_view()),
+]

@@ -1,5 +1,12 @@
 # SDD ledger — plan: plan.md
 
+## Staff access verified source —23October2026
+
+- Delivered core0004 active membership/revision and4staff APIs/27total; staff-only branch options, create password validation/hashing, versioned scope edits, org suspension/restore, independent global account state, self-edit denial and secret-free allowlisted audit. Frontend named paged assignments, masked/cleared secret,409retention/ambiguoussave guidance; branch_permissions narrows operational controls without changing admin union.
+- Fresh independent review117targeted plus synthetic boundary probes found two Important issues: resource permission before blocking org lock and staff old-roles/new-revision snapshot. Root7executable consistency cases allRED, then configuration org lock/fresh scope, operational row-lock and replay scope refresh, bounded snapshot retry GREEN. Response maxItems100removed while request batch bound retained. Mixed-branch API/UI map RED->GREEN separately.
+- Final coordinator candidate actualPG213passed/25subtests/0skips in13.46seconds, system check0/no drift; temporary testDB removed and CREATEDB revoked. Coordinator frontend49tests/typecheck/build;19root tests in33.80seconds, OpenAPI validator/map/source/local links and whitespace passed. Candidate source ran separate validation dir only; no live schema/source changes to47b3618preview. No invented fresh-review approval after fixes; covering tests are evidence.
+- Latest authenticated boundary primary41%remaining/weekly30%, guardcontinue; owner13:36resume waiver/history preserved, no reset credit. Source will commit with HMS.md/plan.md, root alone pushes and verifies SHA. Next freeze MFA/encrypted enrollment/session contract, then RED-first implementation; whole HMS/release/staff acceptance not complete.
+
 ## Owner resumes / staff-access design —23October2026
 
 - Direct owner Continue limit aa gyi hai puri at13:36:49UTC waives old15:19:16deadline; authenticated primary100%/weekly40%, then guardminimum39%continue. Preserve09:49stop/history and future<=10/330min rule; same heartbeat updated, no reset credits. All previous implementation agents completed before fresh assignments.

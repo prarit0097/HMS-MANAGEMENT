@@ -24,6 +24,7 @@ class Membership(UUIDModel):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='memberships')
     branch = models.ForeignKey(Branch, on_delete=models.PROTECT)
     role = models.CharField(max_length=32, choices=ROLES)
+    is_active = models.BooleanField(default=True)
     class Meta:
         constraints = [models.UniqueConstraint(fields=['user', 'branch', 'role'], name='unique_membership')]
 
@@ -106,3 +107,12 @@ class IdempotencyRecord(UUIDModel):
 
     class Meta:
         constraints = [models.UniqueConstraint(fields=['actor', 'operation', 'key'], name='unique_actor_operation_key')]
+
+
+class StaffAccessRevision(UUIDModel):
+    organisation = models.ForeignKey(Organisation, on_delete=models.PROTECT)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    version = models.PositiveIntegerField(default=1)
+
+    class Meta:
+        constraints = [models.UniqueConstraint(fields=['organisation', 'user'], name='unique_staff_access_revision')]

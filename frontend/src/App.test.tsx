@@ -107,3 +107,16 @@ it('clearly labels the unauthenticated deployed app as an initial preview for sy
   expect(await screen.findByText('INITIAL PREVIEW')).toBeInTheDocument();
   expect(screen.getByText(/Synthetic data only/)).toHaveTextContent('Not ready for real patient use');
 });
+it('uses selected branch permissions for doctor A and reception B while keeping union administration access',async()=>{
+  const doctorPermissions=['dashboard.read','patients.read','appointments.read','beds.read'];
+  server(url=>url.endsWith('auth/me/')?Response.json({...currentUser,roles:['doctor','reception','master_admin'],branches:[{id:'b1',name:'Doctor branch',code:'A'},{id:'b2',name:'Reception branch',code:'B'}],permissions:[...currentUser.permissions,'platform.read'],branch_permissions:{b1:doctorPermissions,b2:currentUser.permissions}}):url.endsWith('platform/summary/')?Response.json({organisation:{id:'o1',name:'Test hospital'},branches_count:2,staff_count:3,active_staff_count:2,security:{ip_mode:'standard'},modules:[]}):new Response(null,{status:599}));
+  render(<App/>);
+  await userEvent.click(await screen.findByRole('link',{name:'Patients'}));await screen.findByText('No patients found');
+  expect(screen.queryByRole('button',{name:'Register patient'})).not.toBeInTheDocument();
+  await userEvent.selectOptions(screen.getByRole('combobox',{name:'Branch'}),'b2');
+  expect(await screen.findByRole('button',{name:'Register patient'})).toBeInTheDocument();
+  await userEvent.selectOptions(screen.getByRole('combobox',{name:'Branch'}),'b1');
+  expect(screen.queryByRole('button',{name:'Register patient'})).not.toBeInTheDocument();
+  await userEvent.click(screen.getByRole('link',{name:'Master administration'}));
+  expect(await screen.findByRole('heading',{name:'Master administration'})).toBeInTheDocument();
+});

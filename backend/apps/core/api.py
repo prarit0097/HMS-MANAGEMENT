@@ -83,7 +83,7 @@ def me(request):
 
 @api_view(['GET'])
 def branches(request):
-    ids = Membership.objects.filter(user=request.user).values_list('branch_id', flat=True)
+    ids = Membership.objects.filter(user=request.user, is_active=True).values_list('branch_id', flat=True)
     results = list(Branch.objects.filter(id__in=ids).values('id', 'name', 'code'))
     return Response({'results': results, 'count': len(results)})
 
@@ -106,8 +106,10 @@ class ReliableCreateMixin:
             return serializer.instance
 
         def replay(result_id):
-            result = get_object_or_404(queryset, pk=result_id)
-            serializer.is_valid(raise_exception=True)
+            # A key claim may wait behind another request. Rebuild its scope
+            # and related-ID validation after that wait, not from cached IDs.
+            result = get_object_or_404(self.get_queryset(), pk=result_id)
+            self.get_serializer(data=request.data).is_valid(raise_exception=True)
             return result
 
         result = services.idempotent_create(request.user, self.idempotency_operation, request.headers.get('Idempotency-Key'), request.data, create, replay)
@@ -199,4 +201,4 @@ def platform_summary(request):
     organisation = Branch.objects.filter(id__in=branches).select_related('organisation').first().organisation
     scoped = Branch.objects.filter(organisation=organisation)
     staff = get_user_model().objects.filter(memberships__branch__in=scoped).distinct()
-    return Response({'organisation': {'id': str(organisation.id), 'name': organisation.name}, 'branches_count': scoped.count(), 'staff_count': staff.count(), 'active_staff_count': staff.filter(is_active=True).count(), 'security': {'ip_mode': 'allowlist_only' if settings.HMS_IP_ALLOWLIST_ONLY else 'allow_authenticated'}, 'modules': [{'name': name, 'status': state} for name, state in [('Reception', 'foundation'), ('Admissions', 'foundation'), ('Clinical signing', 'planned'), ('Pharmacy', 'planned'), ('Accounts', 'planned'), ('MCP', 'planned'), ('Backups', 'planned')]]})
+    return Response({'organisation': {'id': str(organisation.id), 'name': organisation.name}, 'branches_count': scoped.count(), 'staff_count': staff.count(), 'active_staff_count': staff.filter(is_active=True, memberships__branch__in=scoped, memberships__is_active=True).distinct().count(), 'security': {'ip_mode': 'allowlist_only' if settings.HMS_IP_ALLOWLIST_ONLY else 'allow_authenticated'}, 'modules': [{'name': name, 'status': state} for name, state in [('Reception', 'foundation'), ('Admissions', 'foundation'), ('Clinical signing', 'planned'), ('Pharmacy', 'planned'), ('Accounts', 'planned'), ('MCP', 'planned'), ('Backups', 'planned')]]})

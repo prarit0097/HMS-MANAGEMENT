@@ -1,8 +1,8 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.6.1 | Updated: 23 October 2026, Asia/Calcutta
+Document version: 1.7.0 | Updated: 23 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
-Current state: **OWNER-RESUMED DEVELOPMENT; staff-access design frozen, implementation in progress.** Owner explicitly instructed Continue at2026-10-23T13:36:49UTC with authenticated primary100%/weekly40%remaining, waiving prior15:19:16UTC deadline; future<=10%stops remain mandatory. Published resource2ca8239 actual GitHubCI passed166backend/25subtests,30frontend/build,19rootchecks. Active [staff-access contract](docs/implementation/staff-access-contract.md); MFA remains design research. Existing Hostinger preview stays47b3618 until separately updated; no real-data hospital release.
+Current state: **VERIFIED STAFF-ACCESS SOURCE; development continues toward MFA.** Scoped staff creation, branch/role edits and organisation suspension are implemented with current-permission enforcement and branch-focused UI actions. Final actual PostgreSQL213passed/25subtests, frontend49passed/typecheck/build; fresh review findings reproduced and fixed. Source is separate from initial Hostinger47b3618preview; no real-data hospital release. Owner13:36:49UTC resume waived only the old cooldown; future<=10%stops remain mandatory.
 
 ## 1. Read this first
 
@@ -67,8 +67,8 @@ These are intended combined capabilities, not claims of unique inventions or pro
 | Layer | Planned choice | Actual state |
 |---|---|---|
 | Backend language/framework | Python + Django5.2.18 | Phase A implemented under backend/hms and backend/apps/core; deployed only as restricted preview, not ready for real hospital data |
-| HTTP API | Django REST Framework3.16.1; versioned `/api/v1/` | Session/CSRF, scoped operational/summary APIs and5master configuration operations implemented (23total source operations) |
-| Frontend | React19.3.1 + TypeScript7.0.2 + Vite8.3.5 | API-backed staff workspace plus source demographic/reschedule/retry and branch/bed master configuration; first bounded slices only |
+| HTTP API | Django REST Framework3.16.1; versioned `/api/v1/` | Session/CSRF, scoped operational/summary APIs and5master configuration plus4staff-access operations implemented (27total source operations) |
+| Frontend | React19.3.1 + TypeScript7.0.2 + Vite8.3.5 | API-backed workspace, reception reliability, branch/bed configuration and scoped staff-access forms; selected-branch controls use active branch permissions |
 | Database | PostgreSQL for production; SQLite for local synthetic development | Local SQLite synthetic development; isolated TLS PostgreSQL17.11 deployed and48tests/25subtests passed |
 | Background work | Celery; durable broker, proposed RabbitMQ | Not configured |
 | Disposable cache/rate limit | Redis where justified | Not configured |
@@ -77,7 +77,7 @@ These are intended combined capabilities, not claims of unique inventions or pro
 | Runtime | Containerised services; production Linux; local Windows development supported | Hostinger preview runs dedicated Gunicorn/systemd/static Nginx and private containerised PostgreSQL; development Compose remains separate |
 | Remote MCP | Authenticated HTTP endpoint with supported MCP transport/version | Not implemented |
 | Cloud provider | Hostinger existing VPS selected for this authenticated preview; private database, future file storage unprovisioned | Dedicated /opt/hms preview resources created on owner existing VPS |
-| CI/testing | pytest, Vitest/component tests and contract/docs checks; remaining e2e/security/load gates | Current source actual PostgreSQL166passed/25subtests; frontend30passed/typecheck/build; OpenAPI/map checked. 03c5634GitHubCI independently verified all3jobs passed (123backend/20frontend/19root checks); next source changes await own CI. Preview deployment evidence remains separate |
+| CI/testing | pytest, Vitest/component tests and contract/docs checks; remaining e2e/security/load gates | Current staff source actual PostgreSQL213passed/25subtests/0skips, frontend49passed/typecheck/build; system/migration checks clean. Resource2ca8239GitHubCI independently verified all3jobs (166backend/30frontend/19root checks). Staff CI awaits publication evidence; preview deployment remains separate |
 
 The language direction is the current planning baseline from previous recommendations, not proof of delivered capacity. Supported mutually compatible versions will be pinned and recorded before scaffolding. Docker Compose is a proposed local integration tool, not an automatic production deployment architecture.
 
@@ -100,6 +100,14 @@ Planned repository ownership and function interfaces are in plan.md. Any changed
 Phase A implementation-path ruling: this bounded slice uses `backend/hms/` for configuration and `backend/apps/core/` for initial relational models, serializers, scoped services and API handlers. Security primitives are in `backend/apps/security/`. This differs from the future per-domain package map in plan.md; future clinical/finance/dataops modules must be split deliberately with migrations/contracts, not duplicated or assumed already present. Patient identity currently has a home-branch scope; full cross-branch chart/identity sharing is not implemented.
 
 Current source API contract is [OpenAPI v1](docs/api/openapi-v1.yaml), with [page-action map](docs/api/page-actions-v1.json) and [compatibility/security notes](docs/api/README.md). Contract validation is separate from runtime parity. Current deployed47b3618 has no generic create-request idempotency keys; patient/appointment creation retries can duplicate records. Verified source now implements optional per-user/operation UUID Idempotency-Key on three creates, atomic result references with current permission rechecks, and browser stable logical-form keys. Current deployed preview lacks it until updated; legacy calls without optional header retain duplicate risk. Source also implements global bed status filtering, demographic correction UI, versioned appointment rescheduling and paged patient selection. core0002 migration adds a fingerprint/result-only retry ledger; no PII payload copy or automatic expiry.
+
+### Verified scoped staff source
+
+Four organisation-scoped staff APIs and StaffAdministration UI implement create/search/page, branch-role replacement and suspend/restore. platform.staff.manage belongs to active master_admin only; no operational/clinical grant follows. core0004 adds Membership.is_active and unique organisation/user StaffAccessRevision. Existing grants default active; legacy response version0 does not write on GET, new staff version1. CurrentUser adds branch_permissions; operational controls follow selected branch, navigation/admin retain union compatibility. Backend remains authoritative.
+
+Create-only passwords are validated12..128characters and hashed, never returned/audited/stored in browser storage. Initial password distribution, MFA and recovery remain separate gates. Self-access edits are denied. Suspension affects only current organisation grants and immediately removes their effective API ceiling; global account_active is readonly and other organisations remain intact. Desired assignments are retained for restore; removed grants are traceably replaced, with no signed-record deletion. Versioned PATCH409 protects against stale edits. Create has no generic replay guarantee; refresh/search after ambiguous save. Assignment request batches1..100 are not database capacity limits; response arrays remain uncapped by that batch bound.
+
+Configuration joins organisation locking and reauthorises after waits, operational row-locked writes and keyed replays refresh scope, and staff snapshots retry version-before/after reads to prevent old roles/new versions. Seven consistency regressions were observed RED then GREEN; mixed-branch API/UI regressions were separately RED then GREEN. Actual PostgreSQL213tests/25subtests passed with temporary database cleanup/CREATEDB revocation, system checks and migration drift clean. Candidate validation did not migrate/redeploy the live preview. Fresh independent review found two Important consistency issues and one Minor response-cap mismatch, all resolved with covering tests/schema correction. Full identity/MFA/read audit, live browser/staff acceptance and hospital release remain incomplete.
 
 ## 7. Identity, data and branch principles
 
@@ -243,7 +251,7 @@ Cloud deployment is separate from GitHub publication. Owner subsequently authori
 | Requirements/research | Original baseline plus consolidated research and addenda exist |
 | HMS.md / plan.md | Living implementation/verification/deployment inventory maintained; future slices retain design gates |
 | Agent workflow | AGENTS.md and safe ignore rules prepared |
-| Product pages/APIs/models/MCP | Initial local login/dashboard/patients/appointments/beds/admission/master-inventory implemented; MCP/clinical/finance/therapy/nursing/dataops still planned |
+| Product pages/APIs/models/MCP | Login/operational preview, reception reliability, branch/bed configuration and scoped staff access implemented in source; MFA/MCP/clinical/finance/therapy/nursing/dataops remain planned |
 | Unit/integration/UI/security/load/restore tests | VPS actual PostgreSQL48passed/25subtests, frontend11tests/typecheck/build passed; HTTPS/session/CSRF/throttle/isolation and database backup/restore smoke passed. No capacity or full security certification |
 | Documentation checks | Local links, C-01–C-20/O-01–O-11 coverage, 92 unique page IDs, secret-pattern scan and baseline-copy hash passed. New files pass staged whitespace checks; five intentional original Markdown hard breaks preserved |
 | GitHub sync | Initial commit `17df5ef52750cfb55ad9d146dbeba1d9d4820699` verified against remote main; follow-up publication evidence tracked in Git history/handoff |
@@ -378,3 +386,12 @@ For every change add: ID/date; request and reason; changed behaviour/files/pages
 - [OWASP authorisation guidance](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html)
 
 References guide implementation; they do not certify the incomplete application or its preview deployment.
+
+### CHG-0014 —23October2026 — Scoped staff access and revocation consistency
+
+- Implemented4staff APIs/27total source operations, StaffAdministration paging/search/create/role+branch edits and suspend/restore, dedicated staff branch picker beyond100, masked initial password, conflict retention and ambiguous-save guidance. Additive CurrentUser.branch_permissions keeps doctor-A/reception-B actions clear. No multi-org selector/global disable/MFA/deployment claim.
+- Data/security: core0004Membership.is_active/defaultTrue and StaffAccessRevision; legacy0read-only/new1, post-org-lock reauthorisation, fresh active branch ceilings, self-edit denial, independent global account state, other-org preservation and allowlisted before/after audit without credentials. Django password validators enabled. Request assignment cap100 is not response/data capacity.
+- Backend staff initial35RED, final38targeted GREEN; fresh independent review117targeted passes plus probes identified stale post-lock configuration and old-grants/new-version snapshot. Coordinator7consistency RED cases reproduced and fixed, plus branch map RED->GREEN. Configuration/appointment/admission/keyed replay permission refresh and bounded staff snapshot retry cover revocation. Minor response maxItems removed; request bound retained.
+- Final coordinator actual PostgreSQL213passed/25subtests/0skips in13.46seconds; Django check0issues/no migration drift; temporary test DB cleaned/CREATEDB revoked, live database/schema untouched. Frontend49passed/typecheck/build including mixed-branch RED->GREEN. Root/API/docs validation recorded at publication; latest prior resourceCI39935239961success166backend/30frontend/19root. New source CI tracked separately after push.
+- Source files backend/apps/core/{staff_access,authorization,api,models,resource_admin,services}, migration0004, settings/urls, staff/consistency/PGtests; frontend StaffAdministration/App/pages/types/styles/tests, OpenAPI and living docs. No secret/real patient data or credential/runtime artefacts published.
+- Operational impact: source-only; preview remains47b3618. Full MFA/session revocation/recovery/read audit, remaining clinical/finance/MCP/dataops and actual staff acceptance remain release gates. Next bounded slice freezes identity security contract before code. Commit subject: feat: add scoped staff access and consistent revocation.

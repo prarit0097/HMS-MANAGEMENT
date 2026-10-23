@@ -1,8 +1,8 @@
 """Organisation-scoped configuration services and their API adapter.
 
 Configuration never grants operational/clinical permissions. Lock ordering is
-organisation (branch creation) or branch then bed (bed configuration). Branch
-locks use NO KEY UPDATE: allocation holds the bed while its admission's branch
+organisation then branch then bed for configuration, with fresh scope checks
+after waiting. Organisation/branch locks use NO KEY UPDATE: allocation holds the bed while its admission's branch
 foreign key acquires KEY SHARE, which must remain compatible with configuration.
 """
 import re
@@ -29,6 +29,14 @@ def configuration_organisation(user, organisation_id):
     if not ids:
         raise PermissionDenied('You do not have access to this action.')
     return get_object_or_404(Organisation.objects.filter(branch__id__in=ids).distinct(), pk=organisation_id)
+
+
+def locked_configuration_organisation(user, organisation_id):
+    organisation = configuration_organisation(user, organisation_id)
+    # Staff revocation locks this same organisation. Reauthorise AFTER a wait,
+    # retaining a no-key lock so ordinary FK checks remain compatible.
+    Organisation.objects.select_for_update(no_key=True).get(pk=organisation.pk)
+    return configuration_organisation(user, organisation_id)
 
 
 class BranchConfiguration(StrictSerializer):
@@ -108,8 +116,7 @@ def configuration_audit(user, action, obj, branch, before, after):
 
 @transaction.atomic
 def create_branch(user, organisation_id, validated):
-    organisation = configuration_organisation(user, organisation_id)
-    organisation = Organisation.objects.select_for_update().get(pk=organisation.pk)
+    organisation = locked_configuration_organisation(user, organisation_id)
     if Branch.objects.filter(organisation=organisation, code__iexact=validated['code']).exists():
         raise Conflict('A branch with this code already exists. Use another code.')
     result = Branch.objects.create(organisation=organisation, **validated)
@@ -119,7 +126,7 @@ def create_branch(user, organisation_id, validated):
 
 @transaction.atomic
 def create_bed(user, organisation_id, validated):
-    organisation = configuration_organisation(user, organisation_id)
+    organisation = locked_configuration_organisation(user, organisation_id)
     branch = get_object_or_404(Branch.objects.select_for_update(no_key=True).filter(organisation=organisation), pk=validated['branch'].pk)
     if Bed.objects.filter(branch=branch, number__iexact=validated['number']).exists():
         raise Conflict('A bed with this number already exists in this branch. Use another number.')
@@ -130,7 +137,7 @@ def create_bed(user, organisation_id, validated):
 
 @transaction.atomic
 def change_bed(user, organisation_id, bed_id, validated):
-    organisation = configuration_organisation(user, organisation_id)
+    organisation = locked_configuration_organisation(user, organisation_id)
     # Resolve the immutable branch first; then take locks in the same order as
     # bed creation, serialising duplicate-number checks across configuration.
     # NO KEY UPDATE allows admission FK KEY SHARE while allocation holds bed.

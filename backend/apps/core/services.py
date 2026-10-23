@@ -71,6 +71,7 @@ def create_appointment(user, validated):
 def change_appointment(user, appointment_id, validated):
     branches = permitted_branches(user, 'appointments.write')
     appointment = get_object_or_404(Appointment.objects.select_for_update().filter(branch_id__in=branches), pk=appointment_id)
+    permitted_branches(user, 'appointments.write', appointment.branch_id)
     if appointment.version != validated.pop('expected_version'):
         raise Conflict()
     status = validated.get('status', appointment.status)
@@ -94,6 +95,7 @@ def allocate_bed(user, validated):
         with transaction.atomic():
             bed = get_object_or_404(Bed.objects.select_for_update().filter(branch_id__in=branches), pk=validated['bed'].pk)
             patient = get_object_or_404(Patient.objects.select_for_update().filter(branch_id=bed.branch_id), pk=validated['patient'].pk)
+            permitted_branches(user, 'admissions.write', bed.branch_id)
             if bed.status != 'available' or Admission.objects.filter(patient=patient, status='active').exists():
                 raise Conflict()
             admission = Admission.objects.create(branch=bed.branch, **{**validated, 'patient': patient, 'bed': bed})

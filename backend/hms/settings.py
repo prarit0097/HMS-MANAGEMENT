@@ -59,3 +59,10 @@ def env_boolean(name, default='0'):
         raise ImproperlyConfigured(f'{name} must be true, false, 1 or 0.')
     return value in {'1', 'true'}
 HMS_IP_ALLOWLIST_ONLY = env_boolean('HMS_IP_ALLOWLIST_ONLY')
+
+AUTH_PASSWORD_VALIDATORS = [
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator', 'OPTIONS': {'min_length': 12}},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
+]
