@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.11.1,24October2026: owner04:30AM IST resume verified at23:02:32UTC primary100%/weekly84% (later90%/83%). ICTHospital reference comparison complete as research, no imported code/new module delivery. Task03 contract/OpenAPI0.6.0 frozen after independent pre-code review; StageB1 parser/schema verified351PG/168subtests, B2a coherent snapshot contract frozen/tests next, then remaining StageB2 transaction/API/OOB integration;7network APIs planned/39existing source APIs; full product/release gates incomplete, preview47b3618unchanged.
+**Status:** Version1.12.0,24October2026: NEW primary9%/weekly70%usage stop23:34:44UTC; earliestresume05:04:44UTC/24October10:34:44AM IST, allwindows>10. Research/networkA/B1/B2a internal snapshot verified; finalactualPG432/168subtests. FullB2transaction/API/OOB/runtime integration/UI/edge and fullproduct remain pending.46catalogued39implemented APIs, preview47b3618unchanged.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -437,7 +437,7 @@ Execution contract: [frozen network-access contract](docs/implementation/network
 - [x] StageA exact scenario/permission/threat/test design and independent bounded pre-code security/edge review; corrected probe middleware/HTTPS/cookie semantics, corrupt snapshot links, owner errors, effective summary and API IDs. Root schema/map/link verification before code; full security/production approval not inferred.
 - [x] StageB1 RED-first `apps/security/network_policy.py` canonical_policy/policy_digest/validate_saved_policy; `core/network_models.py`, model discovery and migration0007 with singleton/unique/revision/time constraints. Individual saved-policy validation only. Test migration/constraints on actual PostgreSQL. No runtime wiring, advertised capability or new route in this bounded foundation. Exactfieldmap in docs/implementation/network-foundation-schema.md; parser17RED and modeldiscoveryRED,33targetedschema/39parser+resolver/168subtests, finalactualPG351/168subtests19.98s/check/nodrift and boundedfreshreview approved after reversebool/intregressionfix.
 - [x] B2a [exact internal snapshot contract](docs/implementation/network-snapshot-contract.md) frozen after independent pre-code review: onejoinedread/strictgraph/pendingfinishmetadatanull/independentpolicies/fixedfallback/no runtimeactivation.
-- [ ] B2a RED-first network_snapshot.py/test_network_snapshot.py, freshreview and actualPG/fullbackend checks; no endpoint/capability/middleware/OOBactivation.
+- [x] B2a RED-first network_snapshot.py/test_network_snapshot.py:81RED->81GREEN, localfull416pass16PGskip168subtests, finalactualPG432pass168subtests20.22s/check/nodrift; freshreview81+11probes no unresolvedboundedfinding. No endpoint/capability/middleware/OOBactivation.
 - [ ] StageB2 exact API/service/OOB and middleware integration, runtime state graph validation, private history, effective summary/current-user ceiling and full permission/CSRF/expiry/replay/real-PG race checks. Only then advertise/activate network management.
 - [ ] StageC API client Network access UI and named page-action tests/representative synthetic walkthroughs.
 - [ ] StageD isolated actual Nginx module/config/HTTP tests across BasicANDnetwork, HTML/assets/SPA/API/HEAD/range/conditional/private probe/forged headers/DBfailure/rollback/HTTPS/direct-origin; templates alone are insufficient.
@@ -662,6 +662,12 @@ Source-pinned [comparison and evidence](docs/research/2026-10-24-icthospital-com
 - [x] Fresh independent B1review: Important reversebool/intJSONcomparison defect reproducedRED thenfixed; final33schema tests/658parserprobes, no unresolvedboundedfinding. RootfinalactualPG351passed168subtests19.98s, check0/nodrift; testDBremoved/CREATEDBrevoked/livepreviewserviceactive. Earlier346PG and330local/16skips predate final5cases/fix, notcurrentfullresults.
 - [ ] StageB2 coherent stored-state graph selection and request-service integration, owner/operator/freshness/OOB/APIs; then UI and actualisolatedNginx gates. All7network APIoperations remain planned,46catalogued39implemented, preview47b3618unchanged.
 
+### Verified B2a / fresh usage cooldown —24October2026
+
+- [x] Frozen B2a contract and precode review,81RED beforecode, singlejoinedread/strictgraph/digests/fixedfallback/independentpolicies; no writes or requestintegration. Freshreview81passes4.56s+11probes noC/I/Minor.
+- [x] RootfullactualPG432passed168subtests20.22s/check0/nodrift, temporarytestDBremoved/CREATEDBrevoked/oldpreviewserviceactive; local416passes16PGskips168subtests101.17s. No frontendchanges. ExactB1CI40039667570decoded351/72/19green; newsourceCIawaitscheck.
+- [ ] After05:04:44UTC/10:34:44AM IST withallwindows>10: resumeparentB2 exactenvironment/authority/transaction/API/OOB integration, thenUI/actualisolatededge/releasegates. No newassignments/code afterfresh9%stop23:34:44UTC; allagentscompleted. Sameheartbeat330min/noresetcredits, oldownerschedulewaivedonlyolddeadline.
+
 ## 16. Evidence log and readiness
 
 ### Verified administration history / own activity —23October2026
@@ -794,3 +800,5 @@ Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration
 - 1.11.0 —24October2026: networkB1 pureparser/digests and5modelmigration verified351PG/168subtests with reversal corruptionregression/review; fullnetworkmanagement remains pending, no runtimeactivation.
 
 - 1.11.1 —24October2026: Frozen B2a contract network-snapshot-contract.md defines exact NetworkSnapshot/NetworkStateUnavailable/load_network_snapshot internal interfaces, one joined read, strict candidate/fallback/reciprocal preview/bindings/revision/time validation, pending finish metadata null and fixed deadline fallback with independent policy dictionaries. No auth/environment lookup, API, mutation or middleware activation in this unit. Independent pre-code review found no Important blocker; three precisions incorporated before code. Pending preview is required; null preview belongs to terminal OOB history only. Backwards clock fails closed. B1ca8dd41actualCI40039667570all3jobs success verified. A trailing blank at parsertest EOF was flagged by prior whitespace check but the PowerShell batch continued to commit; removed now without behaviour/assertion changes. Future commits follow separately inspected checks. No new app tests claimed for this design/formatting change.
+
+- 1.12.0 —24October2026: B2a internalreadselector verified432PG/168subtests andboundedreview; new9%usagecheckpoint23:34:44UTC/+330min to05:04:44UTC. All7networkAPIs/runtime/UI/edge pending, livepreviewunchanged.
