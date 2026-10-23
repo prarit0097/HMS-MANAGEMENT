@@ -1,0 +1,25 @@
+# HMS developer and coding-agent instructions
+
+Read [HMS.md](HMS.md) and [plan.md](plan.md) before work. Latest explicit user instructions take precedence. This repository currently contains documentation only.
+
+## Mandatory workflow
+
+1. Planning first: complete affected page/action/data/API/permission/failure/acceptance design before production code. Follow plan.md's design gate; do not treat unchecked plans as delivered features.
+2. Multiple pre-code checks: scenario/permission review, threat/abuse review and test design; write/run failing executable tests where possible before implementation. Then code and run post-code verification.
+3. Use installed Superpowers skills and UI/UX Pro Max when applicable. Read relevant SKILL.md; do not invent a skill result. Do not let a generated recommendation override user requirements.
+4. Every completed change set must update HMS.md in the same commit: detailed affected sections, implementation status, decisions, interfaces/data/security changes, evidence and a new change record. Update plan.md task status and affected planning in the same commit. No false implementation/test claims.
+5. Review and verify; commit and push every completed change set to https://github.com/prarit0097/HMS-MANAGEMENT. Verify remote SHA. No force push, unrelated files, remote overwrite, secrets or real patient/lead data. If blocked, preserve local work and report accurately.
+
+## Security and scope
+
+- Security is a release gate. All UI/API/MCP/file operations enforce authenticated least-privilege organisation/branch/data access. Master admin does not automatically gain clinical-signing rights.
+- Enforce effective IP policy on backend paths through explicitly trusted proxies; no direct-origin/forwarded-header bypass or automatic per-visitor whitelisting. Recovery is audited/out of band.
+- MCP reuses business services; no arbitrary SQL/shell/URL tools, no unaudited high-impact writes. Compatible client connections need scoped authorisation and a permitted network path.
+- No silent deletion of signed records/final bills; use traceable corrections. Transactions/constraints must protect beds, stock and money under concurrency/retries.
+- Backups/imports/exports are privileged workflows. Portal backups have dependency manifests and cannot blindly restore shared data.
+- Cloud production is separate from GitHub push. No production deployment or paid resource is implied by a documentation task.
+- Expandable capacity; no 100-bed hard limit. Future call-center integration details/build are deferred. Rented premises/norms are owner-managed, not development blockers.
+
+## Handoff
+
+Report what changed, tests actually run, unfinished checks and verified push SHA. Leave work recoverable. Maintain explicit planned/implemented/verified/deployed distinctions in HMS.md.
