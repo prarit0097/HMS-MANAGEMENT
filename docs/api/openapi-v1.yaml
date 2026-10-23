@@ -2,8 +2,8 @@
   "openapi": "3.0.3",
   "info": {
     "title": "HMS API and bounded master configuration",
-    "version": "0.5.0",
-    "description": "Frozen first-slice design source, not a claim that every operation is verified or deployed. Session and CSRF protected hospital workspace. All capabilities outside this catalogue are deferred."
+    "version": "0.6.0",
+    "description": "Frozen first-slice design source, not a claim that every operation is verified or deployed. Session and CSRF protected hospital workspace. All capabilities outside this catalogue are deferred. Version0.6 catalogs46 operations:39 existing source operations and seven PLANNED Task03 network operations. StageB1 schema/parser foundation does not implement/advertise the seven routes or overlay enforcement."
   },
   "servers": [
     {
@@ -221,7 +221,7 @@
       "get": {
         "operationId": "getCurrentUser",
         "summary": "Read current identity and assigned context",
-        "description": "Read current identity and assigned context",
+        "description": "Read current identity and assigned context Planned network capability advertisement uses the existing permissions field only, no new public fields; unavailable state cannot advertise management.",
         "x-permission": "authenticated",
         "responses": {
           "200": {
@@ -256,6 +256,16 @@
           },
           "429": {
             "description": "Request rate exceeded; retry later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "PLANNED network integration: policy/database unavailable or corrupt; fail closed, no capability advertisement or environment-only summary success. Existing source integration not delivered by this contract.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1229,7 +1239,7 @@
       "get": {
         "operationId": "getPlatformSummary",
         "summary": "Read permitted nonclinical administration inventory",
-        "description": "Master-admin assignment only. No patient charts, clinical-signing rights, password hashes, connection secrets or backup contents. Configuration/security mutations remain unavailable.",
+        "description": "Master-admin assignment only. No patient charts, clinical-signing rights, password hashes, connection secrets or backup contents. Configuration/security mutations remain unavailable. Planned network projection changes effective ip_mode and adds policy_scope/blocked_addresses_apply metadata as documented; generic master visibility does not grant global policy management/read.",
         "x-permission": "platform.read",
         "responses": {
           "200": {
@@ -1264,6 +1274,16 @@
           },
           "429": {
             "description": "Request rate exceeded; retry later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "PLANNED network integration: policy/database unavailable or corrupt; fail closed, no capability advertisement or environment-only summary success. Existing source integration not delivered by this contract.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3372,6 +3392,1346 @@
           }
         }
       }
+    },
+    "/platform/network-policy/": {
+      "get": {
+        "operationId": "network_policy_read",
+        "summary": "Read deployment network access state",
+        "description": "PLANNED Stage A contract; not implemented or deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation.",
+        "x-permission": "platform.security.manage",
+        "x-implementation-status": "planned",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkState"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "validation_error: strict shape/type/header/query/UUID or candidate blocks current path.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not_authenticated: existing authenticated session and current epoch required.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "permission_denied, mfa_enrollment_required, mfa_step_up_required, network_denied or csrf_failed; no installation disclosures.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "not_found: concealed cross-actor/session object or unknown ID after authority check.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "network_policy_unavailable or network_owner_unavailable; fail closed, no fallback rules in error.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/platform/network-policy/previews/": {
+      "post": {
+        "operationId": "network_policy_preview",
+        "summary": "Preview a proposed network policy",
+        "description": "PLANNED Stage A contract; not implemented or deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation. POST strict object JSON only; no files, coercion or unknown fields; read at most32768 bytes regardless of Content-Length. Lock-order/post-wait current authority/path/revision/deadline rechecks apply to first attempts and replays. Browser/proxy must not automatically retry; ambiguous response requires state/history reload and exact operation retry only.",
+        "x-permission": "platform.security.manage",
+        "x-implementation-status": "planned",
+        "responses": {
+          "201": {
+            "description": "Success",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkPreview"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "validation_error: strict shape/type/header/query/UUID or candidate blocks current path.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not_authenticated: existing authenticated session and current epoch required.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "permission_denied, mfa_enrollment_required, mfa_step_up_required, network_denied or csrf_failed; no installation disclosures.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "not_found: concealed cross-actor/session object or unknown ID after authority check.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "network_policy_unavailable or network_owner_unavailable; fail closed, no fallback rules in error.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "network_revision_conflict, network_change_pending, network_preview_expired, network_preview_invalidated, network_change_expired, network_change_finished or idempotency_conflict.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "request_too_large: bounded body reader rejects more than 32768 bytes.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Unsupported media type: POST requires application/json.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Exact same-key/request replay; fixed original lifetime, no additional preview.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkPreview"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/CSRFToken"
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "description": "Required canonical lowercase UUID; absent/invalid400. Scoped actor+key; original validated payload/reason digest mismatch409. Replays recheck all current authority/bindings.",
+            "schema": {
+              "type": "string",
+              "maxLength": 36,
+              "minLength": 36,
+              "format": "uuid",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkPreviewRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/platform/network-policy/previews/{preview_id}/activate/": {
+      "post": {
+        "operationId": "network_policy_activate",
+        "summary": "Apply preview with five-minute rollback",
+        "description": "PLANNED Stage A contract; not implemented or deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation. POST strict object JSON only; no files, coercion or unknown fields; read at most32768 bytes regardless of Content-Length. Lock-order/post-wait current authority/path/revision/deadline rechecks apply to first attempts and replays. Browser/proxy must not automatically retry; ambiguous response requires state/history reload and exact operation retry only. expected_revision equals preview base revision. Fixed candidate/fallback and300-second rollback deadline; current IP must also pass candidate. At most one pending change.",
+        "x-permission": "platform.security.manage",
+        "x-implementation-status": "planned",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkChangeResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "validation_error: strict shape/type/header/query/UUID or candidate blocks current path.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not_authenticated: existing authenticated session and current epoch required.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "permission_denied, mfa_enrollment_required, mfa_step_up_required, network_denied or csrf_failed; no installation disclosures.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "not_found: concealed cross-actor/session object or unknown ID after authority check.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "network_policy_unavailable or network_owner_unavailable; fail closed, no fallback rules in error.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "network_revision_conflict, network_change_pending, network_preview_expired, network_preview_invalidated, network_change_expired, network_change_finished or idempotency_conflict.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "request_too_large: bounded body reader rejects more than 32768 bytes.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Unsupported media type: POST requires application/json.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/CSRFToken"
+          },
+          {
+            "name": "preview_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36,
+              "minLength": 36,
+              "format": "uuid",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+            },
+            "description": "Explicit UUID validation400; another actor/session object concealed404 after authority checks."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkRevisionRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/platform/network-policy/changes/{change_id}/confirm/": {
+      "post": {
+        "operationId": "network_policy_confirm",
+        "summary": "Keep the pending policy",
+        "description": "PLANNED Stage A contract; not implemented or deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation. POST strict object JSON only; no files, coercion or unknown fields; read at most32768 bytes regardless of Content-Length. Lock-order/post-wait current authority/path/revision/deadline rechecks apply to first attempts and replays. Browser/proxy must not automatically retry; ambiguous response requires state/history reload and exact operation retry only. expected_revision equals original activation revision. Equality with rollback deadline is expired409; confirm/revert cannot extend deadline. Exact terminal replay returns current terminal outcome without write; opposite/later-state actions conflict.",
+        "x-permission": "platform.security.manage",
+        "x-implementation-status": "planned",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkChangeResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "validation_error: strict shape/type/header/query/UUID or candidate blocks current path.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not_authenticated: existing authenticated session and current epoch required.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "permission_denied, mfa_enrollment_required, mfa_step_up_required, network_denied or csrf_failed; no installation disclosures.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "not_found: concealed cross-actor/session object or unknown ID after authority check.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "network_policy_unavailable or network_owner_unavailable; fail closed, no fallback rules in error.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "network_revision_conflict, network_change_pending, network_preview_expired, network_preview_invalidated, network_change_expired, network_change_finished or idempotency_conflict.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "request_too_large: bounded body reader rejects more than 32768 bytes.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Unsupported media type: POST requires application/json.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/CSRFToken"
+          },
+          {
+            "name": "change_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36,
+              "minLength": 36,
+              "format": "uuid",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+            },
+            "description": "Explicit UUID validation400; another actor/session object concealed404 after authority checks."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkRevisionRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/platform/network-policy/changes/{change_id}/revert/": {
+      "post": {
+        "operationId": "network_policy_revert",
+        "summary": "Restore the pending change fallback",
+        "description": "PLANNED Stage A contract; not implemented or deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation. POST strict object JSON only; no files, coercion or unknown fields; read at most32768 bytes regardless of Content-Length. Lock-order/post-wait current authority/path/revision/deadline rechecks apply to first attempts and replays. Browser/proxy must not automatically retry; ambiguous response requires state/history reload and exact operation retry only. expected_revision equals original activation revision. Equality with rollback deadline is expired409; confirm/revert cannot extend deadline. Exact terminal replay returns current terminal outcome without write; opposite/later-state actions conflict.",
+        "x-permission": "platform.security.manage",
+        "x-implementation-status": "planned",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkChangeResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "validation_error: strict shape/type/header/query/UUID or candidate blocks current path.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not_authenticated: existing authenticated session and current epoch required.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "permission_denied, mfa_enrollment_required, mfa_step_up_required, network_denied or csrf_failed; no installation disclosures.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "not_found: concealed cross-actor/session object or unknown ID after authority check.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "network_policy_unavailable or network_owner_unavailable; fail closed, no fallback rules in error.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "network_revision_conflict, network_change_pending, network_preview_expired, network_preview_invalidated, network_change_expired, network_change_finished or idempotency_conflict.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "request_too_large: bounded body reader rejects more than 32768 bytes.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Unsupported media type: POST requires application/json.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/CSRFToken"
+          },
+          {
+            "name": "change_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 36,
+              "minLength": 36,
+              "format": "uuid",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+            },
+            "description": "Explicit UUID validation400; another actor/session object concealed404 after authority checks."
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NetworkRevisionRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/platform/network-policy/history/": {
+      "get": {
+        "operationId": "network_policy_history",
+        "summary": "Read bounded network access change history",
+        "description": "PLANNED Stage A contract; not implemented or deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation.",
+        "x-permission": "platform.security.manage",
+        "x-implementation-status": "planned",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkHistory"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "validation_error: strict shape/type/header/query/UUID or candidate blocks current path.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "not_authenticated: existing authenticated session and current epoch required.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "permission_denied, mfa_enrollment_required, mfa_step_up_required, network_denied or csrf_failed; no installation disclosures.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "not_found: concealed cross-actor/session object or unknown ID after authority check.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "network_policy_unavailable or network_owner_unavailable; fail closed, no fallback rules in error.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetworkError"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 5,
+              "pattern": "^[0-9]{1,5}$",
+              "default": "25"
+            },
+            "description": "Single ASCII decimal1..100; reject, never clamp."
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 5,
+              "pattern": "^[0-9]{1,5}$",
+              "default": "0"
+            },
+            "description": "Single ASCII decimal0..10000; reject, never clamp."
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 35,
+              "minLength": 20,
+              "description": "Strict audit-history RFC3339/calendar/offset parser. after<before, <=90-day span. before clamped to now; default after=before-30days. Pinned returned UTC window."
+            },
+            "description": "Inclusive lower bound."
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 35,
+              "minLength": 20,
+              "description": "Strict audit-history RFC3339/calendar/offset parser. after<before, <=90-day span. before clamped to now; default after=before-30days. Pinned returned UTC window."
+            },
+            "description": "Exclusive upper bound."
+          },
+          {
+            "name": "outcome",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "pending",
+                "confirmed",
+                "reverted",
+                "expired",
+                "recovered",
+                "granted",
+                "revoked",
+                "bound",
+                "transferred"
+              ]
+            },
+            "description": "Single bounded outcome filter, at most11characters."
+          }
+        ]
+      }
+    },
+    "/network-policy/edge-probe/": {
+      "get": {
+        "operationId": "network_policy_edge_probe",
+        "summary": "Internal edge network decision probe",
+        "description": "PLANNED network-only internal probe, no staff authentication. Exact loopback peer must match explicit HMS_NETWORK_PROBE_PEERS, marker X-HMS-Network-Probe exactly1, empty query/body; marker alone insufficient. Invalid context404 before policy DB access. Resolver/environment AND time-selected overlay still enforced. Validated probe skips identity/session middleware; Cookie/Authorization ignored, no session creation/mutation, Set-Cookie or WWW-Authenticate. Fixed internal Nginx GET subrequest only; external exact route blocked404, ordinary proxied requests overwrite marker empty. HTTPS/trusted-forwarder topology, full portal auth_request satisfy all, no cache/retry and origin firewall separately verified. Does not grant patient access.",
+        "x-permission": "internal.network.probe",
+        "x-implementation-status": "planned",
+        "security": [],
+        "responses": {
+          "204": {
+            "description": "Network path allowed; empty body.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Network path denied; empty body.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Policy/database unavailable or corrupt; fail closed, empty body.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Invalid or externally exposed probe context; empty body.",
+            "headers": {
+              "Cache-Control": {
+                "description": "Always no-store.",
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -3536,7 +4896,8 @@
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "description": "Current active-assignment union. PLANNED StageB2 adds platform.security.manage only for configured/stored owner binding plus current active owner master membership and separately provisioned active NetworkOperator; no freshness requirement for navigation advertisement. All six management endpoints independently require enrolled/fresh MFA. Never add this deployment capability to branch_permissions or ordinary ROLE_PERMISSIONS; no owner/operator/rules fields added."
           },
           "branch_permissions": {
             "type": "object",
@@ -4032,12 +5393,28 @@
                 "enum": [
                   "allow_authenticated",
                   "allowlist_only"
-                ]
+                ],
+                "description": "PLANNED StageB2 effective deployment mode: allowlist_only if environment OR time-selected overlay is whitelist-only, otherwise allow_authenticated; blocks still apply. Never disclose environment/global rules to generic platform.read. Invalid/unavailable policy503. Existing source currently projects environment only."
+              },
+              "policy_scope": {
+                "type": "string",
+                "enum": [
+                  "effective_deployment"
+                ],
+                "description": "PLANNED additive StageB2 metadata, not currently implemented."
+              },
+              "blocked_addresses_apply": {
+                "type": "boolean",
+                "enum": [
+                  true
+                ],
+                "description": "PLANNED additive StageB2 metadata: block rules apply even when ip_mode is allow_authenticated."
               }
             },
             "required": [
               "ip_mode"
-            ]
+            ],
+            "description": "Existing source returns ip_mode only. Planned StageB2 additionally emits policy_scope and blocked_addresses_apply on every successful summary; optional in this transitional schema for compatibility with39existing source operations. No rules, owner binding or operator directory disclosed."
           },
           "modules": {
             "type": "array",
@@ -5287,6 +6664,815 @@
           "results",
           "window"
         ]
+      },
+      "NetworkPolicy": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "allowlist_only": {
+            "type": "boolean"
+          },
+          "allowlist": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[\\x09\\x20-\\x7e]{1,64}$"
+            },
+            "maxItems": 100
+          },
+          "blocklist": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[\\x09\\x20-\\x7e]{1,64}$"
+            },
+            "maxItems": 100
+          }
+        },
+        "required": [
+          "allowlist_only",
+          "allowlist",
+          "blocklist"
+        ],
+        "description": "Strict JSON booleans and at most 200 total rules. Raw input is1..64 ASCII characters before trimming ASCII space/tab only; trimmed result must be nonempty. ASCII addresses/CIDRs only, no controls/zones/ports/hostnames/comments. Whitelist-only requires a nonempty allowlist. Canonical output emits /32 or /128 exact addresses and sorted deduplicated networks. Mapped IPv6 prefix >=96 maps to IPv4. Blocks win; environment AND time-selected overlay must both allow. Cross-field/parser semantics are enforced beyond schema."
+      },
+      "NetworkPending": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "change_id": {
+            "type": "string",
+            "maxLength": 36,
+            "minLength": 36,
+            "format": "uuid",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "expired_unreconciled"
+            ]
+          },
+          "activated_at": {
+            "type": "string",
+            "maxLength": 32,
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$"
+          },
+          "rollback_at": {
+            "type": "string",
+            "maxLength": 32,
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$"
+          },
+          "activation_revision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "candidate": {
+            "$ref": "#/components/schemas/NetworkPolicy"
+          }
+        },
+        "required": [
+          "change_id",
+          "status",
+          "activated_at",
+          "rollback_at",
+          "activation_revision",
+          "candidate"
+        ]
+      },
+      "NetworkState": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "scope": {
+            "type": "string",
+            "enum": [
+              "deployment"
+            ]
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "owner_organisation": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "maxLength": 36,
+                "minLength": 36,
+                "format": "uuid",
+                "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+              },
+              "name": {
+                "type": "string",
+                "maxLength": 160,
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ]
+          },
+          "server_time": {
+            "type": "string",
+            "maxLength": 32,
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$"
+          },
+          "verified_client_ip": {
+            "type": "string",
+            "maxLength": 45,
+            "minLength": 1
+          },
+          "confirmed_policy": {
+            "$ref": "#/components/schemas/NetworkPolicy"
+          },
+          "effective_policy": {
+            "$ref": "#/components/schemas/NetworkPolicy"
+          },
+          "pending": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "change_id": {
+                "type": "string",
+                "maxLength": 36,
+                "minLength": 36,
+                "format": "uuid",
+                "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "pending",
+                  "expired_unreconciled"
+                ]
+              },
+              "activated_at": {
+                "type": "string",
+                "maxLength": 32,
+                "format": "date-time",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$"
+              },
+              "rollback_at": {
+                "type": "string",
+                "maxLength": 32,
+                "format": "date-time",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$"
+              },
+              "activation_revision": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9007199254740991
+              },
+              "candidate": {
+                "$ref": "#/components/schemas/NetworkPolicy"
+              }
+            },
+            "required": [
+              "change_id",
+              "status",
+              "activated_at",
+              "rollback_at",
+              "activation_revision",
+              "candidate"
+            ],
+            "nullable": true
+          },
+          "environment_allows_current_ip": {
+            "type": "boolean"
+          },
+          "effective_allows_current_ip": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "scope",
+          "revision",
+          "owner_organisation",
+          "server_time",
+          "verified_client_ip",
+          "confirmed_policy",
+          "effective_policy",
+          "pending",
+          "environment_allows_current_ip",
+          "effective_allows_current_ip"
+        ],
+        "description": "Pure coherent read; no reconciliation/session creation. At deadline effective policy is fallback while pending reports expired_unreconciled and stored revision is unchanged. No environment rules, proxy config, session hashes, epochs or entitlement directory."
+      },
+      "NetworkPreview": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "preview_id": {
+            "type": "string",
+            "maxLength": 36,
+            "minLength": 36,
+            "format": "uuid",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+          },
+          "base_revision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "policy": {
+            "$ref": "#/components/schemas/NetworkPolicy"
+          },
+          "normalisations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "list": {
+                  "type": "string",
+                  "enum": [
+                    "allowlist",
+                    "blocklist"
+                  ]
+                },
+                "index": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 99
+                },
+                "input": {
+                  "type": "string",
+                  "maxLength": 64,
+                  "minLength": 1
+                },
+                "canonical": {
+                  "type": "string",
+                  "maxLength": 49,
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "list",
+                "index",
+                "input",
+                "canonical"
+              ]
+            },
+            "maxItems": 200
+          },
+          "current_path": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "environment_allows": {
+                "type": "boolean"
+              },
+              "candidate_allows": {
+                "type": "boolean"
+              },
+              "effective_allows": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "environment_allows",
+              "candidate_allows",
+              "effective_allows"
+            ]
+          },
+          "can_activate": {
+            "type": "boolean"
+          },
+          "created_at": {
+            "type": "string",
+            "maxLength": 32,
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$"
+          },
+          "expires_at": {
+            "type": "string",
+            "maxLength": 32,
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$"
+          },
+          "server_time": {
+            "type": "string",
+            "maxLength": 32,
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$"
+          }
+        },
+        "required": [
+          "preview_id",
+          "base_revision",
+          "policy",
+          "normalisations",
+          "current_path",
+          "can_activate",
+          "created_at",
+          "expires_at",
+          "server_time"
+        ],
+        "description": "Fixed 300-second preview lifetime; exact replay never extends expiry. Normalisations include changed entries only. Server-resolved current path; candidate denial can preview but can_activate=false and activation is validation_error. Bind actor/owner/session/epoch/operator version/IP/environment/base revision. Idempotency fingerprint includes original validated request and reason."
+      },
+      "NetworkChangeResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "change_id": {
+            "type": "string",
+            "maxLength": 36,
+            "minLength": 36,
+            "format": "uuid",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+          },
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "confirmed",
+              "reverted",
+              "expired",
+              "recovered",
+              "owner_transferred"
+            ]
+          },
+          "activation_revision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "activated_at": {
+            "type": "string",
+            "maxLength": 32,
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$"
+          },
+          "rollback_at": {
+            "type": "string",
+            "maxLength": 32,
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$"
+          },
+          "finished_at": {
+            "type": "string",
+            "maxLength": 32,
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$",
+            "nullable": true
+          },
+          "server_time": {
+            "type": "string",
+            "maxLength": 32,
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$"
+          }
+        },
+        "required": [
+          "change_id",
+          "outcome",
+          "activation_revision",
+          "revision",
+          "activated_at",
+          "rollback_at",
+          "finished_at",
+          "server_time"
+        ],
+        "description": "Current singleton revision and current change outcome; reload state for rules. Activation fixes rollback_at=activated_at+300 seconds. Terminal replay does not reactivate or rewrite. Original request expected revisions are retained for exact retry decisions."
+      },
+      "NetworkEvent": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 36,
+            "minLength": 36,
+            "format": "uuid",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+          },
+          "created_at": {
+            "type": "string",
+            "maxLength": 32,
+            "format": "date-time",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "policy.activated",
+              "policy.confirmed",
+              "policy.reverted",
+              "policy.expired",
+              "policy.recovered",
+              "operator.granted",
+              "operator.revoked",
+              "owner.bound",
+              "owner.transferred"
+            ]
+          },
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "confirmed",
+              "reverted",
+              "expired",
+              "recovered",
+              "granted",
+              "revoked",
+              "bound",
+              "transferred"
+            ]
+          },
+          "actor": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9007199254740991
+              },
+              "username": {
+                "type": "string",
+                "maxLength": 150,
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "username"
+            ],
+            "nullable": true
+          },
+          "os_actor": {
+            "type": "string",
+            "maxLength": 150,
+            "minLength": 1,
+            "nullable": true
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 500
+          },
+          "change_id": {
+            "type": "string",
+            "maxLength": 36,
+            "minLength": 36,
+            "format": "uuid",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "nullable": true
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "before": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "allowlist_only": {
+                "type": "boolean"
+              },
+              "allowlist": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 64,
+                  "minLength": 1
+                },
+                "maxItems": 100
+              },
+              "blocklist": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 64,
+                  "minLength": 1
+                },
+                "maxItems": 100
+              }
+            },
+            "required": [
+              "allowlist_only",
+              "allowlist",
+              "blocklist"
+            ],
+            "description": "Strict JSON booleans and at most 200 total rules. Input trims ASCII space/tab only; ASCII addresses/CIDRs only, no controls/zones/ports/hostnames/comments. Whitelist-only requires a nonempty allowlist. Canonical output emits /32 or /128 exact addresses and sorted deduplicated networks. Mapped IPv6 prefix >=96 maps to IPv4. Blocks win; environment AND time-selected overlay must both allow. Cross-field/parser semantics are enforced beyond schema.",
+            "nullable": true
+          },
+          "after": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "allowlist_only": {
+                "type": "boolean"
+              },
+              "allowlist": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 64,
+                  "minLength": 1
+                },
+                "maxItems": 100
+              },
+              "blocklist": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 64,
+                  "minLength": 1
+                },
+                "maxItems": 100
+              }
+            },
+            "required": [
+              "allowlist_only",
+              "allowlist",
+              "blocklist"
+            ],
+            "description": "Strict JSON booleans and at most 200 total rules. Input trims ASCII space/tab only; ASCII addresses/CIDRs only, no controls/zones/ports/hostnames/comments. Whitelist-only requires a nonempty allowlist. Canonical output emits /32 or /128 exact addresses and sorted deduplicated networks. Mapped IPv6 prefix >=96 maps to IPv4. Blocks win; environment AND time-selected overlay must both allow. Cross-field/parser semantics are enforced beyond schema.",
+            "nullable": true
+          }
+        },
+        "required": [
+          "id",
+          "created_at",
+          "action",
+          "outcome",
+          "actor",
+          "os_actor",
+          "reason",
+          "change_id",
+          "revision",
+          "before",
+          "after"
+        ],
+        "description": "Only optional actor/os_actor/change_id/before/after contexts may project null for malformed stored context. Invalid required id/created_at/action/outcome/revision/reason fails503 network_policy_unavailable; never undeclared null, enum or raw JSON. Policy snapshot context is revalidated; corrupt effective policy always fails closed."
+      },
+      "NetworkHistory": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "count": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NetworkEvent"
+            },
+            "maxItems": 100
+          },
+          "window": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "after": {
+                "type": "string",
+                "maxLength": 32,
+                "format": "date-time",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$"
+              },
+              "before": {
+                "type": "string",
+                "maxLength": 32,
+                "format": "date-time",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{1,6})?Z$"
+              }
+            },
+            "required": [
+              "after",
+              "before"
+            ]
+          }
+        },
+        "required": [
+          "count",
+          "results",
+          "window"
+        ],
+        "description": "Dedicated operator-only projection, ordered -created_at,-id in [after,before). Pinned <=90-day window, default 30 days. Operator events have null before/after and no target user directory or command args; no raw JSON or security bindings. This does not broaden generic administration/self audit history."
+      },
+      "NetworkPreviewRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "expected_revision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "policy": {
+            "$ref": "#/components/schemas/NetworkPolicy"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 500,
+            "minLength": 10,
+            "description": "Trimmed 10..500 Unicode characters, no controls; plain text, never markup."
+          }
+        },
+        "required": [
+          "expected_revision",
+          "policy",
+          "reason"
+        ]
+      },
+      "NetworkRevisionRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "expected_revision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "expected_revision"
+        ]
+      },
+      "NetworkError": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1
+          },
+          "message": {
+            "type": "string",
+            "maxLength": 500,
+            "minLength": 1
+          },
+          "field_errors": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "expected_revision": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 500,
+                  "minLength": 1
+                },
+                "maxItems": 20
+              },
+              "policy": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 500,
+                  "minLength": 1
+                },
+                "maxItems": 20
+              },
+              "allowlist_only": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 500,
+                  "minLength": 1
+                },
+                "maxItems": 20
+              },
+              "allowlist": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 500,
+                  "minLength": 1
+                },
+                "maxItems": 20
+              },
+              "blocklist": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 500,
+                  "minLength": 1
+                },
+                "maxItems": 20
+              },
+              "reason": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 500,
+                  "minLength": 1
+                },
+                "maxItems": 20
+              },
+              "preview_id": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 500,
+                  "minLength": 1
+                },
+                "maxItems": 20
+              },
+              "change_id": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 500,
+                  "minLength": 1
+                },
+                "maxItems": 20
+              },
+              "limit": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 500,
+                  "minLength": 1
+                },
+                "maxItems": 20
+              },
+              "offset": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 500,
+                  "minLength": 1
+                },
+                "maxItems": 20
+              },
+              "after": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 500,
+                  "minLength": 1
+                },
+                "maxItems": 20
+              },
+              "before": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 500,
+                  "minLength": 1
+                },
+                "maxItems": 20
+              },
+              "outcome": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 500,
+                  "minLength": 1
+                },
+                "maxItems": 20
+              },
+              "Idempotency-Key": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 500,
+                  "minLength": 1
+                },
+                "maxItems": 20
+              },
+              "non_field_errors": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "maxLength": 500,
+                  "minLength": 1
+                },
+                "maxItems": 20
+              }
+            }
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "description": "Strict allowlisted fields and bounded plain messages; never echo complete malicious input or installation/fallback rules. Response adapter bounds errors before returning. Unsupported media type415 is a structured error. No request_id/extra fields in this network-specific projection."
       }
     }
   },

@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.10.0,24October2026: owner04:30AM IST resume verified at23:02:32UTC primary100%/weekly84% (later90%/83%). ICTHospital reference comparison complete as research, no imported code/new module delivery. Task03 network contract/OpenAPI freeze and independent pre-code review next; full product/release gates incomplete, preview47b3618unchanged.
+**Status:** Version1.10.1,24October2026: owner04:30AM IST resume verified at23:02:32UTC primary100%/weekly84% (later90%/83%). ICTHospital reference comparison complete as research, no imported code/new module delivery. Task03 contract/OpenAPI0.6.0 frozen after independent pre-code review; StageB1 parser/schema RED tests next,7network APIs planned/39existing source APIs; full product/release gates incomplete, preview47b3618unchanged.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -432,7 +432,14 @@ Consumes: AccessContext and reviewed identity provider/session strategy; produce
 
 ### Task 03 — IP policy and cloud-edge trust boundary
 
-Next design: [network-access proposal](docs/implementation/network-access-design.md) records explicit installation operator/owner authority, unconditional MFA, envANDDBoverlay/failclosed, preview/deadline rollback, fullportalstatic+APIguard and auditedOOBrecovery. Draft only; exact contract/OpenAPI/payload limits/migration/edge tests must freeze before code. No operator/policy/edge provisioning performed.
+Execution contract: [frozen network-access contract](docs/implementation/network-access-contract.md) supersedes the [original proposal](docs/implementation/network-access-design.md). StageA freezes exact7planned operations/OpenAPI0.6.0 (46catalogued39implemented), page actions, closed schemas/limits, owner+separateOSoperator+unconditionalMFA, post-wait effective policy/authority, immutable linked snapshots/fixed rollback, private history/OOB recovery and actual fullportal edge acceptance. No live provisioning or runtime management delivered.
+
+- [x] StageA exact scenario/permission/threat/test design and independent bounded pre-code security/edge review; corrected probe middleware/HTTPS/cookie semantics, corrupt snapshot links, owner errors, effective summary and API IDs. Root schema/map/link verification before code; full security/production approval not inferred.
+- [ ] StageB1 RED-first `apps/security/network_policy.py` canonical_policy/policy_digest/validate_saved_policy; `core/network_models.py`, model discovery and migration0007 with singleton/unique/revision/time constraints. Individual saved-policy validation only. Test migration/constraints on actual PostgreSQL. No runtime wiring, advertised capability or new route in this bounded foundation.
+- [ ] StageB2 exact API/service/OOB and middleware integration, runtime state graph validation, private history, effective summary/current-user ceiling and full permission/CSRF/expiry/replay/real-PG race checks. Only then advertise/activate network management.
+- [ ] StageC API client Network access UI and named page-action tests/representative synthetic walkthroughs.
+- [ ] StageD isolated actual Nginx module/config/HTTP tests across BasicANDnetwork, HTML/assets/SPA/API/HEAD/range/conditional/private probe/forged headers/DBfailure/rollback/HTTPS/direct-origin; templates alone are insufficient.
+- [ ] StageE separately authorised reviewed rollout/migration/bootstrap/recovery and live verification; preserve other VPS apps and initial preview until then.
 
 Partial evidence23October2026: pure resolver/evaluator complete and independently rerun22 tests/25 subtests passed. Request middleware and preview edge/network integration are verified; policy-management UI and timed rollback/recovery remain open; do not mark Task03 fully complete.
 
@@ -773,3 +780,5 @@ Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration
 - 1.9.2 —24October2026: Owner scheduled resume override at 2026-10-23T22:04:30Z: resume 24 October 2026 at 04:30 AM IST (2026-10-23T23:00:00Z), replacing the former 23:51:54.627991Z deadline only. Authenticated usage at scheduling: primary2%remaining, weekly85%remaining; 100% recovery is owner expectation, not verified. No implementation before the new time; resume only all applicable windows available and>10%. Original18:21:54.627991Z stop/history preserved, no new low-reading deadline/reset credit. Same heartbeat now daily04:30 local wake; future fresh<=10% stops still require checkpoint+330minutes and updating this same heartbeat. First resume task: source/licence/security/feature comparison of ictinnovations/ICTHospital against plan.md, then pending network-access design freeze. No code copied or source implementation/deployment performed by this scheduling change. Scheduling is best effort; PC/Codex/repository/credentials must be available.
 
 - 1.10.0 —24October2026: authenticated scheduled resume; source-pinned ICTHospital comparison, bounded reviews, future lab candidate/reporting/reminder design dispositions and no imported code or deployed changes.
+
+- 1.10.1 —24October2026: freeze exact Task03 network contract and7planned OpenAPI/page actions after bounded pre-code review; B1 parser/schema-only foundation next, no runtime deployment or complete IP-management claim.

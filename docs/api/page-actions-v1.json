@@ -1,6 +1,6 @@
 {
-  "version": "0.5.0",
-  "scope": "Phase A subset of plan.md page catalogue. API contract existence is distinct from implementation/verification/deployment. Frontend combines subset pages into tabs; not every API action has a UI control yet.",
+  "version": "0.6.0",
+  "scope": "Phase A subset of plan.md page catalogue. API contract existence is distinct from implementation/verification/deployment. Frontend combines subset pages into tabs; not every API action has a UI control yet. Version0.6 catalogs46operations:39existing source and seven planned Task03 network operations; no StageB1 endpoint/advertisement claim.",
   "actions": [
     {
       "id": "system.health",
@@ -274,6 +274,62 @@
       "action": "List own security activity",
       "operation_id": "listOwnSecurityActivity",
       "permission": "authenticated"
+    },
+    {
+      "id": "M06.network_read",
+      "page": "M06",
+      "action": "Read deployment network access state",
+      "operation_id": "network_policy_read",
+      "permission": "platform.security.manage",
+      "implementation_status": "planned"
+    },
+    {
+      "id": "M06.network_preview",
+      "page": "M06",
+      "action": "Preview proposed rules",
+      "operation_id": "network_policy_preview",
+      "permission": "platform.security.manage",
+      "implementation_status": "planned"
+    },
+    {
+      "id": "M06.network_activate",
+      "page": "M06",
+      "action": "Apply preview with timed rollback",
+      "operation_id": "network_policy_activate",
+      "permission": "platform.security.manage",
+      "implementation_status": "planned"
+    },
+    {
+      "id": "M06.network_confirm",
+      "page": "M06",
+      "action": "Keep pending policy",
+      "operation_id": "network_policy_confirm",
+      "permission": "platform.security.manage",
+      "implementation_status": "planned"
+    },
+    {
+      "id": "M06.network_revert",
+      "page": "M06",
+      "action": "Restore pending fallback",
+      "operation_id": "network_policy_revert",
+      "permission": "platform.security.manage",
+      "implementation_status": "planned"
+    },
+    {
+      "id": "M07.network_history",
+      "page": "M07",
+      "action": "Read bounded network change history",
+      "operation_id": "network_policy_history",
+      "permission": "platform.security.manage",
+      "implementation_status": "planned"
+    },
+    {
+      "id": "SYSTEM.network_edge_probe",
+      "page": "SYSTEM",
+      "action": "Internal edge network decision",
+      "operation_id": "network_policy_edge_probe",
+      "permission": "internal.network.probe",
+      "implementation_status": "planned"
     }
   ],
   "deferred_actions": [

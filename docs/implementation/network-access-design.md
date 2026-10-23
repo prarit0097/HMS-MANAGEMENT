@@ -1,6 +1,6 @@
 # Network access control — design proposal, not an implemented feature
 
-Status: planning draft. No new API/model/command/edge configuration is delivered by this document. Next implementer must freeze the exact OpenAPI/page/action/permission/failure/state/test contract before code. Read HMS.md, plan.md Task03, ledger and current usage checkpoint first. Existing preview47b3618 remains unchanged.
+Status: historical planning draft, superseded for execution by [the frozen network-access contract](network-access-contract.md). No new API/model/command/edge configuration is delivered by this document. Next implementer must freeze the exact OpenAPI/page/action/permission/failure/state/test contract before code. Read HMS.md, plan.md Task03, ledger and current usage checkpoint first. Existing preview47b3618 remains unchanged.
 
 ## Owner requirement and architectural decision
 

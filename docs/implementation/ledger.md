@@ -1,5 +1,11 @@
 # SDD ledger — plan: plan.md
 
+## Network StageA frozen / B1 foundation next —24October2026
+
+- Exactnetwork-access-contract/OpenAPI0.6.0/page-map7planned46catalogued39implemented frozen before production code. Designer grounded actual source/resolver/identity/edge; fresh independent security/edge reviewer resolved Importantprecisions and found no remainingImportantCriticaldesignblocker. No application/edge tests run for design.
+- Ruling: retain explicitowner+OSoperator+currentMaster+unconditional900sMFA, envANDDBoverlay/failclosed, pureguard/GET andfixed300srollback, boundpreviews/privateevents/OOB. CurrentUseradvertisement andeffectivePlatformSummaryadditions planned only. SeparateB1purepolicy/digest+models/migration fromB2runtimegraph/API/middleware; costifinsufficient laterexplicitcontractrevision, neverpartialmanagementclaim. Rulerawinput<=64beforetrim alignsOpenAPI/normalisations.
+- Rootcheckedexactoperationpreservation/metadatachanges. Rootvalidator/map/link/19projecttests/stagedsecret atpublication; actualresearch2a77b39CI40038077419success. No source/runtime/operator/proxy/policy/deployedmigration changes. FirstB1REDtest/modelmigrationfixture design, thenminimumproductioncode/review/realPGchecks. RootaloneGit; preview47b3618/otherapps preserved.
+
 ## Scheduled resume verified / ICTHospital comparison —24October2026
 
 - Reached owner04:30AM IST boundary; clock23:02:32UTC and authenticatedprimary100%/weekly84% permit resume. Later90%/83%; guardcontinue23:05:01UTC/minimum83%. Priorstop/override history preserved, no reset credit. All earlieragentscompleted; newfive specialist roles in batches (features, security, network designer, research quality, network pre-code review), no duplicate old slices. CoordinatoraloneGit.
