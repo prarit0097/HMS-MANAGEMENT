@@ -19,7 +19,7 @@ ALLOWED_HOSTS = os.getenv('HMS_ALLOWED_HOSTS', '127.0.0.1,localhost,testserver' 
 ROOT_URLCONF = 'hms.urls'
 WSGI_APPLICATION = 'hms.wsgi.application'
 INSTALLED_APPS = ['django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'rest_framework', 'apps.core']
-MIDDLEWARE = ['django.middleware.security.SecurityMiddleware', 'apps.core.middleware.NetworkPolicyMiddleware', 'django.contrib.sessions.middleware.SessionMiddleware', 'django.middleware.common.CommonMiddleware', 'django.middleware.csrf.CsrfViewMiddleware', 'django.contrib.auth.middleware.AuthenticationMiddleware', 'django.middleware.clickjacking.XFrameOptionsMiddleware']
+MIDDLEWARE = ['django.middleware.security.SecurityMiddleware', 'apps.core.middleware.NetworkPolicyMiddleware', 'django.contrib.sessions.middleware.SessionMiddleware', 'django.middleware.common.CommonMiddleware', 'django.middleware.csrf.CsrfViewMiddleware', 'django.contrib.auth.middleware.AuthenticationMiddleware', 'apps.core.middleware.IdentitySessionMiddleware', 'django.middleware.clickjacking.XFrameOptionsMiddleware']
 DB_ENGINE = os.getenv('HMS_DB_ENGINE', 'sqlite' if DEBUG else 'postgresql')
 if DB_ENGINE == 'sqlite' and DEBUG:
     DATABASES = {'default': {'ENGINE': 'django.db.backends.sqlite3', 'NAME': BASE_DIR / 'db.sqlite3'}}
@@ -66,3 +66,6 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
+
+HMS_REQUIRE_ADMIN_MFA = env_boolean('HMS_REQUIRE_ADMIN_MFA', '0' if DEBUG else '1')
+HMS_MFA_ENCRYPTION_KEYS = os.getenv('HMS_MFA_ENCRYPTION_KEYS', '')

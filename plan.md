@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.7.1,23October2026: scoped staff access delivered in source with4APIs/27total, core0004, active-membership enforcement and branch-focused UI. Actual PostgreSQL213passed/25subtests, frontend49passed/typecheck/build; two Important review issues fixed with7RED regressions. MFA/security contract and9APIextensions frozen36total/27implemented; independent pre-code review and RED-first implementation next; full Task02/release gates incomplete. Live preview47b3618unchanged; future<=10usage rule remains.
+**Status:** Version1.7.2,23October2026: USAGE STOP primary9%/weekly25%; checkpoint14:38:35.257381UTC, earliest20:08:35.257381UTC (24October1:38:35AM IST) plus allwindows>10. Staff69f4fda verified/CIgreen. Identity9newops36total source WIP236PG/25subtests/64frontend-agent pass, known proof-age-after-lock and security coverage/review unfinished. Preview47b3618unchanged; no implementation during cooldown.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -640,9 +640,9 @@ Per-task test names above define their assertions. Additional narrow tests are a
 ### Active identity security —23October2026
 
 - [x] Exact identity-security-contract.md and OpenAPI0.4/page-map9operations frozen36total; official PyOTP/Fernet/Django/NIST/OWASP research and separate pre-code threat review. Existing-factor proof, anonymous CSRF and locked revocation design explicit.
-- [ ] Backend encrypted factor/challenge/recovery/attempt/epoch state,9self APIs and policy integration with observed RED tests; direct-service ceilings and actualPG races.
-- [ ] Frontend login202 second step and Account security with transient secrets/confirmation/plain policy guidance; RED/full tests/typecheck/build.
-- [ ] Fresh source review, root actualPG/frontend/root/API/docs checks and coherent verified push/actualCI. Live47b3618unchanged; full recovery/read audit/clinical product incomplete.
+- [ ] Backend WIP present: core0005five identity models,9self APIs/login202/logout, encrypted factors/hash recovery/DB budgets/epochs and identity locks, RED tests. Frozen candidate actualPG236passed/25subtests/check/nodrift. Complete proof-age recheck after org-lock waits and missing full API/race/negative coverage before marking delivered.
+- [x] Frontend source login202/Account security/all9APIs, transient setup/recovery codes with acknowledgement/secret clearing/plain policy guidance;15new tests,64total/typecheck/build. Source-only; full security integration/browser/staff acceptance incomplete.
+- [ ] Fresh source review started but stopped at usage threshold, no full approval. Root actualPG236passed/25subtests; frontend-agent64/build. Next reproduce/fix proof-age-after-lock, test ciphertextswap/enrollment expiry+crosssession+replay/anonymousverifyCSRF/accountwindow/challenge/profile/fullrevokewrite races, finishreview and actualCI. Live47b3618unchanged; no real-data release.
 
 ### Active staff access —23October2026
 
@@ -735,3 +735,8 @@ Create feature branches/PRs when repository protection or agreed workflow requir
 - 1.7.0 —23October2026: verified scoped staff access, active branch permissions and revocation/snapshot consistency;213PG/49frontend, MFA next, preview separate.
 
 - 1.7.1 —23October2026: staff actualCI verified, frozen9operation identity-security contract/API before code, dedicated encryption/replay/session/counter/privileged MFA design.
+
+- 1.7.2 —23October2026: new9%usage checkpoint/330min cooldown; identitysourceWIP236PG/64frontend-agent, knownproofage/negative-racecoverage/review pending, existingpreviewunchanged.
+
+
+Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration stale-bed-edit test could not find Edit bed101 within timed wait); agent earlier64passed. Coordinator typecheck/build still passed. Affected test isolated rerun is recorded in ledger/handoff; this does not establish a repaired full suite. No source changes after stop. Investigate/repeat full suite after cooldown before marking identity delivered.

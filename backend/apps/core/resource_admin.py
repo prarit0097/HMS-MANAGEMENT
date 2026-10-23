@@ -32,6 +32,8 @@ def configuration_organisation(user, organisation_id):
 
 
 def locked_configuration_organisation(user, organisation_id):
+    from .identity_security import lock_platform
+    lock_platform(user)
     organisation = configuration_organisation(user, organisation_id)
     # Staff revocation locks this same organisation. Reauthorise AFTER a wait,
     # retaining a no-key lock so ordinary FK checks remain compatible.

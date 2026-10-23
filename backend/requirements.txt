@@ -6,3 +6,5 @@ pytest-django==4.11.1
 asgiref==3.12.1
 sqlparse==0.6.0
 tzdata==2026.5
+PyOTP==2.10.0
+cryptography==50.0.2

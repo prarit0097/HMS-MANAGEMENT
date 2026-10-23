@@ -7,6 +7,8 @@ ROLE_PERMISSIONS = {'reception': READ | {'patients.write', 'appointments.write',
 def branch_ids(user, action):
     if not user.is_authenticated or not user.is_active:
         return set()
+    from .identity_security import require_session
+    require_session(user)
     roles = [role for role, permissions in ROLE_PERMISSIONS.items() if action in permissions]
     return set(Membership.objects.filter(user=user, is_active=True, role__in=roles).values_list('branch_id', flat=True))
 

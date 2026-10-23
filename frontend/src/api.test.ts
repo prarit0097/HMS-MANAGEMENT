@@ -14,7 +14,7 @@ describe('authorised API boundary', () => {
   });
   it('preserves the denied response and field errors instead of returning fake success', async () => {
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response(JSON.stringify({code: 'denied', message: 'Access denied', field_errors: {branch: ['Not assigned']}}), {status:403})));
-    await expect(api('patients/')).rejects.toMatchObject({status:403, message:'Access denied', fields:{branch:['Not assigned']}});
+    await expect(api('patients/')).rejects.toMatchObject({status:403, code:'denied', message:'Access denied', fields:{branch:['Not assigned']}});
   });
   it('turns an unreachable server into an actionable connection error', async () => {
     vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('Failed to fetch')));

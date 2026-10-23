@@ -116,3 +116,5 @@ class StaffAccessRevision(UUIDModel):
 
     class Meta:
         constraints = [models.UniqueConstraint(fields=['organisation', 'user'], name='unique_staff_access_revision')]
+
+from .security_models import IdentitySecurity, IdentityEnrollment, IdentityChallenge, IdentityBackupCode, IdentityNetworkBudget

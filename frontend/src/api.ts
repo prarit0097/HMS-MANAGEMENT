@@ -1,5 +1,5 @@
 export class ApiError extends Error {
-  constructor(message: string, public status: number, public fields: Record<string, string[]> = {}) { super(message); }
+  constructor(message: string, public status: number, public fields: Record<string, string[]> = {}, public code = '') { super(message); }
 }
 export async function api<T = unknown>(path: string, options: RequestInit = {}): Promise<T> {
   const headers = new Headers(options.headers);
@@ -17,7 +17,7 @@ export async function api<T = unknown>(path: string, options: RequestInit = {}):
   }
   if (response.status === 204) return undefined as T;
   const body = await response.json().catch(() => null);
-  if (!response.ok) throw new ApiError(body?.message || (response.status === 403 ? 'You do not have permission for this action.' : 'The request could not be completed. Please try again.'), response.status, body?.field_errors || {});
+  if (!response.ok) throw new ApiError(body?.message || (response.status === 403 ? 'You do not have permission for this action.' : 'The request could not be completed. Please try again.'), response.status, body?.field_errors || {}, body?.code || '');
   if (body === null) throw new ApiError('The server returned an unexpected response. Please try again.', response.status);
   return body as T;
 }

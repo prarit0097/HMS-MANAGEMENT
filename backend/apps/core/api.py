@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.middleware.csrf import get_token
 from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.debug import sensitive_post_parameters, sensitive_variables
 from django.utils.decorators import method_decorator
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
@@ -53,6 +54,7 @@ def csrf(request):
     return Response({'detail': 'CSRF cookie set'})
 
 @method_decorator(csrf_protect, name='dispatch')
+@method_decorator(sensitive_post_parameters(), name='dispatch')
 class Login(APIView):
     permission_classes = [AllowAny]
     class LoginThrottle(SimpleRateThrottle):
@@ -60,22 +62,29 @@ class Login(APIView):
         rate = '10/min'
         def get_cache_key(self, request, view):
             return self.cache_format % {'scope': self.scope, 'ident': getattr(request, 'verified_client_ip', request.META.get('REMOTE_ADDR', 'unknown'))}
-    throttle_classes = [LoginThrottle]
+    throttle_classes = []
+    @sensitive_variables()
     def post(self, request):
-        if not isinstance(request.data, dict):
-            raise ValidationError({'non_field_errors': 'Send a JSON object with named fields.'})
+        from .identity_security import strict, network_budget
+        strict(request.data, {'username', 'password'}, {'username', 'password'})
+        budget = network_budget(request)
+        if budget is not None:
+            return budget
         if not isinstance(request.data.get('username'), str) or not isinstance(request.data.get('password'), str) or len(request.data.get('username', '')) > 150 or len(request.data.get('password', '')) > 1024:
             return Response({'code': 'invalid_credentials', 'message': 'Unable to sign in with these details.'}, status=401)
         user = authenticate(request, username=request.data.get('username', ''), password=request.data.get('password', ''))
         if user is None:
             return Response({'code': 'invalid_credentials', 'message': 'Unable to sign in with these details.'}, status=401)
-        login(request, user)
-        return Response(current_user(user))
+        from .identity_security import begin_login
+        return begin_login(request, user)
 
-@api_view(['POST'])
-def sign_out(request):
-    logout(request)
-    return Response(status=204)
+@method_decorator(csrf_protect, name='dispatch')
+class Logout(APIView):
+    permission_classes = [AllowAny]
+    authentication_classes = []
+    def post(self, request):
+        logout(request)
+        return Response(status=204)
 
 @api_view(['GET'])
 def me(request):

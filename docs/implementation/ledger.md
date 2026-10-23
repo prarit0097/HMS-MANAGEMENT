@@ -1,5 +1,15 @@
 # SDD ledger — plan: plan.md
 
+## NEW usage checkpoint / identity WIP —23October2026
+
+- Coordinator checkpoint frontend repeat failed reproducibly: full63passed/1failed, isolated stale-bed-edit test also1failed/9skipped (cannot find Edit bed101 at resource-administration.test.tsx:48). Typecheck/build passed. Earlier agent64pass is not current full-suite approval. Resume must diagnose this exact regression with systematic debugging before claiming GREEN; no source repair performed during cooldown.
+
+- Authenticatedprimary9%remainingweekly25 triggeredstop; localguardcheckpoint2026-10-23T14:38:35.257381Z, earliest2026-10-23T20:08:35.257381Z(24October1:38:35AM IST). Activebackend/frontend/freshreviewer stopped, no newimplementation afterthreshold. Sameheartbeat330min, noresetcredit; earlierownerresume waivedolddeadlineonly.
+- Preserved backend0005IdentitySecurity/Enrollment/Challenge/BackupCode/NetworkBudget, purposeboundFernet/PyOTP/hashrecovery/DBbudgets/epoch+stableUserno_key locks and9APIadapters/login202/anonymousCSRFlogout. FrontendAccountSecurity/loginchallenge/all9ops/transientsecrets/guardedacknowledgement/errorguidance. Dependencieslocal+separatecandidatevenv only; no live47b3618schema/runtime/keychange.
+- Backendinitial9RED; statusPOST405/sessionrotation/loginpasswordrace/boundsRED->GREEN. Localfocused21passed2PGskips; earlierfull227passed7PGskips25subtests beforelast2tests. RootfirstactualPGsnapshot4failed230passed25subtests(sessionrotation+3FKdeadlocks), existingfixesNO KEY UPDATE/cycle_key then finalfrozensnapshot236passed25subtests/0skips17.68s, system0/no drift/testDBcleanup/CREATEDBrevoked. Rootcandidatevenv/validationdir separatefromdeployedruntime. Frontend64tests/typecheck/build,15newidentitytests withREDack/secretcleanup.
+- Freshindependentreview actualsource read-only, no tests, stoppedatthreshold/no fullapproval. Knownpre-releasework: proof freshness mustrecheckafterorglockwait; ciphertextswap/enrollmentexpiry+crosssession+consumed/anonymousverifyCSRF/fixedaccountwindow+challengeattempt/racecoverage; full revoke-vs-platformwrite/firstprofile/latestchallengePGtests. Existing factorhelperPGonewinner tests are notfullAPIproof. PreserveWIP/blockedrelease, notcompleteidentity.
+- Nextresume(afterdeadline ANDallwindows>10): readthisledger/currentSHA/CI, avoidduplicateagents; REDproofageafterwait thenfix, addexactmissingcoverage, finishfreshreview/integratedtests/livingdocs/verifiedpush. No repeatstaff69f4fda/deployment. RootalonecheckpointsGit; finalSHAat handoff. No realdata orsecrets inGit.
+
 ## Identity security design frozen —23October2026
 
 - Staff69f4fda push/remoteSHA verified and actualGitHubCI39968605247success213PG/25subtests,49frontend/build,19root/contract/Compose/docs at14:20:02UTC. No live deployment;47b3618preserved.
@@ -95,3 +105,6 @@
 - First resume: regression >100beds -> fix pageable admission selection -> affected UI/API checks; finish independent review; inspect/repair actual GitHubCI/PostgreSQL; reconcile contract/UI parity and continue next planned slice.
 - Ruling: checkpoint source is WIP on feature branch, not main/production. Preserve incomplete but recoverable work with honest evidence; do not make a security or capacity claim from code presence.
 - Coordinator checkpoint rerun: backend47passed1PGskip25subtests (56.72s); frontend typecheck,8tests,build passed. Source/API-map/local-link checker passed. Targeted credential-pattern scan60files passed. No full runtime review, PostgreSQL race or container execution claim.
+
+
+Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration stale-bed-edit test could not find Edit bed101 within timed wait); agent earlier64passed. Coordinator typecheck/build still passed. Affected test isolated rerun is recorded in ledger/handoff; this does not establish a repaired full suite. No source changes after stop. Investigate/repeat full suite after cooldown before marking identity delivered.

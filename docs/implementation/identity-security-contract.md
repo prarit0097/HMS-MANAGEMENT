@@ -10,6 +10,8 @@
 
 **Spec:** HMS.md sections9/14, plan.md Task02, AGENTS.md; latest owner continuation. Staff69f4fda source completed and actual push CI39968605247passed213backend/25subtests,49frontend,19root. Existing live preview remains47b3618.
 
+Key handling, rotation, user guidance and still-unchecked deployment gates are recorded in [identity security operations](../operations/IDENTITY-SECURITY.md). This prepared runbook is not deployment evidence.
+
 ## Decisions and alternatives
 
 - Coordinator ruling under existing implementation authorisation: use local authenticator TOTP with dedicated encrypted secrets, rather than hosted identity (new provider/cost/account decision) or unencrypted stock TOTP fields. Cost if insufficient is future federated identity/WebAuthn migration. TOTP is not phishing resistant; no claim of strongest assurance/full hospital readiness. Self enrollment is optional for ordinary roles in this slice; privileged unsafe platform writes require it outside development by default. Full recovery/organisation policy remains release work.
@@ -62,6 +64,10 @@ Production policy: HMS_REQUIRE_ADMIN_MFA defaults true outside development, fals
 4. Revocation/epoch races during locked writes; password/factor changes invalidate existing sessions/challenges; legacy epoch0compat no hidden GETwrites; other/all scope semantics.
 5. UI password202cannotmountworkspace, setup/confirm/codesack/error/conflict/expiry/plain policy prompts, no storage/outbound secrets; ordinary staff/mixedbranch tests preserved. No real data, live browser/staff acceptance or deployment inferred.
 
+## Checkpoint status —23October2026
+
+Implementation present/WIP; stop at9%primary/25%weekly. Final frozen actualPG236passed/25subtests/check/no drift andfrontend-agent64/typecheck/build; source review incomplete. Firstresume mustREDtest/fix proof freshness after organisation-lock waits and complete ciphertextswap/enrollment expiry+crosssession+replay/anonymous verifyCSRF/fixedwindow/challenge/fullrevokewrite+firstprofile+latestchallenge races. No fullapproval/deployment. See latestledger/usagecheckpoint. Do not mistake these pending tasks for delivered security.
+
 ## Implementation tasks
 
 - [ ] Freeze OpenAPI/page-action schemas and independently review threats/scenario matrix before production code. Record package versions/choice provenance.
@@ -71,3 +77,6 @@ Production policy: HMS_REQUIRE_ADMIN_MFA defaults true outside development, fals
 - [ ] Operational key/recovery/factor replacement instructions; no key or real account enrolled/deployed by this source slice. Full Task02/recovery/read-audit/real staff acceptance still incomplete.
 
 Primary research reviewed23October2026: [PyOTP](https://pypi.org/project/PyOTP/), [API](https://pyauth.github.io/pyotp/), [cryptography](https://pypi.org/project/cryptography/), [Fernet/key rotation](https://cryptography.io/en/latest/fernet/), [Django sessions](https://docs.djangoproject.com/en/5.2/topics/auth/default/), [NIST authenticators](https://pages.nist.gov/800-63-4/sp800-63b/authenticators/), [NIST lifecycle](https://pages.nist.gov/800-63-4/sp800-63b/events/), [OWASP MFA](https://cheatsheetseries.owasp.org/cheatsheets/Multifactor_Authentication_Cheat_Sheet.html). TOTP limitations/recovery remain explicit; no breach-proof assurance.
+
+
+Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration stale-bed-edit test could not find Edit bed101 within timed wait); agent earlier64passed. Coordinator typecheck/build still passed. Affected test isolated rerun is recorded in ledger/handoff; this does not establish a repaired full suite. No source changes after stop. Investigate/repeat full suite after cooldown before marking identity delivered.

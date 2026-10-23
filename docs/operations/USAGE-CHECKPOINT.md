@@ -2,12 +2,16 @@
 
 Owner instruction: when any applicable Codex usage window has 10% or less remaining, checkpoint HMS.md and stop new work; resume no earlier than 5 hours30minutes later and only with recovered usage.
 
-State: ACTIVE_OWNER_RESUMED
-checkpoint_at_utc: null
-resume_not_before_utc: null
+State: COOLDOWN_CHECKPOINTED
+
+Current unresolved frontend evidence: coordinator full63passed/1failed and isolated1failed/9skipped, stale-bed-edit Edit bed101 not found; earlier agent64green does not override this repeatable failure. First resume diagnoses it alongside proof-age-after-lock and missing security scenarios. No implementation during cooldown.
+checkpoint_at_utc: 2026-10-23T14:38:35.257381Z
+resume_not_before_utc: 2026-10-23T20:08:35.257381Z
 owner_resume_at_utc: 2026-10-23T13:36:49Z
 
-Latest owner message: Continue limit aa gyi hai puri. Coordinator treats this direct instruction to resume now as an explicit waiver of the prior15:19:16UTC deadline. Authenticated at13:36:49UTC: primary100%remaining, weekly40%remaining (not all windows fully reset). Guard then evaluated current minimum39%remaining/continue at13:40. Historical09:49:16stop/15:19:16deadline preserved in ledger and ignored guard history. No reset credit consumed, no automatic waiver from recovery alone. New future<=10reading still creates fresh330minute cooldown. Same native heartbeat updated in place; no duplicate team/schedule.
+NEW STOP23October2026: authenticatedprimary9%remaining/weekly25%; earliestresume24October1:38:35AM IST and allwindows>10. Activeagentsstopped, identitysourceWIP236PG/25subtests/64frontend-agent, proof-age-after-orglockwait and negative/racecoverage/fullreview pending. Resume exactledger tasks, no newworkduringcooldown. Sameheartbeatupdated, noresetcredit/deadlineextension. Current owner message below predates this newcheckpoint and does not waiveit.
+
+Historical owner message: Continue limit aa gyi hai puri. Coordinator treats this direct instruction to resume now as an explicit waiver of the prior15:19:16UTC deadline. Authenticated at13:36:49UTC: primary100%remaining, weekly40%remaining (not all windows fully reset). Guard then evaluated current minimum39%remaining/continue at13:40. Historical09:49:16stop/15:19:16deadline preserved in ledger and ignored guard history. No reset credit consumed, no automatic waiver from recovery alone. New future<=10reading still creates fresh330minute cooldown. Same native heartbeat updated in place; no duplicate team/schedule.
 
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330
@@ -21,3 +25,6 @@ Before substantive work and bounded task boundaries, coordinator calls get_usage
 At threshold: notify agents to checkpoint, stop assignments, preserve their changes/evidence, update HMS.md/plan.md/ledger, run safe bounded checks, commit/push if possible and record actual failures rather than claiming success. Record UTC checkpoint and earliest resume. Preserve an unelapsed deadline on repeated low readings. Update the same native heartbeat rather than create duplicates. No Windows scheduled credential-scraping script is used; native scheduling has authenticated usage access. Scheduler requires local PC/Codex/repo availability and cannot guarantee an exact wall-clock wake.
 
 On wake: read this state, Git status/log and implementation ledger; do not duplicate a still-running team; enforce deadline and usage first. Continue from the first incomplete reviewed task. Stay quiet during unchanged cooldown checks. Disable automation only on actual completion or owner cancellation.
+
+
+Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration stale-bed-edit test could not find Edit bed101 within timed wait); agent earlier64passed. Coordinator typecheck/build still passed. Affected test isolated rerun is recorded in ledger/handoff; this does not establish a repaired full suite. No source changes after stop. Investigate/repeat full suite after cooldown before marking identity delivered.

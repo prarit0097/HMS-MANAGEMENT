@@ -106,6 +106,8 @@ def staff_audit(actor, target, organisation, before, after, branch_id, action):
 
 
 def locked_organisation(actor, organisation_id):
+    from .identity_security import lock_platform
+    lock_platform(actor)
     # No permission decision before this lock may authorise the write. Sibling
     # admins racing to suspend one another must observe the winner's revocation.
     organisation_id = serializers.UUIDField().run_validation(organisation_id)
