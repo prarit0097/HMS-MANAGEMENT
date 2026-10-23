@@ -29,3 +29,5 @@ Owner's usage rule: coordinator checks authenticated get_usage_limits at start a
 Report what changed, tests actually run, unfinished checks and verified push SHA. Leave work recoverable. Maintain explicit planned/implemented/verified/deployed distinctions in HMS.md.
 
 An explicit later owner instruction can waive an existing cooldown; record the instruction/time and authenticated usage in checkpoint/ledger, preserve history and update the same heartbeat. Recovery alone never waives a deadline. Latest recorded owner general-resume override:23October2026 at17:44:21Z; future <=10% stops remain mandatory.
+
+Latest owner scheduling override:23October2026 at22:04:30Z, resume24October04:30AM IST (23October23:00Z) only if authenticated all applicable windows>10%. This replaces the former23:51:54.627991Z deadline; original stop remains historical. Future fresh<=10% stops still require330minutes. First resumed task is ICTHospital source/licence/feature comparison against plan.md.

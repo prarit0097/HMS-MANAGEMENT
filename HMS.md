@@ -1,8 +1,8 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.9.1 | Updated: 23 October 2026, Asia/Calcutta
+Document version: 1.9.2 | Updated: 24 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
-Current state: **VERIFIED SOURCE CHECKPOINT — development paused by usage rule.** New primary10%/weekly86%remaining at2026-10-23T18:21:54.627991UTC; earliest resume2026-10-23T23:51:54.627991UTC (24October5:21:54AM IST), only all windows>10%. Source16b6ca3 actualCI40002404443success301PG/25subtests,72frontend,19root. Identity and scoped journal verified; network-access design proposal saved, exact contract/code pending. Existing Hostinger preview47b3618unchanged; full HMS/release gates remain.
+Current state: **OWNER-SCHEDULED RESUME PENDING — 24 October 2026, 04:30 AM IST**, subject to authenticated all-window usage>10%. Prior stop/history preserved; original 05:21:54 AM deadline superseded only by this explicit owner instruction. Verified source16b6ca3 and restricted live preview47b3618 unchanged. First resume: ICTHospital reference comparison, then pending network design. Full HMS/release gates remain.
 
 ## 1. Read this first
 
@@ -484,3 +484,8 @@ Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration
 - Saved network-access-design.md as planning proposal only, based independent IP/security/topology specialist. Explicit operator entitlement+owner binding, unconditional MFA, envANDDB/failclosed, durable preview/change/deadline/recovery, fullportalstatic/SPA/API Nginxguard and required tests. No new API/model/code/CLI/live provision; OpenAPI stays0.5/39implemented. Next exact contract/OpenAPI must freeze before RED implementation.
 - NEW usage boundary primary10%remaining/weekly86% at18:21:54.627991UTC. All agents already completed; no new assignments/implementation after threshold. Localguardcheckpoint_and_stop, earliest23:51:54.627991UTC/24October5:21:54AM IST, allwindows>10 required. Sameheartbeat updated330minutes, no reset credit/deadline extension. Prior17:44owner resume waived only olddeadline, not this new stop.
 - Completed this owner-resumed run: identity freshness/negative/concurrency review and audit-history source, final301PG/72frontend/19root, local synthetic MFArecovery/history visuals. Full recovery/read audit/clinical/finance/MCP/dataops and realstaff/security/load/restore release gates remain. Existing live47b3618and otherVPSapps preserved. Rootcheckpoint/docs checks/stagedsecretcomparison/verifiedpushSHA recorded in handoff; newdoc-onlyCI may remain unchecked until resume.
+
+### CHG-0022 —24October2026 — Owner schedules earlier resume and repository review
+
+- Owner scheduled resume override at 2026-10-23T22:04:30Z: resume 24 October 2026 at 04:30 AM IST (2026-10-23T23:00:00Z), replacing the former 23:51:54.627991Z deadline only. Authenticated usage at scheduling: primary2%remaining, weekly85%remaining; 100% recovery is owner expectation, not verified. No implementation before the new time; resume only all applicable windows available and>10%. Original18:21:54.627991Z stop/history preserved, no new low-reading deadline/reset credit. Same heartbeat now daily04:30 local wake; future fresh<=10% stops still require checkpoint+330minutes and updating this same heartbeat. First resume task: source/licence/security/feature comparison of ictinnovations/ICTHospital against plan.md, then pending network-access design freeze. No code copied or source implementation/deployment performed by this scheduling change. Scheduling is best effort; PC/Codex/repository/credentials must be available.
+- Evidence: authenticated usage, existing heartbeat update success and saved scheduling/docs checks; no application tests rerun for this documentation-only change. Publication SHA verified separately.

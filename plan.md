@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.9.1,23October2026: USAGE STOP primary10%remaining/weekly86% at18:21:54.627991UTC; earliest23:51:54.627991UTC (24October5:21:54AM IST), allwindows>10. Verifiedsource16b6ca3CI40002404443success301PG/25subtests,72frontend,19root. Network-access design draft saved; exact contract/API/test freeze next before code. Full product/release gates incomplete, preview47b3618unchanged.
+**Status:** Version1.9.2,24October2026: owner schedules04:30AM IST resume (23October23:00UTC), superseding only former05:21:54deadline. All-window usage>10% still required; latestprimary2%/weekly85%. No implementation resumed. First compare ICTHospital repository to this plan; then freeze pending network-access contract. Verified source/live preview unchanged.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -759,3 +759,5 @@ Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration
 - 1.9.0 —23October2026: audit-history3GETs verified39total/301PG+25subtests/72frontend; strictredactions/datequery/indexes and boundedprivacyreview, sourceonly.
 
 - 1.9.1 —23October2026: auditactualCIgreen301/72/19, network-access planningdraft; new10%usagecheckpoint18:21:54UTC/330min cooldown to23:51:54UTC, sourceverified/previewunchanged.
+
+- 1.9.2 —24October2026: Owner scheduled resume override at 2026-10-23T22:04:30Z: resume 24 October 2026 at 04:30 AM IST (2026-10-23T23:00:00Z), replacing the former 23:51:54.627991Z deadline only. Authenticated usage at scheduling: primary2%remaining, weekly85%remaining; 100% recovery is owner expectation, not verified. No implementation before the new time; resume only all applicable windows available and>10%. Original18:21:54.627991Z stop/history preserved, no new low-reading deadline/reset credit. Same heartbeat now daily04:30 local wake; future fresh<=10% stops still require checkpoint+330minutes and updating this same heartbeat. First resume task: source/licence/security/feature comparison of ictinnovations/ICTHospital against plan.md, then pending network-access design freeze. No code copied or source implementation/deployment performed by this scheduling change. Scheduling is best effort; PC/Codex/repository/credentials must be available.

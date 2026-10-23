@@ -1,5 +1,10 @@
 # SDD ledger — plan: plan.md
 
+## Owner schedules resume and ICTHospital review —24October2026
+
+- Owner scheduled resume override at 2026-10-23T22:04:30Z: resume 24 October 2026 at 04:30 AM IST (2026-10-23T23:00:00Z), replacing the former 23:51:54.627991Z deadline only. Authenticated usage at scheduling: primary2%remaining, weekly85%remaining; 100% recovery is owner expectation, not verified. No implementation before the new time; resume only all applicable windows available and>10%. Original18:21:54.627991Z stop/history preserved, no new low-reading deadline/reset credit. Same heartbeat now daily04:30 local wake; future fresh<=10% stops still require checkpoint+330minutes and updating this same heartbeat. First resume task: source/licence/security/feature comparison of ictinnovations/ICTHospital against plan.md, then pending network-access design freeze. No code copied or source implementation/deployment performed by this scheduling change. Scheduling is best effort; PC/Codex/repository/credentials must be available.
+- Scheduling/docs-only change; no application tests or repository analysis claimed.
+
 ## NEW usage stop / verified audit source / network proposal —23October2026
 
 - Authenticatedprimary10%remainingweekly86%; guardcheckpoint2026-10-23T18:21:54.627991Z, earliest2026-10-23T23:51:54.627991Z(24October5:21:54AM IST). All specialists completed beforestop; no newimplementation/assignments atthreshold. Noresetcredit, no active deadline extension. Owner17:44resume waivedold20:08deadline only, notthisnewstop. Sameheartbeat330min updated.
