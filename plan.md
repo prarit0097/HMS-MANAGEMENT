@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.9.0,23October2026: bounded identity36source operations verified after lock-expiry and test synchronization fixes. Actual PostgreSQL259passed/25subtests, frontend64/typecheck/build, bounded independent source approval. Owner17:44resume/future10%rule preserved. Audit-history3GEToperations delivered39source total, actualPG301/25subtests and frontend72/typecheck/build, bounded privacy review approved. IP policy next. Full Task02human recovery/read audit and remaining product/release gates incomplete; preview47b3618unchanged.
+**Status:** Version1.9.1,23October2026: USAGE STOP primary10%remaining/weekly86% at18:21:54.627991UTC; earliest23:51:54.627991UTC (24October5:21:54AM IST), allwindows>10. Verifiedsource16b6ca3CI40002404443success301PG/25subtests,72frontend,19root. Network-access design draft saved; exact contract/API/test freeze next before code. Full product/release gates incomplete, preview47b3618unchanged.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -432,6 +432,8 @@ Consumes: AccessContext and reviewed identity provider/session strategy; produce
 
 ### Task 03 — IP policy and cloud-edge trust boundary
 
+Next design: [network-access proposal](docs/implementation/network-access-design.md) records explicit installation operator/owner authority, unconditional MFA, envANDDBoverlay/failclosed, preview/deadline rollback, fullportalstatic+APIguard and auditedOOBrecovery. Draft only; exact contract/OpenAPI/payload limits/migration/edge tests must freeze before code. No operator/policy/edge provisioning performed.
+
 Partial evidence23October2026: pure resolver/evaluator complete and independently rerun22 tests/25 subtests passed. Request middleware and preview edge/network integration are verified; policy-management UI and timed rollback/recovery remain open; do not mark Task03 fully complete.
 
 Files: `backend/apps/security/{ip_policy,policy_changes,middleware}.py`, `backend/apps/security/tests/test_ip_policy.py`, `frontend/src/features/admin/ip-policy/`, proposed `infra/edge/` config.
@@ -755,3 +757,5 @@ Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration
 - 1.8.1 —23October2026: identityactualCIgreen; freeze3GET scoped administration/selfsecurity journal design39catalogued beforecode, privacy review complete.
 
 - 1.9.0 —23October2026: audit-history3GETs verified39total/301PG+25subtests/72frontend; strictredactions/datequery/indexes and boundedprivacyreview, sourceonly.
+
+- 1.9.1 —23October2026: auditactualCIgreen301/72/19, network-access planningdraft; new10%usagecheckpoint18:21:54UTC/330min cooldown to23:51:54UTC, sourceverified/previewunchanged.

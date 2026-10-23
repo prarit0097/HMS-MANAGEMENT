@@ -1,8 +1,8 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.9.0 | Updated: 23 October 2026, Asia/Calcutta
+Document version: 1.9.1 | Updated: 23 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
-Current state: **VERIFIED BOUNDED IDENTITY AND AUDIT-HISTORY SOURCE; development continues.** Owner17:44:21UTC resume/both100%remaining waived only oldcooldown. Current39source operations, core0005identity/core0006audit indexes and scoped history verified with actual PostgreSQL301passed/25subtests, frontend72passed/typecheck/build, bounded independent review. Bed-edit test synchronization and proof expiry after lock waits resolved. Full recovery/read audit/remaining HMS release gates remain. Hostinger preview47b3618unchanged; future<=10%rule remains.
+Current state: **VERIFIED SOURCE CHECKPOINT — development paused by usage rule.** New primary10%/weekly86%remaining at2026-10-23T18:21:54.627991UTC; earliest resume2026-10-23T23:51:54.627991UTC (24October5:21:54AM IST), only all windows>10%. Source16b6ca3 actualCI40002404443success301PG/25subtests,72frontend,19root. Identity and scoped journal verified; network-access design proposal saved, exact contract/code pending. Existing Hostinger preview47b3618unchanged; full HMS/release gates remain.
 
 ## 1. Read this first
 
@@ -77,7 +77,7 @@ These are intended combined capabilities, not claims of unique inventions or pro
 | Runtime | Containerised services; production Linux; local Windows development supported | Hostinger preview runs dedicated Gunicorn/systemd/static Nginx and private containerised PostgreSQL; development Compose remains separate |
 | Remote MCP | Authenticated HTTP endpoint with supported MCP transport/version | Not implemented |
 | Cloud provider | Hostinger existing VPS selected for this authenticated preview; private database, future file storage unprovisioned | Dedicated /opt/hms preview resources created on owner existing VPS |
-| CI/testing | pytest, Vitest/component tests and contract/docs checks; remaining e2e/security/load gates | Current audit source actual PostgreSQL301passed/25subtests/0skips16.14s, frontend72passed/typecheck/build; system/migration checks clean and bounded source review approved. Identity2c65c57actualGitHubCI39998933249success259backend/25subtests,64frontend,19root/OpenAPI/Compose/docs independently verified; future audit-source CI separate. Preview deployment remains separate |
+| CI/testing | pytest, Vitest/component tests and contract/docs checks; remaining e2e/security/load gates | Current audit source actual PostgreSQL301passed/25subtests/0skips16.14s, frontend72passed/typecheck/build; system/migration checks clean and bounded source review approved. Audit16b6ca3actualGitHubCI40002404443success301backend/25subtests15.69s,72frontend/typecheck/build,19root/OpenAPI/Compose/docs decoded and verified; deployedpreview separate. Preview deployment remains separate |
 
 The language direction is the current planning baseline from previous recommendations, not proof of delivered capacity. Supported mutually compatible versions will be pinned and recorded before scaffolding. Docker Compose is a proposed local integration tool, not an automatic production deployment architecture.
 
@@ -200,6 +200,9 @@ Required design controls:
 The production exposure, hosting, legal retention and incident obligations are configured with the hospital; premises compliance remains outside this software assignment.
 
 ## 10. IP allowlist / blocklist / whitelist-only policy
+
+Next-slice [network-access design proposal](docs/implementation/network-access-design.md) records independent source/topology research and coordinator choices: explicit installation-owner organisation plus separately OS-provisioned NetworkOperator entitlement/current master membership, unconditional recent MFA for global management, environment ceiling AND durable singleton overlay, fail-closed DB errors, bound preview/apply/confirm/revert with fixed rollback, and full-portal Nginx auth_request guard. This is a planning draft, not a frozen API contract or implemented feature. Ordinary master creation must not grant installation security authority; no visitor auto-whitelisting. API-only guard cannot satisfy full portal retrieval restriction. Exact schemas/models/migration/recovery/edge acceptance remain before code; no live policy/entitlement/edge change was made.
+
 
 Cloud hosting and IP restriction are compatible: users can connect remotely only when the effective network and identity policy allows it.
 
@@ -474,3 +477,10 @@ Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration
 - RootfinalactualPG301passed25subtests/0skips16.14s, system0/no drift and index/EXPLAIN check; temporary testDBcleaned/CREATEDBrevoked, live47b3618runtime/schema unchanged. Priorlocalfull282pass16PGskips25subtests before last3parsercases, targetedfinal41pass1PGskip. Rootfrontend72pass26.75s/typecheck/build after isolated staff18pass; earlier parallel71pass1timeout preserved as evidence, no timeout increase. Finalspacing-only followupbuild+browserchecked.
 - Local browser synthetic stale-epoch re-login, MFA202challenge/recoveryverification, ownsecurityactivity and masterhistory/detail render verified. Pre-enrolled synthetic fixture (not actualbrowserenrollment), private testkeys/data/screenshots ignored. Detailpadding reusedexistingdetail-body after screenshot showed flush body. Fullstaff/livebrowser/production/immutability/read-audit remain separategates.
 - NewsourceCIchecked afterpush separately; prioridentity2c65CI39998933249green. RootOpenAPI/map/docs/19checks/stagedsecrets/remoteSHA at publication. NextTask03globalIPpolicy planning: explicit operator authority, envANDDBpolicy, failclosed, timedrollback, fullportalstaticguard and auditedoutofbandrecovery; no live policy deployment by this change. Commit: feat: add scoped administration history and own security activity.
+
+### CHG-0021 —23October2026 — Verified audit CI, network design draft and fresh usage stop
+
+- Exact16b6ca3 remoteSHA verified; actualpushCI40002404443success18:20:48UTC, all3jobs. Rootdecoded logs: backend301passed/25subtests15.69s/check/nodrift; frontend72/typecheck/build; root19/OpenAPI/Composequiet/docs. No new test or deployment inferred from the workflow file.
+- Saved network-access-design.md as planning proposal only, based independent IP/security/topology specialist. Explicit operator entitlement+owner binding, unconditional MFA, envANDDB/failclosed, durable preview/change/deadline/recovery, fullportalstatic/SPA/API Nginxguard and required tests. No new API/model/code/CLI/live provision; OpenAPI stays0.5/39implemented. Next exact contract/OpenAPI must freeze before RED implementation.
+- NEW usage boundary primary10%remaining/weekly86% at18:21:54.627991UTC. All agents already completed; no new assignments/implementation after threshold. Localguardcheckpoint_and_stop, earliest23:51:54.627991UTC/24October5:21:54AM IST, allwindows>10 required. Sameheartbeat updated330minutes, no reset credit/deadline extension. Prior17:44owner resume waived only olddeadline, not this new stop.
+- Completed this owner-resumed run: identity freshness/negative/concurrency review and audit-history source, final301PG/72frontend/19root, local synthetic MFArecovery/history visuals. Full recovery/read audit/clinical/finance/MCP/dataops and realstaff/security/load/restore release gates remain. Existing live47b3618and otherVPSapps preserved. Rootcheckpoint/docs checks/stagedsecretcomparison/verifiedpushSHA recorded in handoff; newdoc-onlyCI may remain unchecked until resume.

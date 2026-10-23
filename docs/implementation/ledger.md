@@ -1,5 +1,12 @@
 # SDD ledger — plan: plan.md
 
+## NEW usage stop / verified audit source / network proposal —23October2026
+
+- Authenticatedprimary10%remainingweekly86%; guardcheckpoint2026-10-23T18:21:54.627991Z, earliest2026-10-23T23:51:54.627991Z(24October5:21:54AM IST). All specialists completed beforestop; no newimplementation/assignments atthreshold. Noresetcredit, no active deadline extension. Owner17:44resume waivedold20:08deadline only, notthisnewstop. Sameheartbeat330min updated.
+- Source16b6ca3be4a09e4e9ca50dacdb234ceea223e4e1 push/remoteSHA verified. ActualCI40002404443completed success18:20:48UTC; rootdecoded all3logs:301PG/25subtests15.69s/check/nodrift,72frontend/typecheck/build,19root/OpenAPI/Composequiet/docs. LocalactualPG301/25subtests16.14s and rootfrontend72 previouslyrecorded. No unresolvedboundedidentity/audit findings; fullhospital/release gates remain.
+- Newnetwork-access-design.md is DRAFT/planning only, notnewAPI/model/code. Independent specialist establishedexplicitOS-provisioned operatorentitlementANDcurrentownerMaster, envANDdurableoverlayfailclosed, fixedpreview/deadlinerollback, auditedrecovery and fullportalstatic/API Nginxguard (APIonlyinsufficient). OfficialNginxreferences inproposal. Scopeguards/OOBauthority/DBdependence/tradeoffs recorded; exactpayload/schema/migration/test gate remains.
+- Firstresume(afterdeadlineANDallwindows>10): readlatestGit/CI/HMS/plan/thisledger/usage; avoidrepeatidentity/audit/staff/deployment orduplicaterunningteam. Freeze network-access exactcontract/OpenAPI and security/edge/pre-codeacceptance, then RED-firstbackend/frontend/infra in bounded batches. Full Task03notdelivered; no livepolicyoperator/edgechanges orpaidresources. Existingpreview47b3618/runtime/schema andotherVPSapps unchanged. NewcheckpointdocCI mayremainunverifieduntilresume; finalSHAathandoff.
+
 ## Verified audit-history source —23October2026
 
 - Delivered audit_history.py/3GETs/newmasterauditread/currentMFA+scope,0006twoindexes, strictquery/window/projections and lazyAuditHistoryUI/admin+selfintegration. No clinical/globalforeign/rawJSON/GETwrite/immutable/read-audit/export claim. Precodecontract+privacyreview frozenfirst; initial18RED, hostileenums2RED, offsets2RED and calendarshape3RED beforefix. RFC3339contract/schema clarifiedbeforeparsercode.
