@@ -1,8 +1,8 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.10.1 | Updated: 24 October 2026, Asia/Calcutta
+Document version: 1.11.0 | Updated: 24 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
-Current state: **ACTIVE — owner-scheduled 24 October 04:30 AM IST resume verified.** Authenticated23October23:02:32UTC primary100%/weekly84%remaining; later bounded check90%/83%. ICTHospital comparison is documentation/planning input only; Task03 exact network contract/OpenAPI0.6.0 frozen; StageB1 parser/schema tests next, runtime pending. Verified source16b6ca3 and restricted live preview47b3618 unchanged; full HMS/release gates remain.
+Current state: **ACTIVE — owner-scheduled 24 October 04:30 AM IST resume verified.** Authenticated23October23:02:32UTC primary100%/weekly84%remaining; later bounded check90%/83%. ICTHospital comparison is documentation/planning input only; Task03 exact network contract/OpenAPI0.6.0 frozen; StageB1 parser/schema verified; StageB2 transactional snapshot/API/OOB integration pending. Verified source16b6ca3 and restricted live preview47b3618 unchanged; full HMS/release gates remain.
 
 ## 1. Read this first
 
@@ -227,6 +227,16 @@ Support IPv4/IPv6 canonicalisation, exact addresses, CIDR, enabled flag, purpose
 Policy changes need preview, current-session validation, step-up MFA, audit and timed rollback/confirmation. A tested out-of-band recovery process uses cloud/VPN/identity controls; it is not a hidden unauthenticated URL. Never bypass a deny rule by silently adding a recovery exception.
 
 Remote ChatGPT/Claude client egress may differ from the user's browser IP. Configure an explicit approved private gateway or narrow integration policy under the organisation's network ceiling. If a compatible network path cannot be established, MCP remains blocked; never silently disable whitelist-only mode to make a connector work.
+
+### Network StageB1 source foundation — verified, no runtime activation
+
+`apps/security/network_policy.py` independently implements canonical_policy, policy_digest and validate_saved_policy: strict three-field JSON, real booleans, raw ASCII rule length1..64,100rules/list before dedup, decimal CIDR prefixes1..3digits, mapped-IP equivalence, deterministic ordering and detached snapshots. Stored rules must already be canonical and SHA256-matched; invalid data raises ValueError rather than repairing it. SHA256 detects inconsistencies and is not protection against a database operator recomputing hashes.
+
+`core/network_models.py`/model discovery and migration0007 add NetworkPolicyState, NetworkOperator, NetworkPolicyPreview, NetworkPolicyChange and private NetworkPolicyEvent; exact fields in [foundation schema](docs/implementation/network-foundation-schema.md). Database constraints bound singleton/revisions, unique operator/key/activation/result links, exact300s timestamps, terminal scalar consistency and event enums. Migration inserts only an unbound unrestricted overlay with digest; no environment read, user/operator grant or policy activation. Reversal refuses nonpristine state/history, including corrupt JSON integer0 substituted for booleanfalse. Cross-row graph/authority checks, immutable service writes and request enforcement remain StageB2; no DB-superuser immutability claim.
+
+TDD evidence: parser final17RED then39targeted passes/168subtests; model discoveryRED then targeted33SQLitepasses. Fresh independent review reproduced one Important reverse bool/int equality defect; actual MigrationExecutor regression RED then strict historical JSON comparison GREEN. Reviewer final33passes and658additional parser probes, no unresolved Critical/Important/Minor in boundedB1. Root final isolated actual PostgreSQL **351passed/168subtests19.98s**, systemcheck0/no drift; temporary testDB absent and CREATEDB revoked, original preview service active. Earlier346PG21.20s and local330/16skips precede final5reverse cases/fix and are historical. Default-Python full parser-agent attempt lacked pyotp; corrected candidate runtime supplied actual full evidence.
+
+OpenAPI remains0.6.0/46catalogued39implemented: all7network APIs still planned. No current-user advertisement, summary behaviour, middleware, API, UI, OS command, operator, owner binding or Nginx/runtime policy was enabled. Migration0007 ran only in disposable validation DB; initial47b3618preview/live schema preserved. Frontend unchanged; historical72tests/build are not a newly rerun UI result. Next: coherent read-only graph selector, then full StageB2 services/APIs/OOB, UI and edge gates.
 
 ## 11. MCP connectivity
 
@@ -514,3 +524,9 @@ Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration
 - Exact Task03 contract and OpenAPI0.6.0/page-action map define7planned/46catalogued operations, preserving39source APIs. Six fresh-MFA owner+OSoperator management capabilities, internal network-only probe, closed bounded schemas, strict retries/deadlines/error/recovery/history and fullportal edge acceptance; existing current-user/effective-summary changes explicitly planned.
 - Independent security/edge reviewer identified and resolved middleware-order/probe cookies, malformed owner enforcement, pending crosslinks, post-lock effective-path, summary, environment trust and production HTTPS requirements. No remaining Important/Critical blocker found in bounded design review; not code/runtime/production approval. Coordinator raw-rule pretrim64limit and B1 individual-snapshot/B2 graph separation rulings prevent schema/implementation ambiguity; cost if insufficient is later explicit contract revision, never silent fail-open.
 - StageB1 parser/schema-only tests and source are next after freeze; no runtime/API/model/permission/migration/deployment delivered in this commit. Source statuses, tests and live47b3618remain distinct. Root validator/map/link/project19checks/stagedsecretcomparison at publication; research2a77b39actualCI40038077419success verified. Commit subject: docs: freeze network access authority rollback and edge contracts.
+
+### CHG-0025 —24October2026 — Verify network parser and durable schema foundation
+
+- StageB1 strict purepolicy/digest helpers,5durable models/core0007 and exact fieldmap/tests implemented without exposing network APIs or changing runtime enforcement. Decimal-prefix/pretrim grammar clarified in frozen contract/OpenAPI;46catalogued39implemented unchanged.
+- Tests first: parser17RED/modeldiscoveryRED. Fresh reviewer Important migration False==0 defect reproduced by actualMigrationExecutorRED, historical strictJSON comparison fixed; finalindependent33schema passes/658parserprobes and no unresolvedboundedfinding. RootfinalactualPG351passed168subtests19.98s/check0/nodrift, testDBcleaned/CREATEDBrevoked; livepreviewservice remainsactive. No full security/hospital readiness claim.
+- RootOpenAPI/map/links/stagedwhitespace/privatecredentialchecks atpublication;19projectchecks23.898s previouslyrunthisunit. StageA8dbe1b0actualCI40038659241success verified; newsourceCI checkedseparately. Newsource notdeployed, no liveoperator/owner/policy/edgechange. NextStageB2 graph/transaction/API/OOB design/RED work. Commit: feat: add verified network policy parser and schema foundation.

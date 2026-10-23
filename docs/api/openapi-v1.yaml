@@ -6698,7 +6698,7 @@
           "allowlist",
           "blocklist"
         ],
-        "description": "Strict JSON booleans and at most 200 total rules. Raw input is1..64 ASCII characters before trimming ASCII space/tab only; trimmed result must be nonempty. ASCII addresses/CIDRs only, no controls/zones/ports/hostnames/comments. Whitelist-only requires a nonempty allowlist. Canonical output emits /32 or /128 exact addresses and sorted deduplicated networks. Mapped IPv6 prefix >=96 maps to IPv4. Blocks win; environment AND time-selected overlay must both allow. Cross-field/parser semantics are enforced beyond schema."
+        "description": "Strict JSON booleans and at most 200 total rules. Raw input is1..64 ASCII characters before trimming ASCII space/tab only; trimmed result must be nonempty. ASCII addresses/CIDRs only, no controls/zones/ports/hostnames/comments. Whitelist-only requires a nonempty allowlist. Canonical output emits /32 or /128 exact addresses and sorted deduplicated networks. Mapped IPv6 prefix >=96 maps to IPv4. Blocks win; environment AND time-selected overlay must both allow. Cross-field/parser semantics are enforced beyond schema. Exact IPs or CIDRs with one to three ASCII decimal prefix digits only; no dotted netmask/hostmask, signs or extra slashes. Leading zeroes normalise. Raw rule length is bounded before trimming SP/HT; trimmed value must be nonempty."
       },
       "NetworkPending": {
         "type": "object",

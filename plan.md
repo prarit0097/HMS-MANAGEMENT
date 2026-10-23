@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.10.1,24October2026: owner04:30AM IST resume verified at23:02:32UTC primary100%/weekly84% (later90%/83%). ICTHospital reference comparison complete as research, no imported code/new module delivery. Task03 contract/OpenAPI0.6.0 frozen after independent pre-code review; StageB1 parser/schema RED tests next,7network APIs planned/39existing source APIs; full product/release gates incomplete, preview47b3618unchanged.
+**Status:** Version1.11.0,24October2026: owner04:30AM IST resume verified at23:02:32UTC primary100%/weekly84% (later90%/83%). ICTHospital reference comparison complete as research, no imported code/new module delivery. Task03 contract/OpenAPI0.6.0 frozen after independent pre-code review; StageB1 parser/schema verified351PG/168subtests, StageB2 snapshot/transaction/API/OOB integration next;7network APIs planned/39existing source APIs; full product/release gates incomplete, preview47b3618unchanged.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -435,7 +435,7 @@ Consumes: AccessContext and reviewed identity provider/session strategy; produce
 Execution contract: [frozen network-access contract](docs/implementation/network-access-contract.md) supersedes the [original proposal](docs/implementation/network-access-design.md). StageA freezes exact7planned operations/OpenAPI0.6.0 (46catalogued39implemented), page actions, closed schemas/limits, owner+separateOSoperator+unconditionalMFA, post-wait effective policy/authority, immutable linked snapshots/fixed rollback, private history/OOB recovery and actual fullportal edge acceptance. No live provisioning or runtime management delivered.
 
 - [x] StageA exact scenario/permission/threat/test design and independent bounded pre-code security/edge review; corrected probe middleware/HTTPS/cookie semantics, corrupt snapshot links, owner errors, effective summary and API IDs. Root schema/map/link verification before code; full security/production approval not inferred.
-- [ ] StageB1 RED-first `apps/security/network_policy.py` canonical_policy/policy_digest/validate_saved_policy; `core/network_models.py`, model discovery and migration0007 with singleton/unique/revision/time constraints. Individual saved-policy validation only. Test migration/constraints on actual PostgreSQL. No runtime wiring, advertised capability or new route in this bounded foundation.
+- [x] StageB1 RED-first `apps/security/network_policy.py` canonical_policy/policy_digest/validate_saved_policy; `core/network_models.py`, model discovery and migration0007 with singleton/unique/revision/time constraints. Individual saved-policy validation only. Test migration/constraints on actual PostgreSQL. No runtime wiring, advertised capability or new route in this bounded foundation. Exactfieldmap in docs/implementation/network-foundation-schema.md; parser17RED and modeldiscoveryRED,33targetedschema/39parser+resolver/168subtests, finalactualPG351/168subtests19.98s/check/nodrift and boundedfreshreview approved after reversebool/intregressionfix.
 - [ ] StageB2 exact API/service/OOB and middleware integration, runtime state graph validation, private history, effective summary/current-user ceiling and full permission/CSRF/expiry/replay/real-PG race checks. Only then advertise/activate network management.
 - [ ] StageC API client Network access UI and named page-action tests/representative synthetic walkthroughs.
 - [ ] StageD isolated actual Nginx module/config/HTTP tests across BasicANDnetwork, HTML/assets/SPA/API/HEAD/range/conditional/private probe/forged headers/DBfailure/rollback/HTTPS/direct-origin; templates alone are insufficient.
@@ -654,6 +654,12 @@ Source-pinned [comparison and evidence](docs/research/2026-10-24-icthospital-com
 - [ ] Candidate only, no release commitment: decide whether in-house laboratory, external-lab handoff or neither belongs in a later release. D05 alerts are not a laboratory portal. If activated, first add complete page/action/API/specimen/result/verification/amendment/critical-result permissions and acceptance, then its own task; do not implement from this note.
 - [ ] Candidate only, unconfigured: review outbound appointment/payment reminders under S07/R12/M16/M19 with consent/preferences, minimum disclosure, Indian numbers, provider/cost, quiet hours, idempotent delivery/retry and service authority. This does not authorise external messages, paid provisioning or call-center implementation.
 
+### Verified network foundation —24October2026
+
+- [x] StageB1 only: strict canonical grammar/individualsaved-policy digests;5models/core0007constraints/unboundbaseline/safereversal; fieldmap and observedREDs beforecode. No HTTP/runtime/capability/OOB/UI activation.
+- [x] Fresh independent B1review: Important reversebool/intJSONcomparison defect reproducedRED thenfixed; final33schema tests/658parserprobes, no unresolvedboundedfinding. RootfinalactualPG351passed168subtests19.98s, check0/nodrift; testDBremoved/CREATEDBrevoked/livepreviewserviceactive. Earlier346PG and330local/16skips predate final5cases/fix, notcurrentfullresults.
+- [ ] StageB2 coherent stored-state graph selection and request-service integration, owner/operator/freshness/OOB/APIs; then UI and actualisolatedNginx gates. All7network APIoperations remain planned,46catalogued39implemented, preview47b3618unchanged.
+
 ## 16. Evidence log and readiness
 
 ### Verified administration history / own activity —23October2026
@@ -782,3 +788,5 @@ Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration
 - 1.10.0 —24October2026: authenticated scheduled resume; source-pinned ICTHospital comparison, bounded reviews, future lab candidate/reporting/reminder design dispositions and no imported code or deployed changes.
 
 - 1.10.1 —24October2026: freeze exact Task03 network contract and7planned OpenAPI/page actions after bounded pre-code review; B1 parser/schema-only foundation next, no runtime deployment or complete IP-management claim.
+
+- 1.11.0 —24October2026: networkB1 pureparser/digests and5modelmigration verified351PG/168subtests with reversal corruptionregression/review; fullnetworkmanagement remains pending, no runtimeactivation.

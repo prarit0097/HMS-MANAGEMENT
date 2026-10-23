@@ -1,5 +1,12 @@
 # SDD ledger — plan: plan.md
 
+## Network StageB1 verified / runtime still pending —24October2026
+
+- Parser17RED then39pass168subtests; schemafieldmap beforemodeldiscoveryRED, final33SQLitepasses.5models/core0007/unboundbaseline; noHTTP/middleware/currentuser/capability/operator/owner/edgeactivation. RulingdecimalCIDRsuffix1..3digits/pretrim64 resolvesundocumentednetmaskgrammar, no widerpolicy.
+- Fresh reviewer Important actualcorruptionprobe found reverse False==0 equality acceptsbadJSON; actualMigrationExecutorRED DIDNOTRAISE7.40s then strictJSONhistoricalmigration comparisonfixed, finalindependent33schema14.39s+658parserprobes/no unresolvedC/I/Minor. Per-policyhashesnotDBsuperusertamperproof; graph/serviceimmutability remainsB2.
+- RootfinalfrozenactualPG351passed168subtests19.98s, system0/nodrift; isolated /opt/hms/validation/network-20261024 source andexistingcandidatevenv, liveDBschema/runtime untouched. TestDBabsent0/rolcreatedbf/serviceactive confirmed. Earlier346PG21.20s prefinal5cases/fix; local330pass16skip168subtests prefinalcases, barePythonpyotpmissingcollection andwrongcwdsettingscollection wereenvironmentattempts, notproductfailuresorfinalpasses.
+- Root19projectchecks23.898s/OpenAPI/map/links/stagedsecret/publicationat handoff; unchangedfrontendnotrerun. StageA8dbeCI40038659241success observed. NextB2coherentstategraphselector thencompleteauthorisedtransaction/API/OOB+UI/edge; no7networkoperationimplemented yet. Currentusage23:24:23UTC primary28%weekly73%remaining, active/nocooldown; future<=10 fresh330minstopmandatory.
+
 ## Network StageA frozen / B1 foundation next —24October2026
 
 - Exactnetwork-access-contract/OpenAPI0.6.0/page-map7planned46catalogued39implemented frozen before production code. Designer grounded actual source/resolver/identity/edge; fresh independent security/edge reviewer resolved Importantprecisions and found no remainingImportantCriticaldesignblocker. No application/edge tests run for design.

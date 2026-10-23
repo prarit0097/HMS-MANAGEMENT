@@ -8,7 +8,7 @@ automation_id: continue-hms-after-usage-cooldown
 automation_schedule: daily 04:30 Asia/Calcutta; next 24 October 2026
 owner_schedule_override_at_utc: 2026-10-23T22:04:30Z
 
-Actual resume:2026-10-23T23:02:32Z, authenticated primary100%/weekly84%remaining; later90%/83%, guardcontinue. No reset credit. ICTHospital source comparison is recorded in research/living docs; Task03 exact network contract remains next design gate. This active record supersedes historical stop wording below. Future fresh<=10% still requires actualUTC+330minutes.
+Actual resume:2026-10-23T23:02:32Z, authenticated primary100%/weekly84%remaining; later90%/83%, guardcontinue. No reset credit. ICTHospital comparison complete; Task03 frozen contract/OpenAPI0.6.0 and StageB1 source verified351PG/168subtests. NextStageB2 coherentstategraph/transaction/API/OOB integration, all7network operations still planned. Lastbounded23:24:23UTC primary28%/weekly73%remaining, no activecooldown. This active record supersedes historical stop wording below. Future fresh<=10% still requires actualUTC+330minutes.
 
 Historical stop (deadline below superseded by the owner scheduling override above): primary10%remaining/weekly86% at18:21:54.627991UTC; earliestresume24October5:21:54AM IST plusallwindows>10. Allagentscompleted; verifiedidentity/audit301PG/72frontend/19root andactualCI40002404443green, network-access planningdraftnext. No workduringcooldown. Earlierresume below predates and does notwaivethisnewstop.
 

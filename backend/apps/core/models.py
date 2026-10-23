@@ -122,3 +122,5 @@ class StaffAccessRevision(UUIDModel):
         constraints = [models.UniqueConstraint(fields=['organisation', 'user'], name='unique_staff_access_revision')]
 
 from .security_models import IdentitySecurity, IdentityEnrollment, IdentityChallenge, IdentityBackupCode, IdentityNetworkBudget
+
+from .network_models import NetworkPolicyState, NetworkOperator, NetworkPolicyPreview, NetworkPolicyChange, NetworkPolicyEvent
