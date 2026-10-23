@@ -96,6 +96,10 @@ class AuditEvent(UUIDModel):
     details = models.JSONField(default=dict)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        indexes = [models.Index(fields=['branch', '-created_at', '-id'], name='audit_branch_time_id'),
+                   models.Index(fields=['actor', '-created_at', '-id'], name='audit_actor_time_id')]
+
 
 class IdempotencyRecord(UUIDModel):
     """Create-result pointers only; never store request or response payloads."""

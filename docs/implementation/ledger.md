@@ -1,5 +1,12 @@
 # SDD ledger — plan: plan.md
 
+## Verified audit-history source —23October2026
+
+- Delivered audit_history.py/3GETs/newmasterauditread/currentMFA+scope,0006twoindexes, strictquery/window/projections and lazyAuditHistoryUI/admin+selfintegration. No clinical/globalforeign/rawJSON/GETwrite/immutable/read-audit/export claim. Precodecontract+privacyreview frozenfirst; initial18RED, hostileenums2RED, offsets2RED and calendarshape3RED beforefix. RFC3339contract/schema clarifiedbeforeparsercode.
+- Freshindependent sourceprivacyreview approved/no unresolvedImportantCritical; independentlyoffset+05:99/-00:99now400, focused38pass1PGskip/frontend8passes, last7parserregressionsGREEN. RootfinalactualPG301passed25subtests/0skips16.14s/system0/nodrift/indexEXPLAIN; testDBcleaned/CREATEDBrevoked, livepreviewruntime/schema untouched. Priorlocalfull282pass16PGskip25subtests beforelast3formatcases; finaltargeted41pass1skip.
+- Rootfrontendserial72passed26.75s/typecheck/build. Priorparallel71pass1staff5000timeout thenisolated18passed, no timeout/assertionrelaxation; sourcefreeze/serialverificationresolvedcurrentcheck. Detailbodyspacing-onlyfollowup rebuilt/visuallyverified. Localbrowser synthetic pre-enrolledfixture: staleepochlogin/MFA202/recoverylogin/ownactivity/masterhistory/detail confirmed; no actualenrollmentbrowser/staff/liveVPSacceptanceclaim.
+- Rootlivingdocs/OpenAPI/19projectchecks/stagedcredentialcomparison/publicationremoteSHA at handoff; actualnewCIafterpush. NextIPnetworkpolicyfoundation/editor planning basedindependentproposal: explicitoperator+ownerbinding, unconditionalMFA, envANDDBoverlay, failclosed/timedrollback/currentpathpreview andfullportalNginxguard/outofbandrecovery. Full remainingHMS notcomplete; no automatic deployment.
+
 ## Audit-history design frozen —23October2026
 
 - Actualidentity2c65c57CI39998933249success independentlydecoded259PG/25subtests18.68s,64frontend/build,19root/OpenAPI/Compose/docs17:55:20UTC. No liveupdate.

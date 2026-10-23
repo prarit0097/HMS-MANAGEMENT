@@ -20,3 +20,10 @@ from apps.core.identity_security import SecurityView, VerifyMfa
 urlpatterns += [path('api/v1/auth/mfa/verify/', VerifyMfa.as_view())]
 for route, action in [('', 'status'), ('enrollment/', 'enrollment'), ('enrollment/<uuid:enrollment_id>/confirm/', 'confirm'), ('backup-codes/rotate/', 'rotate'), ('disable/', 'disable'), ('sessions/revoke/', 'revoke'), ('step-up/', 'step-up'), ('password/', 'password')]:
     urlpatterns.append(path('api/v1/auth/security/' + route, SecurityView.as_view(action=action)))
+
+from apps.core import audit_history
+urlpatterns += [
+    path('api/v1/platform/organisations/<str:organisation_id>/audit-events/', audit_history.AdministrationHistory.as_view()),
+    path('api/v1/platform/organisations/<str:organisation_id>/audit-events/<str:event_id>/', audit_history.AdministrationChange.as_view()),
+    path('api/v1/auth/security/activity/', audit_history.OwnSecurityActivity.as_view()),
+]

@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.8.1,23October2026: bounded identity36source operations verified after lock-expiry and test synchronization fixes. Actual PostgreSQL259passed/25subtests, frontend64/typecheck/build, bounded independent source approval. Owner17:44resume/future10%rule preserved. Audit-history3GETextensions frozen39catalogued36implemented, implementation next. Full Task02human recovery/read audit and remaining product/release gates incomplete; preview47b3618unchanged.
+**Status:** Version1.9.0,23October2026: bounded identity36source operations verified after lock-expiry and test synchronization fixes. Actual PostgreSQL259passed/25subtests, frontend64/typecheck/build, bounded independent source approval. Owner17:44resume/future10%rule preserved. Audit-history3GEToperations delivered39source total, actualPG301/25subtests and frontend72/typecheck/build, bounded privacy review approved. IP policy next. Full Task02human recovery/read audit and remaining product/release gates incomplete; preview47b3618unchanged.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -355,7 +355,7 @@ Remote HTTP MCP must implement the supported protocol's authorisation/discovery/
 | `clinical.create_draft` | `clinical:draft`; authorised encounter, draft content/key | Unsigned draft, never approval/prescription release |
 | `jobs.status` | `jobs:read`; caller-owned/permitted job | Safe status, no credentials/unrestricted download URL |
 
-Clinical signing, refund execution, restores, broad exports and access/IP changes are initially UI-only controlled operations, not autonomous MCP tools. Additions require dedicated design, scopes, server-enforced approval and tests. Server-stored confirmation binds actor/action/payload hash/state version/expiry and is single-use; clients cannot grant themselves authority with a flag. Tool descriptions and data never override policy.
+Clinical signing, refund execution, restores, broad exports and access/IP changes initially require controlled interactive approval through authorised APIs and are not autonomous MCP tools. No capability bypasses the API-first contract. Additions require dedicated design, scopes, server-enforced approval and tests. Server-stored confirmation binds actor/action/payload hash/state version/expiry and is single-use; clients cannot grant themselves authority with a flag. Tool descriptions and data never override policy.
 
 ## 11. Security/test catalogue
 
@@ -637,12 +637,12 @@ Per-task test names above define their assertions. Additional narrow tests are a
 
 ## 16. Evidence log and readiness
 
-### Active administration history / own activity —23October2026
+### Verified administration history / own activity —23October2026
 
 - [x] audit-history-contract.md/OpenAPI0.5/page-map3GEToperations frozen39total; independent pre-code privacy review, scalar/type/date/UUID/currentMFA/pureGET refinements resolved.
-- [ ] Backend read-only projections/scoping/windows/indexmigration0006/REDsecurity tests; no clinical/global leak/rawpayload/GETwrites.
-- [ ] Frontend lazy named history/detail/filter/pinnedpagination and own security activity, RED/fulltests/typecheck/build.
-- [ ] Fresh review/probes, root actualPG/fullfrontend/root/API/docs, verifiedpush/actualCI. Full immutable/read audit/recovery/remaining HMS and release gates incomplete; preview47b3618unchanged.
+- [x] Backend3read APIs/current masterauditread+MFA/selfscope/projections/windows/index0006 implemented. Initial18RED plus hostile2/offset2/shape3REDfixes; actualPG301passed25subtests/check0/nodrift/indexEXPLAIN. No rawclinical/global/privatepayload/GETwrites.
+- [x] Lazy named history/detail/filters/pinnedwindow and selfactivity,8newtests. Rootserial72passed26.75s/typecheck/build; earlier parallel stafftimeout recorded/isolated18passed withouttimeoutchange. Spacing-only followupbuild/browsercheck.
+- [x] Fresh bounded privacy review/probes approved after offset/formatfix; rootactualPG301/25subtests/front72/API/docs/root checks, livingdocs and publicationSHA in handoff. ActualnewCI checked separately. Localfixture MFArecoverylogin/history/detail verified; fullstaff/liveVPS/immutable/read-audit/recoveryrelease remain incomplete, preview47b3618unchanged.
 
 ### Verified bounded identity security —23October2026
 
@@ -753,3 +753,5 @@ Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration
 - 1.8.0 —23October2026: verified boundedidentity259PG/25subtests/64frontend, fivefreshnessREDfixes, independentbedlockprobe andloadingtestrepair; source/deployment/fullrelease separate.
 
 - 1.8.1 —23October2026: identityactualCIgreen; freeze3GET scoped administration/selfsecurity journal design39catalogued beforecode, privacy review complete.
+
+- 1.9.0 —23October2026: audit-history3GETs verified39total/301PG+25subtests/72frontend; strictredactions/datequery/indexes and boundedprivacyreview, sourceonly.

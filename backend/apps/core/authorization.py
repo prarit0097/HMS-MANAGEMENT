@@ -2,7 +2,7 @@ from rest_framework.exceptions import PermissionDenied, ValidationError
 from .models import Membership, Branch
 
 READ = {'patients.read', 'appointments.read', 'beds.read', 'admissions.read', 'dashboard.read'}
-ROLE_PERMISSIONS = {'reception': READ | {'patients.write', 'appointments.write', 'admissions.write'}, 'doctor': READ, 'nurse': READ, 'master_admin': {'platform.read', 'platform.configure', 'platform.staff.manage'}, 'pharmacist': set(), 'accounts': set(), 'therapist': set()}
+ROLE_PERMISSIONS = {'reception': READ | {'patients.write', 'appointments.write', 'admissions.write'}, 'doctor': READ, 'nurse': READ, 'master_admin': {'platform.read', 'platform.configure', 'platform.staff.manage', 'platform.audit.read'}, 'pharmacist': set(), 'accounts': set(), 'therapist': set()}
 
 def branch_ids(user, action):
     if not user.is_authenticated or not user.is_active:

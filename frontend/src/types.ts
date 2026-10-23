@@ -12,3 +12,9 @@ export interface MfaPending { code:'mfa_required'; methods:FactorMethod[]; expir
 export interface SecurityStatus { enabled:boolean; backup_codes_remaining:number; version:number; session_factor_verified_at:string|null; privileged_mfa_required:boolean }
 export interface EnrollmentIssued { enrollment_id:string; secret:string; otpauth_uri:string; expires_at:string }
 export interface BackupCodesIssued { security:SecurityStatus; backup_codes:string[] }
+
+export interface AuditSummary { id:string; created_at:string; action:string; actor:{id:number;username:string}|null; branch:Branch|null; object_id:string; method:FactorMethod|null }
+export interface AuditWindow { after:string; before:string }
+export interface AuditPage extends List<AuditSummary> { window:AuditWindow }
+export interface AuditSnapshot { name?:string; code?:string; number?:string; room_number?:string; category?:string; status?:string; version?:number; assignments?:{branch:string;role:string}[] }
+export interface AuditDetail extends AuditSummary { details:{before?:AuditSnapshot;after?:AuditSnapshot;target_user_id?:number;organisation_id?:string}; details_truncated:boolean; branch_labels:Record<string,Branch>; target:{id:number;username:string}|null }
