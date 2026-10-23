@@ -1,8 +1,8 @@
 """Organisation-scoped configuration services and their API adapter.
 
 Configuration never grants operational/clinical permissions. Lock ordering is
-organisation then branch then bed for configuration, with fresh scope checks
-after waiting. Organisation/branch locks use NO KEY UPDATE: allocation holds the bed while its admission's branch
+identity user then organisation, branch and bed, with fresh scope/proof checks
+after waiting. Identity/organisation/branch locks use NO KEY UPDATE: allocation holds the bed while its admission's branch
 foreign key acquires KEY SHARE, which must remain compatible with configuration.
 """
 import re
@@ -17,6 +17,7 @@ from .models import Organisation, Branch, Bed, Admission, AuditEvent
 from .pagination import BoundedPagination
 from .serializers import StrictSerializer, ConcealedRelatedField
 from .services import Conflict
+from .identity_security import require_platform
 
 CONFIG_STATUSES = ['available', 'cleaning', 'blocked']
 BED_SNAPSHOT_FIELDS = ['number', 'room_number', 'category', 'status', 'version']
@@ -38,6 +39,8 @@ def locked_configuration_organisation(user, organisation_id):
     # Staff revocation locks this same organisation. Reauthorise AFTER a wait,
     # retaining a no-key lock so ordinary FK checks remain compatible.
     Organisation.objects.select_for_update(no_key=True).get(pk=organisation.pk)
+    from .identity_security import require_platform
+    require_platform(user)
     return configuration_organisation(user, organisation_id)
 
 
@@ -113,6 +116,9 @@ def snapshot(bed):
 
 
 def configuration_audit(user, action, obj, branch, before, after):
+    # This is still inside the service transaction: reject and roll back a
+    # write whose uniqueness/FK wait outlived the captured proof.
+    require_platform(user)
     AuditEvent.objects.create(actor=user, action=action, object_id=str(obj.pk), branch=branch, details={'before': before, 'after': after})
 
 
@@ -130,6 +136,7 @@ def create_branch(user, organisation_id, validated):
 def create_bed(user, organisation_id, validated):
     organisation = locked_configuration_organisation(user, organisation_id)
     branch = get_object_or_404(Branch.objects.select_for_update(no_key=True).filter(organisation=organisation), pk=validated['branch'].pk)
+    require_platform(user)
     if Bed.objects.filter(branch=branch, number__iexact=validated['number']).exists():
         raise Conflict('A bed with this number already exists in this branch. Use another number.')
     result = Bed.objects.create(**{**validated, 'branch': branch})
@@ -146,6 +153,7 @@ def change_bed(user, organisation_id, bed_id, validated):
     selected = get_object_or_404(Bed.objects.filter(branch__organisation=organisation), pk=bed_id)
     branch = Branch.objects.select_for_update(no_key=True).get(pk=selected.branch_id)
     bed = Bed.objects.select_for_update().get(pk=bed_id)
+    require_platform(user)
     if bed.status in {'occupied', 'reserved'} or Admission.objects.filter(bed=bed, status='active').exists():
         raise Conflict('This bed has an active allocation and cannot be edited. Reload the bed inventory.')
     if bed.version != validated['expected_version']:

@@ -1,6 +1,6 @@
 # Identity security operations — source design and release gates
 
-This runbook accompanies [the identity security contract](../implementation/identity-security-contract.md). Authenticator/source implementation is checkpointed WIP with236actualPostgreSQL/25subtests and64frontend-agent tests, but known proof-age-after-lock and scenario coverage/final review remain; these instructions do not claim deployment or account enrollment. Existing Hostinger preview47b3618uses its original password/session controls. Do not add real hospital data until full release gates pass.
+This runbook accompanies [the identity security contract](../implementation/identity-security-contract.md). Bounded source is verified with259actualPostgreSQL/25subtests and64frontend tests, final freshness/negative/race coverage and bounded source review; these instructions do not claim deployment or account enrollment. Existing Hostinger preview47b3618uses its original password/session controls. Do not add real hospital data until full release gates pass.
 
 ## Dedicated encryption material
 
@@ -32,13 +32,10 @@ Session epochs invalidate prior sessions/challenges after sensitive changes. Loc
 
 ## Verification before a future deployment
 
-- [ ] Pin/install dependencies in an isolated candidate runtime; validate OpenAPI and migration drift.
-- [ ] Run API/component tests and actual PostgreSQL races for factor/code consumption, challenge generation, first-profile creation and revoke/write ordering.
+- [x] Source candidate dependencies installed in separate validation venv; OpenAPI/check/migration drift validated. This does not provision live keys/runtime.
+- [x] ActualPG259tests/25subtests and frontend64/typecheck/build; factor/code one-winner, challenge/profile and revoke/write/confirmation races passed in isolated candidate. Future deployment revalidation still required.
 - [ ] Provision a private dedicated keyring and prove correct-key/wrong-key/retained-key recovery in staging without exposing material.
 - [ ] Confirm HTTPS/cookies/CSRF/trusted-IP policy and shared limits on actual deployment paths; complete authenticated browser/staff walkthroughs.
 - [ ] Test isolated encrypted database/key restoration, document human recovery and incident ownership, approve migration/rollback and deployment separately.
 
 These unchecked deployment gates cannot be inferred from source tests or a GitHub push. Update this runbook with actual evidence when performed.
-
-
-Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration stale-bed-edit test could not find Edit bed101 within timed wait); agent earlier64passed. Coordinator typecheck/build still passed. Affected test isolated rerun is recorded in ledger/handoff; this does not establish a repaired full suite. No source changes after stop. Investigate/repeat full suite after cooldown before marking identity delivered.

@@ -1,5 +1,12 @@
 # SDD ledger — plan: plan.md
 
+## Verified bounded identity security —23October2026
+
+- Planning/contract unchanged; completed knownproof-age gap with5RED tests(org2+finalbranch/bed/revision3) before productionfix. Recheck after blockinglocks and transactional audit boundary rollsback expiredproofwrites. Fresh independent reviewer found bedwait901sImportant with externalREDprobe; finalprobeGREEN plusidentitysuite37passed10PGskipped, boundedsourceapproval/no remainingImportantCritical established.
+- Added23tests: encryptionuser/device/purposebinding, pendingenrollmentexpired/crosssession/consumed, anonymousverifyCSRF, fixedaccountwindow/challengelifetime/missingkeycounters and8deterministicfullrequestPGraces. Root actualPG259passed25subtests/0skips17.20s, system0/no drift; candidate separatevenv only, testDBcleaned/CREATEDBrevoked. Localbackend244passed15PGskipped25subtests32.54s.
+- Frontend repeatedRED bed-edit scopedquery1failed9skip; correctsummary/branch/b1/bed101 response verified, unscoped fullpageaccessible lookup1000ms acrossloading wasfailure. Waitinventory/scopedbuttonfix, no production/mock/timeout change. Rootfull64passed18.01s/typecheck/build; localbrowser syntheticlogin/Accountsecurity view+private screenshot only, no fullcredentialbrowser/staff/liveacceptanceclaim.
+- No schema/APIaddition thisrepair; originalcore0005and9selfroutes36total nowboundedsourceverified. Key provisioning/human recovery/read audit/remainingproduct/releasegates stillopen, preview47b3618unchanged. Owner17:44overridefuturethresholdruleunchanged, noresetcredit. Rootaloneupdatesdocs/commits/pushes; newCIafterpush, exactSHAin handoff.
+
 ## Owner resumes identity completion —23October2026
 
 - Direct owner continue100%limit at17:44:21UTC waives prior20:08:35deadline. Authenticated get_usage_limits reports both primary and weekly100%remaining; no reset credit consumed by agent. Old14:38stop/deadline/history preserved; local guard archived then continue, same heartbeat updated. All previous agents completed, no duplicate running team.

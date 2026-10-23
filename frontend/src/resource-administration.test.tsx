@@ -45,7 +45,9 @@ it('allows bed creation at a branch after the first hundred choices',async()=>{
 });
 it('retains a stale bed edit and sends the expected version without branch reassignment',async()=>{
  const writes=serve((_url,options)=>options.method==='PATCH'?Response.json({message:'Bed changed. Reload before saving.',field_errors:{number:['Review bed number.']}},{status:409}):undefined);
- render(<Administration user={user}/>);await userEvent.click(await screen.findByRole('button',{name:'Edit bed 101'}));
+ render(<Administration user={user}/>);
+ const inventory=within((await screen.findByRole('heading',{name:'Bed inventory'})).closest('section')!);
+ await userEvent.click(await inventory.findByRole('button',{name:'Edit bed 101'}));
  const input=screen.getByRole('textbox',{name:'Bed number'});await userEvent.clear(input);await userEvent.type(input,'102');
  await userEvent.click(screen.getByRole('button',{name:'Save bed'}));expect(await screen.findByRole('alert')).toHaveTextContent(/reload/i);expect(input).toHaveValue('102');expect(screen.getByText('Review bed number.')).toBeInTheDocument();
  expect(writes[0]).toEqual({url:'/api/v1/platform/organisations/org-1/beds/bed-1/',method:'PATCH',body:{expected_version:7,number:'102',room_number:'A',category:'general',status:'available'}});

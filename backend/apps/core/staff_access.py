@@ -16,6 +16,7 @@ from .authorization import branch_ids
 from .models import Organisation, Branch, Membership, StaffAccessRevision, AuditEvent
 from .pagination import BoundedPagination
 from .services import Conflict
+from .identity_security import require_platform
 
 
 def staff_organisation(user, organisation_id):
@@ -101,6 +102,7 @@ def staff_response(user, organisation):
 
 
 def staff_audit(actor, target, organisation, before, after, branch_id, action):
+    require_platform(actor)
     AuditEvent.objects.create(actor=actor, action=action, object_id=str(target.pk), branch_id=branch_id,
         details={'target_user_id': target.pk, 'organisation_id': str(organisation.pk), 'before': before, 'after': after})
 
@@ -112,6 +114,8 @@ def locked_organisation(actor, organisation_id):
     # admins racing to suspend one another must observe the winner's revocation.
     organisation_id = serializers.UUIDField().run_validation(organisation_id)
     organisation = get_object_or_404(Organisation.objects.select_for_update(), pk=organisation_id)
+    from .identity_security import require_platform
+    require_platform(actor)
     return staff_organisation(actor, organisation.pk)
 
 
@@ -148,6 +152,7 @@ def change_staff(actor, organisation_id, target_id, validated):
     target = get_object_or_404(get_user_model().objects.filter(memberships__branch__organisation=organisation).distinct(), pk=target_id)
     rows = list(Membership.objects.select_for_update().filter(user=target, branch__organisation=organisation).order_by('branch_id','role'))
     revision = StaffAccessRevision.objects.select_for_update().filter(user=target, organisation=organisation).first()
+    require_platform(actor)
     version = revision.version if revision else 0
     if version != validated['expected_version']:
         raise Conflict('This staff access changed. Reload staff before saving again.')

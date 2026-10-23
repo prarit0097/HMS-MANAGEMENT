@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.7.3,23October2026: owner resumes17:44:21UTC with primary100%/weekly100% remaining, explicitly waiving old20:08:35deadline. Identity source6660bb0WIP: reproduce/fix bed-edit regression and proof freshness after organisation-lock waits, complete missing negative/concurrency scenarios, independent review and verified publication. Existing livepreview47b3618unchanged; future10%rule remains.
+**Status:** Version1.8.0,23October2026: bounded identity36source operations verified after lock-expiry and test synchronization fixes. Actual PostgreSQL259passed/25subtests, frontend64/typecheck/build, bounded independent source approval. Owner17:44resume/future10%rule preserved. Full Task02human recovery/read audit and remaining product/release gates incomplete; preview47b3618unchanged.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -637,12 +637,12 @@ Per-task test names above define their assertions. Additional narrow tests are a
 
 ## 16. Evidence log and readiness
 
-### Active identity security —23October2026
+### Verified bounded identity security —23October2026
 
 - [x] Exact identity-security-contract.md and OpenAPI0.4/page-map9operations frozen36total; official PyOTP/Fernet/Django/NIST/OWASP research and separate pre-code threat review. Existing-factor proof, anonymous CSRF and locked revocation design explicit.
-- [ ] Backend WIP present: core0005five identity models,9self APIs/login202/logout, encrypted factors/hash recovery/DB budgets/epochs and identity locks, RED tests. Frozen candidate actualPG236passed/25subtests/check/nodrift. Complete proof-age recheck after org-lock waits and missing full API/race/negative coverage before marking delivered.
+- [x] Bounded backend identity verified: core0005five state models/9self APIs/login202/CSRFlogout/encryption/hash recovery/DB budgets/epochs. Proof age checks after final locks/audit with5RED regressions; negative security cases and8actualPGrequest races. Root259passed/25subtests/check/nodrift, local244passed15PGskips. Full human recovery/read audit remains separate.
 - [x] Frontend source login202/Account security/all9APIs, transient setup/recovery codes with acknowledgement/secret clearing/plain policy guidance;15new tests,64total/typecheck/build. Source-only; full security integration/browser/staff acceptance incomplete.
-- [ ] Fresh source review started but stopped at usage threshold, no full approval. Root actualPG236passed/25subtests; frontend-agent64/build. Next reproduce/fix proof-age-after-lock, test ciphertextswap/enrollment expiry+crosssession+replay/anonymousverifyCSRF/accountwindow/challenge/profile/fullrevokewrite races, finishreview and actualCI. Live47b3618unchanged; no real-data release.
+- [x] Fresh bounded review found bed-lock freshness gap, independently reproducedRED then confirmedGREEN; no remaining Important/Critical established. Root actualPG259passed/25subtests; frontend64/typecheck/build after inventory-query repair; full API/docs/root checks at publication. ActualCI for new commit tracked separately. Source-only; preview47b3618unchanged, no fullhospital/read-audit/recovery release approval.
 
 ### Active staff access —23October2026
 
@@ -742,3 +742,5 @@ Create feature branches/PRs when repository protection or agreed workflow requir
 Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration stale-bed-edit test could not find Edit bed101 within timed wait); agent earlier64passed. Coordinator typecheck/build still passed. Affected test isolated rerun is recorded in ledger/handoff; this does not establish a repaired full suite. No source changes after stop. Investigate/repeat full suite after cooldown before marking identity delivered.
 
 - 1.7.3 —23October2026: owner17:44:21resume/both100%waives only olddeadline; continue exact identity WIP regression/security coverage with no repeated deployment.
+
+- 1.8.0 —23October2026: verified boundedidentity259PG/25subtests/64frontend, fivefreshnessREDfixes, independentbedlockprobe andloadingtestrepair; source/deployment/fullrelease separate.
