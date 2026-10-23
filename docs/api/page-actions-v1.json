@@ -1,0 +1,141 @@
+{
+  "version": "0.1.0",
+  "scope": "Phase A subset of plan.md page catalogue. API contract existence is distinct from implementation/verification/deployment. Frontend combines subset pages into tabs; not every API action has a UI control yet.",
+  "actions": [
+    {
+      "id": "system.health",
+      "page": "SYSTEM",
+      "action": "Local health probe",
+      "operation_id": "getHealth",
+      "permission": ""
+    },
+    {
+      "id": "S01.csrf",
+      "page": "S01",
+      "action": "Prepare sign-in CSRF cookie",
+      "operation_id": "getCsrf",
+      "permission": ""
+    },
+    {
+      "id": "S01.login",
+      "page": "S01",
+      "action": "Sign in",
+      "operation_id": "login",
+      "permission": ""
+    },
+    {
+      "id": "S04.context",
+      "page": "S04",
+      "action": "Load current assigned identity context",
+      "operation_id": "getCurrentUser",
+      "permission": "authenticated"
+    },
+    {
+      "id": "S08.logout",
+      "page": "S08",
+      "action": "Sign out",
+      "operation_id": "logout",
+      "permission": "authenticated"
+    },
+    {
+      "id": "S04.branches",
+      "page": "S04",
+      "action": "List assigned branches for context selection",
+      "operation_id": "listBranches",
+      "permission": "authenticated"
+    },
+    {
+      "id": "R01.dashboard",
+      "page": "R01",
+      "action": "Read current branch overview",
+      "operation_id": "getDashboard",
+      "permission": "dashboard.read"
+    },
+    {
+      "id": "R02.search",
+      "page": "R02",
+      "action": "Search patient demographics",
+      "operation_id": "listPatients",
+      "permission": "patients.read"
+    },
+    {
+      "id": "R03.register",
+      "page": "R03",
+      "action": "Register patient with optional demographics",
+      "operation_id": "createPatient",
+      "permission": "patients.write"
+    },
+    {
+      "id": "R04.view",
+      "page": "R04",
+      "action": "Read permitted demographics",
+      "operation_id": "getPatient",
+      "permission": "patients.read"
+    },
+    {
+      "id": "R04.amend",
+      "page": "R04",
+      "action": "Amend permitted demographics",
+      "operation_id": "updatePatient",
+      "permission": "patients.write"
+    },
+    {
+      "id": "R05.list",
+      "page": "R05",
+      "action": "List appointments by branch/day/search",
+      "operation_id": "listAppointments",
+      "permission": "appointments.read"
+    },
+    {
+      "id": "R05.book",
+      "page": "R05",
+      "action": "Book an appointment",
+      "operation_id": "createAppointment",
+      "permission": "appointments.write"
+    },
+    {
+      "id": "R05.change",
+      "page": "R05",
+      "action": "Reschedule, check in or change supported status",
+      "operation_id": "updateAppointment",
+      "permission": "appointments.write"
+    },
+    {
+      "id": "R09.beds",
+      "page": "R09",
+      "action": "View bed availability",
+      "operation_id": "listBeds",
+      "permission": "beds.read"
+    },
+    {
+      "id": "R08.allocate",
+      "page": "R08",
+      "action": "Allocate available bed for a patient",
+      "operation_id": "createAdmission",
+      "permission": "admissions.write"
+    },
+    {
+      "id": "R11.list",
+      "page": "R11",
+      "action": "Read scoped admission summaries",
+      "operation_id": "listAdmissions",
+      "permission": "admissions.read"
+    },
+    {
+      "id": "M01.summary",
+      "page": "M01",
+      "action": "View nonclinical administration inventory",
+      "operation_id": "getPlatformSummary",
+      "permission": "platform.read"
+    }
+  ],
+  "deferred_actions": [
+    "MFA and recovery",
+    "staff/grant/policy editors",
+    "clinical signing and files",
+    "reservation/exclusive-room/transfer/discharge workflows",
+    "finance, pharmacy, insurance, therapy",
+    "backup/import/export jobs",
+    "remote MCP OAuth and tools"
+  ]
+}

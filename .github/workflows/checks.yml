@@ -1,0 +1,98 @@
+name: HMS checks
+on:
+  pull_request:
+  push:
+    branches: [main, feat/hms-foundation]
+permissions:
+  contents: read
+concurrency:
+  group: checks-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  contracts-and-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: infra/requirements-checks.txt
+      - run: python -m pip install -r infra/requirements-checks.txt
+      - name: Usage guard and documentation gate behavior
+        run: python -m unittest discover -s scripts/tests -v
+      - name: Validate OpenAPI schema
+        run: python -m openapi_spec_validator docs/api/openapi-v1.yaml
+      - name: Validate Compose syntax without exposing rendered secrets
+        env:
+          HMS_DB_NAME: ci_validation
+          HMS_DB_USER: ci_validation
+        run: |
+          export HMS_DB_PASSWORD="$(openssl rand -hex 24)"
+          export HMS_SECRET_KEY="$(openssl rand -hex 32)"
+          docker compose config --quiet
+      - name: Living documentation, links and page-action coverage
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          if [ -z "$BASE_SHA" ] || [ "$BASE_SHA" = "0000000000000000000000000000000000000000" ]; then
+            BASE_SHA="$(git rev-list --max-parents=0 HEAD | tail -n 1)"
+          fi
+          python scripts/check_project_docs.py --base "$BASE_SHA" --head HEAD --api-contract
+  backend-postgres:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17.11-bookworm
+        env:
+          POSTGRES_DB: hms_ci
+          POSTGRES_USER: hms_ci
+          # Ephemeral per-run infrastructure credential, not a committed default.
+          POSTGRES_PASSWORD: ${{ github.run_id }}-${{ github.run_attempt }}-${{ github.job }}
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U hms_ci -d hms_ci"
+          --health-interval 5s --health-timeout 5s --health-retries 12
+    env:
+      HMS_ENV: development
+      HMS_ALLOWED_HOSTS: localhost,127.0.0.1,testserver
+      HMS_DB_ENGINE: postgresql
+      HMS_DB_NAME: hms_ci
+      HMS_DB_USER: hms_ci
+      HMS_DB_PASSWORD: ${{ github.run_id }}-${{ github.run_attempt }}-${{ github.job }}
+      HMS_DB_HOST: 127.0.0.1
+      HMS_DB_PORT: '5432'
+      HMS_DB_SSLMODE: disable
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: backend/requirements.txt
+      - run: python -m pip install -r requirements.txt
+      - run: python manage.py check
+      - run: python manage.py makemigrations --check --dry-run
+      - name: Independent API, security and PostgreSQL transaction tests
+        run: python -m pytest -q
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci --no-audit --no-fund
+      - run: npm run typecheck
+      - run: npm test -- --run
+      - run: npm run build

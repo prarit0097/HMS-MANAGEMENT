@@ -1,0 +1,8 @@
+Django==5.2.18
+djangorestframework==3.16.1
+psycopg[binary]==3.2.12
+pytest==9.1.1
+pytest-django==4.11.1
+asgiref==3.12.1
+sqlparse==0.6.0
+tzdata==2026.5

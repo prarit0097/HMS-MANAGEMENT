@@ -1,0 +1,2006 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "HMS Phase A API",
+    "version": "0.1.0",
+    "description": "Frozen first-slice design source, not a claim that every operation is verified or deployed. Session and CSRF protected hospital workspace. All capabilities outside this catalogue are deferred."
+  },
+  "servers": [
+    {
+      "url": "/api/v1",
+      "description": "Same-origin versioned API; local Vite proxies /api to Django."
+    }
+  ],
+  "security": [
+    {
+      "sessionAuth": []
+    }
+  ],
+  "paths": {
+    "/health/": {
+      "get": {
+        "operationId": "getHealth",
+        "summary": "Read minimal process health",
+        "description": "Read minimal process health",
+        "x-permission": "",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "ok"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by identity, permission, network policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request rate exceeded; retry later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/auth/csrf/": {
+      "get": {
+        "operationId": "getCsrf",
+        "summary": "Set the browser CSRF cookie",
+        "description": "Set the browser CSRF cookie",
+        "x-permission": "",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string",
+                      "enum": [
+                        "CSRF cookie set"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "detail"
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by identity, permission, network policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request rate exceeded; retry later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/auth/login/": {
+      "post": {
+        "operationId": "login",
+        "summary": "Sign in with individual credentials",
+        "description": "CSRF required even before authentication. Errors are generic and repeated attempts are throttled. No default user is installed.",
+        "x-permission": "",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CurrentUser"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields or state; no partial write.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by identity, permission, network policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request rate exceeded; retry later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Generic invalid credentials; does not confirm account existence.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "security": [],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/CSRFToken"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/me/": {
+      "get": {
+        "operationId": "getCurrentUser",
+        "summary": "Read current identity and assigned context",
+        "description": "Read current identity and assigned context",
+        "x-permission": "authenticated",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CurrentUser"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated; session authentication may return 403 instead.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by identity, permission, network policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request rate exceeded; retry later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/logout/": {
+      "post": {
+        "operationId": "logout",
+        "summary": "End current session",
+        "description": "End current session",
+        "x-permission": "authenticated",
+        "responses": {
+          "204": {
+            "description": "Signed out; no response body."
+          },
+          "401": {
+            "description": "Unauthenticated; session authentication may return 403 instead.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by identity, permission, network policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request rate exceeded; retry later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/CSRFToken"
+          }
+        ]
+      }
+    },
+    "/branches/": {
+      "get": {
+        "operationId": "listBranches",
+        "summary": "List assigned branches",
+        "description": "List assigned branches",
+        "x-permission": "authenticated",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BranchList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated; session authentication may return 403 instead.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by identity, permission, network policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request rate exceeded; retry later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Offset"
+          }
+        ]
+      }
+    },
+    "/dashboard/": {
+      "get": {
+        "operationId": "getDashboard",
+        "summary": "Read scoped hospital counts",
+        "description": "Counts are scoped to authorised assigned branches. OPD today counts check-ins; therapy_pending is null until implemented. No therapy volume is fabricated.",
+        "x-permission": "dashboard.read",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dashboard"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated; session authentication may return 403 instead.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by identity, permission, network policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request rate exceeded; retry later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/BranchFilter"
+          }
+        ]
+      }
+    },
+    "/patients/": {
+      "get": {
+        "operationId": "listPatients",
+        "summary": "Search authorised patient identities",
+        "description": "Search authorised patient identities",
+        "x-permission": "patients.read",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated; session authentication may return 403 instead.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by identity, permission, network policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request rate exceeded; retry later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Offset"
+          },
+          {
+            "$ref": "#/components/parameters/BranchFilter"
+          },
+          {
+            "$ref": "#/components/parameters/Query"
+          }
+        ]
+      },
+      "post": {
+        "operationId": "createPatient",
+        "summary": "Register a patient",
+        "description": "Requires reception role for target branch. Duplicate phone numbers are valid; no unique-phone constraint. UHID is server assigned. No clinical-signing capability.",
+        "x-permission": "patients.write",
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Patient"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields or state; no partial write.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated; session authentication may return 403 instead.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by identity, permission, network policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request rate exceeded; retry later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/CSRFToken"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatientCreate"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/patients/{id}/": {
+      "get": {
+        "operationId": "getPatient",
+        "summary": "Read permitted patient demographics",
+        "description": "Read permitted patient demographics",
+        "x-permission": "patients.read",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Patient"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated; session authentication may return 403 instead.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by identity, permission, network policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request rate exceeded; retry later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Missing or concealed object outside authorised scope.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/ID"
+          }
+        ]
+      },
+      "patch": {
+        "operationId": "updatePatient",
+        "summary": "Amend permitted demographics",
+        "description": "Editable fields only: full_name, phone, date_of_birth, age, gender, city. Cannot move branch or modify UHID/clinical records. No optimistic version exists yet for demographics; last authorised write wins.",
+        "x-permission": "patients.write",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Patient"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields or state; no partial write.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated; session authentication may return 403 instead.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by identity, permission, network policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request rate exceeded; retry later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Missing or concealed object outside authorised scope.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/ID"
+          },
+          {
+            "$ref": "#/components/parameters/CSRFToken"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatientPatch"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/appointments/": {
+      "get": {
+        "operationId": "listAppointments",
+        "summary": "List authorised appointments",
+        "description": "List authorised appointments",
+        "x-permission": "appointments.read",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppointmentList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated; session authentication may return 403 instead.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by identity, permission, network policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request rate exceeded; retry later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Offset"
+          },
+          {
+            "$ref": "#/components/parameters/BranchFilter"
+          },
+          {
+            "$ref": "#/components/parameters/Date"
+          },
+          {
+            "$ref": "#/components/parameters/Query"
+          }
+        ]
+      },
+      "post": {
+        "operationId": "createAppointment",
+        "summary": "Book an appointment",
+        "description": "Reception grant, patient and requested branch must match. Client does not set initial status/version. Booking retries can create duplicates; no generic idempotency header is promised in Phase A.",
+        "x-permission": "appointments.write",
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Appointment"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields or state; no partial write.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated; session authentication may return 403 instead.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by identity, permission, network policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request rate exceeded; retry later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/CSRFToken"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AppointmentCreate"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/appointments/{id}/": {
+      "patch": {
+        "operationId": "updateAppointment",
+        "summary": "Reschedule or change appointment status",
+        "description": "expected_version required. A successful state change increments version. Stale version returns 409. Check-in uses one encounter per appointment, including retries; it creates no approved clinical order. Refer to page-action contract for allowed transitions.",
+        "x-permission": "appointments.write",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Appointment"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields or state; no partial write.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated; session authentication may return 403 instead.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by identity, permission, network policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request rate exceeded; retry later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Missing or concealed object outside authorised scope.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Stale version, unavailable resource or conflicting allocation; no partial write.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/ID"
+          },
+          {
+            "$ref": "#/components/parameters/CSRFToken"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AppointmentPatch"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/beds/": {
+      "get": {
+        "operationId": "listBeds",
+        "summary": "Read scoped bed availability",
+        "description": "Read-only board. Occupied/booked uses green and available uses red with explicit labels. Room/villa exclusive allocation, reservations, transfers and discharge are deferred.",
+        "x-permission": "beds.read",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BedList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated; session authentication may return 403 instead.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by identity, permission, network policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request rate exceeded; retry later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Offset"
+          },
+          {
+            "$ref": "#/components/parameters/BranchFilter"
+          }
+        ]
+      }
+    },
+    "/admissions/": {
+      "get": {
+        "operationId": "listAdmissions",
+        "summary": "Read authorised active admissions",
+        "description": "Read authorised active admissions",
+        "x-permission": "admissions.read",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdmissionList"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated; session authentication may return 403 instead.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by identity, permission, network policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request rate exceeded; retry later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/Limit"
+          },
+          {
+            "$ref": "#/components/parameters/Offset"
+          },
+          {
+            "$ref": "#/components/parameters/BranchFilter"
+          }
+        ]
+      },
+      "post": {
+        "operationId": "createAdmission",
+        "summary": "Allocate one available bed",
+        "description": "Reception grant; same organisation and branch for patient and bed. Transaction/unique constraints protect one active admission per bed and patient. Conflicting retry returns 409; no duplicate success/idempotency token promised. Initial status active and version 1.",
+        "x-permission": "admissions.write",
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Admission"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields or state; no partial write.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated; session authentication may return 403 instead.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by identity, permission, network policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request rate exceeded; retry later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Stale version, unavailable resource or conflicting allocation; no partial write.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Missing or concealed patient or bed outside authorised scope.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/CSRFToken"
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdmissionCreate"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/platform/summary/": {
+      "get": {
+        "operationId": "getPlatformSummary",
+        "summary": "Read permitted nonclinical administration inventory",
+        "description": "Master-admin assignment only. No patient charts, clinical-signing rights, password hashes, connection secrets or backup contents. Configuration/security mutations remain unavailable.",
+        "x-permission": "platform.read",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlatformSummary"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated; session authentication may return 403 instead.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Denied by identity, permission, network policy or CSRF.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Request rate exceeded; retry later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "sessionAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "sessionid",
+        "description": "Django HttpOnly session cookie; mutations also require CSRF. Production HTTPS/Secure cookies mandatory."
+      }
+    },
+    "parameters": {
+      "BranchFilter": {
+        "name": "branch",
+        "in": "query",
+        "description": "Only an assigned authorised branch; never grants access.",
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "Limit": {
+        "name": "limit",
+        "in": "query",
+        "schema": {
+          "type": "integer",
+          "default": 25,
+          "minimum": 1,
+          "maximum": 100
+        }
+      },
+      "Offset": {
+        "name": "offset",
+        "in": "query",
+        "schema": {
+          "type": "integer",
+          "default": 0,
+          "minimum": 0
+        }
+      },
+      "Query": {
+        "name": "q",
+        "in": "query",
+        "description": "Bounded name/phone/UHID search, maximum 200 characters.",
+        "schema": {
+          "type": "string",
+          "maxLength": 200
+        }
+      },
+      "Date": {
+        "name": "date",
+        "in": "query",
+        "description": "Appointment day in hospital timezone Asia/Kolkata.",
+        "schema": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "ID": {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "CSRFToken": {
+        "name": "X-CSRFToken",
+        "in": "header",
+        "required": true,
+        "description": "Current csrftoken cookie value; GET auth/csrf before login. Login rotates the token; read it again for later writes.",
+        "schema": {
+          "type": "string"
+        }
+      }
+    },
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "field_errors": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "request_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ]
+      },
+      "Branch": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 32
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "code"
+        ]
+      },
+      "CurrentUser": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "username": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "master_admin",
+                "reception",
+                "doctor",
+                "pharmacist",
+                "accounts",
+                "nurse",
+                "therapist"
+              ]
+            }
+          },
+          "branches": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Branch"
+            }
+          },
+          "permissions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "username",
+          "name",
+          "roles",
+          "branches",
+          "permissions"
+        ]
+      },
+      "PatientCreate": {
+        "type": "object",
+        "properties": {
+          "full_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "phone": {
+            "type": "string",
+            "maxLength": 32
+          },
+          "date_of_birth": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "age": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 130,
+            "nullable": true
+          },
+          "gender": {
+            "type": "string",
+            "maxLength": 32
+          },
+          "city": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "branch": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "full_name",
+          "branch"
+        ]
+      },
+      "PatientPatch": {
+        "type": "object",
+        "properties": {
+          "full_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "phone": {
+            "type": "string",
+            "maxLength": 32
+          },
+          "date_of_birth": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "age": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 130,
+            "nullable": true
+          },
+          "gender": {
+            "type": "string",
+            "maxLength": 32
+          },
+          "city": {
+            "type": "string",
+            "maxLength": 120
+          }
+        }
+      },
+      "Patient": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "uhid": {
+            "type": "string"
+          },
+          "full_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "phone": {
+            "type": "string",
+            "maxLength": 32
+          },
+          "date_of_birth": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "age": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 130,
+            "nullable": true
+          },
+          "gender": {
+            "type": "string",
+            "maxLength": 32
+          },
+          "city": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "branch": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "uhid",
+          "full_name",
+          "phone",
+          "date_of_birth",
+          "age",
+          "gender",
+          "city",
+          "branch",
+          "created_at"
+        ]
+      },
+      "AppointmentStatus": {
+        "type": "string",
+        "enum": [
+          "scheduled",
+          "checked_in",
+          "completed",
+          "cancelled",
+          "no_show"
+        ]
+      },
+      "AppointmentCreate": {
+        "type": "object",
+        "properties": {
+          "patient": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "branch": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "doctor_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "scheduled_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 500
+          }
+        },
+        "required": [
+          "patient",
+          "branch",
+          "doctor_name",
+          "scheduled_at"
+        ]
+      },
+      "AppointmentPatch": {
+        "type": "object",
+        "properties": {
+          "expected_version": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "scheduled_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/AppointmentStatus"
+          },
+          "doctor_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 500
+          }
+        },
+        "required": [
+          "expected_version"
+        ]
+      },
+      "Appointment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "patient": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "patient_name": {
+            "type": "string"
+          },
+          "branch": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "doctor_name": {
+            "type": "string"
+          },
+          "scheduled_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/AppointmentStatus"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 1
+          }
+        },
+        "required": [
+          "id",
+          "patient",
+          "patient_name",
+          "branch",
+          "doctor_name",
+          "scheduled_at",
+          "status",
+          "reason",
+          "version"
+        ]
+      },
+      "Bed": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "number": {
+            "type": "string"
+          },
+          "room_number": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "general",
+              "semi_private",
+              "private",
+              "private_luxury",
+              "villa"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "available",
+              "occupied",
+              "reserved",
+              "cleaning",
+              "blocked"
+            ]
+          },
+          "patient_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "admission_id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "branch": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "required": [
+          "id",
+          "number",
+          "room_number",
+          "category",
+          "status",
+          "patient_name",
+          "admission_id",
+          "branch"
+        ]
+      },
+      "AdmissionCreate": {
+        "type": "object",
+        "properties": {
+          "patient": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "bed": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "treating_doctor": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 500
+          }
+        },
+        "required": [
+          "patient",
+          "bed",
+          "treating_doctor"
+        ]
+      },
+      "Admission": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "patient": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "patient_name": {
+            "type": "string"
+          },
+          "bed": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "bed_number": {
+            "type": "string"
+          },
+          "branch": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "treating_doctor": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "active"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "admitted_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "patient",
+          "patient_name",
+          "bed",
+          "bed_number",
+          "branch",
+          "treating_doctor",
+          "reason",
+          "status",
+          "version",
+          "admitted_at"
+        ]
+      },
+      "Dashboard": {
+        "type": "object",
+        "properties": {
+          "patients_total": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "opd_today": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "active_admissions": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "available_beds": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "appointments_today": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "therapy_pending": {
+            "type": "integer",
+            "minimum": 0,
+            "nullable": true
+          }
+        },
+        "required": [
+          "patients_total",
+          "opd_today",
+          "active_admissions",
+          "available_beds",
+          "appointments_today",
+          "therapy_pending"
+        ]
+      },
+      "PlatformSummary": {
+        "type": "object",
+        "properties": {
+          "organisation": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name"
+            ]
+          },
+          "branches_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "staff_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "active_staff_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "security": {
+            "type": "object",
+            "properties": {
+              "ip_mode": {
+                "type": "string",
+                "enum": [
+                  "allow_authenticated",
+                  "allowlist_only"
+                ]
+              }
+            },
+            "required": [
+              "ip_mode"
+            ]
+          },
+          "modules": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "foundation",
+                    "planned"
+                  ]
+                }
+              },
+              "required": [
+                "name",
+                "status"
+              ]
+            }
+          }
+        },
+        "required": [
+          "organisation",
+          "branches_count",
+          "staff_count",
+          "active_staff_count",
+          "security",
+          "modules"
+        ]
+      },
+      "BranchList": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Branch"
+            }
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "results",
+          "count"
+        ]
+      },
+      "PatientList": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Patient"
+            }
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "results",
+          "count"
+        ]
+      },
+      "AppointmentList": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Appointment"
+            }
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "results",
+          "count"
+        ]
+      },
+      "BedList": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Bed"
+            }
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "results",
+          "count"
+        ]
+      },
+      "AdmissionList": {
+        "type": "object",
+        "properties": {
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Admission"
+            }
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "results",
+          "count"
+        ]
+      },
+      "LoginRequest": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "minLength": 1
+          },
+          "password": {
+            "type": "string",
+            "minLength": 1,
+            "format": "password"
+          }
+        },
+        "required": [
+          "username",
+          "password"
+        ]
+      }
+    }
+  },
+  "x-status": "Phase A contract; implementation/evidence tracked in HMS.md and ledger."
+}

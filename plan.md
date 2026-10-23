@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Execution version1.2.0, 23 October2026. Owner explicitly authorised implementation with five specialists. Phase A is defined in docs/implementation/phase-a-contract.md; future planned features remain unimplemented until verified. Pre-code checks apply per active slice; usability/production gates remain release conditions, not a claim of completion.
+**Status:** Execution checkpoint version1.3.0, 23 October2026. Phase A is runnable locally with synthetic data, but review/production gates remain incomplete. Usage-triggered cooldown active until at least10:32:15Z (4:02PM IST), with recovered usage required. No implementation continues during that deadline; checkpoint preservation/publication is permitted.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -635,6 +635,17 @@ Per-task test names above define their assertions. Additional narrow tests are a
 
 ## 16. Evidence log and readiness
 
+### Phase A checkpoint — cooldown triggered23October2026
+
+- Backend agent:47tests passed,1PostgreSQL concurrency test skipped onSQLite,25subtests passed; Django5.2.18/DRF3.16.1; system check/migration drift checks passed. Initial settings/services in backend/hms and apps/core rather than final per-domain package layout; refactor future domains explicitly.
+- Frontend agent:typecheck,8tests and build passed; source-only production dependency audit reported0vulnerabilities. Core API-backed local screens present; full92-page catalogue is not implemented.
+- Coordinator: root scripts16tests passed (usage guard8 + documentation checker8); pureIP22tests/25subtests passed. Synthetic browser login/dashboard verified; API/map/local-link checker passed. Full checkpoint reruns recorded in ledger when complete.
+- Platform: OpenAPI18operations, page-action mapping, Dockerfiles/Compose and CI prepared. Docker unavailable locally; no container runtime/remoteCI pass claimed.
+- Independent fifth reviewer stopped on threshold; no Critical found in bounded inspected auth/CSRF/branch/allocation paths, but review incomplete. Important open finding: admission selector hard-caps first100beds. This must be fixed/tested before any release; do not mark Tasks07/17 fully complete.
+- Task01/02/03/04/07 subsets implemented, not whole-task completion. MFA, production identity/edge, all clinical/finance/dataops/MCP and remaining portals stay planned. Generic creation idempotency/cross-branch identity/exclusivity are explicit remaining work.
+- Threshold6%remaining at2026-10-23T05:02:15Z; preserve earliest resume2026-10-23T10:32:15Z. Manual Continue at08:34Z found55%recovered but did not silently waive cooldown. Next: >100-bed regression/fix, complete independent review, validate remotePostgreSQLCI, then next reviewed slice.
+- Coordinator checkpoint reruns confirmed backend47passed/1PGskip/25subtests and frontend typecheck/8tests/build; source/API-map/link and targeted credential-pattern checks passed. No new implementation performed during cooldown.
+
 Active execution evidence: docs/implementation/ledger.md. Five specialist roles assigned in batches: backend, frontend, security, platform/dataops/MCP and independent review. Root coordinates shared interfaces/docs/Git. Usage guard8/8 RED->GREEN; native heartbeat active. No application capacity/production assertion follows from those developer-tool tests.
 
 | Check | Current evidence |
@@ -662,3 +673,4 @@ Create feature branches/PRs when repository protection or agreed workflow requir
 - 1.0.1 — 23 October 2026: record completed Task 00, independent review/corrections, documentation verification and verified initial GitHub publication. No product implementation, runtime tests or deployment.
 - 1.1.0 — 23 October 2026: add O-12 simple professional UX and O-13 API-first architecture; OpenAPI/page-action mapping gate, contract/parity test suite and staff-task usability checks. No application code or runtime tests added.
 - 1.2.0 — 23 October2026: owner authorised team execution; freeze Phase A contract, team ownership, preflight ledger and O-14 usage pause/resume rule. Tested local usage guard and Windows wrapper, native heartbeat active. Phase A runtime work in progress.
+- 1.3.0 — 23 October2026: preserve runnable first slice and five-agent evidence at usage stop; record known Important100-bed-selector defect, incomplete review, runtime limitations and exact cooldown deadline. Feature branch checkpoint, not production release.

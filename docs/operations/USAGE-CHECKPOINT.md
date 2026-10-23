@@ -2,11 +2,16 @@
 
 Owner instruction: when any applicable Codex usage window has 10% or less remaining, checkpoint HMS.md and stop new work; resume no earlier than 5 hours30minutes later and only with recovered usage.
 
-State: ACTIVE_IMPLEMENTATION
-checkpoint_at_utc: null
-resume_not_before_utc: null
+State: WAIT_COOLDOWN
+checkpoint_at_utc: 2026-10-23T05:02:15.039512+00:00
+resume_not_before_utc: 2026-10-23T10:32:15.039512+00:00
+resume_not_before_ist: 23 October 2026, 4:02:15 PM IST
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330
+
+Threshold snapshot:6% minimum remaining. Agents were told to stop and checkpoint. At08:34Z manual Continue, minimum remaining recovered55%, but the original deadline remains active. No reset credit consumed. Native heartbeat updated in place; actual wake is best effort and may be later than earliest deadline.
+
+Preserved work: first local API-backed login/dashboard/patient/appointment/bed/admission/master-summary slice; OpenAPI/docs/CI/local-container groundwork; exact tests and open review in HMS.md and ledger. First resume task: fix admission bed selector's first100-record limit with regression coverage, then finish independent review/CI. Full clinical/finance/MCP/backup/cloud work is not complete. No new feature fixes during cooldown.
 
 Before substantive work and bounded task boundaries, coordinator calls get_usage_limits and prefers rateLimitsByLimitId. remaining=100-usedPercent. Check primary and secondary applicable windows. A low weekly window may require longer than330minutes; never resume below threshold or consume reset credits automatically. Unknown usage means do not start a new large work unit until visibility returns.
 

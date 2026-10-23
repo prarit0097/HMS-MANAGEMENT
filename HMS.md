@@ -1,8 +1,8 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.2.0 | Updated: 23 October 2026, Asia/Calcutta
+Document version: 1.3.0 | Updated: 23 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
-Current state: **OWNER-AUTHORISED IMPLEMENTATION, PHASE A IN PROGRESS. No production service exists.** See the implementation ledger for verified versus in-progress work.
+Current state: **USAGE COOLDOWN / PHASE A DEVELOPMENT CHECKPOINT. No production service exists.** Implementation paused after a6%-remaining reading at2026-10-23T05:02:15Z; earliest resume2026-10-23T10:32:15Z (23October4:02PM IST), subject to recovered usage. Manual 'Continue' on23October triggered checkpoint completion, not silent cancellation of the saved cooldown.
 
 ## 1. Read this first
 
@@ -66,18 +66,18 @@ These are intended combined capabilities, not claims of unique inventions or pro
 
 | Layer | Planned choice | Actual state |
 |---|---|---|
-| Backend language/framework | Python + Django | Not scaffolded |
-| HTTP API | Django REST Framework; versioned `/api/v1/` | Not implemented |
-| Frontend | React + TypeScript + Vite | Not scaffolded |
-| Database | PostgreSQL | Not provisioned |
+| Backend language/framework | Python + Django5.2.18 | Phase A implemented under backend/hms and backend/apps/core; not production-ready |
+| HTTP API | Django REST Framework3.16.1; versioned `/api/v1/` | Session/CSRF, scoped branch/patient/appointment/admission/dashboard and platform-summary APIs implemented |
+| Frontend | React19.3.1 + TypeScript7.0.2 + Vite8.3.5 | API-backed local staff workspace implemented; first development slice only |
+| Database | PostgreSQL for production; SQLite for local synthetic development | Local SQLite migrated/seeded; actual PostgreSQL execution not yet verified |
 | Background work | Celery; durable broker, proposed RabbitMQ | Not configured |
 | Disposable cache/rate limit | Redis where justified | Not configured |
 | IP policy primitives | Framework-independent trusted-proxy resolver and allow/deny evaluator | Implemented;22 tests/25 subtests passed. Request middleware/admin policy UI still in progress/planned |
 | Files | Private cloud object storage, encrypted and access-controlled | Not provisioned |
-| Runtime | Containerised services; production Linux; local Windows development supported | Not configured |
+| Runtime | Containerised services; production Linux; local Windows development supported | Local Django/Vite ran on127.0.0.1:8000/5173; development Compose/Dockerfiles prepared, Docker execution unverified |
 | Remote MCP | Authenticated HTTP endpoint with supported MCP transport/version | Not implemented |
 | Cloud provider | Not selected; architecture must not assume public database/storage | No account/resources created |
-| CI/testing | Proposed pytest, frontend component tests, Playwright, dependency/secret/security checks | No application checks exist yet |
+| CI/testing | pytest, Vitest/component tests and contract/docs checks; remaining e2e/security/load gates | Backend47pass/1PGskip/25subtests and frontend8pass/typecheck/build reported by agents; CI workflow prepared, remote run not yet verified |
 
 The language direction is the current planning baseline from previous recommendations, not proof of delivered capacity. Supported mutually compatible versions will be pinned and recorded before scaffolding. Docker Compose is a proposed local integration tool, not an automatic production deployment architecture.
 
@@ -96,6 +96,10 @@ Browser / compatible MCP client -> cloud edge -> trusted proxy -> authenticated 
 Master admin is a permissioned application role, not a PostgreSQL superuser account exposed through a webpage. Clinical signing still requires an authorised clinician. Infrastructure administration and patient-chart access are separate privileges.
 
 Planned repository ownership and function interfaces are in plan.md. Any changed implementation path/interface must be reflected there and here in the same change.
+
+Phase A implementation-path ruling: this bounded slice uses `backend/hms/` for configuration and `backend/apps/core/` for initial relational models, serializers, scoped services and API handlers. Security primitives are in `backend/apps/security/`. This differs from the future per-domain package map in plan.md; future clinical/finance/dataops modules must be split deliberately with migrations/contracts, not duplicated or assumed already present. Patient identity currently has a home-branch scope; full cross-branch chart/identity sharing is not implemented.
+
+Current source API contract is [OpenAPI v1](docs/api/openapi-v1.yaml), with [page-action map](docs/api/page-actions-v1.json) and [compatibility/security notes](docs/api/README.md). Contract validation is separate from runtime parity. Generic create-request idempotency keys are not implemented; patient/appointment creation retries can create duplicates and require follow-up design before production.
 
 ## 7. Identity, data and branch principles
 
@@ -239,11 +243,17 @@ Cloud production is separate from GitHub publication. No cloud provider, domain,
 | Requirements/research | Original baseline plus consolidated research and addenda exist |
 | HMS.md / plan.md | Initial documents reviewed and published; owner/design readiness gate still required before product implementation |
 | Agent workflow | AGENTS.md and safe ignore rules prepared |
-| Product pages/APIs/models/MCP | Phase A backend/frontend/security under active implementation; no runtime completion claimed in this checkpoint |
-| Unit/integration/UI/security/load/restore tests | Usage guard8/8 passed RED->GREEN; product agents report their own results before integration; load/restore/production tests remain pending |
+| Product pages/APIs/models/MCP | Initial local login/dashboard/patients/appointments/beds/admission/master-inventory implemented; MCP/clinical/finance/therapy/nursing/dataops still planned |
+| Unit/integration/UI/security/load/restore tests | Agent-reported backend47passed/1PostgreSQL-only skipped/25subtests; frontend8tests/typecheck/build passed; coordinator pureIP22/25subtests and root scripts16 passed. Full coordinator reruns at checkpoint recorded in ledger; no load/restore/production tests |
 | Documentation checks | Local links, C-01–C-20/O-01–O-11 coverage, 92 unique page IDs, secret-pattern scan and baseline-copy hash passed. New files pass staged whitespace checks; five intentional original Markdown hard breaks preserved |
 | GitHub sync | Initial commit `17df5ef52750cfb55ad9d146dbeba1d9d4820699` verified against remote main; follow-up publication evidence tracked in Git history/handoff |
-| Cloud/production | Not deployed |
+| Cloud/production | Not deployed; local Compose/IaC groundwork and CI workflow are source only, not evidence of running cloud resources |
+
+Local verification observed: synthetic development account login succeeded through the frontend and authorised dashboard displayed3 synthetic patients,3 appointments,0 active admissions and12 available beds. No real hospital data used. Development account password exists only in ignored local database/environment, never source or documentation. [Local setup](docs/operations/LOCAL-DEVELOPMENT.md) explains creating a private synthetic account.
+
+Known open Important finding: `frontend/src/pages.tsx` admission selector loads only the first100 beds and cannot select a later available bed, despite a pageable bed board. This conflicts with expandable capacity; fix with paginated/search selection or per-card admission action, add a >100-bed regression, then rerun relevant tests before release. Independent review stopped at usage threshold; no final whole-slice approval is claimed. Appointment input explicitly uses device-local timezone while schedule displays IST; align/validate the intended staff workflow before rollout.
+
+Remaining security/operational gates: complete MFA, distributed login abuse controls, comprehensive sensitive-read/immutable audits, full cross-branch identity/access, exclusive room/villa rules, production OAuth/MCP, full/module backup/restore/import/export, and PostgreSQL concurrency/CI execution. None are silently claimed done by the first slice.
 
 Current detailed business parameters (rent cycles, package/refund rules, payer tariffs, clinical forms) are configuration/spec decisions, not reasons to investigate rented premises. Future call-center product questions stay deferred. Detailed uncertainties, design gates and page catalogue live in plan.md.
 
@@ -290,6 +300,16 @@ For every change add: ID/date; request and reason; changed behaviour/files/pages
 - Evidence: agent reported RED assertions against an interface skeleton, then GREEN. Coordinator reran `python -m pytest backend/apps/security/tests/test_ip_policy.py -q`:22 passed,25 subtests passed. A simultaneous broad scripts test discovery also saw8 expected RED tests from the platform agent's not-yet-implemented documentation checker; those uncommitted tests are not included in this change. Usage guard8 still pass.
 - Scope/limits: pure IP evaluator only; this commit does not prove deployed edge firewall, middleware, admin lockout recovery, MFA or production security. Backend integration is under implementation.
 - Publication: `feat: add tested trusted-proxy and IP policy primitives`; no migrations, real records or deployment.
+
+### CHG-0006 — 23 October 2026 — Preserve first runnable development slice at usage cooldown
+
+- Files: remaining backend foundation/migrations/tests/instructions; frontend source/package lock/component/API tests; OpenAPI/page map; development Compose/Dockerfiles/.dockerignore; CI workflow; tested documentation checker; README/local setup; updated HMS.md/plan.md/ledger/usage checkpoint. No dependencies, database, credential files or runtime snapshots committed.
+- Delivered: authenticated session/CSRF API, organisation/branch/role checks, patient search/registration/detail, appointments/check-in, bed listing/initial admission, dashboard and nonclinical master inventory; simple API-driven UI with clear unavailable future modules.
+- Evidence: backend agent47passed/1PGskip/25subtests; frontend agent8passed/typecheck/build; coordinator root scripts16passed and pureIP22passed/25subtests, plus successful synthetic browser sign-in/dashboard. Final checkpoint rerun details in ledger. API/map/local-link checker passed; remote CI and Compose startup unverified.
+- Review: five specialists used in batches; independent fifth reviewer identified first100-bed admission-selector limitation. No new fixes after <=10% stop; issue retained as first resume task. Review incomplete, no production approval.
+- Usage: threshold observed6%remaining at05:02:15Z; earliest resume10:32:15Z (4:02PM IST). At manual Continue08:34Z, usage recovered55% but deadline remained active. Native same-chat heartbeat updated; no reset credit consumed and no new implementation during cooldown.
+- Publication: `wip: checkpoint runnable HMS foundation and pending review`; feature branch only, not merged/deployed. Resume ledger preserves exact pending work.
+- Final coordinator checkpoint reruns: backend47passed/1PostgreSQL-only skipped/25subtests in56.72seconds; frontend typecheck passed,8tests passed,build passed. API/map/local-link checker passed and targeted credential-pattern scan across60source/docs files found no matches. These preservation checks do not waive the known review finding or production gates.
 
 ## 18. Technical references
 

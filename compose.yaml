@@ -1,0 +1,70 @@
+# LOCAL DEVELOPMENT ONLY. No cloud resources or production exposure are created.
+name: hms-local
+services:
+  database:
+    image: postgres:17.11-bookworm
+    environment:
+      POSTGRES_DB: ${HMS_DB_NAME:?Set HMS_DB_NAME in your private env file}
+      POSTGRES_USER: ${HMS_DB_USER:?Set HMS_DB_USER in your private env file}
+      POSTGRES_PASSWORD: ${HMS_DB_PASSWORD:?Set a private local database password}
+    volumes:
+      - local-postgres:/var/lib/postgresql/data
+    networks: [data]
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"']
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    security_opt: [no-new-privileges:true]
+  backend:
+    build:
+      context: .
+      dockerfile: infra/backend.Dockerfile
+    environment:
+      HMS_ENV: development
+      HMS_SECRET_KEY: ${HMS_SECRET_KEY:?Set a private local session secret}
+      HMS_ALLOWED_HOSTS: localhost,127.0.0.1,backend
+      HMS_DB_ENGINE: postgresql
+      HMS_DB_HOST: database
+      HMS_DB_PORT: '5432'
+      HMS_DB_NAME: ${HMS_DB_NAME:?Set HMS_DB_NAME}
+      HMS_DB_USER: ${HMS_DB_USER:?Set HMS_DB_USER}
+      HMS_DB_PASSWORD: ${HMS_DB_PASSWORD:?Set HMS_DB_PASSWORD}
+      HMS_DB_SSLMODE: disable
+      HMS_CSRF_TRUSTED_ORIGINS: http://localhost:5173,http://127.0.0.1:5173
+      # Vite forwards requests. No proxy IP trust is inferred in this local stack.
+      HMS_TRUSTED_PROXIES: ''
+      HMS_IP_ALLOWLIST_ONLY: '0'
+    ports: ['127.0.0.1:8000:8000']
+    networks: [web, data]
+    depends_on:
+      database:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health/', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      start_period: 20s
+      retries: 6
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+  frontend:
+    build:
+      context: .
+      dockerfile: infra/frontend.Dockerfile
+    environment:
+      HMS_API_TARGET: http://backend:8000
+    ports: ['127.0.0.1:5173:5173']
+    networks: [web]
+    depends_on:
+      backend:
+        condition: service_healthy
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+networks:
+  web:
+    internal: true
+  data:
+    internal: true
+volumes:
+  local-postgres:
