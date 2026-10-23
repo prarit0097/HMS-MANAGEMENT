@@ -1,8 +1,8 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.8.0 | Updated: 23 October 2026, Asia/Calcutta
+Document version: 1.8.1 | Updated: 23 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
-Current state: **VERIFIED BOUNDED IDENTITY-SECURITY SOURCE; development continues.** Owner17:44:21UTC resume/both100%remaining waived only oldcooldown. Identity36total source operations, core0005 and Account security verified with actual PostgreSQL259passed/25subtests, frontend64passed/typecheck/build, bounded independent review. Bed-edit test synchronization and proof expiry after lock waits resolved. Full recovery/read audit/remaining HMS release gates remain. Hostinger preview47b3618unchanged; future<=10%rule remains.
+Current state: **VERIFIED IDENTITY SOURCE; audit-history design frozen before code.** Owner17:44:21UTC resume/both100%remaining waived only oldcooldown. Identity36total source operations, core0005 and Account security verified with actual PostgreSQL259passed/25subtests, frontend64passed/typecheck/build, bounded independent review. Bed-edit test synchronization and proof expiry after lock waits resolved. Full recovery/read audit/remaining HMS release gates remain. Hostinger preview47b3618unchanged; future<=10%rule remains.
 
 ## 1. Read this first
 
@@ -77,7 +77,7 @@ These are intended combined capabilities, not claims of unique inventions or pro
 | Runtime | Containerised services; production Linux; local Windows development supported | Hostinger preview runs dedicated Gunicorn/systemd/static Nginx and private containerised PostgreSQL; development Compose remains separate |
 | Remote MCP | Authenticated HTTP endpoint with supported MCP transport/version | Not implemented |
 | Cloud provider | Hostinger existing VPS selected for this authenticated preview; private database, future file storage unprovisioned | Dedicated /opt/hms preview resources created on owner existing VPS |
-| CI/testing | pytest, Vitest/component tests and contract/docs checks; remaining e2e/security/load gates | Current identity source actual PostgreSQL259passed/25subtests/0skips17.20s, frontend64passed/typecheck/build; system/migration checks clean and bounded source review approved. Prior checkpoint6660bb0actualGitHubCI39972065170success; new source CI awaits publication. Preview deployment remains separate |
+| CI/testing | pytest, Vitest/component tests and contract/docs checks; remaining e2e/security/load gates | Current identity source actual PostgreSQL259passed/25subtests/0skips17.20s, frontend64passed/typecheck/build; system/migration checks clean and bounded source review approved. Identity2c65c57actualGitHubCI39998933249success259backend/25subtests,64frontend,19root/OpenAPI/Compose/docs independently verified; future audit-source CI separate. Preview deployment remains separate |
 
 The language direction is the current planning baseline from previous recommendations, not proof of delivered capacity. Supported mutually compatible versions will be pinned and recorded before scaffolding. Docker Compose is a proposed local integration tool, not an automatic production deployment architecture.
 
@@ -131,6 +131,10 @@ Freshness is rechecked after organisation/branch/bed/staff revision lock waits a
 Repeated bed-edit test failure was diagnosed as whole-page accessibility lookup across sequential summary/branch/bed loading on Windows. Test now waits Bed inventory and scopes the same button/assertions; no timeout, payload, production behaviour or expected409 retention changed. Root64tests/typecheck/build passed after repair. Local isolated synthetic browser sign-in and Account security page visually verified; no real staff acceptance, credential-change browser flow or live-VPS-browser claim. Preview47b3618/source remain separate; private test keys/SQLite/credentials/screenshot ignored.
 
 Key provisioning/rotation/off-host restoration, human recovery, immutable/read audit and remaining clinical/financial/MCP/dataops product are open release work. No full hospital security certification or breach-proof promise. Operations guide records these distinctions.
+
+### Next bounded audit-history design (not implemented by documentation)
+
+[Audit-history contract](docs/implementation/audit-history-contract.md) and OpenAPI0.5/page map freeze3GEToperations (39catalogued/36implemented). Master permission platform.audit.read plus current MFA ceiling exposes only5same-org nonclinical change actions; any authenticated self may read only8own branchless security actions. Clinical/global foreign events and raw stored JSON are excluded. Strict allowlisted typed/length-bounded details, same-org labels,90day/max10000offset window bounds, pinned pagination, planned0006indexes and lazy professional UI are specified before code. GETs create no audit/profile rows. No immutable/read-event audit, export, raw IP, human recovery or production release claimed. Pre-code independent privacy review found no remaining material contradiction after scalar/date/type/UUID/GET-state refinements.
 
 ## 7. Identity, data and branch principles
 
@@ -449,3 +453,10 @@ Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration
 - Root actual isolated PostgreSQL259passed25subtests/0skips17.20s, Django check0/no migration drift, temporary testDB removed/CREATEDB revoked. Backend agent local244passed15PGskips25subtests32.54s. Root frontend64passed18.01s/typecheck/build; original testRED reproduced then exact inventory-scoped query GREEN, no timeout/mock/production change. Private local browser sign-in/Account security page verified visually; full staff/live-browser acceptance remains open.
 - Prior6660bb0pushCI39972065170success inspected; new source CI not presumed. Root OpenAPI/map/docs/19projectchecks at publication, stagedprivatecredentialcomparison and remoteSHA in handoff. Files resource_admin.py/staff_access.py/test_identity_security.py/resource-administration.test.tsx plus living/API/operations docs. No new migration in this repair; original0005still source-only.
 - Owner17:44resume history preserved; no reset credit consumed. Source ready for bounded identity use in synthetic validation, not real-data hospital rollout. Remaining recovery/read audit/IP management/clinical/finance/MCP/dataops and release gates continue from plan. Commit subject: fix: verify MFA freshness across locks and identity races.
+
+### CHG-0019 —23October2026 — Verified identity CI and freeze scoped audit history
+
+- Independently decoded exact2c65c57pushrun39998933249success17:55:20UTC:259PG/25subtests18.68s,64frontend/typecheck/build,19root/OpenAPI/Compose/docs. RemoteSHA verified, source-only; preview47b3618unchanged.
+- New audit-history-contract.md/OpenAPI0.5/page map3GEToperations39catalogued36implemented frozen before production. Five same-org nonclinical actions under new scoped auditread+recentMFA, eight own branchless security actions under fullselfsession; strict date/page/query/type/projection/label/privacy/UI/test/index design. No rawglobalbrowser/clinical/read-audit/immutable/export claim.
+- Independent pre-code privacy review accepted split, required scalar maxima, bool/int rejection, extreme-date validation, stringUUIDroute400 and read-onlyrequire_platform; all incorporated before assignment. Ruling row-derived named branch filter avoids granting staff/config lookup permission; costifinsufficient later dedicatedpickerAPI, notbroaderscope.
+- Files contract/OpenAPI/map/API notes/HMS/plan/ledger/checkpoint. Validator initiallycaught emptyrequiredarray in new schemas, corrected before freeze; finalOpenAPI/map/links passed. No runtime implementation/schema/test pass claimed by this design commit. Next backend/frontendRED thenfreshreview/actualPG/verifiedpush.

@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.8.0,23October2026: bounded identity36source operations verified after lock-expiry and test synchronization fixes. Actual PostgreSQL259passed/25subtests, frontend64/typecheck/build, bounded independent source approval. Owner17:44resume/future10%rule preserved. Full Task02human recovery/read audit and remaining product/release gates incomplete; preview47b3618unchanged.
+**Status:** Version1.8.1,23October2026: bounded identity36source operations verified after lock-expiry and test synchronization fixes. Actual PostgreSQL259passed/25subtests, frontend64/typecheck/build, bounded independent source approval. Owner17:44resume/future10%rule preserved. Audit-history3GETextensions frozen39catalogued36implemented, implementation next. Full Task02human recovery/read audit and remaining product/release gates incomplete; preview47b3618unchanged.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -637,6 +637,13 @@ Per-task test names above define their assertions. Additional narrow tests are a
 
 ## 16. Evidence log and readiness
 
+### Active administration history / own activity —23October2026
+
+- [x] audit-history-contract.md/OpenAPI0.5/page-map3GEToperations frozen39total; independent pre-code privacy review, scalar/type/date/UUID/currentMFA/pureGET refinements resolved.
+- [ ] Backend read-only projections/scoping/windows/indexmigration0006/REDsecurity tests; no clinical/global leak/rawpayload/GETwrites.
+- [ ] Frontend lazy named history/detail/filter/pinnedpagination and own security activity, RED/fulltests/typecheck/build.
+- [ ] Fresh review/probes, root actualPG/fullfrontend/root/API/docs, verifiedpush/actualCI. Full immutable/read audit/recovery/remaining HMS and release gates incomplete; preview47b3618unchanged.
+
 ### Verified bounded identity security —23October2026
 
 - [x] Exact identity-security-contract.md and OpenAPI0.4/page-map9operations frozen36total; official PyOTP/Fernet/Django/NIST/OWASP research and separate pre-code threat review. Existing-factor proof, anonymous CSRF and locked revocation design explicit.
@@ -744,3 +751,5 @@ Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration
 - 1.7.3 —23October2026: owner17:44:21resume/both100%waives only olddeadline; continue exact identity WIP regression/security coverage with no repeated deployment.
 
 - 1.8.0 —23October2026: verified boundedidentity259PG/25subtests/64frontend, fivefreshnessREDfixes, independentbedlockprobe andloadingtestrepair; source/deployment/fullrelease separate.
+
+- 1.8.1 —23October2026: identityactualCIgreen; freeze3GET scoped administration/selfsecurity journal design39catalogued beforecode, privacy review complete.

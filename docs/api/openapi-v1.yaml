@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "title": "HMS API and bounded master configuration",
-    "version": "0.4.0",
+    "version": "0.5.0",
     "description": "Frozen first-slice design source, not a claim that every operation is verified or deployed. Session and CSRF protected hospital workspace. All capabilities outside this catalogue are deferred."
   },
   "servers": [
@@ -2958,6 +2958,412 @@
           }
         }
       }
+    },
+    "/platform/organisations/{organisation_id}/audit-events/": {
+      "get": {
+        "operationId": "listAdministrationHistory",
+        "summary": "List scoped nonclinical administration changes",
+        "description": "List scoped nonclinical administration changes. Read-only allowlisted projection, no raw stored JSON or clinical/global foreign events. Administration requires current MFA policy as well as scoped permission. Exact query/projection/privacy contract: audit-history-contract.md.",
+        "x-permission": "platform.audit.read",
+        "parameters": [
+          {
+            "name": "organisation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 25
+            },
+            "description": "Larger positive values clamp to100."
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000,
+              "default": 0
+            },
+            "description": ""
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "description": "Explicit timezone required; inclusive. Default before minus30days."
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "description": "Explicit timezone required; exclusive, future clips to now. Maximum90day window; echoed for pinned pagination."
+          },
+          {
+            "name": "action",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "branch.created",
+                "bed.created",
+                "bed.changed",
+                "staff.created",
+                "staff.changed"
+              ]
+            },
+            "description": ""
+          },
+          {
+            "name": "branch",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Same-org branch only; no inferred permission."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Authorised bounded projection; window pins pagination.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuditPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid/duplicate/unknown query or route UUID/window/page.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/stale full session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Current identity/permission/MFA/CSRF/network ceiling denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record or scoped branch/event concealed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Security/data service unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/platform/organisations/{organisation_id}/audit-events/{event_id}/": {
+      "get": {
+        "operationId": "getAdministrationChange",
+        "summary": "Read redacted administration change",
+        "description": "Read redacted administration change. Read-only allowlisted projection, no raw stored JSON or clinical/global foreign events. Administration requires current MFA policy as well as scoped permission. Exact query/projection/privacy contract: audit-history-contract.md.",
+        "x-permission": "platform.audit.read",
+        "parameters": [
+          {
+            "name": "organisation_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "event_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Authorised bounded projection; window pins pagination.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuditDetail"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid/duplicate/unknown query or route UUID/window/page.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/stale full session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Current identity/permission/MFA/CSRF/network ceiling denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record or scoped branch/event concealed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Security/data service unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/security/activity/": {
+      "get": {
+        "operationId": "listOwnSecurityActivity",
+        "summary": "List own security activity",
+        "description": "List own security activity. Read-only allowlisted projection, no raw stored JSON or clinical/global foreign events. Administration requires current MFA policy as well as scoped permission. Exact query/projection/privacy contract: audit-history-contract.md.",
+        "x-permission": "authenticated",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 25
+            },
+            "description": "Larger positive values clamp to100."
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000,
+              "default": 0
+            },
+            "description": ""
+          },
+          {
+            "name": "after",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "description": "Explicit timezone required; inclusive. Default before minus30days."
+          },
+          {
+            "name": "before",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "description": "Explicit timezone required; exclusive, future clips to now. Maximum90day window; echoed for pinned pagination."
+          },
+          {
+            "name": "action",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "security.enrolled",
+                "security.enrollment_started",
+                "security.login_verified",
+                "security.step_up",
+                "security.password",
+                "security.rotate",
+                "security.revoke",
+                "security.disable"
+              ]
+            },
+            "description": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Authorised bounded projection; window pins pagination.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuditPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid/duplicate/unknown query or route UUID/window/page.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing/stale full session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Current identity/permission/MFA/CSRF/network ceiling denied.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record or scoped branch/event concealed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Security/data service unavailable.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -4463,6 +4869,415 @@
         "required": [
           "verified_at",
           "expires_at"
+        ]
+      },
+      "AuditActor": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "username": {
+            "type": "string",
+            "maxLength": 150
+          }
+        },
+        "required": [
+          "id",
+          "username"
+        ]
+      },
+      "AuditBranch": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 32
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "code"
+        ]
+      },
+      "AuditSummary": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "branch.created",
+              "bed.created",
+              "bed.changed",
+              "staff.created",
+              "staff.changed",
+              "security.enrolled",
+              "security.enrollment_started",
+              "security.login_verified",
+              "security.step_up",
+              "security.password",
+              "security.rotate",
+              "security.revoke",
+              "security.disable"
+            ]
+          },
+          "actor": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "username": {
+                "type": "string",
+                "maxLength": 150
+              }
+            },
+            "required": [
+              "id",
+              "username"
+            ],
+            "nullable": true
+          },
+          "branch": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "name": {
+                "type": "string",
+                "maxLength": 160
+              },
+              "code": {
+                "type": "string",
+                "maxLength": 32
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "code"
+            ],
+            "nullable": true
+          },
+          "object_id": {
+            "type": "string",
+            "maxLength": 36
+          },
+          "method": {
+            "type": "string",
+            "enum": [
+              "totp",
+              "backup_code",
+              null
+            ],
+            "nullable": true
+          }
+        },
+        "required": [
+          "id",
+          "created_at",
+          "action",
+          "actor",
+          "branch",
+          "object_id",
+          "method"
+        ]
+      },
+      "AuditChangeSnapshot": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 160
+          },
+          "code": {
+            "type": "string",
+            "maxLength": 32
+          },
+          "number": {
+            "type": "string",
+            "maxLength": 32
+          },
+          "room_number": {
+            "type": "string",
+            "maxLength": 32
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "general",
+              "semi_private",
+              "private",
+              "private_luxury",
+              "villa"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "active",
+              "suspended",
+              "available",
+              "cleaning",
+              "blocked",
+              "occupied",
+              "reserved"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "assignments": {
+            "type": "array",
+            "maxItems": 1000,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "branch": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "role": {
+                  "type": "string",
+                  "enum": [
+                    "master_admin",
+                    "reception",
+                    "doctor",
+                    "pharmacist",
+                    "accounts",
+                    "nurse",
+                    "therapist"
+                  ]
+                }
+              },
+              "required": [
+                "branch",
+                "role"
+              ]
+            }
+          }
+        }
+      },
+      "AuditSafeDetails": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "before": {
+            "$ref": "#/components/schemas/AuditChangeSnapshot"
+          },
+          "after": {
+            "$ref": "#/components/schemas/AuditChangeSnapshot"
+          },
+          "target_user_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "organisation_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "AuditDetail": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "branch.created",
+              "bed.created",
+              "bed.changed",
+              "staff.created",
+              "staff.changed",
+              "security.enrolled",
+              "security.enrollment_started",
+              "security.login_verified",
+              "security.step_up",
+              "security.password",
+              "security.rotate",
+              "security.revoke",
+              "security.disable"
+            ]
+          },
+          "actor": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "username": {
+                "type": "string",
+                "maxLength": 150
+              }
+            },
+            "required": [
+              "id",
+              "username"
+            ],
+            "nullable": true
+          },
+          "branch": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "name": {
+                "type": "string",
+                "maxLength": 160
+              },
+              "code": {
+                "type": "string",
+                "maxLength": 32
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "code"
+            ],
+            "nullable": true
+          },
+          "object_id": {
+            "type": "string",
+            "maxLength": 36
+          },
+          "method": {
+            "type": "string",
+            "enum": [
+              "totp",
+              "backup_code",
+              null
+            ],
+            "nullable": true
+          },
+          "details": {
+            "$ref": "#/components/schemas/AuditSafeDetails"
+          },
+          "details_truncated": {
+            "type": "boolean"
+          },
+          "branch_labels": {
+            "type": "object",
+            "maxProperties": 2000,
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AuditBranch"
+            }
+          },
+          "target": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "username": {
+                "type": "string",
+                "maxLength": 150
+              }
+            },
+            "required": [
+              "id",
+              "username"
+            ],
+            "nullable": true
+          }
+        },
+        "required": [
+          "id",
+          "created_at",
+          "action",
+          "actor",
+          "branch",
+          "object_id",
+          "method",
+          "details",
+          "details_truncated",
+          "branch_labels",
+          "target"
+        ]
+      },
+      "AuditPage": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "results": {
+            "type": "array",
+            "maxItems": 100,
+            "items": {
+              "$ref": "#/components/schemas/AuditSummary"
+            }
+          },
+          "window": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "after": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "before": {
+                "type": "string",
+                "format": "date-time"
+              }
+            },
+            "required": [
+              "after",
+              "before"
+            ]
+          }
+        },
+        "required": [
+          "count",
+          "results",
+          "window"
         ]
       }
     }

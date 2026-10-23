@@ -1,5 +1,11 @@
 # SDD ledger — plan: plan.md
 
+## Audit-history design frozen —23October2026
+
+- Actualidentity2c65c57CI39998933249success independentlydecoded259PG/25subtests18.68s,64frontend/build,19root/OpenAPI/Compose/docs17:55:20UTC. No liveupdate.
+- Exactaudit-history-contract/OpenAPI0.5/map3GETextensions39catalogued36implemented frozenbeforecode. Scopedmasterauditread+currentMFA five nonclinicalactions; authenticatedself eightbranchlesssecurityactions. Excludeclinical/foreign/rawJSON; per-actionlength/type/UUID allowlists, sameorglabels,1000assignmentcropflag,90day/pinnedwindow/10000offset, plannedindexmigration0006andlazyUI.
+- Freshpre-codeprivacyreview no materialblocker after scalarmax/boolID/dateextreme/stringrouteUUID400/pureGET refinements. Ruling row-derivedbranchfilter avoidsbroaderlookuppermission, laterpickerAPIifneeded; fullimmutable/read-eventauditandretention/export remainreleasework. OpenAPIinitialemptyrequiredschemafailurecorrectedbeforefreeze, finalvalidator/map/linksgreen. Backend/frontendexclusiveRED-first assignmentsnext, rootaloneGit/docs, no completedsourceclaimyet.
+
 ## Verified bounded identity security —23October2026
 
 - Planning/contract unchanged; completed knownproof-age gap with5RED tests(org2+finalbranch/bed/revision3) before productionfix. Recheck after blockinglocks and transactional audit boundary rollsback expiredproofwrites. Fresh independent reviewer found bedwait901sImportant with externalREDprobe; finalprobeGREEN plusidentitysuite37passed10PGskipped, boundedsourceapproval/no remainingImportantCritical established.

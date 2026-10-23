@@ -1,6 +1,6 @@
 # HMS API and bounded master configuration
 
-[openapi-v1.yaml](openapi-v1.yaml) is OpenAPI 3.0.3 expressed using the JSON subset of YAML 1.2. This keeps the local page-action checker dependency-free; standard OpenAPI tooling can read the file. [page-actions-v1.json](page-actions-v1.json) maps each of the36bounded source operations(27staff/foundation plus9identity-security operations) to the relevant [plan page](../../plan.md). SYSTEM denotes the health probe rather than a staff page. API contract existence does not establish implementation, test coverage or deployment; those are recorded in [HMS.md](../../HMS.md) and the [ledger](../implementation/ledger.md).
+[openapi-v1.yaml](openapi-v1.yaml) is OpenAPI 3.0.3 expressed using the JSON subset of YAML 1.2. This keeps the local page-action checker dependency-free; standard OpenAPI tooling can read the file. [page-actions-v1.json](page-actions-v1.json) maps each of the39catalogued operations(36verified identity/foundation plus3audit-history design operations) to the relevant [plan page](../../plan.md). SYSTEM denotes the health probe rather than a staff page. API contract existence does not establish implementation, test coverage or deployment; those are recorded in [HMS.md](../../HMS.md) and the [ledger](../implementation/ledger.md).
 
 The frontend currently combines page subsets into Overview, Patients, Appointments, Bed board and Master administration tabs. A mapped API action is not automatically a claim that its UI control exists. Future catalogue fields such as patient clinical history, payer summaries, reservations and discharge are outside Phase A.
 
@@ -37,6 +37,10 @@ Creates reject duplicate case-insensitive code/bed numbers with409 and do not cl
 ## Identity security extension — verified bounded source, deployment separate
 
 Nine self-only security operations plus login202/anonymous CSRF logout are frozen in [identity-security contract](../implementation/identity-security-contract.md). Authenticator secrets use dedicated encrypted row-bound state, recovery codes hash-only, shared DB attempt/replay/epoch checks, stable-user locking and fresh proof for sensitive changes. Production privileged writes require enrolled/fresh MFA as well as ordinary action permissions; setup remains reachable. Bounded source now verified: actualPG259tests/25subtests, frontend64/typecheck/build and independent source review. Freshness rechecked after final blocking locks/audit; actual revoke-write/enrollment/profile/challenge races and negative lifecycle/CSRF/key cases covered. Full human recovery/read audit/operational key provisioning/hospital release remain gated; source is not deployed protection. TOTP is not phishing resistant; human recovery/key provisioning/read audit remain release gates. No outbound QR service or persisted browser secret.
+
+## Administration history / own activity — frozen design, not implemented yet
+
+Three GET operations and new platform.audit.read are specified in [audit-history contract](../implementation/audit-history-contract.md). Admin history excludes clinical/branchless/foreign events and requires current MFA policy; self activity contains only caller's branchless security actions. Strict redacted projections, bounded/pinned date windows, role/branch/current session checks, planned indexes and lazy named UI precede production code. No immutable/read-audit/archive/export capability inferred. Existing verified runtime remains36operations until implementation.
 
 ## Validation and compatibility
 

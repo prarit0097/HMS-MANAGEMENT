@@ -1,5 +1,5 @@
 {
-  "version": "0.4.0",
+  "version": "0.5.0",
   "scope": "Phase A subset of plan.md page catalogue. API contract existence is distinct from implementation/verification/deployment. Frontend combines subset pages into tabs; not every API action has a UI control yet.",
   "actions": [
     {
@@ -253,11 +253,32 @@
       "action": "Change own password and revoke prior sessions",
       "operation_id": "changeOwnPassword",
       "permission": "authenticated"
+    },
+    {
+      "id": "M08.listAdministrationHistory",
+      "page": "M08",
+      "action": "List scoped nonclinical administration changes",
+      "operation_id": "listAdministrationHistory",
+      "permission": "platform.audit.read"
+    },
+    {
+      "id": "M08.getAdministrationChange",
+      "page": "M08",
+      "action": "Read redacted administration change",
+      "operation_id": "getAdministrationChange",
+      "permission": "platform.audit.read"
+    },
+    {
+      "id": "S05.listOwnSecurityActivity",
+      "page": "S05",
+      "action": "List own security activity",
+      "operation_id": "listOwnSecurityActivity",
+      "permission": "authenticated"
     }
   ],
   "deferred_actions": [
-    "MFA and recovery",
-    "staff/grant/policy editors",
+    "human identity recovery, immutable/read audit and installation IP policy editor",
+    "staff custom roles and multi-organisation UI switching",
     "clinical signing and files",
     "reservation/exclusive-room/transfer/discharge workflows",
     "finance, pharmacy, insurance, therapy",
