@@ -98,7 +98,8 @@ def allocate_bed(user, validated):
                 raise Conflict()
             admission = Admission.objects.create(branch=bed.branch, **{**validated, 'patient': patient, 'bed': bed})
             bed.status = 'occupied'
-            bed.save(update_fields=['status'])
+            bed.version += 1
+            bed.save(update_fields=['status', 'version'])
             audit(user, 'admission.created', admission)
             return admission
     except IntegrityError:

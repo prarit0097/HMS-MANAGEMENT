@@ -69,6 +69,7 @@ class Bed(UUIDModel):
     room_number = models.CharField(max_length=32)
     category = models.CharField(max_length=32, choices=CATEGORIES, default='general')
     status = models.CharField(max_length=20, choices=STATUSES, default='available')
+    version = models.PositiveIntegerField(default=1)
     class Meta:
         ordering = ['room_number', 'number', 'id']
         constraints = [models.UniqueConstraint(fields=['branch', 'number'], name='unique_bed_number')]
@@ -91,6 +92,7 @@ class AuditEvent(UUIDModel):
     action = models.CharField(max_length=80)
     object_id = models.CharField(max_length=36, blank=True)
     branch = models.ForeignKey(Branch, null=True, on_delete=models.PROTECT)
+    details = models.JSONField(default=dict)
     created_at = models.DateTimeField(auto_now_add=True)
 
 

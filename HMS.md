@@ -1,8 +1,8 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.5.1 | Updated: 23 October 2026, Asia/Calcutta
+Document version: 1.6.0 | Updated: 23 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
-Current state: **HOSTINGER AUTHENTICATED PREVIEW DEPLOYED; incomplete Phase A, synthetic data only.** Owner authorised hms.praritsidana.com on the existing multi-app VPS and expressly waived the saved cooldown for this deployment. Owner subsequently explicitly resumed general development at09:12:37Z with recovered usage; old deadline is waived by that latest instruction. New <=10% checkpoints still trigger330minute cooldowns. Source [reception reliability](docs/implementation/reception-reliability-contract.md) is implemented/verified (PostgreSQL123passed/25subtests, frontend20passed/build); deployed preview remains47b3618 until separately updated. See [deployment evidence/runbook](docs/operations/HOSTINGER-PREVIEW.md). New active source plan: [branch/bed master configuration](docs/implementation/resource-administration-contract.md), contract frozen before implementation.
+Current state: **USAGE COOLDOWN / VERIFIED SOURCE CHECKPOINT; initial Hostinger preview remains47b3618.** Reception reliability and scoped branch/bed configuration source implemented/verified (actual PostgreSQL166passed/25subtests,frontend30passed/typecheck/build). New threshold9%remaining at2026-10-23T09:49:16UTC; earliest resume2026-10-23T15:19:16UTC (23October8:49:16PM IST), only if all applicable windows recover above10%. Earlier owner resume waived only old deadline. No new assignments/features during this cooldown; checkpoint publication only. [Resource contract](docs/implementation/resource-administration-contract.md), [usage state](docs/operations/USAGE-CHECKPOINT.md), [deployed preview evidence](docs/operations/HOSTINGER-PREVIEW.md).
 
 ## 1. Read this first
 
@@ -67,8 +67,8 @@ These are intended combined capabilities, not claims of unique inventions or pro
 | Layer | Planned choice | Actual state |
 |---|---|---|
 | Backend language/framework | Python + Django5.2.18 | Phase A implemented under backend/hms and backend/apps/core; deployed only as restricted preview, not ready for real hospital data |
-| HTTP API | Django REST Framework3.16.1; versioned `/api/v1/` | Session/CSRF, scoped branch/patient/appointment/admission/dashboard and platform-summary APIs implemented |
-| Frontend | React19.3.1 + TypeScript7.0.2 + Vite8.3.5 | API-backed local staff workspace implemented; first development slice only |
+| HTTP API | Django REST Framework3.16.1; versioned `/api/v1/` | Session/CSRF, scoped operational/summary APIs and5master configuration operations implemented (23total source operations) |
+| Frontend | React19.3.1 + TypeScript7.0.2 + Vite8.3.5 | API-backed staff workspace plus source demographic/reschedule/retry and branch/bed master configuration; first bounded slices only |
 | Database | PostgreSQL for production; SQLite for local synthetic development | Local SQLite synthetic development; isolated TLS PostgreSQL17.11 deployed and48tests/25subtests passed |
 | Background work | Celery; durable broker, proposed RabbitMQ | Not configured |
 | Disposable cache/rate limit | Redis where justified | Not configured |
@@ -77,7 +77,7 @@ These are intended combined capabilities, not claims of unique inventions or pro
 | Runtime | Containerised services; production Linux; local Windows development supported | Hostinger preview runs dedicated Gunicorn/systemd/static Nginx and private containerised PostgreSQL; development Compose remains separate |
 | Remote MCP | Authenticated HTTP endpoint with supported MCP transport/version | Not implemented |
 | Cloud provider | Hostinger existing VPS selected for this authenticated preview; private database, future file storage unprovisioned | Dedicated /opt/hms preview resources created on owner existing VPS |
-| CI/testing | pytest, Vitest/component tests and contract/docs checks; remaining e2e/security/load gates | Current source actual PostgreSQL123passed/25subtests; frontend20passed/typecheck/build; OpenAPI/map checked. 03c5634GitHubCI independently verified all3jobs passed (123backend/20frontend/19root checks); next source changes await own CI. Preview deployment evidence remains separate |
+| CI/testing | pytest, Vitest/component tests and contract/docs checks; remaining e2e/security/load gates | Current source actual PostgreSQL166passed/25subtests; frontend30passed/typecheck/build; OpenAPI/map checked. 03c5634GitHubCI independently verified all3jobs passed (123backend/20frontend/19root checks); next source changes await own CI. Preview deployment evidence remains separate |
 
 The language direction is the current planning baseline from previous recommendations, not proof of delivered capacity. Supported mutually compatible versions will be pinned and recorded before scaffolding. Docker Compose is a proposed local integration tool, not an automatic production deployment architecture.
 
@@ -351,6 +351,15 @@ For every change add: ID/date; request and reason; changed behaviour/files/pages
 - Planned data: Bed.version and AuditEvent.details migration, atomic allocation increments, allowlisted nonclinical config before/after snapshots; not yet claimed implemented by this contract. Occupied/reserved/active-admission edits409; no deletion/manual admission override. No100bed cap or first100branch-choice cap.
 - Source UI plan: simple branch/bed configuration within current summary organisation, paged lists/branch selection, retained errors and conflict reload. Staff/MFA/multi-org switching/clinical products remain separate. Case-insensitive code/bed collision protected under service locks; config creates may409 on retry, not generic idempotency guarantee.
 - Preflight reviewer found no design blocker; backend/frontend RED-first assignments isolated. Ruling: current summary organisation bounds UI, explicit org-scoped APIs can serve other assigned org; wrong assumption costs later selector work, not wider data access. OpenAPI validator/map/local-link checks passed before code; full implementation tests/review pending.
+
+### CHG-0012 —23October2026 — Verified master resources and fresh usage checkpoint
+
+- Source:5new org-scoped platform.configure operations, core/resource_admin.py services/serializers/API, route/grant additions,0003Bed.version/AuditEvent.details, allocation version increments and allowlisted configuration before/after audits. Branch/bed creates under locked case-insensitive collision checks; no100bed cap, occupied/reserved/active-admission edits denied, stale versions409, wrongorg/branch concealed, master config never clinical/operational access.
+- UI: extracted ResourceAdministration, branch/bed create/list/edit panels, named branch filter/paging beyond100, readonly/occupied controls, retained validation/conflict feedback, explicit staff-access assignment requirement on new branches. Current summary organisation UI only; full staff/MFA/tariffs/multi-org selector remain planned. Configuration creates may409 on retry rather than generic key replay.
+- Pre-code evidence: contract/OpenAPI/page-action extensions frozen and preflight reviewed; backend initial25failed/1passed RED, frontend6failed/1passed RED plus branch-filter RED. Final source local backend162passed/4PGskips, frontend30passed/build. Required-category schema parity RED fixed.
+- Review/fix: independent security bounded80backendSQLite/10frontend tests plus source review no extra Important/Critical. Coordinator discovered FK-lock cycle; deterministic actualPGRED1deadlock failure, no_key branch locking fixGREEN1passed, full actualPG166passed/25subtests/0skips/0warnings9.67seconds, system/drift clean. Final coordinator frontend30passed/typecheck/build. No independent full hospital approval claimed.
+- Data/operations: migrations verified only in isolated test database, app CREATEDB revoked afterwards. Existing47b3618Hostingerpreview unchanged; no realdata/otherapp/deployment changes. NewsourceCI pending until observed. Source OpenAPI/map/links/whitespace/credential checks at publication; finalSHA in handoff.
+- Usage: new9%primary/40%weekly remaining observed09:49:16UTC. Stop assignments (agents already completed), fresh guard checkpoint and same heartbeat330minute update; earliest15:19:16UTC/8:49:16PM IST. No reset credit or deadline extension. Earlier owner general resume does not waive this new checkpoint. Next resume verifies latest CI then plans staff identity/MFA before further clinical scope; full product remains incomplete.
 
 ## 18. Technical references
 

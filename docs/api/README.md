@@ -24,11 +24,11 @@ Source reliability extension (not present in the initial47b3618deployed preview)
 
 Operational bed availability changes through initial admission allocation. The new source configuration contract below adds only master-controlled nonoccupied readiness/configuration, not clinical/financial discharge or housekeeping task completion. Exclusive-room/villa reservations, transfers and discharge remain deferred. Therapy counts return `null`, never fabricated zero. No patient-record DELETE operation exists. Clinical signing/final bills and corrections belong to later reviewed contracts.
 
-## Master configuration extension — design source before implementation
+## Master configuration extension — verified source, deployment separate
 
 Five additional operations under `/platform/organisations/{organisation_id}/` list/create branches and beds and version-edit bed configuration. They require separate platform.configure from a master membership in that organisation; no patient/clinical permission follows. Scope is checked before guessed org/branch/bed IDs are returned. List results remain bounded/paged; UI currently operates within the existing summary organisation.
 
-Creates reject duplicate case-insensitive code/bed numbers with409 and do not claim generic idempotency-key semantics. Bed edits require expected_version and permit only available/cleaning/blocked states, never edits to occupied/reserved or active-admission beds. Planned Bed.version increments on allocation/configuration and transactional nonclinical audit snapshots protect traceability. This contract is not delivery evidence; read [the active configuration contract](../implementation/resource-administration-contract.md) and ledger for actual implementation/testing. No delete/manual occupancy/clinical-signing path is added.
+Creates reject duplicate case-insensitive code/bed numbers with409 and do not claim generic idempotency-key semantics. Bed edits require expected_version and permit only available/cleaning/blocked states, never edits to occupied/reserved or active-admission beds. Bed.version increments on allocation/configuration; transactional allowlisted nonclinical audit snapshots protect traceability. Actual PostgreSQL166tests/25subtests passed, including a deterministic FK-deadlock regression observed RED then GREEN with branch FOR NO KEY UPDATE. Read [the configuration contract](../implementation/resource-administration-contract.md) and ledger for scope/evidence. Existing initial47b3618preview has not received this source/migration. No delete/manual occupancy/clinical-signing path is added.
 
 ## Validation and compatibility
 

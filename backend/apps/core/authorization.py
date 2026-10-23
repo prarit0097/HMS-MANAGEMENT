@@ -2,7 +2,7 @@ from rest_framework.exceptions import PermissionDenied, ValidationError
 from .models import Membership, Branch
 
 READ = {'patients.read', 'appointments.read', 'beds.read', 'admissions.read', 'dashboard.read'}
-ROLE_PERMISSIONS = {'reception': READ | {'patients.write', 'appointments.write', 'admissions.write'}, 'doctor': READ, 'nurse': READ, 'master_admin': {'platform.read'}, 'pharmacist': set(), 'accounts': set(), 'therapist': set()}
+ROLE_PERMISSIONS = {'reception': READ | {'patients.write', 'appointments.write', 'admissions.write'}, 'doctor': READ, 'nurse': READ, 'master_admin': {'platform.read', 'platform.configure'}, 'pharmacist': set(), 'accounts': set(), 'therapist': set()}
 
 def branch_ids(user, action):
     roles = [role for role, permissions in ROLE_PERMISSIONS.items() if action in permissions]

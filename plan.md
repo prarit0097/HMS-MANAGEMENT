@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.5.1,23October2026: authenticated Hostinger preview deployed at hms.praritsidana.com, synthetic use only. Owner explicitly authorised deployment and waived active cooldown for that deployment; owner subsequently resumed general development at09:12:37Z, explicitly superseding that old deadline. Future <=10% stops remain. Active source slice: [reception reliability contract](docs/implementation/reception-reliability-contract.md), implemented/verified source123PostgreSQL tests/25subtests,20frontend tests/build; deployment remains initial47b3618. [Preview execution plan](docs/implementation/hostinger-preview-plan.md) and [operations/evidence](docs/operations/HOSTINGER-PREVIEW.md). Full92-page product/release gates remain open.
+**Status:** Version1.6.0,23October2026: reception reliability and scoped master resource configuration source verified (actual PostgreSQL166passed/25subtests,frontend30passed/build); current code checkpoint is not a full hospital release. Initial live preview remains47b3618. New usage9%remaining stop09:49:16UTC; earliest15:19:16UTC (8:49:16PM IST), all windows>10required. New work paused, checkpoint publication allowed. Earlier owner resume waived old deadline only; follow current USAGE-CHECKPOINT.md.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -635,11 +635,11 @@ Per-task test names above define their assertions. Additional narrow tests are a
 
 ## 16. Evidence log and readiness
 
-### Active master branch/bed configuration —23October2026
+### Verified master branch/bed source checkpoint —23October2026
 
 - [x] Scoped5operation OpenAPI/page-action contract frozen before code in resource-administration-contract.md; permission/failure/audit/version/occupancy design preflight reviewed with no blocker.
-- [ ] Backend master-only org-scoped branch/bed services, version/audit migration and concurrency tests RED->GREEN; frontend simple/paged configuration forms with permission/error states.
-- [ ] Fresh review, actual PostgreSQL/UI/build/API/docs checks, living-document updates and verified publication. Full staff/MFA/resource-rate/clinical modules are not included; existing live preview remains47b3618.
+- [x] Backend scoped5operations,0003version/audit migration, traceable services/concurrency; frontend named/paged branch+bed forms. Actual PostgreSQL166passed/25subtests,frontend30passed/typecheck/build.
+- [x] Fresh bounded review, actual FKdeadlock RED/no_key fixGREEN/full166suite, coordinator frontend30/build, API/docs checks and same-change living docs. PublicationSHA at handoff. No complete staff/MFA/resource-rate/clinical module or live update; preview47b3618.
 
 
 ### Active reception reliability slice —23October2026
@@ -710,3 +710,5 @@ Create feature branches/PRs when repository protection or agreed workflow requir
 - 1.5.0 —23October2026: reception reliability source delivered, optional atomic scoped create keys, global bed filtering, patient corrections/versioned rescheduling/paged choices, safe object/error validation; actual PostgreSQL123passed/25subtests,frontend20passed/build. New migration/source not deployed; full-module/release gates remain open.
 
 - 1.5.1 —23October2026: actual reception03c5634CI success recorded; freeze master branch/bed configuration23-operation catalogue before implementation.
+
+- 1.6.0 —23October2026: master resource source complete/verified166PostgreSQL/25subtests,30frontend/build, deterministic FKdeadlock RED->GREEN; new9%usage checkpoint09:49:16UTC, earliest15:19:16UTC. No live update or realpatient cutover.

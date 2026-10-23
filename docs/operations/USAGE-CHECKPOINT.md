@@ -2,19 +2,20 @@
 
 Owner instruction: when any applicable Codex usage window has 10% or less remaining, checkpoint HMS.md and stop new work; resume no earlier than 5 hours30minutes later and only with recovered usage.
 
-State: ACTIVE_OWNER_RESUMED
-checkpoint_at_utc: null
-resume_not_before_utc: null
+State: WAIT_COOLDOWN
+checkpoint_at_utc: 2026-10-23T09:49:16+00:00
+resume_not_before_utc: 2026-10-23T15:19:16+00:00
+resume_not_before_ist: 23October2026,8:49:16PM IST
 owner_resume_at_utc: 2026-10-23T09:12:37Z
 
-Owner explicitly requested further development now and cooldown adjustment based on recovered usage. This supersedes the old active deadline (historical checkpoint05:02:15Z, historical earliest10:32:15Z). Coordinator verified primary76%remaining, weekly51%remaining; the smaller51% governs continuation. No reset credit used. The prior local guard state is preserved in ignored history and current guard returns continue. Future fresh <=10% reading still triggers a new330minute minimum cooldown; mere recovery never automatically waives a future deadline. The same heartbeat was updated, not duplicated.
+New threshold observed at09:49:16UTC: primary9%remaining, weekly40%remaining. No new feature work/assignments after this boundary; all resource agents already completed. Checkpoint documentation, bounded verification and safe publication only. Local guard recorded fresh checkpoint_and_stop and330minute deadline. Same native heartbeat updated in place; no reset credit consumed. Earlier owner resume waived only the historical05:02/10:32deadline, never this new one. Exact wake remains best effort and all windows must recover above10%.
 
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330
 
 Historical stop:6%remaining at05:02:15Z; checkpoint safely pushed. Owner first waived cooldown only for Hostinger deployment, then explicitly resumed general development with this later instruction. Deployed restricted synthetic preview remains as documented in HOSTINGER-PREVIEW.md.
 
-Current completed source slice: reception-reliability-contract.md, final PostgreSQL123tests/25subtests and frontend20tests/build passed, review fixes applied. Bed101selector is already fixed/deployed; do not repeat it. New source migration/reliability UI has not updated the initial47b3618preview. Next: verify latest published CI, then plan scoped staff/branch/resource administration and security/MFA identity before clinical workflows. Remaining clinical/finance/MCP/backups/security gates stay planned. Read ledger/Git to avoid repeating completed work.
+Completed source: reception reliability (PostgreSQL123/frontend20) and master branch/bed configuration (actual PostgreSQL166/25subtests,frontend30/typecheck/build). New migration/resource/reliability UI has not updated initial47b3618preview. Deadlock regression actualPGRED then no_key lock fixGREEN/full166suite. Do not repeat these completed slices. First resume: inspect current source push CI; reconcile live deployment separately; plan scoped staff identity/MFA administration before clinical workflows. Staff/MFA/rates/full clinical/finance/MCP/dataops/security gates remain. Read ledger/Git and do not duplicate team.
 
 Before substantive work and bounded task boundaries, coordinator calls get_usage_limits and prefers rateLimitsByLimitId. remaining=100-usedPercent. Check primary and secondary applicable windows. A low weekly window may require longer than330minutes; never resume below threshold or consume reset credits automatically. Unknown usage means do not start a new large work unit until visibility returns.
 

@@ -1,5 +1,15 @@
 # SDD ledger — plan: plan.md
 
+## Resource source complete / new usage stop —23October2026
+
+- Backend configuration RED25failed/1passed, then pinned final162passed/4PGskips/25subtests; category-required parity separatelyRED201vs400 fixed. New resource_admin module,5org-scoped platform.configure APIs,0003Bed.version/AuditEvent.details, allocation version increment and audit snapshots; no clinicalgrant/delete/manualoccupancy. Initial global-Python RED was corrected to pinned Django5.2.18 verification.
+- Frontend initial6RED/1permissionpass, plus explicit branch-filter RED, then30tests/typecheck/build. Configuration panels, named branch context, paging beyond100, state/version/403/409 feedback and refresh; new branch does not auto-grant staff access. Root repeated final30/typecheck/build during checkpoint. No authenticated browser/staff acceptance claim.
+- Independent security review: targeted80backendSQLite/10frontend passed, no additional Important/Critical. Coordinator identified real implicit FK deadlock: branchFORUPDATE waits bed while allocation bed lock waits branchKEYSHARE at FK commit. Deterministic event-controlled PGtest actualRED1deadlock failure1.72s; backend no_key=True branch locks permitKEYSHARE while serialising config. Exact PGcaseGREEN1passed0.51s, full actualPG166passed/25subtests9.67s, check/drift clean. TestDB cleaned/CREATEDB revoked. No re-review result invented; final covering tests prove fix.
+- Ruling: UI current summary organisation and explicit named branch filter; multi-org switching/staff/MFA/rates/exclusivity/clinical product stay planned. Cost if insufficient: later context/UI expansion, no broader access now. Configuration collision409 is not generic create idempotency. New source not deployed; initial47b3618preview stays separate.
+- NEW usage stop09:49:16UTC: primary9%remaining/weekly40%. All agents completed already; stop new work/assignments, checkpoint only. Fresh earliest15:19:16UTC (23October8:49:16PM IST); all windows must be>10then. Same heartbeat updated330minutes, localguardcheckpoint_and_stop; no resetcredits. Earlier owner override does not waive this new deadline.
+- Resume: verify current pushCI, then scoped staff/identity/MFA planning; do not repeat completed reception/resources or provision/deploy automatically. Preserve all other VPS apps. Full remaining HMS plan still owner-authorised, production/staff/security/load/recovery gates open.
+- Final checkpoint verification:19root documentation/usage tests passed in12.61seconds; OpenAPI validator, source/map/local links and staged whitespace passed; actual private owner credential absent from staged files. No dependency/runtime/credential files staged. Final remoteSHA is supplied at handoff; resource commit CI remains unchecked until resume.
+
 ## Active master branch/bed configuration —23October2026
 
 - Reception03c5634push/remote verified; actualGitHubCI39932864508success123backend/25subtests,20frontend/build,19root/OpenAPI/Compose/docs. No workflow change needed.
