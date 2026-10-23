@@ -1,6 +1,6 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.0.1 | Updated: 23 October 2026, Asia/Calcutta
+Document version: 1.1.0 | Updated: 23 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
 Current state: **DOCUMENTATION / DESIGN REVIEW. No application code or deployed service exists.**
 
@@ -42,8 +42,10 @@ Future branches should share appropriate patient identity while preserving branc
 | Development method | Planning -> multiple pre-code checks/tests -> coding -> post-code verification |
 | Repository workflow | Update documentation, verify, commit and push every completed change set |
 | Required skills | Superpowers and UI/UX Pro Max throughout applicable work |
+| End-user experience | Simple, professional, consistent frontend with clear next actions; minimise confusion and verify with real staff task walkthroughs |
+| API-first — highest architectural priority | Every application capability has an authenticated, documented, versioned backend API contract; all frontends/integrations use this contract and the same business/permission rules |
 
-Baseline confirmed requirements C-01–C-20 remain covered in the research baseline and plan. The latest request adds owner requirements O-01–O-11, mapped in plan.md.
+Baseline confirmed requirements C-01–C-20 remain covered in the research baseline and plan. Current owner requirements O-01–O-13 are mapped in plan.md; O-12/O-13 make simple professional UX and API-first architecture explicit non-negotiable priorities.
 
 Premises rent is outside this product. Patient accommodation tariffs remain configurable hospital business data. No registration investigation is required to proceed with software planning. Automated clinical advice, autonomous prescriptions and unrestricted database/command execution through AI are not defined product capabilities.
 
@@ -83,6 +85,10 @@ Why this direction: Django/DRF suit connected records, permissions and APIs; Rea
 ## 6. Planned system structure
 
 Start with a modular transactional core. Separate clinical, admission, therapy, stock, finance, coverage, identity, audit and platform responsibilities. Background ingestion/reporting must not consume all capacity needed for care. External systems use APIs/events, not direct writes into clinical tables.
+
+**API-first is mandatory across the whole product.** Define and version OpenAPI contracts before implementing endpoints/pages: request/response schemas, authentication, permissions, errors, filtering/pagination, concurrency/idempotency and asynchronous job/download flows. Every user-visible capability, including master-admin, security, IP policies, backups, imports/exports and reporting, must be operable through its authorised API rather than depend on a hidden UI-only backend path. The browser is an API client; it never accesses the database or decides authoritative billing/clinical permissions. Important calculations and state transitions live in backend services.
+
+MCP is a protocol adapter to those same capability contracts, permissions and services. It may reuse services in-process; API-first does not require wasteful internal HTTP loopbacks. Background jobs reuse those services under explicit service identities. No adapter, Django admin page or import may introduce an alternative privileged mutation path. Maintain API compatibility/versioning and test each released capability through its API independently of the frontend.
 
 Browser / compatible MCP client -> cloud edge -> trusted proxy -> authenticated application -> authorised business services -> PostgreSQL/private files. Background jobs consume durable work with retries, deduplication and reconciliation. Private database/cache/broker endpoints are never generally internet-accessible.
 
@@ -187,6 +193,10 @@ Export/AI disclosure controls and hospital-approved data-sharing policy determin
 
 ## 13. UI/UX direction
 
+**Owner priority: the end-user frontend must be simple and professional.** Each role sees its own relevant work and a clear next action. Use familiar hospital terms, consistent navigation/buttons, readable spacing and restrained styling. Show essential fields first and optional detail on demand; keep patient identity, clinical warnings, financial consequences and confirmations visible when needed. Do not simplify by hiding safety-critical information.
+
+Use plain-language labels/help/errors and consistent status names; do not show framework, API or infrastructure jargon to hospital users unless it helps their task. Preserve context across steps and explain what succeeded, what needs correction and what comes next. Avoid competing primary actions and decorative complexity. Run representative reception/doctor/pharmacy/accounts staff through core journeys before release, record confusion/wrong turns and fix them; simplicity is a usability acceptance criterion, not a colour/theme choice or an untestable guarantee.
+
 Use UI/UX Pro Max for relevant design/review. Its initial health query produced a marketing landing-page pattern and high-risk neumorphism, which were rejected for this staff application. A narrower enterprise query returned a suitable minimal/high-contrast direction; its marketing layout was still not adopted. No generated palette/font is an approved brand decision.
 
 Plan functional clinical workspaces: consistent navigation, visible branch/user context, strong patient identification, focused task panels, readable tables, progressive forms, keyboard access, visible focus, error summaries, empty/loading/stale/offline/conflict/denied states, and motion reduction. Preserve the owner's green booked/occupied and red available bed colours with explicit text/icon differences; do not reuse those meanings blindly for generic success/error states. Plan responsive use and print layouts, with actual validation before release.
@@ -248,6 +258,14 @@ For every change add: ID/date; request and reason; changed behaviour/files/pages
 - Evidence: initial local/remote main SHA both `17df5ef52750cfb55ad9d146dbeba1d9d4820699`; clean working tree observed after that push. Seven Markdown files checked, no broken local links, all 20 baseline and 11 current owner IDs mapped, 92 unique page IDs, no targeted secret-pattern matches. Original downloaded baseline and local copy SHA-256 match. Five original Markdown hard breaks deliberately retained; other staged whitespace checks pass.
 - Review: one independent read-only reviewer; identified C-20 payer-strip coverage and reference corrections were fixed and verified. This evidence is documentation verification, not runtime security/capacity certification.
 - Publication: commit subject `docs: record verified initial publication and review evidence`; verify resulting remote SHA in handoff. Implementation/design gate remains open, no product tests/build/deployment performed.
+
+### CHG-0003 — 23 October 2026 — Make simple professional UX and API-first architecture mandatory
+
+- Owner request: prevent end-user confusion and make the entire application API-based as a top priority.
+- Files: HMS.md, plan.md and AGENTS.md. Added O-12/O-13, API-contract-first/OpenAPI and adapter parity rules, plain-language role-focused UX and staff-usability acceptance checks.
+- Scope: every portal, master-admin, security/IP, dataops, reporting and compatible MCP adapter; no hidden UI-only workflows or frontend-authoritative business rules. Internal service reuse is permitted without redundant HTTP calls.
+- Tests/impact: documentation coverage/link/diff checks at commit; new API-contract/parity and staff-task acceptance tests are planned, not executed. No runtime, schema, permission configuration, migration or deployment changed.
+- Publication: commit subject `docs: require simple professional UX and API-first architecture`; remote SHA verified at handoff. Product development remains behind the existing planning gate.
 
 ## 18. Technical references
 

@@ -12,6 +12,8 @@ Read [HMS.md](HMS.md) and [plan.md](plan.md) before work. Latest explicit user i
 
 ## Security and scope
 
+- API-first is mandatory for the entire app: define versioned OpenAPI/page-action contracts before coding, expose every user capability through an authorised API, and test it independently of the UI. Frontend is an API client, never an authoritative clinical/financial database writer. MCP/jobs reuse the same contracts/services and permission ceiling; no hidden UI-only or adapter-privileged mutation path. Internal service reuse does not require HTTP loopbacks.
+- End-user UI must be simple, professional and clear: familiar hospital labels, consistent navigation, role-focused work, essential fields first, plain errors and clear next steps. Keep implementation jargon/decorative complexity out; preserve safety-critical context. Validate representative staff tasks and fix confusing steps before release.
 - Security is a release gate. All UI/API/MCP/file operations enforce authenticated least-privilege organisation/branch/data access. Master admin does not automatically gain clinical-signing rights.
 - Enforce effective IP policy on backend paths through explicitly trusted proxies; no direct-origin/forwarded-header bypass or automatic per-visitor whitelisting. Recovery is audited/out of band.
 - MCP reuses business services; no arbitrary SQL/shell/URL tools, no unaudited high-impact writes. Compatible client connections need scoped authorisation and a permitted network path.

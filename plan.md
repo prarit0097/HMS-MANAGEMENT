@@ -4,13 +4,13 @@
 
 **Goal:** Build a secure cloud HMS for the operating hospital, with connected Ayurveda/OPD/IPD/finance workflows, expandable branches/capacity, a master-admin control plane, controlled MCP and future call-center integration boundaries.
 
-**Architecture:** Modular Django/DRF core with PostgreSQL, React/TypeScript staff frontend, protected files and bounded background workers. All clients share the same authorised business services. Independent workload limits protect hospital operations from imports, reporting and integrations.
+**Architecture:** API-first modular Django/DRF core with PostgreSQL, simple professional React/TypeScript staff frontend, protected files and bounded background workers. Every application capability has a versioned documented API; all clients/adapters share its authorised capability contracts and business services. Independent workload limits protect hospital operations from imports, reporting and integrations.
 
 **Tech stack:** Python/Django/DRF; React/TypeScript/Vite; PostgreSQL; proposed Celery/RabbitMQ and Redis; private object storage. Supported compatible versions pinned before scaffolding. Cloud provider and identity/OAuth products not yet selected.
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Reviewed master plan, version 1.0.1, 23 October 2026. Initial documentation published; page/action catalogue and proposed contracts below are planning, not completed software. **Product development is NOT authorised by checked-looking prose: the readiness gate below remains open.**
+**Status:** Reviewed master plan, version 1.1.0, 23 October 2026. Initial documentation published; O-12/O-13 added as mandatory priorities. Page/action catalogue and proposed contracts below are planning, not completed software. **Product development is NOT authorised by checked-looking prose: the readiness gate below remains open.**
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -27,6 +27,8 @@
 | O-09 | Full/portal backups and imports/exports | Pages M09–M13, recovery/data-movement contracts, Tasks 13–14 |
 | O-10 | Master admin above all portals | Master-admin catalogue and permission ceiling |
 | O-11 | Superpowers and UI/UX Pro Max | Skill workflow, design checks, per-task closeout |
+| O-12 | End-user frontend must be simple, professional and minimise confusion | Common UI contract, role-task walkthroughs and Task 17 usability acceptance |
+| O-13 | Entire application API-based; top architectural priority | API-contract-first gate, OpenAPI, all-capability coverage and independent API/parity tests |
 
 Carry forward C-01–C-20 from the original baseline, explicitly mapped below. No 100-bed hard limit. Call-center product investigation/implementation deferred; IDs/events/permissions prepared now. Premises rent/norms owner-managed. Preserve green booked/occupied and red available beds with accessible labels. UI/API/MCP/file paths enforce the same security ceiling. No live patient data in Git or ordinary test environments.
 
@@ -65,6 +67,8 @@ Every implementation task includes its mapped C/O acceptance cases in addition t
 - [ ] For each active-release page/action below, field rules, permissions, state transitions, data ownership and failures are reviewed. A future-only page is explicitly deferred, not silently missing.
 - [ ] Security/access/IP/MCP/backup design receives an independent review and findings are resolved.
 - [ ] Role/branch/data-category matrix, financial/stock invariants and API contracts are frozen for the first vertical slice.
+- [ ] Each active capability/page action is mapped to a versioned OpenAPI operation with request/response/errors/permission rules; no hidden UI-only feature or frontend-authoritative business rule.
+- [ ] Representative role-task walkthroughs validate plain labels, clear next action and understandable errors; identified confusion is addressed before release.
 - [ ] Business parameters for that release are supplied or a configurable safe behaviour is explicitly agreed; no hidden clinical/accounting guesses.
 - [ ] Multiple pre-code scenario/threat/test-design reviews are recorded, including negative cases and fixtures.
 - [ ] Supported dependency versions, initial cloud strategy, local/staging isolation and tooling are documented before related implementation.
@@ -126,6 +130,7 @@ frontend/src/app/              route tree, authenticated shell, providers
 frontend/src/features/         one folder per portal/domain, API and components
 frontend/src/shared/           UI primitives, forms, state/error handling
 frontend/tests/                component/accessibility/contract tests
+docs/api/                     versioned OpenAPI contracts and compatibility policy
 e2e/                          connected patient and platform journeys
 infra/                        reviewed cloud/network/IaC/deployment config
 scripts/                      safe validation/operations tooling
@@ -136,6 +141,8 @@ Each backend app owns `models.py`, `services.py`, `selectors.py`, `api.py`, `tes
 
 ## 5. Common UI contract for every page
 
+- Non-negotiable owner requirement: simple, professional and role-focused. Familiar hospital vocabulary, consistent navigation/actions, restrained visuals, readable spacing and one clear primary next step per task.
+- Show essential fields first, optional details on demand; explain results/corrections/next steps in plain language. Never hide patient identity, safety alerts, financial consequences or required confirmations to make a page look simpler. Keep implementation jargon out of end-user flows.
 - Authenticated shell: explicit organisation/branch, staff identity, role, navigation, task notifications and session status; master-admin cross-branch context is conspicuous.
 - Patient pages: UHID and two appropriate identifying details visible before care/financial actions; identifiers never imply authority to view.
 - Relevant patient/encounter views share a permission-filtered payer strip: payer label, payment mode, verification/AYUSH/pre-auth status and checked-at time. Doctor sees relevant coverage/document tasks; pharmacy sees authorised item-billing restrictions. Policy numbers, claim amounts and attachments require separate grants. Unknown/absent coverage is explicit; financial denial cannot change a clinical order.
@@ -266,6 +273,12 @@ Before activating any future page, add complete fields/actions/states/tests and 
 
 These are design contracts to review/freeze before implementation. Function bodies are intentionally not written in a planning task. Exact endpoint naming belongs to the owning task and must be recorded before coding; no generic catch-all mutation endpoint.
 
+**API-first for every feature, not only external integrations.** Before each task, add/update `docs/api/openapi-v1.yaml` with operation IDs, paths, schemas, permission rules, error cases, pagination/filter limits, idempotency/version handling and job/file lifecycle. Map each page action to an operation ID. UI components consume typed API clients; no direct database access or authoritative clinical/financial state mutation in frontend code. Asynchronous work has authenticated job-status/cancel/result contracts as appropriate; private files use authorised upload/download flows.
+
+MCP maps its bounded tools to the same capability contracts and services. In-process adapters/jobs may call services without HTTP loopbacks, but cannot bypass authentication context, IP/branch/data permissions, validation or audit. The capability's API must still exist and be tested independently of the UI. Internal infrastructure-only code is not exposed as an unnecessary public operation.
+
+Version OpenAPI and generated client types together; gate contract-breaking changes and require an explicit version/migration plan. APIs are authenticated/authorised by default; 'API-based' never means anonymous public data access. Django admin is not an alternative unplanned product workflow.
+
 ### Shared types and response rules
 
 `UUID`, timezone-aware `datetime`, decimal quantity/money, `CurrencyCode`, enumerated status and explicit version integer. Proposed immutable request/result dataclasses below are owned by `backend/apps/platform/contracts.py` or the owning domain's `contracts.py`.
@@ -357,10 +370,11 @@ Use OWASP authorisation guidance as a reference, not a compliance badge: [author
 | V06 finance | Decimal rounding, packages, deposits, retries, discounts/refunds and payer splits | Ledger/receipt/reversal reconciliation, concurrency and duplicate-callback tests |
 | V07 dataops | Archive dependencies, keys/files, restore collisions, import/export abuse | Tamper/cross-branch tests, isolated restore drill, formula-injection and signed-download authorisation |
 | V08 MCP | Scope/audience/token/IP/client threats, prompts, confirmation replay | Protocol/client tests, revoked/expired/wrong-audience tokens, unauthorised tool/field denial |
-| V09 UI/accessibility | All page states, patient identity, keyboard/error/print flows | Component/e2e checks, manual keyboard/contrast/print review |
+| V09 UI/accessibility | All page states, patient identity, plain labels, next-action clarity, keyboard/error/print flows | Component/e2e checks, manual keyboard/contrast/print review and representative staff-task walkthroughs with confusion/wrong-turn findings resolved |
 | V10 reliability/scale | Mixed clinical/CRM/import/report peaks, queue backlog, recovery targets | Realistic-cardinality latency/error/queue/connection results, worker failure/replay and restore/failover exercises |
 | V11 supply chain/cloud | Secrets, dependency sources, IaC/edge/storage and CI identities | Secret/dependency/static scans, staging DAST, cloud configuration review |
 | V12 documentation | Owner ID/page/task coverage, links, status and no sensitive data | Link/coverage/diff review; HMS.md updated in every change set |
+| V13 API-first coverage | Every page action/capability maps to a documented operation; no adapter bypass or UI-only mutation | OpenAPI validation, typed-client/schema checks, independent API journeys, backward-compatibility checks and API/UI/MCP permission/result parity |
 
 Release criteria: no unresolved access bypass, critical/high security defect or data-integrity defect; passing relevant checks; independent review; tested backups/recovery; scope-specific staff acceptance. A 'zero breach' promise is not a valid test result. Record residual risks and operational ownership explicitly.
 
@@ -393,11 +407,11 @@ Produces: documented scope, workflow and reviewable design inventory; no product
 
 ### Task 01 — Foundation, tooling and documentation gate
 
-Files: `backend/pyproject.toml`, `backend/config/{settings,urls,asgi}.py`, `backend/apps/platform/contracts.py`, `frontend/{package.json,tsconfig.json,vite.config.ts}`, `frontend/src/app/`, `.github/workflows/checks.yml`, `scripts/check_project_docs.py`, `backend/tests/test_configuration.py`.
+Files: `backend/pyproject.toml`, `backend/config/{settings,urls,asgi}.py`, `backend/apps/platform/contracts.py`, `frontend/{package.json,tsconfig.json,vite.config.ts}`, `frontend/src/app/`, `docs/api/openapi-v1.yaml`, `.github/workflows/checks.yml`, `scripts/check_project_docs.py`, `backend/tests/test_configuration.py`.
 Consumes: approved stack/version/deployment choices; produces runnable synthetic-only local environment and shared types.
 
 - [ ] Freeze versions/tool commands and environment contract; validate plan/threat/test fixtures before coding.
-- [ ] Write tests `test_production_rejects_debug_or_missing_secret`, `test_docs_required_for_project_change`; verify expected failures.
+- [ ] Write tests `test_production_rejects_debug_or_missing_secret`, `test_docs_required_for_project_change`, `test_openapi_contract_valid`, `test_page_actions_have_api_operation_mapping`; verify expected failures.
 - [ ] Implement minimal settings/schema/types/shell and CI documentation-change check; no real data.
 - [ ] Run backend configuration/type/frontend build and documentation-gate tests; review generated files for secrets.
 - [ ] Update HMS.md/plan.md; commit `build: establish verified HMS foundation`; push/verify.
@@ -575,7 +589,7 @@ Consumes: chosen provider, approved recovery/availability/performance targets an
 - [ ] Complete environment/network/key/access diagrams, deployment/rollback, staff cutover and mixed-workload scenarios; set measurable acceptance targets with owner.
 - [ ] Write/run negative configuration/access and load harness checks first; verify missing controls are detected.
 - [ ] Implement reviewed staging infrastructure, private dependencies, CI identity controls, migrations, monitoring and recoverable deployments.
-- [ ] Run V01–V12 as applicable: staging security review, concurrent patient journeys, realistic-cardinality mixed load, queue retry, backup/restore/failover and staff acceptance. Record actual results, not a capacity promise.
+- [ ] Run V01–V13 as applicable: staging security review, independent API journeys/adapter parity, concurrent patient journeys, realistic-cardinality mixed load, queue retry, backup/restore/failover and representative staff-usability acceptance. Record actual results and fix confusing steps, not a capacity/usability guarantee.
 - [ ] Update docs; commit/push; deploy only within explicit production authorisation and record release/rollback evidence.
 
 ## 14. Test commands and expected outcomes
@@ -641,3 +655,4 @@ Create feature branches/PRs when repository protection or agreed workflow requir
 
 - 1.0.0 — 23 October 2026: initial comprehensive planning catalogue; O-01–O-11 mapping; shared page states, service contracts, security/IP/MCP, cloud/dataops, Tasks 00–17, verification and continuous-documentation workflow. Product implementation not started.
 - 1.0.1 — 23 October 2026: record completed Task 00, independent review/corrections, documentation verification and verified initial GitHub publication. No product implementation, runtime tests or deployment.
+- 1.1.0 — 23 October 2026: add O-12 simple professional UX and O-13 API-first architecture; OpenAPI/page-action mapping gate, contract/parity test suite and staff-task usability checks. No application code or runtime tests added.
