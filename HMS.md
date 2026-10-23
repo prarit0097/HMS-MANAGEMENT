@@ -1,6 +1,6 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.0.0 | Updated: 23 October 2026, Asia/Calcutta
+Document version: 1.0.1 | Updated: 23 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
 Current state: **DOCUMENTATION / DESIGN REVIEW. No application code or deployed service exists.**
 
@@ -218,12 +218,12 @@ Cloud production is separate from GitHub publication. No cloud provider, domain,
 | Item | State |
 |---|---|
 | Requirements/research | Original baseline plus consolidated research and addenda exist |
-| HMS.md / plan.md | Initial documents prepared; design review required before product implementation |
+| HMS.md / plan.md | Initial documents reviewed and published; owner/design readiness gate still required before product implementation |
 | Agent workflow | AGENTS.md and safe ignore rules prepared |
 | Product pages/APIs/models/MCP | Planned only |
 | Unit/integration/UI/security/load/restore tests | Planned only; no application tests run |
-| Documentation checks | Initial local-link, O-01–O-11 coverage, 92 unique page IDs, secret-pattern and baseline-copy checks passed; final staged diff check required before commit |
-| GitHub sync | Pending initial verified publication; see commit history and handoff for resulting SHA |
+| Documentation checks | Local links, C-01–C-20/O-01–O-11 coverage, 92 unique page IDs, secret-pattern scan and baseline-copy hash passed. New files pass staged whitespace checks; five intentional original Markdown hard breaks preserved |
+| GitHub sync | Initial commit `17df5ef52750cfb55ad9d146dbeba1d9d4820699` verified against remote main; follow-up publication evidence tracked in Git history/handoff |
 | Cloud/production | Not deployed |
 
 Current detailed business parameters (rent cycles, package/refund rules, payer tariffs, clinical forms) are configuration/spec decisions, not reasons to investigate rented premises. Future call-center product questions stay deferred. Detailed uncertainties, design gates and page catalogue live in plan.md.
@@ -240,6 +240,14 @@ For every change add: ID/date; request and reason; changed behaviour/files/pages
 - Design decisions: Django/DRF, React/TypeScript/Vite and PostgreSQL planning direction; bounded MCP; shared-data-aware backups; trusted-proxy-aware IP enforcement.
 - Verification: initial local-link/owner-coverage/page-ID/secret-pattern checks passed; original baseline copy matches. Independent read-only review found one Important payer-summary traceability gap and two Minor references; all fixed and reviewer verified no remaining Important/Critical documentation findings. Staged diff and remote SHA verified in publication handoff. No product tests executed.
 - Operational impact: no deployed service or patient-data change. Product implementation awaits the planning gate in plan.md.
+
+### CHG-0002 — 23 October 2026 — Record reviewed publication and verification evidence
+
+- Request/reason: keep the living documents accurate after the initial GitHub publication.
+- Files: HMS.md and plan.md; status/evidence updates only, no application behaviour, API, schema, permission or migration change.
+- Evidence: initial local/remote main SHA both `17df5ef52750cfb55ad9d146dbeba1d9d4820699`; clean working tree observed after that push. Seven Markdown files checked, no broken local links, all 20 baseline and 11 current owner IDs mapped, 92 unique page IDs, no targeted secret-pattern matches. Original downloaded baseline and local copy SHA-256 match. Five original Markdown hard breaks deliberately retained; other staged whitespace checks pass.
+- Review: one independent read-only reviewer; identified C-20 payer-strip coverage and reference corrections were fixed and verified. This evidence is documentation verification, not runtime security/capacity certification.
+- Publication: commit subject `docs: record verified initial publication and review evidence`; verify resulting remote SHA in handoff. Implementation/design gate remains open, no product tests/build/deployment performed.
 
 ## 18. Technical references
 

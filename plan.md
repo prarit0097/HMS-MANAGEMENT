@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Initial master plan, version 1.0.0, 23 October 2026. Page/action catalogue and proposed contracts below are planning, not completed software. **Product development is NOT authorised by checked-looking prose: the readiness gate below remains open.**
+**Status:** Reviewed master plan, version 1.0.1, 23 October 2026. Initial documentation published; page/action catalogue and proposed contracts below are planning, not completed software. **Product development is NOT authorised by checked-looking prose: the readiness gate below remains open.**
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -389,7 +389,7 @@ Produces: documented scope, workflow and reviewable design inventory; no product
 - [x] Draft living reference, page catalogue, security/IP/MCP/dataops contracts and staged tasks.
 - [x] Check coverage/local links, inspect for secrets/private data and review consistency; final staged check repeated before commit.
 - [x] Independent documentation/security-design review; one Important C-20 traceability gap and two Minor references fixed and corrections verified. This is not an application security audit.
-- [ ] Record actual verification in HMS.md; initialise/connect Git safely; commit/push and verify remote SHA.
+- [x] Record actual verification in HMS.md; initialise/connect Git safely; commit/push and verify remote SHA. Initial local/remote main both `17df5ef52750cfb55ad9d146dbeba1d9d4820699`.
 
 ### Task 01 — Foundation, tooling and documentation gate
 
@@ -627,7 +627,7 @@ Per-task test names above define their assertions. Additional narrow tests are a
 | Documentation coverage/links | Local-link/O-ID/92 unique page-ID/secret-pattern checks passed; unchanged baseline hash verified; staged diff checked at publication |
 | Independent review | Completed read-only review; Important C-20 gap and two Minor references fixed; corrections verified with no remaining Important/Critical documentation findings |
 | Product tests/build/deployment | Not performed; no application code exists |
-| Initial commit/push | Pending verified publication |
+| Initial commit/push | Published to main; local/remote initial SHA both `17df5ef52750cfb55ad9d146dbeba1d9d4820699`; follow-up SHA verified at handoff |
 
 ## 17. Change control and GitHub publication
 
@@ -640,3 +640,4 @@ Create feature branches/PRs when repository protection or agreed workflow requir
 ## 18. Changelog
 
 - 1.0.0 — 23 October 2026: initial comprehensive planning catalogue; O-01–O-11 mapping; shared page states, service contracts, security/IP/MCP, cloud/dataops, Tasks 00–17, verification and continuous-documentation workflow. Product implementation not started.
+- 1.0.1 — 23 October 2026: record completed Task 00, independent review/corrections, documentation verification and verified initial GitHub publication. No product implementation, runtime tests or deployment.
