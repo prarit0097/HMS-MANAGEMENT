@@ -6,11 +6,11 @@
 
 **Architecture:** API-first modular Django/DRF core with PostgreSQL, simple professional React/TypeScript staff frontend, protected files and bounded background workers. Every application capability has a versioned documented API; all clients/adapters share its authorised capability contracts and business services. Independent workload limits protect hospital operations from imports, reporting and integrations.
 
-**Tech stack:** Python/Django/DRF; React/TypeScript/Vite; PostgreSQL; proposed Celery/RabbitMQ and Redis; private object storage. Supported compatible versions pinned before scaffolding. Cloud provider and identity/OAuth products not yet selected.
+**Tech stack:** Python/Django/DRF; React/TypeScript/Vite; PostgreSQL; proposed Celery/RabbitMQ and Redis; private object storage. Supported compatible versions pinned before scaffolding. Hostinger existing VPS selected for restricted preview; identity/OAuth products not yet selected.
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Execution checkpoint version1.3.0, 23 October2026. Phase A is runnable locally with synthetic data, but review/production gates remain incomplete. Usage-triggered cooldown active until at least10:32:15Z (4:02PM IST), with recovered usage required. No implementation continues during that deadline; checkpoint preservation/publication is permitted.
+**Status:** Version1.4.0,23October2026: authenticated Hostinger preview deployed at hms.praritsidana.com, synthetic use only. Owner explicitly authorised deployment and waived active cooldown for that deployment; general development retains saved10:32:15Z deadline. [Preview execution plan](docs/implementation/hostinger-preview-plan.md) and [operations/evidence](docs/operations/HOSTINGER-PREVIEW.md). Full92-page product/release gates remain open.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -597,7 +597,7 @@ Consumes: chosen provider, approved recovery/availability/performance targets an
 
 ## 14. Test commands and expected outcomes
 
-No runtime/commands have been implemented yet. Task 01 must provide and pin these interfaces before they are treated as executable project checks:
+Backend pytest and Django checks, frontend typecheck/test/build and documentation checker are implemented. Frontend lint currently aliases typecheck; e2e command is still planned. Use actual package scripts, not every proposed interface below:
 
 ```text
 backend: python -m pytest
@@ -635,6 +635,17 @@ Per-task test names above define their assertions. Additional narrow tests are a
 
 ## 16. Evidence log and readiness
 
+### Hostinger preview — current23October2026
+
+- [x] Dedicated deployment plan/threat review before runtime changes; owner cooldown override explicitly limited to deployment.
+- [x] First100-bed selector RED->GREEN regression;25/page choices, clear stale selection, retry; frontend11passed and build on VPS.
+- [x] Isolated /opt/hms, dedicated user/service/private PostgreSQL17.11, TLS, non-superuser app role, HTTPS/static build/Gunicorn, edge Basic gate and shared login limit.
+- [x] Actual PostgreSQL48tests/25subtests passed without warnings, concurrent same-bed test included. Test DB cleaned and CREATEDB revoked.
+- [x] HTTPS/session/cookies/CSRF/API branch denial/edge throttle/private origin checks; backup checksum and isolated restore smoke; existing Nginx files preserved and checked domains responding.
+- [ ] Authenticated live browser/staff walkthrough (browser automation cannot handle outer Basic prompt); full independent product review, MFA/read audit/off-host recovery/load and remaining clinical/finance/MCP portals.
+- Deployment does not close Task17 or other full-module tasks. See operations runbook for exact limits and rollback. General development resumes under saved usage guard after this deployment exception.
+
+
 ### Phase A checkpoint — cooldown triggered23October2026
 
 - Backend agent:47tests passed,1PostgreSQL concurrency test skipped onSQLite,25subtests passed; Django5.2.18/DRF3.16.1; system check/migration drift checks passed. Initial settings/services in backend/hms and apps/core rather than final per-domain package layout; refactor future domains explicitly.
@@ -656,7 +667,7 @@ Active execution evidence: docs/implementation/ledger.md. Five specialist roles 
 | MCP/security references | Official authorisation/security and OWASP guidance consulted |
 | Documentation coverage/links | Local-link/O-ID/92 unique page-ID/secret-pattern checks passed; unchanged baseline hash verified; staged diff checked at publication |
 | Independent review | Completed read-only review; Important C-20 gap and two Minor references fixed; corrections verified with no remaining Important/Critical documentation findings |
-| Product tests/build/deployment | Not performed; no application code exists |
+| Product tests/build/deployment | Actual VPS PostgreSQL48passed/25subtests; frontend11passed/build; authenticated preview deployed, hospital cutover not approved |
 | Initial commit/push | Published to main; local/remote initial SHA both `17df5ef52750cfb55ad9d146dbeba1d9d4820699`; follow-up SHA verified at handoff |
 
 ## 17. Change control and GitHub publication
@@ -674,3 +685,5 @@ Create feature branches/PRs when repository protection or agreed workflow requir
 - 1.1.0 — 23 October 2026: add O-12 simple professional UX and O-13 API-first architecture; OpenAPI/page-action mapping gate, contract/parity test suite and staff-task usability checks. No application code or runtime tests added.
 - 1.2.0 — 23 October2026: owner authorised team execution; freeze Phase A contract, team ownership, preflight ledger and O-14 usage pause/resume rule. Tested local usage guard and Windows wrapper, native heartbeat active. Phase A runtime work in progress.
 - 1.3.0 — 23 October2026: preserve runnable first slice and five-agent evidence at usage stop; record known Important100-bed-selector defect, incomplete review, runtime limitations and exact cooldown deadline. Feature branch checkpoint, not production release.
+
+- 1.4.0 — 23October2026: owner-authorised dedicated Hostinger authenticated preview, deployment-specific cooldown override, >100-bed selector regression/fix, actual PostgreSQL verification, HTTPS/session/security/backup/isolation evidence; full hospital release still gated.

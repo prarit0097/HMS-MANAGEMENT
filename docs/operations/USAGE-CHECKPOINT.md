@@ -3,6 +3,8 @@
 Owner instruction: when any applicable Codex usage window has 10% or less remaining, checkpoint HMS.md and stop new work; resume no earlier than 5 hours30minutes later and only with recovered usage.
 
 State: WAIT_COOLDOWN
+
+Owner exception23October2026: explicitly authorised immediate existing-slice Hostinger deployment and answered yes to overriding cooldown for that deployment. Deployment completed as restricted synthetic preview; general development still respects this original deadline. Do not reset/extend it or infer cancellation of future usage stops. HOSTINGER-PREVIEW.md records deployment evidence. Resume remaining development after deadline with all applicable windows above10%; do not redeploy on every heartbeat.
 checkpoint_at_utc: 2026-10-23T05:02:15.039512+00:00
 resume_not_before_utc: 2026-10-23T10:32:15.039512+00:00
 resume_not_before_ist: 23 October 2026, 4:02:15 PM IST

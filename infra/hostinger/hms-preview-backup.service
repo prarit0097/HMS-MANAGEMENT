@@ -1,0 +1,7 @@
+[Unit]
+Description=Dedicated HMS preview database backup
+After=docker.service
+[Service]
+Type=oneshot
+ExecStart=/bin/sh /opt/hms/current/infra/hostinger/backup.sh
+UMask=0077

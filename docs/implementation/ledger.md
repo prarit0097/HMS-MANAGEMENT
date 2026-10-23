@@ -1,5 +1,17 @@
 # SDD ledger — plan: plan.md
 
+## Owner-authorised Hostinger preview — 23October2026
+
+- Owner authorised isolated current-slice deployment and explicitly waived current cooldown for deployment only; general development deadline/future usage rule unchanged, no reset credit. Minimum52%remaining at bounded deployment check.
+- Existing local SSH key succeeded; no root password requested/logged. Free /opt/hms/ports8185,5548, DNS, Docker/Nginx and valid original configuration established before mutation. Plan/threat review in hostinger-preview-plan.md. Frontend specialist >100-bed RED->GREEN; independent source reviewer found no Critical/Important blocker for restricted synthetic preview, not hospital release approval.
+- Deployed /opt/hms, hms-preview user/service, static React/Nginx, loopback Gunicorn26.2.0, isolated TLS PostgreSQL17.11/hms_app non-superuser/NOCREATEDB, dedicated vhost/HTTPS/renewal hook/daily02:15UTC backup. Owner credentials generated/private, never inGit;120synthetic beds, initially0patients. No other application stack restarted; all original Nginx file checksums unchanged.
+- Runtime corrections: package registry exposes Gunicorn26.2.0 rather than docs-mentioned26.2.2; explicit traversal modes corrected restrictive umask while retaining secret0600; TLS startup interruption required completing isolated new DB initialisation, no data deletion; custom hba rejects nonTLS; disabled optional Gunicorn control socket in read-only service. First pytest maintenance-db fallback/teardown warning fixed with empty postgres maintenance-db connectivity, then full suite reran clean.
+- Actual final PostgreSQL48passed/25subtests/0skips/0warnings, including same-bed concurrency; temporary CREATEDB revoked/testDB removed. Production check --deploy/migrations passed; VPS frontend11passed/typecheck/build.7HTTPS smoke assertion groups passed for outer gate/static/headers, API anonymity/repository exposure, session/cookies/CSRF/logout, bed101+/branch denial and shared rate limit despite forgedXFF. Initial urllib harness lacked browser Origin and received expected403; corrected Origin and reran successfully.
+- Initial backup checksum/restore to separateDB confirmed120beds/0patients; disposable restoreDB removed. Root-only plaintext local backups, no encrypted offsite recovery claim. DB sslmode=require encrypts but does not pin identity. Same password at edge/app is notMFA. Both8185/5548 listenersloopback; external Windows probes unreachable; HTTP301/unauthHTTPS401 intended.
+- Other domains checked200(pdf/postzyo/riimshospitals/rezoom),307(nirogidhara); no comparison of prior HTTP contents claimed. Browser automation cannot handle HTTP Basic prompt (ERR_INVALID_AUTH_CREDENTIALS), so live authenticated browser/staff acceptance remains incomplete. Owner receives private ignored local access-file link.
+- Remaining full identity/read-audit/recovery/load/staff gates and remaining product; return to saved development cooldown after deployment exception. No duplicate team or repeated deployment on heartbeat.
+- Final DB probe confirmed actual connectionTLS, app nosuper/NOCREATEDB and120beds; nonTLS connection denied. Root scripts19tests passed; docs/API-map/local-link check and whitespace check passed. Independent reviewer source findings/limits incorporated in operations runbook.
+
 ## Owner-authorised execution — 23 October 2026
 
 - Branch: feat/hms-foundation; starting commit efb967ee2382396aeb1f4423981262f1bf18a259.

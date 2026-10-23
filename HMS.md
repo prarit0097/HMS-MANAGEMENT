@@ -1,8 +1,8 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.3.0 | Updated: 23 October 2026, Asia/Calcutta
+Document version: 1.4.0 | Updated: 23 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
-Current state: **USAGE COOLDOWN / PHASE A DEVELOPMENT CHECKPOINT. No production service exists.** Implementation paused after a6%-remaining reading at2026-10-23T05:02:15Z; earliest resume2026-10-23T10:32:15Z (23October4:02PM IST), subject to recovered usage. Manual 'Continue' on23October triggered checkpoint completion, not silent cancellation of the saved cooldown.
+Current state: **HOSTINGER AUTHENTICATED PREVIEW DEPLOYED; incomplete Phase A, synthetic data only.** Owner authorised hms.praritsidana.com on the existing multi-app VPS and expressly waived the saved cooldown for this deployment. General development still respects the original2026-10-23T10:32:15Z deadline after this exception. See [deployment evidence/runbook](docs/operations/HOSTINGER-PREVIEW.md).
 
 ## 1. Read this first
 
@@ -66,18 +66,18 @@ These are intended combined capabilities, not claims of unique inventions or pro
 
 | Layer | Planned choice | Actual state |
 |---|---|---|
-| Backend language/framework | Python + Django5.2.18 | Phase A implemented under backend/hms and backend/apps/core; not production-ready |
+| Backend language/framework | Python + Django5.2.18 | Phase A implemented under backend/hms and backend/apps/core; deployed only as restricted preview, not ready for real hospital data |
 | HTTP API | Django REST Framework3.16.1; versioned `/api/v1/` | Session/CSRF, scoped branch/patient/appointment/admission/dashboard and platform-summary APIs implemented |
 | Frontend | React19.3.1 + TypeScript7.0.2 + Vite8.3.5 | API-backed local staff workspace implemented; first development slice only |
-| Database | PostgreSQL for production; SQLite for local synthetic development | Local SQLite migrated/seeded; actual PostgreSQL execution not yet verified |
+| Database | PostgreSQL for production; SQLite for local synthetic development | Local SQLite synthetic development; isolated TLS PostgreSQL17.11 deployed and48tests/25subtests passed |
 | Background work | Celery; durable broker, proposed RabbitMQ | Not configured |
 | Disposable cache/rate limit | Redis where justified | Not configured |
-| IP policy primitives | Framework-independent trusted-proxy resolver and allow/deny evaluator | Implemented;22 tests/25 subtests passed. Request middleware/admin policy UI still in progress/planned |
+| IP policy primitives | Framework-independent trusted-proxy resolver and allow/deny evaluator | Resolver/evaluator and request middleware implemented; trusted loopback proxy configured; admin policy UI/recovery still planned |
 | Files | Private cloud object storage, encrypted and access-controlled | Not provisioned |
-| Runtime | Containerised services; production Linux; local Windows development supported | Local Django/Vite ran on127.0.0.1:8000/5173; development Compose/Dockerfiles prepared, Docker execution unverified |
+| Runtime | Containerised services; production Linux; local Windows development supported | Hostinger preview runs dedicated Gunicorn/systemd/static Nginx and private containerised PostgreSQL; development Compose remains separate |
 | Remote MCP | Authenticated HTTP endpoint with supported MCP transport/version | Not implemented |
-| Cloud provider | Not selected; architecture must not assume public database/storage | No account/resources created |
-| CI/testing | pytest, Vitest/component tests and contract/docs checks; remaining e2e/security/load gates | Backend47pass/1PGskip/25subtests and frontend8pass/typecheck/build reported by agents; CI workflow prepared, remote run not yet verified |
+| Cloud provider | Hostinger existing VPS selected for this authenticated preview; private database, future file storage unprovisioned | Dedicated /opt/hms preview resources created on owner existing VPS |
+| CI/testing | pytest, Vitest/component tests and contract/docs checks; remaining e2e/security/load gates | Actual VPS PostgreSQL48pass/25subtests; frontend11pass/typecheck/build; HTTPS/session/CSRF/edge/backup smoke passed; GitHubCI separate/unverified |
 
 The language direction is the current planning baseline from previous recommendations, not proof of delivered capacity. Supported mutually compatible versions will be pinned and recorded before scaffolding. Docker Compose is a proposed local integration tool, not an automatic production deployment architecture.
 
@@ -234,26 +234,26 @@ Use required skills at these sources: [Superpowers](https://github.com/obra/supe
 
 The specified GitHub repo was verified empty and public at initial preparation; connected account has push permission. Public source control must never contain patient/lead data, production dumps/backups, call recordings, credentials, connection strings or private environment files. Synthetic data only.
 
-Cloud production is separate from GitHub publication. No cloud provider, domain, paid resource or production deployment is created by these documents. Plan separate development, staging and production identities/storage; production data must not enter ordinary preview/test environments. Releases require gated deployment, migrations, health checks, rollback and monitoring. Record actual environments and URLs here when they exist.
+Cloud deployment is separate from GitHub publication. Owner subsequently authorised a dedicated Hostinger preview at hms.praritsidana.com; see the deployment runbook for actual resources and limits. No hospital production cutover or new paid subscription was performed. Plan separate development, staging and production identities/storage; production data must not enter ordinary preview/test environments. Releases require gated deployment, migrations, health checks, rollback and monitoring. Record actual environments and URLs here when they exist.
 
 ## 16. Implementation inventory and current verification
 
 | Item | State |
 |---|---|
 | Requirements/research | Original baseline plus consolidated research and addenda exist |
-| HMS.md / plan.md | Initial documents reviewed and published; owner/design readiness gate still required before product implementation |
+| HMS.md / plan.md | Living implementation/verification/deployment inventory maintained; future slices retain design gates |
 | Agent workflow | AGENTS.md and safe ignore rules prepared |
 | Product pages/APIs/models/MCP | Initial local login/dashboard/patients/appointments/beds/admission/master-inventory implemented; MCP/clinical/finance/therapy/nursing/dataops still planned |
-| Unit/integration/UI/security/load/restore tests | Agent-reported backend47passed/1PostgreSQL-only skipped/25subtests; frontend8tests/typecheck/build passed; coordinator pureIP22/25subtests and root scripts16 passed. Full coordinator reruns at checkpoint recorded in ledger; no load/restore/production tests |
+| Unit/integration/UI/security/load/restore tests | VPS actual PostgreSQL48passed/25subtests, frontend11tests/typecheck/build passed; HTTPS/session/CSRF/throttle/isolation and database backup/restore smoke passed. No capacity or full security certification |
 | Documentation checks | Local links, C-01–C-20/O-01–O-11 coverage, 92 unique page IDs, secret-pattern scan and baseline-copy hash passed. New files pass staged whitespace checks; five intentional original Markdown hard breaks preserved |
 | GitHub sync | Initial commit `17df5ef52750cfb55ad9d146dbeba1d9d4820699` verified against remote main; follow-up publication evidence tracked in Git history/handoff |
-| Cloud/production | Not deployed; local Compose/IaC groundwork and CI workflow are source only, not evidence of running cloud resources |
+| Cloud/production | Authenticated preview deployed on Hostinger under /opt/hms; no real-data/hospital production release |
 
 Local verification observed: synthetic development account login succeeded through the frontend and authorised dashboard displayed3 synthetic patients,3 appointments,0 active admissions and12 available beds. No real hospital data used. Development account password exists only in ignored local database/environment, never source or documentation. [Local setup](docs/operations/LOCAL-DEVELOPMENT.md) explains creating a private synthetic account.
 
-Known open Important finding: `frontend/src/pages.tsx` admission selector loads only the first100 beds and cannot select a later available bed, despite a pageable bed board. This conflicts with expandable capacity; fix with paginated/search selection or per-card admission action, add a >100-bed regression, then rerun relevant tests before release. Independent review stopped at usage threshold; no final whole-slice approval is claimed. Appointment input explicitly uses device-local timezone while schedule displays IST; align/validate the intended staff workflow before rollout.
+Previously open first100-bed admission-selector finding is fixed: paginated25-bed choices, selection cleared on page change, retry on errors and regression selecting bed101+. Frontend11tests and build passed on VPS. Independent whole-product review and live staff/browser acceptance remain incomplete. Appointment input explicitly uses device-local timezone while schedule displays IST; align/validate the intended staff workflow before hospital rollout.
 
-Remaining security/operational gates: complete MFA, distributed login abuse controls, comprehensive sensitive-read/immutable audits, full cross-branch identity/access, exclusive room/villa rules, production OAuth/MCP, full/module backup/restore/import/export, and PostgreSQL concurrency/CI execution. None are silently claimed done by the first slice.
+Remaining security/operational gates: complete MFA, distributed application login abuse controls (shared Nginx edge limit verified for preview), comprehensive sensitive-read/immutable audits, full cross-branch identity/access, exclusive room/villa rules, production OAuth/MCP, full/module backup/restore/import/export, and GitHubCI execution. Actual PostgreSQL same-bed race and isolated database restore smoke passed; full recovery/capacity remain unverified.
 
 Current detailed business parameters (rent cycles, package/refund rules, payer tariffs, clinical forms) are configuration/spec decisions, not reasons to investigate rented premises. Future call-center product questions stay deferred. Detailed uncertainties, design gates and page catalogue live in plan.md.
 
@@ -311,6 +311,17 @@ For every change add: ID/date; request and reason; changed behaviour/files/pages
 - Publication: `wip: checkpoint runnable HMS foundation and pending review`; feature branch only, not merged/deployed. Resume ledger preserves exact pending work.
 - Final coordinator checkpoint reruns: backend47passed/1PostgreSQL-only skipped/25subtests in56.72seconds; frontend typecheck passed,8tests passed,build passed. API/map/local-link checker passed and targeted credential-pattern scan across60source/docs files found no matches. These preservation checks do not waive the known review finding or production gates.
 
+### CHG-0007 — 23 October2026 — Owner-authorised isolated Hostinger preview
+
+- Owner authorised immediate deployment of current work to hms.praritsidana.com with separate folder and preservation of other VPS apps; explicitly waived active cooldown for this deployment only. No reset credit used; general usage/deadline rules remain.
+- Plan: docs/implementation/hostinger-preview-plan.md; operations/evidence: docs/operations/HOSTINGER-PREVIEW.md. Added dedicated infra/hostinger service, private PostgreSQL/TLS/hba/Compose, Gunicorn26.2.0 dependency, static Nginx/Basic gate/CSRF/forwarded-header/login-rate controls, bootstrap and verification/backup/renewal templates. No secret or live database in source.
+- UI: first100-bed admission selector fixed with paged API choices and >100 regression; initial-preview/synthetic-only labels. No schema or API capability changes; existing initial migration applied to new isolated preview database.
+- Access/data: generated owner login stored only private server/ignored local access files; explicit master_admin+reception memberships, no clinical signing.120synthetic beds, initially zero patients. App DB role non-superuser/no CREATEDB after checks. Secrets0600, database/backend loopback only, TLS required. Preview IP mode initially authenticated access; full IP/MFA/backup portal product remains planned.
+- Evidence: actual PostgreSQL48passed/25subtests with clean final teardown; frontend11passed/typecheck/build; deployment smoke seven assertion groups passed; external origin port checks blocked; DB dump checksum/restore120beds/zero patients passed; existing Nginx configuration checksums unchanged, five other domain checks200/307. Automated live browser could not pass Basic authentication prompt, so authenticated live browser acceptance remains unverified.
+- Operational impact: dedicated /opt/hms and hms-preview units/project/vhost, HTTPS certificate and renewal hook, daily database backup timer. Other app stacks not restarted; only graceful shared Nginx reload after syntax check. Full recovery/off-host encryption/load/security/staff acceptance still open. This is restricted preview, never real-patient readiness.
+- Publication: feat: deploy isolated authenticated HMS preview on Hostinger; final verified SHA in handoff. Full remaining HMS development returns to normal usage guard.
+- Final additional evidence:19root documentation/usage tests passed; actual app PostgreSQL connectionTLS/non-superuser/NOCREATEDB verified and explicit nonTLS connection rejected. Source/API mapping/local-link checks passed.
+
 ## 18. Technical references
 
 - [Django transactions](https://docs.djangoproject.com/en/stable/topics/db/transactions/)
@@ -318,4 +329,4 @@ For every change add: ID/date; request and reason; changed behaviour/files/pages
 - [MCP authorisation](https://modelcontextprotocol.io/specification/latest/basic/authorization), [MCP security](https://modelcontextprotocol.io/specification/latest/basic/security_best_practices)
 - [OWASP authorisation guidance](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html)
 
-References guide implementation; they do not prove this unimplemented application meets any standard.
+References guide implementation; they do not certify the incomplete application or its preview deployment.

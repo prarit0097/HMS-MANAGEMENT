@@ -1,0 +1,26 @@
+name: hms-preview
+services:
+  db:
+    image: postgres:17.11-bookworm
+    restart: unless-stopped
+    env_file: /opt/hms/secrets/postgres.env
+    ports:
+      - "127.0.0.1:5548:5432"
+    volumes:
+      - /opt/hms/data/postgres:/var/lib/postgresql/data
+      - /opt/hms/secrets/postgres-tls:/tls:ro
+      - /opt/hms/secrets/init-db.sql:/docker-entrypoint-initdb.d/10-hms.sql:ro
+      - /opt/hms/current/infra/hostinger/pg_hba.conf:/etc/hms-pg_hba.conf:ro
+    command: ["postgres", "-c", "ssl=on", "-c", "ssl_cert_file=/tls/server.crt", "-c", "ssl_key_file=/tls/server.key", "-c", "hba_file=/etc/hms-pg_hba.conf", "-c", "max_connections=40", "-c", "shared_buffers=128MB"]
+    mem_limit: 768m
+    cpus: 1.0
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hms_db_admin -d hms_preview"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

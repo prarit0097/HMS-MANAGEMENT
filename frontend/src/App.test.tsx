@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, expect, it, vi } from 'vitest';
 import App from './App';
@@ -47,4 +47,62 @@ it('shows login after an anonymous session and reports invalid credentials witho
   await userEvent.click(screen.getByRole('button',{name:'Sign in'}));
   await waitFor(()=>expect(screen.getByRole('alert')).toHaveTextContent('Username or password is incorrect'));
   expect(screen.getByRole('textbox',{name:'Username'})).toHaveValue('test.user');
+});
+it('admits into an available bed beyond the first 100 records through paginated choices', async () => {
+  let admission: Record<string,string> | undefined;
+  const beds = Array.from({length:101}, (_,index)=>({id:`bed-${index+1}`,number:String(index+1),room_number:'A',category:'general',status:index===100?'available':'occupied',patient_name:null,admission_id:null,branch:'b1'}));
+  server((url,options)=>{
+    if(url.includes('beds/?')) {
+      const params=new URL(url,'http://localhost').searchParams;
+      const offset=Number(params.get('offset')||0),limit=Number(params.get('limit')||25);
+      return Response.json({count:beds.length,results:beds.slice(offset,offset+limit)});
+    }
+    if(url.includes('patients/?'))return Response.json({count:1,results:[{id:'patient-1',full_name:'Synthetic Admission',uhid:'TEST-1',phone:'',branch:'b1'}]});
+    if(url.endsWith('admissions/')&&options?.method==='POST') {admission=JSON.parse(String(options.body));return Response.json({id:'admission-1'},{status:201});}
+    return new Response(null,{status:599});
+  });
+  render(<App/>);
+  await userEvent.click(await screen.findByRole('link',{name:'Bed board'}));
+  await userEvent.click(screen.getByRole('button',{name:'New admission'}));
+  const dialog=within(screen.getByRole('dialog'));
+  await userEvent.click(await dialog.findByRole('button',{name:/Synthetic Admission/}));
+  for(let page=0;page<4;page++){
+    const navigation=within(dialog.getByRole('navigation',{name:'Bed choices'}));
+    await waitFor(()=>expect(navigation.getByRole('button',{name:'Next beds'})).toBeEnabled());
+    await userEvent.click(navigation.getByRole('button',{name:'Next beds'}));
+  }
+  await dialog.findByRole('option',{name:'Bed 101 · Room A · General'});
+  await userEvent.selectOptions(dialog.getByRole('combobox',{name:/Available bed/}),'bed-101');
+  await userEvent.click(dialog.getByRole('button',{name:'Previous beds'}));
+  expect(dialog.getByRole('combobox',{name:/Available bed/})).toHaveValue('');
+  await waitFor(()=>expect(dialog.getByRole('button',{name:'Next beds'})).toBeEnabled());
+  await userEvent.click(dialog.getByRole('button',{name:'Next beds'}));
+  await dialog.findByRole('option',{name:'Bed 101 · Room A · General'});
+  expect(dialog.getByRole('combobox',{name:/Available bed/})).toHaveValue('');
+  await userEvent.selectOptions(dialog.getByRole('combobox',{name:/Available bed/}),'bed-101');
+  await userEvent.type(dialog.getByRole('textbox',{name:/Treating doctor/}),'Dr Synthetic');
+  await userEvent.click(dialog.getByRole('button',{name:'Admit patient'}));
+  await screen.findByText('Patient admitted and bed allocated.');
+  expect(admission).toMatchObject({patient:'patient-1',bed:'bed-101',treating_doctor:'Dr Synthetic'});
+});
+it('lets staff retry failed admission bed choices without silently accepting a bed', async()=>{
+  let fail=true;
+  server(url=>url.includes('beds/?') ? (fail?Response.json({message:'Bed records are temporarily unavailable.'},{status:503}):Response.json({count:1,results:[{id:'bed-1',number:'1',room_number:'A',category:'general',status:'available',branch:'b1'}]})):new Response(null,{status:599}));
+  render(<App/>);
+  await userEvent.click(await screen.findByRole('link',{name:'Bed board'}));
+  await userEvent.click(screen.getByRole('button',{name:'New admission'}));
+  const dialog=within(screen.getByRole('dialog'));
+  expect(await dialog.findByRole('alert')).toHaveTextContent('Bed records are temporarily unavailable.');
+  expect(dialog.getByRole('combobox',{name:/Available bed/})).toBeDisabled();
+  fail=false;
+  await userEvent.click(dialog.getByRole('button',{name:'Try again'}));
+  await dialog.findByRole('option',{name:'Bed 1 · Room A · General'});
+  expect(dialog.getByRole('combobox',{name:/Available bed/})).toBeEnabled();
+  expect(dialog.getByRole('combobox',{name:/Available bed/})).toHaveValue('');
+});
+it('clearly labels the unauthenticated deployed app as an initial preview for synthetic data', async()=>{
+  server(url=>url.endsWith('auth/me/')?Response.json({message:'Sign in required'},{status:401}):new Response(null,{status:599}));
+  render(<App/>);
+  expect(await screen.findByText('INITIAL PREVIEW')).toBeInTheDocument();
+  expect(screen.getByText(/Synthetic data only/)).toHaveTextContent('Not ready for real patient use');
 });

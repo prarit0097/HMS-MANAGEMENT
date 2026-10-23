@@ -1,0 +1,26 @@
+[Unit]
+Description=HMS authenticated preview API
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=hms-preview
+Group=hms-preview
+WorkingDirectory=/opt/hms/current/backend
+EnvironmentFile=/opt/hms/secrets/app.env
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/opt/hms/venv/bin/gunicorn --bind 127.0.0.1:8185 --workers 2 --timeout 45 --max-requests 1000 --max-requests-jitter 100 --forwarded-allow-ips=127.0.0.1 --no-control-socket --error-logfile - hms.wsgi:application
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadOnlyPaths=/opt/hms/current /opt/hms/venv
+MemoryMax=512M
+CPUQuota=100%
+
+[Install]
+WantedBy=multi-user.target

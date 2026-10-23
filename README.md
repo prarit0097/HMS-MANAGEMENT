@@ -2,6 +2,8 @@
 
 An API-first hospital workspace under active development. Phase A covers a bounded synthetic-data foundation; this repository is **not a deployed production hospital system**.
 
+Owner-authorised authenticated preview: https://hms.praritsidana.com . Synthetic testing only; [deployment evidence, isolation and operations](docs/operations/HOSTINGER-PREVIEW.md). Credentials are private and never in this repository.
+
 Read [HMS.md](HMS.md), [plan.md](plan.md) and [AGENTS.md](AGENTS.md) before changing the project. The [Phase A contract](docs/implementation/phase-a-contract.md) and [execution ledger](docs/implementation/ledger.md) identify the active slice and evidence.
 
 - [Local Windows setup and optional Compose stack](docs/operations/LOCAL-DEVELOPMENT.md)
