@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Reviewed master plan, version 1.1.0, 23 October 2026. Initial documentation published; O-12/O-13 added as mandatory priorities. Page/action catalogue and proposed contracts below are planning, not completed software. **Product development is NOT authorised by checked-looking prose: the readiness gate below remains open.**
+**Status:** Execution version1.2.0, 23 October2026. Owner explicitly authorised implementation with five specialists. Phase A is defined in docs/implementation/phase-a-contract.md; future planned features remain unimplemented until verified. Pre-code checks apply per active slice; usability/production gates remain release conditions, not a claim of completion.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -29,6 +29,7 @@
 | O-11 | Superpowers and UI/UX Pro Max | Skill workflow, design checks, per-task closeout |
 | O-12 | End-user frontend must be simple, professional and minimise confusion | Common UI contract, role-task walkthroughs and Task 17 usability acceptance |
 | O-13 | Entire application API-based; top architectural priority | API-contract-first gate, OpenAPI, all-capability coverage and independent API/parity tests |
+| O-14 | Five-agent team; stop at10%usage remaining; resume after5h30 | Team/ledger contract, tested usage guard, native continuation heartbeat and durable checkpoint |
 
 Carry forward C-01–C-20 from the original baseline, explicitly mapped below. No 100-bed hard limit. Call-center product investigation/implementation deferred; IDs/events/permissions prepared now. Premises rent/norms owner-managed. Preserve green booked/occupied and red available beds with accessible labels. UI/API/MCP/file paths enforce the same security ceiling. No live patient data in Git or ordinary test environments.
 
@@ -63,7 +64,7 @@ Every implementation task includes its mapped C/O acceptance cases in addition t
 
 ### Project planning gate — required before product scaffolding/code
 
-- [ ] Owner reviews HMS.md and this plan, including proposed stack, scope and staged delivery.
+- [x] Owner reviewed the direction and explicitly requested team implementation; current active slice frozen separately, later release details remain reviewable.
 - [ ] For each active-release page/action below, field rules, permissions, state transitions, data ownership and failures are reviewed. A future-only page is explicitly deferred, not silently missing.
 - [ ] Security/access/IP/MCP/backup design receives an independent review and findings are resolved.
 - [ ] Role/branch/data-category matrix, financial/stock invariants and API contracts are frozen for the first vertical slice.
@@ -632,6 +633,8 @@ Per-task test names above define their assertions. Additional narrow tests are a
 
 ## 16. Evidence log and readiness
 
+Active execution evidence: docs/implementation/ledger.md. Five specialist roles assigned in batches: backend, frontend, security, platform/dataops/MCP and independent review. Root coordinates shared interfaces/docs/Git. Usage guard8/8 RED->GREEN; native heartbeat active. No application capacity/production assertion follows from those developer-tool tests.
+
 | Check | Current evidence |
 |---|---|
 | Owner inputs | Original baseline, research and latest O-01–O-11 incorporated |
@@ -656,3 +659,4 @@ Create feature branches/PRs when repository protection or agreed workflow requir
 - 1.0.0 — 23 October 2026: initial comprehensive planning catalogue; O-01–O-11 mapping; shared page states, service contracts, security/IP/MCP, cloud/dataops, Tasks 00–17, verification and continuous-documentation workflow. Product implementation not started.
 - 1.0.1 — 23 October 2026: record completed Task 00, independent review/corrections, documentation verification and verified initial GitHub publication. No product implementation, runtime tests or deployment.
 - 1.1.0 — 23 October 2026: add O-12 simple professional UX and O-13 API-first architecture; OpenAPI/page-action mapping gate, contract/parity test suite and staff-task usability checks. No application code or runtime tests added.
+- 1.2.0 — 23 October2026: owner authorised team execution; freeze Phase A contract, team ownership, preflight ledger and O-14 usage pause/resume rule. Tested local usage guard and Windows wrapper, native heartbeat active. Phase A runtime work in progress.

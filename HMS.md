@@ -1,8 +1,8 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.1.0 | Updated: 23 October 2026, Asia/Calcutta
+Document version: 1.2.0 | Updated: 23 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
-Current state: **DOCUMENTATION / DESIGN REVIEW. No application code or deployed service exists.**
+Current state: **OWNER-AUTHORISED IMPLEMENTATION, PHASE A IN PROGRESS. No production service exists.** See the implementation ledger for verified versus in-progress work.
 
 ## 1. Read this first
 
@@ -203,6 +203,14 @@ Plan functional clinical workspaces: consistent navigation, visible branch/user 
 
 ## 14. Development and documentation workflow
 
+Owner authorised a five-specialist team to begin implementation after reading these documents. Execute specialist work in batches within the actual concurrency limit (currently three children plus coordinator). Coordinator alone integrates/commits/pushes. Current first-slice contracts and preflight rulings are in [Phase A contract](docs/implementation/phase-a-contract.md); progress is in [implementation ledger](docs/implementation/ledger.md). Work occurs on `feat/hms-foundation` in the current checkout, not directly on main. No separate worktree was requested.
+
+### Usage stop and continuation rule
+
+At start and bounded work boundaries inspect authenticated Codex usage via get_usage_limits; check all applicable windows and stop new implementation/assignments when any remaining percentage is <=10. Ask running agents to checkpoint, preserve exact completed/pending/test/Git evidence here and in the ledger, commit/push safely, and record a UTC deadline330minutes after the checkpoint. Never extend an active deadline on repeated checks or consume reset credits automatically. Resume only after deadline and recovered usage; a low weekly window can keep work stopped longer.
+
+Native Codex heartbeat `continue-hms-after-usage-cooldown` is active; it is not an unattended cloud worker. The Windows PC, Codex app and repository access must remain available; exact-time wake is best effort. [Usage checkpoint](docs/operations/USAGE-CHECKPOINT.md) is the continuation record. [usage_guard.py](scripts/usage_guard.py) evaluates tool-supplied JSON without credential scraping; [Check-Usage.ps1](scripts/Check-Usage.ps1) is its Windows wrapper. Exit0 permits work,75 means checkpoint/wait,76 means unavailable/untrusted usage. Ignore `.local/` snapshots; do not store full account data in Git.
+
 Required sequence for each feature/change:
 
 1. Update/complete plan: pages, fields, actions, permissions, states, interfaces, data, migration, security threats, failure cases and tests.
@@ -230,8 +238,8 @@ Cloud production is separate from GitHub publication. No cloud provider, domain,
 | Requirements/research | Original baseline plus consolidated research and addenda exist |
 | HMS.md / plan.md | Initial documents reviewed and published; owner/design readiness gate still required before product implementation |
 | Agent workflow | AGENTS.md and safe ignore rules prepared |
-| Product pages/APIs/models/MCP | Planned only |
-| Unit/integration/UI/security/load/restore tests | Planned only; no application tests run |
+| Product pages/APIs/models/MCP | Phase A backend/frontend/security under active implementation; no runtime completion claimed in this checkpoint |
+| Unit/integration/UI/security/load/restore tests | Usage guard8/8 passed RED->GREEN; product agents report their own results before integration; load/restore/production tests remain pending |
 | Documentation checks | Local links, C-01–C-20/O-01–O-11 coverage, 92 unique page IDs, secret-pattern scan and baseline-copy hash passed. New files pass staged whitespace checks; five intentional original Markdown hard breaks preserved |
 | GitHub sync | Initial commit `17df5ef52750cfb55ad9d146dbeba1d9d4820699` verified against remote main; follow-up publication evidence tracked in Git history/handoff |
 | Cloud/production | Not deployed |
@@ -266,6 +274,14 @@ For every change add: ID/date; request and reason; changed behaviour/files/pages
 - Scope: every portal, master-admin, security/IP, dataops, reporting and compatible MCP adapter; no hidden UI-only workflows or frontend-authoritative business rules. Internal service reuse is permitted without redundant HTTP calls.
 - Tests/impact: documentation coverage/link/diff checks at commit; new API-contract/parity and staff-task acceptance tests are planned, not executed. No runtime, schema, permission configuration, migration or deployment changed.
 - Publication: commit subject `docs: require simple professional UX and API-first architecture`; remote SHA verified at handoff. Product development remains behind the existing planning gate.
+
+### CHG-0004 — 23 October 2026 — Start authorised team and usage-aware execution
+
+- Owner authorised implementation using five specialist agents and a stop-at10%-remaining / resume-after330minutes rule. First runtime slice is frozen in docs/implementation/phase-a-contract.md; actual call-center integration remains deferred.
+- Files: usage guard/Windows wrapper/tests, .gitignore scratch exclusions, AGENTS.md, HMS.md, plan.md, implementation ledger/contract and usage checkpoint. No unrelated in-progress backend/frontend files included in this change set.
+- Verification: eight usage-guard behaviour tests initially failed because implementation was absent, then all eight passed; includes exact threshold, weekly limit, missing/nonfinite data, preserved cooldown and recovered restart. No app-security/load/capacity claim.
+- Scheduling: native heartbeat created successfully, id continue-hms-after-usage-cooldown. Initial snapshot66%primary/65%weekly remaining; latest boundary52%primary/63%weekly remaining, so no cooldown started. No reset credit used.
+- Publication: commit subject `build: start team execution with tested usage checkpoint guard`; current branch feat/hms-foundation. Subsequent agent work is uncommitted until integrated/tested/documented.
 
 ## 18. Technical references
 

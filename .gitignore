@@ -39,6 +39,8 @@ coverage/
 playwright-report/
 test-results/
 .next/
+.local/
+.superpowers/
 
 # Editor / operating system
 .idea/

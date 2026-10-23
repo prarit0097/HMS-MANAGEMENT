@@ -1,6 +1,6 @@
 # HMS developer and coding-agent instructions
 
-Read [HMS.md](HMS.md) and [plan.md](plan.md) before work. Latest explicit user instructions take precedence. This repository currently contains documentation only.
+Read [HMS.md](HMS.md) and [plan.md](plan.md) before work. Latest explicit user instructions take precedence. Implementation is owner-authorised; read docs/implementation/ledger.md and the active slice contract before assigning or repeating work. Coordinator alone commits/pushes shared-checkout changes.
 
 ## Mandatory workflow
 
@@ -23,5 +23,7 @@ Read [HMS.md](HMS.md) and [plan.md](plan.md) before work. Latest explicit user i
 - Expandable capacity; no 100-bed hard limit. Future call-center integration details/build are deferred. Rented premises/norms are owner-managed, not development blockers.
 
 ## Handoff
+
+Owner's usage rule: coordinator checks authenticated get_usage_limits at start and bounded work boundaries. If any applicable window has <=10% remaining, stop new work/assignments, checkpoint active agents, update HMS.md/plan.md/ledger, safely commit/push, record checkpoint UTC and earliest resume+330minutes in docs/operations/USAGE-CHECKPOINT.md. Resume only after that deadline with all applicable windows >10%; do not reset an active deadline or consume reset credits. Native heartbeat id continue-hms-after-usage-cooldown handles best-effort Windows-app continuation; scripts/usage_guard.py and Check-Usage.ps1 evaluate tool-supplied snapshots without scraping credentials. Do not duplicate a still-running team.
 
 Report what changed, tests actually run, unfinished checks and verified push SHA. Leave work recoverable. Maintain explicit planned/implemented/verified/deployed distinctions in HMS.md.
