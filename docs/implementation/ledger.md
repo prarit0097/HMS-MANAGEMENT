@@ -1,5 +1,12 @@
 # SDD ledger — plan: plan.md
 
+## Real CSRF transport correction frozen before code
+
+Frozen real-CSRF JSON-body correction: actual synthetic browser validPreview400 reproduced by real APIClient(enforce_csrf_checks=True). Installed SessionAuthentication CSRF checker reads DRF Request.POST, draining raw JSON before strict handler; observed5RED/4pass includes valid32768 bytes and real raw read(-1) before bound with understated length. For listed management POSTs only, NetworkView.initial inside dispatch exception boundary captures at most32769 bytes before super.initial, rejects>32768/invaliddeclaredlength, stores exact bounded server-only bytes/cache and BytesIO replay. Standard session authentication/CSRF unchanged. Strict handler parses original captured bytes, never request.data; duplicate keys/constants/field/media checks preserved. Early DRF ParseError maps genericvalidation400 without rawecho. Size limits may reject beforeauth only as no-state resource boundary. No new endpoint/schema/permission or live deployment.
+
+- Ruling: capture/replay only already-bounded rawbytes locally avoids trusting DRF parsed data or relaxing SessionAuthentication/CSRF; default APIClient bypassed real CSRF and could not establish actual browser writes. Framework-private body/stream cache use is explicit/pinned and limited to these POSTs. Cost: bounded replay allocation and maintenance tests, rather than silent duplicate-key acceptance or unbounded early parser reads.
+
+
 ## Gateway D2 amendment frozen before code
 
 D2 edge amendment frozen after independent design/security review: guarded noncached outer Nginx proxy forwards only fixedHost/Range over private0600 Unix socket to sibling static server; strips all conditional/session/auth/body headers to prevent inner304, explicit proxy_cacheoff prevents outerconditionalfilter. PreserveBasicANDauth_request/no-store/CSP/HSTS for every public static route. Separate exact ephemeralTLS PG17.11 container/network/path/loopback15549 with app-only private config replaces rejected sharedPG connection; no sharedHBA/globalmodule/liveproxy changes. Token+ID+mount receipts and scoped interrupted-lifecycle cleanup mandatory. Exact files/resources/startup/HBA/socket fault/test contracts in network-edge-validation-plan.md. Source-backed inference requires actual wildcard/no304 RED and runtimeHTTP proof; not deployment approval.

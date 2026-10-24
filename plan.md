@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.13.5 ACTIVE. Scheduled resume2026-10-24T11:07:26UTC after saved11:06:20UTC deadline elapsed. Authenticated primary100%/weekly55%remaining at entry; subsequent guardcontinue minimum54%. No owner waiver or reset credit needed. Historical05:36stop preserved; no active cooldown. Exactd33937f CI40067046203success decoded520PG/168subtests34.29s,115frontend/typecheck/build,19root/schema/docs; source7252345CI40066986031cancelled by laterpush, never claimedpassed. Resume exactGETtime boundary, independentUIreview and edgeisolation/cache design; no repeateddeployment.
+**Status:** Version1.13.6 ACTIVE. Scheduled resume2026-10-24T11:07:26UTC after saved11:06:20UTC deadline elapsed. Authenticated primary100%/weekly55%remaining at entry; subsequent guardcontinue minimum54%. No owner waiver or reset credit needed. Historical05:36stop preserved; no active cooldown. Exactd33937f CI40067046203success decoded520PG/168subtests34.29s,115frontend/typecheck/build,19root/schema/docs; source7252345CI40066986031cancelled by laterpush, never claimedpassed. Resume exactGETtime boundary, independentUIreview and edgeisolation/cache design; no repeateddeployment.
 
 Root final frontend115/8files58.52s, typecheck/build24modules190ms passed. Root actualPG520/168subtests41.80s/check0/nodrift; testDBabsent0/appCREATEDB=f/previewactive independently confirmed. Root19projecttests10.171s, schema/map/link checks passed. Seven network operations have source implementations, explicit pending acceptance; no deployment. First resume task is exact GET server-time/snapshot deadline regression, remaining concurrency/fresh review, frontend independent review/browser and edge isolated-PG/no304 design amendment. All source stays recoverable on feat/hms-foundation; fresh CI and remote SHA recorded at publication.
 
@@ -36,6 +36,13 @@ D2 edge amendment frozen after independent design/security review: guarded nonca
 
 - [x] Independent D2 design review and exact amendment frozen before code.
 - [ ] Source/lifecycle RED, implementation/review, dedicated TLS PG and actual full HTTP/fault/cache/isolation evidence.
+
+## Frozen real-CSRF transport repair
+
+Frozen real-CSRF JSON-body correction: actual synthetic browser validPreview400 reproduced by real APIClient(enforce_csrf_checks=True). Installed SessionAuthentication CSRF checker reads DRF Request.POST, draining raw JSON before strict handler; observed5RED/4pass includes valid32768 bytes and real raw read(-1) before bound with understated length. For listed management POSTs only, NetworkView.initial inside dispatch exception boundary captures at most32769 bytes before super.initial, rejects>32768/invaliddeclaredlength, stores exact bounded server-only bytes/cache and BytesIO replay. Standard session authentication/CSRF unchanged. Strict handler parses original captured bytes, never request.data; duplicate keys/constants/field/media checks preserved. Early DRF ParseError maps genericvalidation400 without rawecho. Size limits may reject beforeauth only as no-state resource boundary. No new endpoint/schema/permission or live deployment.
+
+- [x] [Body capture plan](docs/implementation/network-csrf-body-plan.md) frozen after source/rootcause/scenario/threat/realRED.
+- [ ] Fix, fresh real-CSRF/PG/source review and actual browser retry.
 
 ## Current network B2/C/D checkpoint
 
@@ -848,4 +855,4 @@ Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration
 
 - 1.12.1 —24October2026: Owner explicitly continued at2026-10-24T05:10:42UTC (10:40:42AM IST). Authenticated primary100%/weekly69%remaining; saved05:04:44UTC deadline already elapsed, so no cooldown waiver or reset credit was needed. Prior stop/scheduling history preserved; guardcontinue, same heartbeat updated. Exact a412637sourceCI40040673163success observed. Resume remaining networkB2 API/authority/transactions/OOB and StageC client under frozencontract; B1/B2a/ICTHospital/initialdeployment are completed and not repeated. No new runtime feature or live deployment delivered by this resume record.
 
-- 1.13.5 —24October2026: freeze full remainingnetworkB2 API/authority/transactions/OOB/middleware plan with securityprecisions and observedREDs; backend andStageCclient inprogress, no liveguard/deployment.
+- 1.13.6 —24October2026: freeze full remainingnetworkB2 API/authority/transactions/OOB/middleware plan with securityprecisions and observedREDs; backend andStageCclient inprogress, no liveguard/deployment.
