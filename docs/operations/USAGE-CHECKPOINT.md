@@ -1,14 +1,16 @@
 # Usage-aware HMS continuation
 
-State: COOLDOWN_CHECKPOINTED
+State: ACTIVE_AFTER_ELAPSED_COOLDOWN
 checkpoint_at_utc: 2026-10-23T23:34:44Z
-resume_not_before_utc: 2026-10-24T05:04:44Z
-owner_resume_at_utc: 2026-10-23T17:44:21Z
+resume_not_before_utc: none (prior2026-10-24T05:04:44Z deadline elapsed)
+owner_resume_at_utc: 2026-10-24T05:10:42Z
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330
 owner_schedule_override_at_utc: 2026-10-23T22:04:30Z
 
-NEW STOP23:34:44UTC primary9%/weekly70%remaining; earliest24October10:34:44AM IST plusallwindows>10. B2a internal selector source verified432PG/168subtests20.22s/local416/16skips168subtests/freshreview81+11probes; allagentscompleted. No source deployment/runtime policy activation. ParentB2 transactionalAPI/OOB/env/authority integration next aftercooldown; source39API/46catalogued unchanged. Sameheartbeat330min; priorownerschedule/historybelow cannotwaivethisfreshstop. Do not extend onrepeatedlowreadings.
+Current resume: Owner explicitly continued at2026-10-24T05:10:42UTC (10:40:42AM IST). Authenticated primary100%/weekly69%remaining; saved05:04:44UTC deadline already elapsed, so no cooldown waiver or reset credit was needed. Prior stop/scheduling history preserved; guardcontinue, same heartbeat updated. Exact a412637sourceCI40040673163success observed. Resume remaining networkB2 API/authority/transactions/OOB and StageC client under frozencontract; B1/B2a/ICTHospital/initialdeployment are completed and not repeated. No new runtime feature or live deployment delivered by this resume record.
+
+Historical stop23:34:44UTC primary9%/weekly70%remaining; earliest24October10:34:44AM IST plusallwindows>10. B2a internal selector source verified432PG/168subtests20.22s/local416/16skips168subtests/freshreview81+11probes; allagentscompleted. No source deployment/runtime policy activation. ParentB2 transactionalAPI/OOB/env/authority integration next aftercooldown; source39API/46catalogued unchanged. Sameheartbeat330min; priorownerschedule/historybelow cannotwaivethisfreshstop. Do not extend onrepeatedlowreadings.
 
 Historical actual resume:2026-10-23T23:02:32Z, authenticated primary100%/weekly84%remaining; later90%/83%, guardcontinue. No reset credit. ICTHospital comparison complete; Task03 frozen contract/OpenAPI0.6.0 and StageB1 source verified351PG/168subtests. NextStageB2 coherentstategraph/transaction/API/OOB integration, all7network operations still planned. Lastbounded23:24:23UTC primary28%/weekly73%remaining, no activecooldown. That former active record is now superseded by the NEW STOP above. Future fresh<=10% still requires actualUTC+330minutes.
 

@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.12.0,24October2026: NEW primary9%/weekly70%usage stop23:34:44UTC; earliestresume05:04:44UTC/24October10:34:44AM IST, allwindows>10. Research/networkA/B1/B2a internal snapshot verified; finalactualPG432/168subtests. FullB2transaction/API/OOB/runtime integration/UI/edge and fullproduct remain pending.46catalogued39implemented APIs, preview47b3618unchanged.
+**Status:** Version1.12.1,24October2026: ACTIVE after05:10:42UTC ownerresume, primary100%/weekly69%; saveddeadlineelapsed. NetworkB2 API/authority/transaction/OOB and StageC client next under existingcontract;39implemented46catalogued, sourcea412CI40040673163success, preview47b3618unchanged.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -802,3 +802,5 @@ Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration
 - 1.11.1 —24October2026: Frozen B2a contract network-snapshot-contract.md defines exact NetworkSnapshot/NetworkStateUnavailable/load_network_snapshot internal interfaces, one joined read, strict candidate/fallback/reciprocal preview/bindings/revision/time validation, pending finish metadata null and fixed deadline fallback with independent policy dictionaries. No auth/environment lookup, API, mutation or middleware activation in this unit. Independent pre-code review found no Important blocker; three precisions incorporated before code. Pending preview is required; null preview belongs to terminal OOB history only. Backwards clock fails closed. B1ca8dd41actualCI40039667570all3jobs success verified. A trailing blank at parsertest EOF was flagged by prior whitespace check but the PowerShell batch continued to commit; removed now without behaviour/assertion changes. Future commits follow separately inspected checks. No new app tests claimed for this design/formatting change.
 
 - 1.12.0 —24October2026: B2a internalreadselector verified432PG/168subtests andboundedreview; new9%usagecheckpoint23:34:44UTC/+330min to05:04:44UTC. All7networkAPIs/runtime/UI/edge pending, livepreviewunchanged.
+
+- 1.12.1 —24October2026: Owner explicitly continued at2026-10-24T05:10:42UTC (10:40:42AM IST). Authenticated primary100%/weekly69%remaining; saved05:04:44UTC deadline already elapsed, so no cooldown waiver or reset credit was needed. Prior stop/scheduling history preserved; guardcontinue, same heartbeat updated. Exact a412637sourceCI40040673163success observed. Resume remaining networkB2 API/authority/transactions/OOB and StageC client under frozencontract; B1/B2a/ICTHospital/initialdeployment are completed and not repeated. No new runtime feature or live deployment delivered by this resume record.

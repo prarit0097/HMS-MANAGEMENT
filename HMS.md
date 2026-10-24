@@ -1,8 +1,8 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.12.0 | Updated: 24 October 2026, Asia/Calcutta
+Document version: 1.12.1 | Updated: 24 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
-Current state: **VERIFIED SOURCE CHECKPOINT — fresh usage cooldown.** At2026-10-23T23:34:44UTC primary9%/weekly70%remaining; earliestresume2026-10-24T05:04:44UTC (24October10:34:44AM IST), only allwindows>10%. ICTHospital research, networkStageA/B1 and B2a internal snapshot selector complete within bounded scope. FinalactualPG432passed/168subtests20.22s; fullnetworkAPI/UI/OOB/edge/runtime integration remains pending. Existing47b3618livepreview unchanged.
+Current state: **ACTIVE — owner resumed after cooldown.** Owner explicitly continued at2026-10-24T05:10:42UTC (10:40:42AM IST). Authenticated primary100%/weekly69%remaining; saved05:04:44UTC deadline already elapsed, so no cooldown waiver or reset credit was needed. Prior stop/scheduling history preserved; guardcontinue, same heartbeat updated. Exact a412637sourceCI40040673163success observed. Resume remaining networkB2 API/authority/transactions/OOB and StageC client under frozencontract; B1/B2a/ICTHospital/initialdeployment are completed and not repeated. No new runtime feature or live deployment delivered by this resume record.
 
 ## 1. Read this first
 
@@ -549,3 +549,8 @@ Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration
 - B2a read-only singlejoinedSELECT/strictgraph/fixeddeadline/corruptionfailclosed/detachedpolicy source implemented after frozenplan/review/81REDs. No HTTP/capability/auth/env/middleware/OSoperator/edge/deployment activation. RootfinalactualPG432/168subtests20.22s/check/nodrift, local416/16skips/168subtests101.17s, freshboundedreview81+11probes no unresolvedC/I/Minor. PrivatevalidationDBcleaned/CREATEDBrevoked,47b3618previewserviceactive.
 - NEW primary9%/weekly70%stop23:34:44UTC, earliest05:04:44UTC/24October10:34:44AM IST. Allagentscompleted; no newwork/assignments afterboundary. Localguardcheckpoint_and_stop, sameheartbeatrescheduled330minutes; no resetcredits/deadlineextension. Priorowner04:30resume fulfilled onlyolddeadline, doesnotwaivethisfreshstop.
 - Researchcomplete/no importedcode, networkA/B1/B2a source completebounded; fullB2integration/UI/edge/OOB/clinical/finance/MCP/dataops/release remain. Root finalschema/map/links/stagedsecret/whitespace/remoteSHA atpublication. ExactB1CI40039667570decoded351/72/19green; newB2aCI notpresumed. Commit subject: feat: verify coherent network snapshots and checkpoint usage.
+
+### CHG-0028 —24October2026 — Resume remaining network integration
+
+- Owner explicitly continued at2026-10-24T05:10:42UTC (10:40:42AM IST). Authenticated primary100%/weekly69%remaining; saved05:04:44UTC deadline already elapsed, so no cooldown waiver or reset credit was needed. Prior stop/scheduling history preserved; guardcontinue, same heartbeat updated. Exact a412637sourceCI40040673163success observed. Resume remaining networkB2 API/authority/transactions/OOB and StageC client under frozencontract; B1/B2a/ICTHospital/initialdeployment are completed and not repeated. No new runtime feature or live deployment delivered by this resume record.
+- Documentation/API-map/link/stagedsecret checks at publication; no new application tests or features claimed for resume. Commit: docs: resume network integration after verified usage recovery.
