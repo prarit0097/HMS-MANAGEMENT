@@ -3,7 +3,7 @@
   "info": {
     "title": "HMS API and bounded master configuration",
     "version": "0.6.0",
-    "description": "Frozen first-slice design source, not a claim that every operation is verified or deployed. Session and CSRF protected hospital workspace. All capabilities outside this catalogue are deferred. Version0.6 catalogs46 operations:39 existing source operations and seven PLANNED Task03 network operations. StageB1 schema/parser foundation does not implement/advertise the seven routes or overlay enforcement."
+    "description": "Frozen first-slice design source, not a claim that every operation is verified or deployed. Session and CSRF protected hospital workspace. All capabilities outside this catalogue are deferred. Version0.6 catalogs46 source-implemented operations, including seven Task03 network operations with bounded synthetic source acceptance. Production deployment and hospital release are separate."
   },
   "servers": [
     {
@@ -3528,7 +3528,7 @@
             }
           }
         },
-        "x-acceptance-status": "pending-security-ui-edge-acceptance"
+        "x-acceptance-status": "synthetic-source-verified-not-deployed"
       }
     },
     "/platform/network-policy/previews/": {
@@ -3778,7 +3778,7 @@
             }
           }
         },
-        "x-acceptance-status": "pending-security-ui-edge-acceptance"
+        "x-acceptance-status": "synthetic-source-verified-not-deployed"
       }
     },
     "/platform/network-policy/previews/{preview_id}/activate/": {
@@ -4007,7 +4007,7 @@
             }
           }
         },
-        "x-acceptance-status": "pending-security-ui-edge-acceptance"
+        "x-acceptance-status": "synthetic-source-verified-not-deployed"
       }
     },
     "/platform/network-policy/changes/{change_id}/confirm/": {
@@ -4236,7 +4236,7 @@
             }
           }
         },
-        "x-acceptance-status": "pending-security-ui-edge-acceptance"
+        "x-acceptance-status": "synthetic-source-verified-not-deployed"
       }
     },
     "/platform/network-policy/changes/{change_id}/revert/": {
@@ -4465,7 +4465,7 @@
             }
           }
         },
-        "x-acceptance-status": "pending-security-ui-edge-acceptance"
+        "x-acceptance-status": "synthetic-source-verified-not-deployed"
       }
     },
     "/platform/network-policy/history/": {
@@ -4668,7 +4668,7 @@
             "description": "Single bounded outcome filter, at most11characters."
           }
         ],
-        "x-acceptance-status": "pending-security-ui-edge-acceptance"
+        "x-acceptance-status": "synthetic-source-verified-not-deployed"
       }
     },
     "/network-policy/edge-probe/": {
@@ -4737,7 +4737,7 @@
             }
           }
         },
-        "x-acceptance-status": "pending-security-ui-edge-acceptance"
+        "x-acceptance-status": "synthetic-source-verified-not-deployed"
       }
     }
   },

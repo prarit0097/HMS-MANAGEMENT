@@ -77,6 +77,12 @@ class NetworkView(APIView):
             # have passed our independent limit. No unbounded body read occurs.
             raw._body = data
             raw._stream = BytesIO(data)
+            try:
+                return super().initial(request, *args, **kwargs)
+            except RecursionError:
+                # Session CSRF checks can parse this bounded JSON replay before
+                # body() gets its own opportunity to reject excessive nesting.
+                raise NetworkError('validation_error', 400) from None
         return super().initial(request, *args, **kwargs)
 
     def handle_exception(self, exc):

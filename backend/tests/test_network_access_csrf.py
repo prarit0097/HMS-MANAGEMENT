@@ -5,7 +5,7 @@ import json
 import pytest
 from rest_framework.test import APIClient
 from rest_framework.test import APIRequestFactory
-from apps.core.models import NetworkPolicyState, NetworkPolicyPreview, NetworkPolicyEvent
+from apps.core.models import NetworkPolicyState, NetworkPolicyPreview, NetworkPolicyChange, NetworkPolicyEvent
 from tests.test_network_access_api import manager, ROOT, OPEN
 
 pytestmark = pytest.mark.django_db
@@ -48,6 +48,26 @@ def test_valid_csrf_does_not_relax_duplicate_or_malformed_json(csrf_manager, raw
     response = client.post(ROOT+'previews/', raw, content_type='application/json', HTTP_X_CSRFTOKEN=token, HTTP_IDEMPOTENCY_KEY=str(uuid.uuid4()))
     assert response.status_code == 400 and response.json()['code'] == 'validation_error'
     assert not NetworkPolicyPreview.objects.exists()
+
+
+@pytest.mark.parametrize('opening,closing,depth', [('[', ']', 12000), ('{"x":', '}', 4000)])
+def test_valid_csrf_deep_json_is_generic_400_without_writes(csrf_manager, opening, closing, depth):
+    client, token = csrf_manager
+    client.raise_request_exception = False
+    raw = '{"x":' + opening*depth + '"synthetic-depth-marker"' + closing*depth + '}'
+    assert len(raw.encode('utf-8')) < 32768
+    state_before = NetworkPolicyState.objects.values().get(pk=1)
+    response = client.post(ROOT+'previews/', raw, content_type='application/json', HTTP_X_CSRFTOKEN=token, HTTP_IDEMPOTENCY_KEY=str(uuid.uuid4()))
+    assert response.status_code == 400
+    assert response.json() == {'code': 'validation_error', 'message': 'Please check the supplied fields.'}
+    assert b'synthetic-depth-marker' not in response.content
+    assert response['Cache-Control'] == 'no-store'
+    assert NetworkPolicyState.objects.values().get(pk=1) == state_before
+    assert not NetworkPolicyPreview.objects.exists()
+    assert not NetworkPolicyChange.objects.exists()
+    assert not NetworkPolicyEvent.objects.exists()
+    normal = client.post(ROOT+'previews/', {'expected_revision': 1, 'policy': OPEN, 'reason': 'Synthetic recovery after deep JSON'}, format='json', HTTP_X_CSRFTOKEN=token, HTTP_IDEMPOTENCY_KEY=str(uuid.uuid4()))
+    assert normal.status_code == 201
 
 
 def test_csrf_path_preserves_backend_32k_limit(csrf_manager):

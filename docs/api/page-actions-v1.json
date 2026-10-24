@@ -1,6 +1,6 @@
 {
   "version": "0.6.0",
-  "scope": "Phase A subset of plan.md page catalogue. API contract existence is distinct from implementation/verification/deployment. Frontend combines subset pages into tabs; not every API action has a UI control yet. Version0.6 catalogs46operations:39existing source and seven planned Task03 network operations; no StageB1 endpoint/advertisement claim.",
+  "scope": "Phase A subset of plan.md page catalogue. API contract existence is distinct from implementation/verification/deployment. Frontend combines subset pages into tabs; not every API action has a UI control yet. Version0.6 catalogs46 source-implemented operations, including seven network operations with bounded synthetic source acceptance; not deployed.",
   "actions": [
     {
       "id": "system.health",
@@ -282,7 +282,7 @@
       "operation_id": "network_policy_read",
       "permission": "platform.security.manage",
       "implementation_status": "implemented",
-      "acceptance_status": "pending-security-ui-edge-acceptance"
+      "acceptance_status": "synthetic-source-verified-not-deployed"
     },
     {
       "id": "M06.network_preview",
@@ -291,7 +291,7 @@
       "operation_id": "network_policy_preview",
       "permission": "platform.security.manage",
       "implementation_status": "implemented",
-      "acceptance_status": "pending-security-ui-edge-acceptance"
+      "acceptance_status": "synthetic-source-verified-not-deployed"
     },
     {
       "id": "M06.network_activate",
@@ -300,7 +300,7 @@
       "operation_id": "network_policy_activate",
       "permission": "platform.security.manage",
       "implementation_status": "implemented",
-      "acceptance_status": "pending-security-ui-edge-acceptance"
+      "acceptance_status": "synthetic-source-verified-not-deployed"
     },
     {
       "id": "M06.network_confirm",
@@ -309,7 +309,7 @@
       "operation_id": "network_policy_confirm",
       "permission": "platform.security.manage",
       "implementation_status": "implemented",
-      "acceptance_status": "pending-security-ui-edge-acceptance"
+      "acceptance_status": "synthetic-source-verified-not-deployed"
     },
     {
       "id": "M06.network_revert",
@@ -318,7 +318,7 @@
       "operation_id": "network_policy_revert",
       "permission": "platform.security.manage",
       "implementation_status": "implemented",
-      "acceptance_status": "pending-security-ui-edge-acceptance"
+      "acceptance_status": "synthetic-source-verified-not-deployed"
     },
     {
       "id": "M07.network_history",
@@ -327,7 +327,7 @@
       "operation_id": "network_policy_history",
       "permission": "platform.security.manage",
       "implementation_status": "implemented",
-      "acceptance_status": "pending-security-ui-edge-acceptance"
+      "acceptance_status": "synthetic-source-verified-not-deployed"
     },
     {
       "id": "SYSTEM.network_edge_probe",
@@ -336,7 +336,7 @@
       "operation_id": "network_policy_edge_probe",
       "permission": "internal.network.probe",
       "implementation_status": "implemented",
-      "acceptance_status": "pending-security-ui-edge-acceptance"
+      "acceptance_status": "synthetic-source-verified-not-deployed"
     }
   ],
   "deferred_actions": [

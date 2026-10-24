@@ -1,5 +1,17 @@
 # SDD ledger — plan: plan.md
 
+## Network source acceptance — 24 October 2026
+
+The bounded Task03 B2/C/D source slice is synthetically verified, not deployed. Six management APIs and the private probe retain the frozen owner/master/OS-operator/recent-MFA ceiling, environment AND durable policy, fixed rollback, no-store and session/CSRF requirements. No new endpoint, migration or permission widening accompanies this closure.
+
+Fresh final transport review reproduced deeply nested bounded JSON causing DRF CSRF parsing to raise RecursionError before the strict handler. Two tracked regression cases failed before the fix; only the captured network POST super.initial call now maps that parser recursion to generic validation400, without echo or writes. Normal CSRF remains enforced. Focused78 tests passed12.58s; independent original probe plus15CSRF cases passed16/5.53s. Root final actual PostgreSQL579passed/168subtests39.95s, Django check0/no migration drift. Earlier post-CSRF rerun577/43.46s predates these final two tests. Private durable logs retained; appCREATEDB=f, testDBabsent0 and initial preview active independently verified.
+
+Frontend review resolved three independently reproduced findings (late mutation generation, malformed error fields, offline read gate). Specialist135tests/9files69.79s includes132tracked plus3ignored independent probes; typecheck/build24modules190ms. Actual synthetic browser completed password/TOTP freshness, keyboard validation, add-current-IP draft without policy write, draft navigation persistence, preview/apply/keep, second apply/restore, revision/history/filter and clear status feedback. Final local revision6 has no pending candidate. This is representative synthetic task acceptance, not real-staff or real-patient release validation.
+
+Actual isolated Nginx/Gunicorn/TLS PostgreSQL matrix passed363 checks, preserving literal baseline wildcard304 RED and strict candidate no304. [Runtime evidence](../operations/network-edge-evidence-2026-10-24.json) pins its exact archive. [External active-listener proof](../operations/network-external-origin-2026-10-24.json) records sourcefc2ec628, confirmed private listeners15549/18185/18186 while external attempts timed out and public443 connected. Those runtime checks predate the final POST parser-only fix; they are not a whole-matrix rerun of that fix. Cleanup found no candidate listeners/container/database prefix; shared HBA unchanged and old preview active.
+
+Production StageE remains open: worker/socket ownership, reviewed rollout/migration/bootstrap/recovery and real staff/live verification. No new source deployment, paid resources or patient data. Full clinical/finance/MCP/data operations remain unfinished. Patient-document architecture/UI/security proposals are DESIGN ONLY pending reconciliation and exact contract freeze. CI now also runs the15 pure edge/lifecycle source tests; source checks do not replace the363 actual runtime checks.
+
 ## Recovered source checkpoint / explicit owner resume16:43:13UTC
 
 Owner explicitly requested continue after recovery, verified2026-10-24T16:43:13UTC (10:13:13PM IST), primary97%/weekly39%remaining. This waives ONLY the saved17:05:08UTC deadline from the fresh11:35:08UTC primary9%/weekly41% stop. Recovery alone did not waive it:16:40heartbeat performed checkpoint recovery only. Originalstop/deadline/history preserved in docs and ignored guard archive; no reset credits. Guardcontinue, same native heartbeat to be updated. Futurefresh<=10% still requires new actualUTC+330minutes.

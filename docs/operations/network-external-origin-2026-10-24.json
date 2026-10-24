@@ -1,0 +1,28 @@
+{
+  "checked_at_utc": "2026-10-24T16:51:00.005273+00:00",
+  "vps_positive_control_443": true,
+  "candidate_ports_unreachable": true,
+  "results": [
+    {
+      "port": 443,
+      "connected": true
+    },
+    {
+      "port": 15549,
+      "connected": false,
+      "error_type": "TimeoutError"
+    },
+    {
+      "port": 18185,
+      "connected": false,
+      "error_type": "TimeoutError"
+    },
+    {
+      "port": 18186,
+      "connected": false,
+      "error_type": "TimeoutError"
+    }
+  ],
+  "source_commit": "fc2ec628e955d9219a0aa45236579c411ad11934",
+  "scope": "External Windows client while coordinator verified all three isolated listeners active"
+}

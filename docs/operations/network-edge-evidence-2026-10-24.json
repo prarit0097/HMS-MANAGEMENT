@@ -1579,6 +1579,6 @@
   "nginx_version": "nginx version: nginx/1.24.0 (Ubuntu)",
   "postgres_server_version_num": 170011,
   "live_hba_sha256_before_after": "d2d4b94383868aefa5559e6061b3324d8766d4db8c007e46afe1fa1293789b70",
-  "external_active_listener_probes": "pending",
+  "external_active_listener_probes": "completed separately: network-external-origin-2026-10-24.json (source fc2ec628, active listeners)",
   "production_deployment": false
 }
