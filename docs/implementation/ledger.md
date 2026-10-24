@@ -1,5 +1,12 @@
 # SDD ledger — plan: plan.md
 
+## Read-time correction frozen before code
+
+Frozen narrow read-time amendment: read_network_state captures started_at before preliminary authority and selected_at after owner-label/environment reads; backwards movement fails503. Final authority receives selected_at and its returned coherent snapshot supplies ALL policy/revision/pending fields and identical server_time, with initial/final owner equality. No GET writes/new schemas/permission widening. Real API RED4failed/3passed2.94s reproduced equality/after rollback candidate, backwardclock and stale revision after real reconciliation before code. Existing exact API schema and fixed300second deadlines remain. Remaining4actualPG race scenarios are frozen in network-read-time-plan.md; new code awaits this gate.
+
+- Ruling: server_time denotes final explicit authority/snapshot selection instant, not an impossible promise that state cannot change while bytes transmit. Keep initial/final owner check and reject backwardsclock. Root reviewed narrow plan/scenarios/threat/test design; cost if insufficient is failclosed/rework, never silent fallback or GET repair.
+
+
 ## Scheduled resume —24October2026 at11:07:26UTC
 
 Scheduled resume2026-10-24T11:07:26UTC after saved11:06:20UTC deadline elapsed. Authenticated primary100%/weekly55%remaining at entry; subsequent guardcontinue minimum54%. No owner waiver or reset credit needed. Historical05:36stop preserved; no active cooldown. Exactd33937f CI40067046203success decoded520PG/168subtests34.29s,115frontend/typecheck/build,19root/schema/docs; source7252345CI40066986031cancelled by laterpush, never claimedpassed. Resume exactGETtime boundary, independentUIreview and edgeisolation/cache design; no repeateddeployment.

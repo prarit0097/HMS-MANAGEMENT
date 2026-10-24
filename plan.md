@@ -10,11 +10,18 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.13.2 ACTIVE. Scheduled resume2026-10-24T11:07:26UTC after saved11:06:20UTC deadline elapsed. Authenticated primary100%/weekly55%remaining at entry; subsequent guardcontinue minimum54%. No owner waiver or reset credit needed. Historical05:36stop preserved; no active cooldown. Exactd33937f CI40067046203success decoded520PG/168subtests34.29s,115frontend/typecheck/build,19root/schema/docs; source7252345CI40066986031cancelled by laterpush, never claimedpassed. Resume exactGETtime boundary, independentUIreview and edgeisolation/cache design; no repeateddeployment.
+**Status:** Version1.13.3 ACTIVE. Scheduled resume2026-10-24T11:07:26UTC after saved11:06:20UTC deadline elapsed. Authenticated primary100%/weekly55%remaining at entry; subsequent guardcontinue minimum54%. No owner waiver or reset credit needed. Historical05:36stop preserved; no active cooldown. Exactd33937f CI40067046203success decoded520PG/168subtests34.29s,115frontend/typecheck/build,19root/schema/docs; source7252345CI40066986031cancelled by laterpush, never claimedpassed. Resume exactGETtime boundary, independentUIreview and edgeisolation/cache design; no repeateddeployment.
 
 Root final frontend115/8files58.52s, typecheck/build24modules190ms passed. Root actualPG520/168subtests41.80s/check0/nodrift; testDBabsent0/appCREATEDB=f/previewactive independently confirmed. Root19projecttests10.171s, schema/map/link checks passed. Seven network operations have source implementations, explicit pending acceptance; no deployment. First resume task is exact GET server-time/snapshot deadline regression, remaining concurrency/fresh review, frontend independent review/browser and edge isolated-PG/no304 design amendment. All source stays recoverable on feat/hms-foundation; fresh CI and remote SHA recorded at publication.
 
 Publication: Source checkpoint725234547a5063264be44f2e0ac58c83d00e4586 committed and pushed to feat/hms-foundation; remote SHA exactly matched, working tree clean at source publication. Actual source CI40066986031 observed in_progress, not a pass. Same native heartbeat successfully updated ACTIVE330minutes with fresh11:06:20UTC deadline and exact pending tasks; no reset credits. Root confirmed all specialists completed; no local visual servers launched. This follow-up is documentation-only publication evidence; verify its own remote SHA at handoff.
+
+## Frozen read-time correction
+
+Frozen narrow read-time amendment: read_network_state captures started_at before preliminary authority and selected_at after owner-label/environment reads; backwards movement fails503. Final authority receives selected_at and its returned coherent snapshot supplies ALL policy/revision/pending fields and identical server_time, with initial/final owner equality. No GET writes/new schemas/permission widening. Real API RED4failed/3passed2.94s reproduced equality/after rollback candidate, backwardclock and stale revision after real reconciliation before code. Existing exact API schema and fixed300second deadlines remain. Remaining4actualPG race scenarios are frozen in network-read-time-plan.md; new code awaits this gate.
+
+- [x] [Read-time plan](docs/implementation/network-read-time-plan.md) exact design/scenario/threat/RED gate.
+- [ ] Correct read-time implementation, remaining actual-PG races and fresh independent review.
 
 ## Current network B2/C/D checkpoint
 
@@ -827,4 +834,4 @@ Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration
 
 - 1.12.1 —24October2026: Owner explicitly continued at2026-10-24T05:10:42UTC (10:40:42AM IST). Authenticated primary100%/weekly69%remaining; saved05:04:44UTC deadline already elapsed, so no cooldown waiver or reset credit was needed. Prior stop/scheduling history preserved; guardcontinue, same heartbeat updated. Exact a412637sourceCI40040673163success observed. Resume remaining networkB2 API/authority/transactions/OOB and StageC client under frozencontract; B1/B2a/ICTHospital/initialdeployment are completed and not repeated. No new runtime feature or live deployment delivered by this resume record.
 
-- 1.13.2 —24October2026: freeze full remainingnetworkB2 API/authority/transactions/OOB/middleware plan with securityprecisions and observedREDs; backend andStageCclient inprogress, no liveguard/deployment.
+- 1.13.3 —24October2026: freeze full remainingnetworkB2 API/authority/transactions/OOB/middleware plan with securityprecisions and observedREDs; backend andStageCclient inprogress, no liveguard/deployment.

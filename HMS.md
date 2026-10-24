@@ -1,10 +1,14 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.13.2 | Updated: 24 October 2026, Asia/Calcutta
+Document version: 1.13.3 | Updated: 24 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
 Current state: **ACTIVE — scheduled resume after elapsed cooldown.** Scheduled resume2026-10-24T11:07:26UTC after saved11:06:20UTC deadline elapsed. Authenticated primary100%/weekly55%remaining at entry; subsequent guardcontinue minimum54%. No owner waiver or reset credit needed. Historical05:36stop preserved; no active cooldown. Exactd33937f CI40067046203success decoded520PG/168subtests34.29s,115frontend/typecheck/build,19root/schema/docs; source7252345CI40066986031cancelled by laterpush, never claimedpassed. Resume exactGETtime boundary, independentUIreview and edgeisolation/cache design; no repeateddeployment.
 
 Root final frontend115/8files58.52s, typecheck/build24modules190ms passed. Root actualPG520/168subtests41.80s/check0/nodrift; testDBabsent0/appCREATEDB=f/previewactive independently confirmed. Root19projecttests10.171s, schema/map/link checks passed. Seven network operations have source implementations, explicit pending acceptance; no deployment. First resume task is exact GET server-time/snapshot deadline regression, remaining concurrency/fresh review, frontend independent review/browser and edge isolated-PG/no304 design amendment. All source stays recoverable on feat/hms-foundation; fresh CI and remote SHA recorded at publication.
+
+## Read-time correction contract frozen
+
+Frozen narrow read-time amendment: read_network_state captures started_at before preliminary authority and selected_at after owner-label/environment reads; backwards movement fails503. Final authority receives selected_at and its returned coherent snapshot supplies ALL policy/revision/pending fields and identical server_time, with initial/final owner equality. No GET writes/new schemas/permission widening. Real API RED4failed/3passed2.94s reproduced equality/after rollback candidate, backwardclock and stale revision after real reconciliation before code. Existing exact API schema and fixed300second deadlines remain. Remaining4actualPG race scenarios are frozen in network-read-time-plan.md; new code awaits this gate.
 
 ## Current network source checkpoint — acceptance pending
 
@@ -614,3 +618,9 @@ Source checkpoint725234547a5063264be44f2e0ac58c83d00e4586 committed and pushed t
 Scheduled resume2026-10-24T11:07:26UTC after saved11:06:20UTC deadline elapsed. Authenticated primary100%/weekly55%remaining at entry; subsequent guardcontinue minimum54%. No owner waiver or reset credit needed. Historical05:36stop preserved; no active cooldown. Exactd33937f CI40067046203success decoded520PG/168subtests34.29s,115frontend/typecheck/build,19root/schema/docs; source7252345CI40066986031cancelled by laterpush, never claimedpassed. Resume exactGETtime boundary, independentUIreview and edgeisolation/cache design; no repeateddeployment.
 
 All specialists were completed at initial inventory; backend timing/regression, fresh independent UI reviewer and edge design research run in distinct ownership batches. Root alone Git/VPS. No new feature/test pass/deployment delivered by this resume record.
+
+### CHG-0035 —24October2026 — Freeze read-time correction and race scenarios
+
+Frozen narrow read-time amendment: read_network_state captures started_at before preliminary authority and selected_at after owner-label/environment reads; backwards movement fails503. Final authority receives selected_at and its returned coherent snapshot supplies ALL policy/revision/pending fields and identical server_time, with initial/final owner equality. No GET writes/new schemas/permission widening. Real API RED4failed/3passed2.94s reproduced equality/after rollback candidate, backwardclock and stale revision after real reconciliation before code. Existing exact API schema and fixed300second deadlines remain. Remaining4actualPG race scenarios are frozen in network-read-time-plan.md; new code awaits this gate.
+
+Independent UI review has three executable Important findings (late activation overwrite, malformed error fields crash, offline lateGET clears reload gate), all pending correction and fresh review. No acceptance/deployment claim.
