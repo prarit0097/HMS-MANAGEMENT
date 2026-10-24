@@ -1,5 +1,11 @@
 # SDD ledger — plan: plan.md
 
+## Isolated edge validation frozen —24October2026
+
+- Exact edge plan reviewed/amended before code: Basic AND network, actual TLS Nginx1.24.0/non-DEBUG Gunicorn, real socket-bound denied client, HTML/assets/SPA/API/cache/header/private-probe/fault/fixed-deadline matrix. Coordinator alone runs VPS lifecycle; exact disposable hms_edge_validation_20261024, separate source/runtime prefixes, minimal private config without admin credentials, owned process cleanup and candidate-only package installation. No live preview changes.
+- Root read-only preflight confirmed auth_request compiled,18185/18186 free, candidate Gunicorn absent. Earlier two actual-PG missing-route race tests were RED, not concurrency approval; cleanup independently rechecked app CREATEDB=f/testDBcount0/previewactive. Backend and frontend runtime source still in progress and excluded from this design commit. Actual edge evidence follows RED/source review.
+
+
 ## Remaining network B2 execution frozen —24October2026
 
 - network-integration-plan.md exactmodules/interfaces/locks/outcomes/tests frozen beforeproductioncode. Independentsecuritygate noCritical/Importantdesignblocker after authorizedexpiry-savepoint matrix, ownerdescriptorfingerprint, pre-sessionprobe, finalevent/FKdeadlineauthoritychecks andhistoricalOOBrecovery singleincrement/immutablelinks. Backend6environment/14HTTP RED observed beforecode. FullactualPGracematrix/source/UI/edgeverificationstillmandatory.

@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.12.2,24October2026: ACTIVE after05:10:42UTC ownerresume, primary100%/weekly69%; saveddeadlineelapsed. NetworkB2 API/authority/transaction/OOB and StageC client next under existingcontract;39implemented46catalogued, sourcea412CI40040673163success, preview47b3618unchanged.
+**Status:** Version1.12.3,24October2026: ACTIVE after05:10:42UTC ownerresume, primary100%/weekly69%; saveddeadlineelapsed. NetworkB2 API/authority/transaction/OOB and StageC client next under existingcontract;39implemented46catalogued, sourcea412CI40040673163success, preview47b3618unchanged.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -441,6 +441,7 @@ Execution contract: [frozen network-access contract](docs/implementation/network
 - [x] Remaining B2 [module/lock/outcome/test execution plan](docs/implementation/network-integration-plan.md) frozen after independent pre-code security review;6environment/14HTTP RED observed, no runtimecompletion claim.
 - [ ] StageB2 exact API/service/OOB and middleware integration, runtime state graph validation, private history, effective summary/current-user ceiling and full permission/CSRF/expiry/replay/real-PG race checks. Only then advertise/activate network management.
 - [ ] StageC API client Network access UI and named page-action tests/representative synthetic walkthroughs.
+- [x] StageD [isolated validation plan](docs/implementation/network-edge-validation-plan.md) reviewed and frozen before source: exact disposable DB, private input, loopback paths/ports, fault restoration and coordinator-only VPS lifecycle. Runtime checks below remain pending.
 - [ ] StageD isolated actual Nginx module/config/HTTP tests across BasicANDnetwork, HTML/assets/SPA/API/HEAD/range/conditional/private probe/forged headers/DBfailure/rollback/HTTPS/direct-origin; templates alone are insufficient.
 - [ ] StageE separately authorised reviewed rollout/migration/bootstrap/recovery and live verification; preserve other VPS apps and initial preview until then.
 
@@ -806,4 +807,4 @@ Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration
 
 - 1.12.1 —24October2026: Owner explicitly continued at2026-10-24T05:10:42UTC (10:40:42AM IST). Authenticated primary100%/weekly69%remaining; saved05:04:44UTC deadline already elapsed, so no cooldown waiver or reset credit was needed. Prior stop/scheduling history preserved; guardcontinue, same heartbeat updated. Exact a412637sourceCI40040673163success observed. Resume remaining networkB2 API/authority/transactions/OOB and StageC client under frozencontract; B1/B2a/ICTHospital/initialdeployment are completed and not repeated. No new runtime feature or live deployment delivered by this resume record.
 
-- 1.12.2 —24October2026: freeze full remainingnetworkB2 API/authority/transactions/OOB/middleware plan with securityprecisions and observedREDs; backend andStageCclient inprogress, no liveguard/deployment.
+- 1.12.3 —24October2026: freeze full remainingnetworkB2 API/authority/transactions/OOB/middleware plan with securityprecisions and observedREDs; backend andStageCclient inprogress, no liveguard/deployment.
