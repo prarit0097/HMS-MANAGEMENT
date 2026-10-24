@@ -37,3 +37,5 @@ Latest owner resume:24October2026 at05:10:42UTC, primary100%/weekly69%remaining 
 Latest fresh usage stop24October2026 at05:36:20UTC primary10%/weekly55%remaining. No new implementation before11:06:20UTC (4:36:20PM IST), then only all windows>10. Prior05:10resume predates this stop. All specialists completed. Read latest checkpoint/ledger and currentGitCI; first incomplete GET timing boundary, remaining reviews/races/UIbrowser/edge blockers, no repeated initialdeployment.
 
 Scheduled resume24October2026 at11:07:26UTC after11:06:20deadline elapsed, authenticatedprimary100%weekly55%, guardcontinue. No waiver/resetcredit;05:36stop remains historical. Futurefresh<=10stillrequires330minutes.
+
+Latest explicit owner resume24October2026 at16:43:13UTC primary97%weekly39%remaining waives ONLY17:05:08deadline from11:35:08stop(primary9weekly41). Priorstop/history preserved; no resetcredit. Futurefresh<=10stillrequires330minutes. Firstunfinished: post-CSRF actualPG/source review, browserapply/keep/revert/history/keyboard, activeoriginprobes andfinaledgeacceptance.

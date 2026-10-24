@@ -1,0 +1,1584 @@
+{
+  "validation_date": "2026-10-24",
+  "scope": "Isolated source-candidate edge validation, before final CSRF body repair; not live deployment",
+  "source_archive_sha256": "bfaa1c831f5b418f9feaf8fba99dbf5b7e0b10ce4315a2e7cb5bd34e376354a6",
+  "passed": true,
+  "checks_count": 363,
+  "checks": [
+    {
+      "name": "non-DEBUG secure redirect enabled",
+      "passed": true
+    },
+    {
+      "name": "Nginx auth_request and SSL compiled",
+      "passed": true
+    },
+    {
+      "name": "baseline actual wildcard304 reproduced as RED",
+      "passed": true,
+      "status": 304
+    },
+    {
+      "name": "private static permissions",
+      "passed": true
+    },
+    {
+      "name": "trusted non-DEBUG actual-Gunicorn probe",
+      "passed": true,
+      "status": 204
+    },
+    {
+      "name": "trusted non-DEBUG actual-Gunicorn probe:empty",
+      "passed": true
+    },
+    {
+      "name": "trusted non-DEBUG actual-Gunicorn probe:no-store",
+      "passed": true
+    },
+    {
+      "name": "trusted non-DEBUG actual-Gunicorn probe:no-session-or-redirect",
+      "passed": true
+    },
+    {
+      "name": "probe ignores supplied auth/cookie",
+      "passed": true,
+      "status": 204
+    },
+    {
+      "name": "probe ignores supplied auth/cookie:empty",
+      "passed": true
+    },
+    {
+      "name": "probe ignores supplied auth/cookie:no-store",
+      "passed": true
+    },
+    {
+      "name": "probe ignores supplied auth/cookie:no-session-or-redirect",
+      "passed": true
+    },
+    {
+      "name": "probe denies verified client",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "probe denies verified client:empty",
+      "passed": true
+    },
+    {
+      "name": "probe denies verified client:no-store",
+      "passed": true
+    },
+    {
+      "name": "probe denies verified client:no-session-or-redirect",
+      "passed": true
+    },
+    {
+      "name": "invalid probe missing-marker",
+      "passed": true,
+      "status": 404
+    },
+    {
+      "name": "invalid probe missing-marker:empty",
+      "passed": true
+    },
+    {
+      "name": "invalid probe missing-marker:no-store",
+      "passed": true
+    },
+    {
+      "name": "invalid probe wrong-marker",
+      "passed": true,
+      "status": 404
+    },
+    {
+      "name": "invalid probe wrong-marker:empty",
+      "passed": true
+    },
+    {
+      "name": "invalid probe wrong-marker:no-store",
+      "passed": true
+    },
+    {
+      "name": "invalid probe query",
+      "passed": true,
+      "status": 404
+    },
+    {
+      "name": "invalid probe query:empty",
+      "passed": true
+    },
+    {
+      "name": "invalid probe query:no-store",
+      "passed": true
+    },
+    {
+      "name": "invalid probe body",
+      "passed": true,
+      "status": 404
+    },
+    {
+      "name": "invalid probe body:empty",
+      "passed": true
+    },
+    {
+      "name": "invalid probe body:no-store",
+      "passed": true
+    },
+    {
+      "name": "invalid probe head",
+      "passed": true,
+      "status": 204
+    },
+    {
+      "name": "invalid probe head:empty",
+      "passed": true
+    },
+    {
+      "name": "invalid probe head:no-store",
+      "passed": true
+    },
+    {
+      "name": "invalid probe post",
+      "passed": true,
+      "status": 405
+    },
+    {
+      "name": "invalid probe post:no-store",
+      "passed": true
+    },
+    {
+      "name": "untrusted peer cannot forge HTTPS",
+      "passed": true,
+      "status": 301
+    },
+    {
+      "name": "allowed /",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "allowed /:no-store",
+      "passed": true
+    },
+    {
+      "name": "denied /",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied /:no-store",
+      "passed": true
+    },
+    {
+      "name": "allowed /index.html",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "allowed /index.html:no-store",
+      "passed": true
+    },
+    {
+      "name": "denied /index.html",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied /index.html:no-store",
+      "passed": true
+    },
+    {
+      "name": "allowed /administration/network-access",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "allowed /administration/network-access:no-store",
+      "passed": true
+    },
+    {
+      "name": "denied /administration/network-access",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied /administration/network-access:no-store",
+      "passed": true
+    },
+    {
+      "name": "allowed /assets/edge.js",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "allowed /assets/edge.js:no-store",
+      "passed": true
+    },
+    {
+      "name": "denied /assets/edge.js",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied /assets/edge.js:no-store",
+      "passed": true
+    },
+    {
+      "name": "allowed /api/v1/auth/me/",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "allowed /api/v1/auth/me/:no-store",
+      "passed": true
+    },
+    {
+      "name": "anonymous API application auth distinct from network gate",
+      "passed": true
+    },
+    {
+      "name": "denied /api/v1/auth/me/",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied /api/v1/auth/me/:no-store",
+      "passed": true
+    },
+    {
+      "name": "allowed /api/v1/auth/login/",
+      "passed": true,
+      "status": 405
+    },
+    {
+      "name": "allowed /api/v1/auth/login/:no-store",
+      "passed": true
+    },
+    {
+      "name": "denied /api/v1/auth/login/",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied /api/v1/auth/login/:no-store",
+      "passed": true
+    },
+    {
+      "name": "valid synthetic session me",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "valid synthetic session me:no-store",
+      "passed": true
+    },
+    {
+      "name": "valid synthetic enrolled operator state",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "valid synthetic enrolled operator state:no-store",
+      "passed": true
+    },
+    {
+      "name": "missing Basic 127.0.0.1",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "name": "missing Basic 127.0.0.1:no-store",
+      "passed": true
+    },
+    {
+      "name": "wrong Basic 127.0.0.1",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "name": "wrong Basic 127.0.0.1:no-store",
+      "passed": true
+    },
+    {
+      "name": "external private route /_hms_network_check127.0.0.1",
+      "passed": true,
+      "status": 404
+    },
+    {
+      "name": "external private route /_hms_network_check127.0.0.1:no-store",
+      "passed": true
+    },
+    {
+      "name": "external private route /api/v1/network-policy/edge-probe/127.0.0.1",
+      "passed": true,
+      "status": 404
+    },
+    {
+      "name": "external private route /api/v1/network-policy/edge-probe/127.0.0.1:no-store",
+      "passed": true
+    },
+    {
+      "name": "missing Basic 127.0.0.2",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "name": "missing Basic 127.0.0.2:no-store",
+      "passed": true
+    },
+    {
+      "name": "wrong Basic 127.0.0.2",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "name": "wrong Basic 127.0.0.2:no-store",
+      "passed": true
+    },
+    {
+      "name": "external private route /_hms_network_check127.0.0.2",
+      "passed": true,
+      "status": 404
+    },
+    {
+      "name": "external private route /_hms_network_check127.0.0.2:no-store",
+      "passed": true
+    },
+    {
+      "name": "external private route /api/v1/network-policy/edge-probe/127.0.0.2",
+      "passed": true,
+      "status": 404
+    },
+    {
+      "name": "external private route /api/v1/network-policy/edge-probe/127.0.0.2:no-store",
+      "passed": true
+    },
+    {
+      "name": "forged path /",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "forged path /:no-store",
+      "passed": true
+    },
+    {
+      "name": "forged path /index.html",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "forged path /index.html:no-store",
+      "passed": true
+    },
+    {
+      "name": "forged path /administration/network-access",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "forged path /administration/network-access:no-store",
+      "passed": true
+    },
+    {
+      "name": "forged path /assets/edge.js",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "forged path /assets/edge.js:no-store",
+      "passed": true
+    },
+    {
+      "name": "forged path /api/v1/auth/me/",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "forged path /api/v1/auth/me/:no-store",
+      "passed": true
+    },
+    {
+      "name": "forged path /api/v1/auth/login/",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "forged path /api/v1/auth/login/:no-store",
+      "passed": true
+    },
+    {
+      "name": "allowed query does not contaminate internal probe",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "allowed query does not contaminate internal probe:no-store",
+      "passed": true
+    },
+    {
+      "name": "dotfile cannot serve",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "dotfile cannot serve:no-store",
+      "passed": true
+    },
+    {
+      "name": "missing asset",
+      "passed": true,
+      "status": 404
+    },
+    {
+      "name": "missing asset:no-store",
+      "passed": true
+    },
+    {
+      "name": "head/",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "head/:empty",
+      "passed": true
+    },
+    {
+      "name": "head/:no-store",
+      "passed": true
+    },
+    {
+      "name": "head/:strict-transport-security",
+      "passed": true
+    },
+    {
+      "name": "head/:content-security-policy",
+      "passed": true
+    },
+    {
+      "name": "head/:x-content-type-options",
+      "passed": true
+    },
+    {
+      "name": "head/:x-frame-options",
+      "passed": true
+    },
+    {
+      "name": "head/:referrer-policy",
+      "passed": true
+    },
+    {
+      "name": "head/:permissions-policy",
+      "passed": true
+    },
+    {
+      "name": "denied-head/",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied-head/:empty",
+      "passed": true
+    },
+    {
+      "name": "denied-head/:no-store",
+      "passed": true
+    },
+    {
+      "name": "range/",
+      "passed": true,
+      "status": 206
+    },
+    {
+      "name": "range/:no-store",
+      "passed": true
+    },
+    {
+      "name": "range/:strict-transport-security",
+      "passed": true
+    },
+    {
+      "name": "range/:content-security-policy",
+      "passed": true
+    },
+    {
+      "name": "range/:x-content-type-options",
+      "passed": true
+    },
+    {
+      "name": "range/:x-frame-options",
+      "passed": true
+    },
+    {
+      "name": "range/:referrer-policy",
+      "passed": true
+    },
+    {
+      "name": "range/:permissions-policy",
+      "passed": true
+    },
+    {
+      "name": "denied-range/",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied-range/:no-store",
+      "passed": true
+    },
+    {
+      "name": "modified/",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "modified/:no-store",
+      "passed": true
+    },
+    {
+      "name": "modified/:strict-transport-security",
+      "passed": true
+    },
+    {
+      "name": "modified/:content-security-policy",
+      "passed": true
+    },
+    {
+      "name": "modified/:x-content-type-options",
+      "passed": true
+    },
+    {
+      "name": "modified/:x-frame-options",
+      "passed": true
+    },
+    {
+      "name": "modified/:referrer-policy",
+      "passed": true
+    },
+    {
+      "name": "modified/:permissions-policy",
+      "passed": true
+    },
+    {
+      "name": "denied-modified/",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied-modified/:no-store",
+      "passed": true
+    },
+    {
+      "name": "etag/",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "etag/:no-store",
+      "passed": true
+    },
+    {
+      "name": "etag/:strict-transport-security",
+      "passed": true
+    },
+    {
+      "name": "etag/:content-security-policy",
+      "passed": true
+    },
+    {
+      "name": "etag/:x-content-type-options",
+      "passed": true
+    },
+    {
+      "name": "etag/:x-frame-options",
+      "passed": true
+    },
+    {
+      "name": "etag/:referrer-policy",
+      "passed": true
+    },
+    {
+      "name": "etag/:permissions-policy",
+      "passed": true
+    },
+    {
+      "name": "denied-etag/",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied-etag/:no-store",
+      "passed": true
+    },
+    {
+      "name": "head/index.html",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "head/index.html:empty",
+      "passed": true
+    },
+    {
+      "name": "head/index.html:no-store",
+      "passed": true
+    },
+    {
+      "name": "head/index.html:strict-transport-security",
+      "passed": true
+    },
+    {
+      "name": "head/index.html:content-security-policy",
+      "passed": true
+    },
+    {
+      "name": "head/index.html:x-content-type-options",
+      "passed": true
+    },
+    {
+      "name": "head/index.html:x-frame-options",
+      "passed": true
+    },
+    {
+      "name": "head/index.html:referrer-policy",
+      "passed": true
+    },
+    {
+      "name": "head/index.html:permissions-policy",
+      "passed": true
+    },
+    {
+      "name": "denied-head/index.html",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied-head/index.html:empty",
+      "passed": true
+    },
+    {
+      "name": "denied-head/index.html:no-store",
+      "passed": true
+    },
+    {
+      "name": "range/index.html",
+      "passed": true,
+      "status": 206
+    },
+    {
+      "name": "range/index.html:no-store",
+      "passed": true
+    },
+    {
+      "name": "range/index.html:strict-transport-security",
+      "passed": true
+    },
+    {
+      "name": "range/index.html:content-security-policy",
+      "passed": true
+    },
+    {
+      "name": "range/index.html:x-content-type-options",
+      "passed": true
+    },
+    {
+      "name": "range/index.html:x-frame-options",
+      "passed": true
+    },
+    {
+      "name": "range/index.html:referrer-policy",
+      "passed": true
+    },
+    {
+      "name": "range/index.html:permissions-policy",
+      "passed": true
+    },
+    {
+      "name": "denied-range/index.html",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied-range/index.html:no-store",
+      "passed": true
+    },
+    {
+      "name": "modified/index.html",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "modified/index.html:no-store",
+      "passed": true
+    },
+    {
+      "name": "modified/index.html:strict-transport-security",
+      "passed": true
+    },
+    {
+      "name": "modified/index.html:content-security-policy",
+      "passed": true
+    },
+    {
+      "name": "modified/index.html:x-content-type-options",
+      "passed": true
+    },
+    {
+      "name": "modified/index.html:x-frame-options",
+      "passed": true
+    },
+    {
+      "name": "modified/index.html:referrer-policy",
+      "passed": true
+    },
+    {
+      "name": "modified/index.html:permissions-policy",
+      "passed": true
+    },
+    {
+      "name": "denied-modified/index.html",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied-modified/index.html:no-store",
+      "passed": true
+    },
+    {
+      "name": "etag/index.html",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "etag/index.html:no-store",
+      "passed": true
+    },
+    {
+      "name": "etag/index.html:strict-transport-security",
+      "passed": true
+    },
+    {
+      "name": "etag/index.html:content-security-policy",
+      "passed": true
+    },
+    {
+      "name": "etag/index.html:x-content-type-options",
+      "passed": true
+    },
+    {
+      "name": "etag/index.html:x-frame-options",
+      "passed": true
+    },
+    {
+      "name": "etag/index.html:referrer-policy",
+      "passed": true
+    },
+    {
+      "name": "etag/index.html:permissions-policy",
+      "passed": true
+    },
+    {
+      "name": "denied-etag/index.html",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied-etag/index.html:no-store",
+      "passed": true
+    },
+    {
+      "name": "head/administration/network-access",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "head/administration/network-access:empty",
+      "passed": true
+    },
+    {
+      "name": "head/administration/network-access:no-store",
+      "passed": true
+    },
+    {
+      "name": "head/administration/network-access:strict-transport-security",
+      "passed": true
+    },
+    {
+      "name": "head/administration/network-access:content-security-policy",
+      "passed": true
+    },
+    {
+      "name": "head/administration/network-access:x-content-type-options",
+      "passed": true
+    },
+    {
+      "name": "head/administration/network-access:x-frame-options",
+      "passed": true
+    },
+    {
+      "name": "head/administration/network-access:referrer-policy",
+      "passed": true
+    },
+    {
+      "name": "head/administration/network-access:permissions-policy",
+      "passed": true
+    },
+    {
+      "name": "denied-head/administration/network-access",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied-head/administration/network-access:empty",
+      "passed": true
+    },
+    {
+      "name": "denied-head/administration/network-access:no-store",
+      "passed": true
+    },
+    {
+      "name": "range/administration/network-access",
+      "passed": true,
+      "status": 206
+    },
+    {
+      "name": "range/administration/network-access:no-store",
+      "passed": true
+    },
+    {
+      "name": "range/administration/network-access:strict-transport-security",
+      "passed": true
+    },
+    {
+      "name": "range/administration/network-access:content-security-policy",
+      "passed": true
+    },
+    {
+      "name": "range/administration/network-access:x-content-type-options",
+      "passed": true
+    },
+    {
+      "name": "range/administration/network-access:x-frame-options",
+      "passed": true
+    },
+    {
+      "name": "range/administration/network-access:referrer-policy",
+      "passed": true
+    },
+    {
+      "name": "range/administration/network-access:permissions-policy",
+      "passed": true
+    },
+    {
+      "name": "denied-range/administration/network-access",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied-range/administration/network-access:no-store",
+      "passed": true
+    },
+    {
+      "name": "modified/administration/network-access",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "modified/administration/network-access:no-store",
+      "passed": true
+    },
+    {
+      "name": "modified/administration/network-access:strict-transport-security",
+      "passed": true
+    },
+    {
+      "name": "modified/administration/network-access:content-security-policy",
+      "passed": true
+    },
+    {
+      "name": "modified/administration/network-access:x-content-type-options",
+      "passed": true
+    },
+    {
+      "name": "modified/administration/network-access:x-frame-options",
+      "passed": true
+    },
+    {
+      "name": "modified/administration/network-access:referrer-policy",
+      "passed": true
+    },
+    {
+      "name": "modified/administration/network-access:permissions-policy",
+      "passed": true
+    },
+    {
+      "name": "denied-modified/administration/network-access",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied-modified/administration/network-access:no-store",
+      "passed": true
+    },
+    {
+      "name": "etag/administration/network-access",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "etag/administration/network-access:no-store",
+      "passed": true
+    },
+    {
+      "name": "etag/administration/network-access:strict-transport-security",
+      "passed": true
+    },
+    {
+      "name": "etag/administration/network-access:content-security-policy",
+      "passed": true
+    },
+    {
+      "name": "etag/administration/network-access:x-content-type-options",
+      "passed": true
+    },
+    {
+      "name": "etag/administration/network-access:x-frame-options",
+      "passed": true
+    },
+    {
+      "name": "etag/administration/network-access:referrer-policy",
+      "passed": true
+    },
+    {
+      "name": "etag/administration/network-access:permissions-policy",
+      "passed": true
+    },
+    {
+      "name": "denied-etag/administration/network-access",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied-etag/administration/network-access:no-store",
+      "passed": true
+    },
+    {
+      "name": "head/assets/edge.js",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "head/assets/edge.js:empty",
+      "passed": true
+    },
+    {
+      "name": "head/assets/edge.js:no-store",
+      "passed": true
+    },
+    {
+      "name": "head/assets/edge.js:strict-transport-security",
+      "passed": true
+    },
+    {
+      "name": "head/assets/edge.js:content-security-policy",
+      "passed": true
+    },
+    {
+      "name": "head/assets/edge.js:x-content-type-options",
+      "passed": true
+    },
+    {
+      "name": "head/assets/edge.js:x-frame-options",
+      "passed": true
+    },
+    {
+      "name": "head/assets/edge.js:referrer-policy",
+      "passed": true
+    },
+    {
+      "name": "head/assets/edge.js:permissions-policy",
+      "passed": true
+    },
+    {
+      "name": "denied-head/assets/edge.js",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied-head/assets/edge.js:empty",
+      "passed": true
+    },
+    {
+      "name": "denied-head/assets/edge.js:no-store",
+      "passed": true
+    },
+    {
+      "name": "range/assets/edge.js",
+      "passed": true,
+      "status": 206
+    },
+    {
+      "name": "range/assets/edge.js:no-store",
+      "passed": true
+    },
+    {
+      "name": "range/assets/edge.js:strict-transport-security",
+      "passed": true
+    },
+    {
+      "name": "range/assets/edge.js:content-security-policy",
+      "passed": true
+    },
+    {
+      "name": "range/assets/edge.js:x-content-type-options",
+      "passed": true
+    },
+    {
+      "name": "range/assets/edge.js:x-frame-options",
+      "passed": true
+    },
+    {
+      "name": "range/assets/edge.js:referrer-policy",
+      "passed": true
+    },
+    {
+      "name": "range/assets/edge.js:permissions-policy",
+      "passed": true
+    },
+    {
+      "name": "denied-range/assets/edge.js",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied-range/assets/edge.js:no-store",
+      "passed": true
+    },
+    {
+      "name": "modified/assets/edge.js",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "modified/assets/edge.js:no-store",
+      "passed": true
+    },
+    {
+      "name": "modified/assets/edge.js:strict-transport-security",
+      "passed": true
+    },
+    {
+      "name": "modified/assets/edge.js:content-security-policy",
+      "passed": true
+    },
+    {
+      "name": "modified/assets/edge.js:x-content-type-options",
+      "passed": true
+    },
+    {
+      "name": "modified/assets/edge.js:x-frame-options",
+      "passed": true
+    },
+    {
+      "name": "modified/assets/edge.js:referrer-policy",
+      "passed": true
+    },
+    {
+      "name": "modified/assets/edge.js:permissions-policy",
+      "passed": true
+    },
+    {
+      "name": "denied-modified/assets/edge.js",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied-modified/assets/edge.js:no-store",
+      "passed": true
+    },
+    {
+      "name": "etag/assets/edge.js",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "etag/assets/edge.js:no-store",
+      "passed": true
+    },
+    {
+      "name": "etag/assets/edge.js:strict-transport-security",
+      "passed": true
+    },
+    {
+      "name": "etag/assets/edge.js:content-security-policy",
+      "passed": true
+    },
+    {
+      "name": "etag/assets/edge.js:x-content-type-options",
+      "passed": true
+    },
+    {
+      "name": "etag/assets/edge.js:x-frame-options",
+      "passed": true
+    },
+    {
+      "name": "etag/assets/edge.js:referrer-policy",
+      "passed": true
+    },
+    {
+      "name": "etag/assets/edge.js:permissions-policy",
+      "passed": true
+    },
+    {
+      "name": "denied-etag/assets/edge.js",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied-etag/assets/edge.js:no-store",
+      "passed": true
+    },
+    {
+      "name": "unprivileged private socket connect denied",
+      "passed": true
+    },
+    {
+      "name": "private static rejects /api/v1/health/",
+      "passed": true,
+      "status": 404
+    },
+    {
+      "name": "private static rejects /api/v1/network-policy/edge-probe/",
+      "passed": true,
+      "status": 404
+    },
+    {
+      "name": "private static rejects /_hms_network_check",
+      "passed": true,
+      "status": 404
+    },
+    {
+      "name": "safe static path /assets/link.js",
+      "passed": true,
+      "status": 404
+    },
+    {
+      "name": "safe static path /assets/link.js:no-store",
+      "passed": true
+    },
+    {
+      "name": "no outside sentinel /assets/link.js",
+      "passed": true
+    },
+    {
+      "name": "safe static path /assets/%2e%2e/%2e%2e/outside-sentinel",
+      "passed": true,
+      "status": 400
+    },
+    {
+      "name": "safe static path /assets/%2e%2e/%2e%2e/outside-sentinel:no-store",
+      "passed": true
+    },
+    {
+      "name": "no outside sentinel /assets/%2e%2e/%2e%2e/outside-sentinel",
+      "passed": true
+    },
+    {
+      "name": "safe static path /.env",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "safe static path /.env:no-store",
+      "passed": true
+    },
+    {
+      "name": "no outside sentinel /.env",
+      "passed": true
+    },
+    {
+      "name": "suffix",
+      "passed": true,
+      "status": 206
+    },
+    {
+      "name": "suffix:no-store",
+      "passed": true
+    },
+    {
+      "name": "suffix:fresh bytes",
+      "passed": true
+    },
+    {
+      "name": "suffix:content-range",
+      "passed": true
+    },
+    {
+      "name": "denied-suffix",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied-suffix:no-store",
+      "passed": true
+    },
+    {
+      "name": "missing-Basic-suffix",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "name": "missing-Basic-suffix:no-store",
+      "passed": true
+    },
+    {
+      "name": "invalid-range",
+      "passed": true,
+      "status": 416
+    },
+    {
+      "name": "invalid-range:no-store",
+      "passed": true
+    },
+    {
+      "name": "denied-invalid-range",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied-invalid-range:no-store",
+      "passed": true
+    },
+    {
+      "name": "missing-Basic-invalid-range",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "name": "missing-Basic-invalid-range:no-store",
+      "passed": true
+    },
+    {
+      "name": "range-ifrange-wildcard",
+      "passed": true,
+      "status": 206
+    },
+    {
+      "name": "range-ifrange-wildcard:no-store",
+      "passed": true
+    },
+    {
+      "name": "range-ifrange-wildcard:fresh bytes",
+      "passed": true
+    },
+    {
+      "name": "range-ifrange-wildcard:content-range",
+      "passed": true
+    },
+    {
+      "name": "denied-range-ifrange-wildcard",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied-range-ifrange-wildcard:no-store",
+      "passed": true
+    },
+    {
+      "name": "missing-Basic-range-ifrange-wildcard",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "name": "missing-Basic-range-ifrange-wildcard:no-store",
+      "passed": true
+    },
+    {
+      "name": "quoted-validator",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "quoted-validator:no-store",
+      "passed": true
+    },
+    {
+      "name": "quoted-validator:fresh bytes",
+      "passed": true
+    },
+    {
+      "name": "denied-quoted-validator",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied-quoted-validator:no-store",
+      "passed": true
+    },
+    {
+      "name": "missing-Basic-quoted-validator",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "name": "missing-Basic-quoted-validator:no-store",
+      "passed": true
+    },
+    {
+      "name": "combined-validators",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "combined-validators:no-store",
+      "passed": true
+    },
+    {
+      "name": "combined-validators:fresh bytes",
+      "passed": true
+    },
+    {
+      "name": "denied-combined-validators",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "denied-combined-validators:no-store",
+      "passed": true
+    },
+    {
+      "name": "missing-Basic-combined-validators",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "name": "missing-Basic-combined-validators:no-store",
+      "passed": true
+    },
+    {
+      "name": "static strips authority and conditionals",
+      "passed": true,
+      "status": 206
+    },
+    {
+      "name": "static strips authority and conditionals:no-store",
+      "passed": true
+    },
+    {
+      "name": "private conditional and authority header absence",
+      "passed": true
+    },
+    {
+      "name": "private Range preserved",
+      "passed": true
+    },
+    {
+      "name": "private socket outage fails closed",
+      "passed": true,
+      "status": 502
+    },
+    {
+      "name": "private socket outage fails closed:no-store",
+      "passed": true
+    },
+    {
+      "name": "private static permissions",
+      "passed": true
+    },
+    {
+      "name": "static socket restored",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "static socket restored:no-store",
+      "passed": true
+    },
+    {
+      "name": "static socket restored network deny",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "static socket restored network deny:no-store",
+      "passed": true
+    },
+    {
+      "name": "static socket restored Basic deny",
+      "passed": true,
+      "status": 401
+    },
+    {
+      "name": "static socket restored Basic deny:no-store",
+      "passed": true
+    },
+    {
+      "name": "backend down failclosed",
+      "passed": true,
+      "status": 500
+    },
+    {
+      "name": "backend down failclosed:no-store",
+      "passed": true
+    },
+    {
+      "name": "restored after backend stop",
+      "passed": true,
+      "status": 204
+    },
+    {
+      "name": "restored after backend stop:empty",
+      "passed": true
+    },
+    {
+      "name": "restored after backend stop:no-store",
+      "passed": true
+    },
+    {
+      "name": "restored after backend stop:no-session-or-redirect",
+      "passed": true
+    },
+    {
+      "name": "restored shell after backend stop",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "restored shell after backend stop:no-store",
+      "passed": true
+    },
+    {
+      "name": "probe read timeout failclosed",
+      "passed": true,
+      "status": 500
+    },
+    {
+      "name": "probe read timeout failclosed:no-store",
+      "passed": true
+    },
+    {
+      "name": "probe timeout bounded",
+      "passed": true
+    },
+    {
+      "name": "restored after timeout",
+      "passed": true,
+      "status": 204
+    },
+    {
+      "name": "restored after timeout:empty",
+      "passed": true
+    },
+    {
+      "name": "restored after timeout:no-store",
+      "passed": true
+    },
+    {
+      "name": "restored after timeout:no-session-or-redirect",
+      "passed": true
+    },
+    {
+      "name": "database unavailable probe",
+      "passed": true,
+      "status": 503
+    },
+    {
+      "name": "database unavailable probe:empty",
+      "passed": true
+    },
+    {
+      "name": "database unavailable probe:no-store",
+      "passed": true
+    },
+    {
+      "name": "database unavailable probe:no-session-or-redirect",
+      "passed": true
+    },
+    {
+      "name": "database unavailable edge failclosed",
+      "passed": true,
+      "status": 500
+    },
+    {
+      "name": "database unavailable edge failclosed:no-store",
+      "passed": true
+    },
+    {
+      "name": "restored after DB fault",
+      "passed": true,
+      "status": 204
+    },
+    {
+      "name": "restored after DB fault:empty",
+      "passed": true
+    },
+    {
+      "name": "restored after DB fault:no-store",
+      "passed": true
+    },
+    {
+      "name": "restored after DB fault:no-session-or-redirect",
+      "passed": true
+    },
+    {
+      "name": "restored shell after DB fault",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "restored shell after DB fault:no-store",
+      "passed": true
+    },
+    {
+      "name": "restored denied policy after DB fault",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "restored denied policy after DB fault:no-store",
+      "passed": true
+    },
+    {
+      "name": "before rollback denied",
+      "passed": true,
+      "status": 403
+    },
+    {
+      "name": "before rollback denied:no-store",
+      "passed": true
+    },
+    {
+      "name": "after rollback fallback allowed",
+      "passed": true,
+      "status": 200
+    },
+    {
+      "name": "after rollback fallback allowed:no-store",
+      "passed": true
+    },
+    {
+      "name": "edge GET fallback did not reconcile",
+      "passed": true
+    },
+    {
+      "name": "candidate listeners cleaned",
+      "passed": true
+    },
+    {
+      "name": "private static socket cleaned",
+      "passed": true
+    }
+  ],
+  "baseline_wildcard_red": {
+    "status": 304,
+    "no304_assertion_passed": false,
+    "expected_red": true
+  },
+  "cleanup_errors": [],
+  "nginx_version": "nginx version: nginx/1.24.0 (Ubuntu)",
+  "postgres_server_version_num": 170011,
+  "live_hba_sha256_before_after": "d2d4b94383868aefa5559e6061b3324d8766d4db8c007e46afe1fa1293789b70",
+  "external_active_listener_probes": "pending",
+  "production_deployment": false
+}

@@ -226,6 +226,8 @@ def _maintenance_operation(context, expected_revision, owners, operation, *, add
 
 
 def recover_policy(context, change_id, snapshot, expected_revision, *, apply=False):
+    if type(apply) is not bool:
+        raise NetworkError('validation_error', 400)
     if not apply:
         return _recover_policy(context, change_id, snapshot, expected_revision, apply=apply)
     owner = configured_owner()
@@ -236,6 +238,8 @@ def recover_policy(context, change_id, snapshot, expected_revision, *, apply=Fal
 
 
 def transfer_owner(context, previous_owner, new_owner, expected_revision, *, apply=False):
+    if type(apply) is not bool:
+        raise NetworkError('validation_error', 400)
     if not apply:
         return _transfer_owner(context, previous_owner, new_owner, expected_revision, apply=apply)
     old_id, new_id = uuid_value(previous_owner), uuid_value(new_owner)

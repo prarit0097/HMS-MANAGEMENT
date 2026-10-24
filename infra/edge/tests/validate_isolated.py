@@ -16,6 +16,7 @@ import secrets
 import signal
 import socket
 import ssl
+import stat
 import subprocess
 import sys
 import time
@@ -28,7 +29,18 @@ DB_NAME = 'hms_edge_validation_20261024'
 HOST = 'hms.praritsidana.com'
 PROBE = '/api/v1/network-policy/edge-probe/'
 OPEN = {'allowlist_only': False, 'allowlist': [], 'blocklist': []}
-RESTRICTED = {'allowlist_only': True, 'allowlist': ['127.0.0.1'], 'blocklist': []}
+RESTRICTED = {'allowlist_only': True, 'allowlist': ['127.0.0.1/32'], 'blocklist': []}
+
+
+def failure_frames(error):
+    """Code locations only: no exception messages, source text or frame locals."""
+    frames = []
+    trace = error.__traceback__
+    while trace is not None:
+        frames.append({'file': Path(trace.tb_frame.f_code.co_filename).name,
+                       'function': trace.tb_frame.f_code.co_name, 'line': trace.tb_lineno})
+        trace = trace.tb_next
+    return frames[-12:]
 
 
 def validate_config(config):
@@ -39,6 +51,8 @@ def validate_config(config):
         raise ValueError('Unsafe database configuration')
     if db['NAME'] != DB_NAME or db['OPTIONS'] != {'sslmode': 'require'}:
         raise ValueError('Unsafe disposable database or TLS configuration')
+    if db['HOST'] != '127.0.0.1' or str(db['PORT']) != '15549' or db['USER'] != 'hms_edge_app':
+        raise ValueError('Only the dedicated isolated PostgreSQL endpoint is permitted')
     if any(not isinstance(db[key], str) or not db[key] or '\x00' in db[key]
            for key in ('USER', 'PASSWORD', 'HOST')):
         raise ValueError('Invalid private database setting')
@@ -46,11 +60,19 @@ def validate_config(config):
         raise ValueError('Invalid database port')
 
 
-def render_nginx(root):
-    """Render the reviewed TLS server and inline only its two reviewed includes."""
+def render_nginx(root, *, baseline=False):
+    """Render reviewed TLS/private static servers with exact candidate paths."""
     source = (root / 'infra/hostinger/nginx.conf').read_text()
     start = source.index('server {\n    listen 443 ssl http2;')
     server = source[start:]
+    if baseline:
+        # Deliberately retain the old direct-static path for actual wildcard RED.
+        server = server.replace('location = /index.html { include /opt/hms/current/infra/edge/static-proxy.conf; }',
+                                'location = /index.html { try_files $uri =404; }')
+        server = server.replace('location /assets/ { include /opt/hms/current/infra/edge/static-proxy.conf; }',
+                                'location /assets/ { try_files $uri =404; }')
+        server = server.replace('location / { include /opt/hms/current/infra/edge/static-proxy.conf; }',
+                                'location / { try_files $uri $uri/ /index.html; }')
     substitutions = {
         'listen 443 ssl http2;': 'listen 127.0.0.1:18186 ssl;',
         '    listen [::]:443 ssl http2;\n': '',
@@ -65,14 +87,20 @@ def render_nginx(root):
         if server.count(old) != 1:
             raise ValueError('Reviewed server template changed; review renderer')
         server = server.replace(old, new)
-    for relative in ('edge/network-guard.conf', 'hostinger/proxy.conf'):
+    for relative in ('edge/network-guard.conf', 'hostinger/proxy.conf', 'edge/static-proxy.conf'):
         include = f'include /opt/hms/current/infra/{relative};'
+        if baseline and relative == 'edge/static-proxy.conf':
+            continue
         if include not in server:
             raise ValueError('Reviewed include is absent')
         replacement = (root / 'infra' / relative).read_text().replace('127.0.0.1:8185', '127.0.0.1:18185')
         server = server.replace(include, replacement)
     if '/opt/hms/current' in server or '/etc/letsencrypt' in server:
         raise ValueError('Live path survived isolated rendering')
+    static = '' if baseline else (root / 'infra/edge/static-upstream.conf').read_text()
+    static = static.replace('/opt/hms/run/edge-static.sock', str(PREFIX / 'static.sock'))
+    static = static.replace('/opt/hms/static', str(PREFIX / 'static'))
+    static = static.replace('/opt/hms/logs/static-boundary.log', str(PREFIX / 'static-boundary.log'))
     # No master/worker privilege transition: isolated process reads private0700 prefix.
     return f'''daemon off;
 master_process off;
@@ -87,6 +115,7 @@ http {{
     scgi_temp_path {PREFIX}/scgi_temp;
     limit_req_zone $binary_remote_addr zone=hms_login:1m rate=5r/m;
     log_format hms_safe '$remote_addr [$time_local] $request_method $uri $status $body_bytes_sent';
+    {static}
     {server}
 }}
 '''
@@ -107,6 +136,8 @@ class Validation:
         self.stage = 'preflight'
         self.private_files = []
         self.backend = None
+        self.nginx = None
+        self.baseline = None
         self.cleaned_groups = set()
 
     def check(self, name, condition, **metadata):
@@ -180,6 +211,25 @@ class Validation:
                 return
             time.sleep(.05)
         raise RuntimeError('Managed candidate listener did not become ready')
+
+    def start_nginx(self, *, baseline=False):
+        self.stop(self.nginx)
+        path = PREFIX / 'static.sock'
+        if path.exists():
+            if path.is_symlink() or not stat.S_ISSOCK(path.stat().st_mode):
+                raise ValueError('Unexpected private static path')
+            path.unlink()
+        (PREFIX / 'nginx.conf').write_text(render_nginx(self.root, baseline=baseline))
+        self.run_command(['nginx', '-t', '-p', str(PREFIX) + '/', '-c', str(PREFIX / 'nginx.conf')])
+        self.nginx = self.launch(['nginx', '-p', str(PREFIX) + '/', '-c', str(PREFIX / 'nginx.conf')])
+        self.wait_port(18186, self.nginx)
+        if not baseline:
+            if path.is_symlink() or not stat.S_ISSOCK(path.stat().st_mode):
+                raise ValueError('Private static socket missing')
+            path.chmod(0o600)
+            self.check('private static permissions', path.stat().st_uid == 0
+                       and stat.S_IMODE(path.stat().st_mode) == 0o600
+                       and stat.S_IMODE(PREFIX.stat().st_mode) == 0o700)
 
     def request(self, path='/', *, source='127.0.0.1', method='GET', headers=None,
                 body=None, basic=True, direct=False):
@@ -283,14 +333,17 @@ class Validation:
         (PREFIX / 'static/assets').mkdir(parents=True)
         (PREFIX / 'static/index.html').write_text('<!doctype html><title>Synthetic HMS edge shell</title>EDGE-SYNTHETIC-SHELL')
         (PREFIX / 'static/assets/edge.js').write_text('/* synthetic edge static fixture */\n' * 5)
-        (PREFIX / 'nginx.conf').write_text(render_nginx(self.root))
         self.versions = self.run_command(['nginx', '-V']).decode()
         self.check('Nginx auth_request and SSL compiled', '--with-http_auth_request_module' in self.versions
                    and '--with-http_ssl_module' in self.versions)
-        self.run_command(['nginx', '-t', '-p', str(PREFIX) + '/', '-c', str(PREFIX / 'nginx.conf')])
         self.start_backend()
-        self.nginx = self.launch(['nginx', '-p', str(PREFIX) + '/', '-c', str(PREFIX / 'nginx.conf')])
-        self.wait_port(18186, self.nginx)
+        self.stage = 'baseline-wildcard-RED'
+        self.start_nginx(baseline=True)
+        status, _, _ = self.request('/assets/edge.js', headers={'If-None-Match': '*'})
+        self.baseline = {'status': status, 'no304_assertion_passed': status != 304, 'expected_red': True}
+        self.check('baseline actual wildcard304 reproduced as RED', status == 304, status=status)
+        self.stage = 'D2-startup'
+        self.start_nginx()
 
     def create_fixtures(self):
         from django.contrib.auth import get_user_model, HASH_SESSION_KEY, SESSION_KEY, BACKEND_SESSION_KEY
@@ -361,7 +414,7 @@ class Validation:
         self.expect('dotfile cannot serve', '/.env', statuses=(403,))
         self.expect('missing asset', '/assets/missing.js', statuses=(404,))
         self.stage = 'cache-headers'
-        for path in ('/', '/index.html', '/assets/edge.js'):
+        for path in ('/', '/index.html', '/administration/network-access', '/assets/edge.js'):
             for name, method, headers, statuses in (
                 ('head', 'HEAD', {}, (200,)), ('range', 'GET', {'Range': 'bytes=0-9'}, (206,)),
                 ('modified', 'GET', {'If-Modified-Since': 'Wed, 31 Dec 2098 23:59:59 GMT'}, (200,)),
@@ -374,6 +427,7 @@ class Validation:
                 self.expect('denied-' + name + path, path, method=method, headers=headers,
                             source='127.0.0.2', statuses=(403,), empty=method == 'HEAD')
         self.stage = 'backend-failures'
+        self.static_boundary_matrix()
         self.stop(self.backend)
         self.expect('backend down failclosed', statuses=(500,))
         self.start_backend()
@@ -396,6 +450,63 @@ class Validation:
         self.expect('restored denied policy after DB fault', source='127.0.0.2', statuses=(403,))
         self.stage = 'deadline-fallback'
         self.rollback_fixture()
+
+    def static_boundary_matrix(self):
+        self.stage = 'static-socket-boundary'
+        child = subprocess.run(['/usr/bin/python3', '-c',
+            'import errno,socket,sys\ns=socket.socket(socket.AF_UNIX)\n'
+            'try: s.connect(sys.argv[1])\n'
+            'except OSError as e: sys.exit(0 if e.errno==errno.EACCES else 2)\n'
+            'sys.exit(1)', str(PREFIX / 'static.sock')],
+            user=65534, group=65534, extra_groups=[], env={'PATH': '/usr/bin:/bin'},
+            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=5)
+        self.check('unprivileged private socket connect denied', child.returncode == 0)
+        for path in ('/api/v1/health/', PROBE, '/_hms_network_check'):
+            connection = http.client.HTTPConnection('localhost')
+            connection.sock = socket.socket(socket.AF_UNIX)
+            try:
+                connection.sock.connect(str(PREFIX / 'static.sock'))
+                connection.request('GET', path, headers={'Host': HOST})
+                response = connection.getresponse()
+                self.check('private static rejects ' + path, response.status == 404, status=response.status)
+                response.read()
+            finally:
+                connection.close()
+        sentinel = 'SYNTHETIC-OUTSIDE-STATIC-SENTINEL'
+        (PREFIX / 'outside-sentinel').write_text(sentinel)
+        (PREFIX / 'static/assets/link.js').symlink_to(PREFIX / 'outside-sentinel')
+        for path in ('/assets/link.js', '/assets/%2e%2e/%2e%2e/outside-sentinel', '/.env'):
+            status, _, body = self.expect('safe static path ' + path, path, statuses=(200, 400, 403, 404))
+            self.check('no outside sentinel ' + path, sentinel.encode() not in body)
+        content = (PREFIX / 'static/assets/edge.js').read_bytes()
+        for name, headers, expected, statuses in (
+            ('suffix', {'Range': 'bytes=-10'}, content[-10:], (206,)),
+            ('invalid-range', {'Range': 'bytes=999999-1000000'}, None, (416,)),
+            ('range-ifrange-wildcard', {'Range': 'bytes=0-9', 'If-Range': '"old"', 'If-None-Match': '*'}, content[:10], (206,)),
+            ('quoted-validator', {'If-None-Match': '"old"'}, content, (200,)),
+            ('combined-validators', {'If-None-Match': '*', 'If-Modified-Since': 'Wed, 31 Dec 2098 23:59:59 GMT'}, content, (200,))):
+            _, observed, body = self.expect(name, '/assets/edge.js', headers=headers, statuses=statuses)
+            if expected is not None:
+                self.check(name + ':fresh bytes', body == expected)
+            if statuses == (206,):
+                self.check(name + ':content-range', observed.get('content-range', '').startswith('bytes '))
+            self.expect('denied-' + name, '/assets/edge.js', headers=headers, source='127.0.0.2', statuses=(403,))
+            self.expect('missing-Basic-' + name, '/assets/edge.js', headers=headers, basic=False, statuses=(401, 403))
+        self.expect('static strips authority and conditionals', '/assets/edge.js', headers={
+            'Cookie': self.cookie, 'X-HMS-Network-Probe': '1', 'If-Match': '"old"',
+            'If-Unmodified-Since': 'Wed, 01 Jan 1997 00:00:00 GMT', 'If-None-Match': '*',
+            'If-Range': '"old"', 'Range': 'bytes=0-9'}, statuses=(206,))
+        lines = (PREFIX / 'static-boundary.log').read_text().splitlines()
+        self.check('private conditional and authority header absence', bool(lines)
+                   and all('conditional=0 authority=0' in line for line in lines))
+        self.check('private Range preserved', any('range=1' in line for line in lines))
+        (PREFIX / 'static.sock').unlink()
+        self.expect('private socket outage fails closed', statuses=(502,))
+        self.start_nginx()  # Owned standalone process only, never the live service.
+        self.expect('static socket restored')
+        self.expect('static socket restored network deny', source='127.0.0.2', statuses=(403,))
+        self.expect('static socket restored Basic deny', basic=False, statuses=(401, 403))
+        self.stage = 'backend-failures'
 
     def rollback_fixture(self):
         from django.utils import timezone
@@ -437,11 +548,18 @@ class Validation:
                 failures.append('managed process cleanup failed')
         for handle in self.handles:
             handle.close()
+        if 'django.db' in sys.modules:
+            from django.db import connections
+            connections.close_all()
         for path in self.private_files:
             if path.parent == PREFIX and not path.is_symlink():
                 path.unlink(missing_ok=True)
         if getattr(self, 'owns_prefix', False):
             self.checks.append({'name': 'candidate listeners cleaned', 'passed': not any(listening(p) for p in (18185, 18186))})
+            path = PREFIX / 'static.sock'
+            if path.exists() and not path.is_symlink() and stat.S_ISSOCK(path.stat().st_mode):
+                path.unlink()
+            self.checks.append({'name': 'private static socket cleaned', 'passed': not path.exists()})
         return failures
 
 
@@ -460,12 +578,13 @@ def main():
         validation.matrix()
     except Exception as error:
         # Do not print exception text/traceback: DB/framework errors may include secrets.
-        failure = {'stage': validation.stage, 'type': type(error).__name__}
+        failure = {'stage': validation.stage, 'type': type(error).__name__, 'frames': failure_frames(error)}
     finally:
         cleanup = validation.cleanup()
     report = {'checks': validation.checks, 'passed': failure is None and not cleanup
               and all(check['passed'] for check in validation.checks), 'failure': failure,
               'cleanup_errors': cleanup, 'nginx_version': getattr(validation, 'versions', ''),
+              'baseline_wildcard_red': validation.baseline,
               'external_origin_test': 'Coordinator must separately verify external unreachability; local bind is insufficient.',
               'deployment': 'No live deployment or global service mutation.'}
     if getattr(validation, 'owns_prefix', False):

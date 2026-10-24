@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.13.6 ACTIVE. Scheduled resume2026-10-24T11:07:26UTC after saved11:06:20UTC deadline elapsed. Authenticated primary100%/weekly55%remaining at entry; subsequent guardcontinue minimum54%. No owner waiver or reset credit needed. Historical05:36stop preserved; no active cooldown. Exactd33937f CI40067046203success decoded520PG/168subtests34.29s,115frontend/typecheck/build,19root/schema/docs; source7252345CI40066986031cancelled by laterpush, never claimedpassed. Resume exactGETtime boundary, independentUIreview and edgeisolation/cache design; no repeateddeployment.
+**Status:** Version1.14.0 ACTIVE. Owner explicitly requested continue after recovery, verified2026-10-24T16:43:13UTC (10:13:13PM IST), primary97%/weekly39%remaining. This waives ONLY the saved17:05:08UTC deadline from the fresh11:35:08UTC primary9%/weekly41% stop. Recovery alone did not waive it:16:40heartbeat performed checkpoint recovery only. Originalstop/deadline/history preserved in docs and ignored guard archive; no reset credits. Guardcontinue, same native heartbeat to be updated. Futurefresh<=10% still requires new actualUTC+330minutes.
 
 Root final frontend115/8files58.52s, typecheck/build24modules190ms passed. Root actualPG520/168subtests41.80s/check0/nodrift; testDBabsent0/appCREATEDB=f/previewactive independently confirmed. Root19projecttests10.171s, schema/map/link checks passed. Seven network operations have source implementations, explicit pending acceptance; no deployment. First resume task is exact GET server-time/snapshot deadline regression, remaining concurrency/fresh review, frontend independent review/browser and edge isolated-PG/no304 design amendment. All source stays recoverable on feat/hms-foundation; fresh CI and remote SHA recorded at publication.
 
@@ -36,6 +36,21 @@ D2 edge amendment frozen after independent design/security review: guarded nonca
 
 - [x] Independent D2 design review and exact amendment frozen before code.
 - [ ] Source/lifecycle RED, implementation/review, dedicated TLS PG and actual full HTTP/fault/cache/isolation evidence.
+
+## Latest bounded implementation and open gates
+
+Network source corrections implemented under frozen plans: final read-time/authorised snapshot coherence and backward-clock503; seven real service-race cases including both serial orders with observed PostgreSQL blocking; exact-boolean OOB apply rejection before any expiry maintenance; UI generation-bound mutation/error settlements, offline reload gate and bounded error envelopes. Independent backend reviewer84focused source tests found one OOB issue, fixed via8RED/30trackedGREEN and independently34GREEN; no remaining bounded finding. Independent UI reviewer3Important findings reproduced and rechecked3GREEN. Final frontend specialist135/9files69.79s includes132tracked+3ignored probes; typecheck/build24modules190ms. Full actual browser tasks remain incomplete.
+
+Real-browser positive CSRF preview originally400. Installed DRF CSRF parsing drained request stream; literal5RED/4pass proved valid and exact-limit failures plus unbounded early parser read. Bounded capture/replay now precedes ordinary auth/CSRF, strict original-byte parsing after authority; no CSRF relaxation/global parser change. Local76focused/542full+35explicitPG/indexskips/168subtests47.88s, check0/nodrift. Actual synthetic password+TOTP login, Network access, draft-currentIP/no policy change and post-fix preview success were observed; screenshot retained privately. Apply/keep/revert/history/keyboard task walkthrough and fresh CSRF source review pending. Root actualPG564passed/168subtests40.30s/check0/nodrift verified BEFORE final CSRF patch; the subsequent full post-CSRF command started before usage stop, but its completion output was lost on process-session interruption. Do not claim577/any unobserved post-CSRF pass; rerun or verify exact new CI.
+
+D2 edge source implemented: isolated ephemeralTLS PostgreSQL17.11 container, fixed app-only role/config and identity-checked receipt lifecycle; public guarded noncached proxy to0600 private static UDS. Source/lifecycle11GREEN then canonical fixture RED/fix and cleanup-identity2RED/fix, independent5lifecycleGREEN. First actual D2attempt had noncanonical fixture ValueError before HTTP, safely cleaned. Corrected actualrun363checksALLPASS: actual baseline wildcard304RED, candidate no304/security headers/BasicANDnetwork/real socket denial/API/privateprobe/range/traversal/UDSprivacy/backendstop-timeout/DBfault-restoration/fixedfallback and cleanup. DedicatedPGup TLS/app restrictions and down verified; live HBAhash d2d4b94383868aefa5559e6061b3324d8766d4db8c007e46afe1fa1293789b70 unchanged/previewactive/portsclosed. [Redacted source/runtime evidence](docs/operations/network-edge-evidence-2026-10-24.json) contains archive digest/statuses; it predates final CSRF patch. External active-listener probes stillPENDING; no live installation or full edge/release approval. Source templates require separately reviewed StageE worker/socket ownership for production.
+
+Fresh recovery16:40read-only checks appCREATEDB=f/testDBabsent0/previewactive/15549+18185+18186notlistening/dedicatedPGprefixabsent. Local visual8000/5173listenersabsent; all agentscompleted. Source was uncommitted at7105016; this publication preserves it on feature branch with explicit open gates. Fullclinical/finance/MCP/dataops/humanrecovery/staff/production gates remain; preview47b3618 and other VPS apps unchanged. No realpatientdata/secrets/paid resources.
+
+- [x] Read-time fix/seven actual-PG service races, strictOOBbool, three independent UI repairs and D2isolated363checks.
+- [ ] Fresh post-CSRF PG/CI and source review; finish actual browser write/history/keyboard walkthrough.
+- [ ] Active-listener external probes for15549/18185/18186 and final edge source/evidence review.
+- [ ] Separate production/socket-worker/rollout/recovery/staff gates.
 
 ## Frozen real-CSRF transport repair
 
@@ -855,4 +870,4 @@ Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration
 
 - 1.12.1 —24October2026: Owner explicitly continued at2026-10-24T05:10:42UTC (10:40:42AM IST). Authenticated primary100%/weekly69%remaining; saved05:04:44UTC deadline already elapsed, so no cooldown waiver or reset credit was needed. Prior stop/scheduling history preserved; guardcontinue, same heartbeat updated. Exact a412637sourceCI40040673163success observed. Resume remaining networkB2 API/authority/transactions/OOB and StageC client under frozencontract; B1/B2a/ICTHospital/initialdeployment are completed and not repeated. No new runtime feature or live deployment delivered by this resume record.
 
-- 1.13.6 —24October2026: freeze full remainingnetworkB2 API/authority/transactions/OOB/middleware plan with securityprecisions and observedREDs; backend andStageCclient inprogress, no liveguard/deployment.
+- 1.14.0 —24October2026: freeze full remainingnetworkB2 API/authority/transactions/OOB/middleware plan with securityprecisions and observedREDs; backend andStageCclient inprogress, no liveguard/deployment.

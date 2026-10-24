@@ -177,13 +177,16 @@ def _run(context, callback, *, preview_id=None, change_id=None, preview_key=None
 
 
 def read_network_state(context):
-    _, _, owner_id, _, snapshot = require_network_operator(context)
-    now = timezone.now()
+    started_at = timezone.now()
+    _, _, owner_id, _, _ = require_network_operator(context, now=started_at)
     owner = Organisation.objects.get(pk=owner_id)
     if type(owner.name) is not str or len(owner.name) > 160:
         raise NetworkStateUnavailable()
     environment = environment_snapshot()
-    final_owner = require_network_operator(context)[2]
+    now = timezone.now()
+    if now < started_at:
+        raise NetworkStateUnavailable()
+    _, _, final_owner, _, snapshot = require_network_operator(context, now=now)
     if final_owner != owner_id or snapshot.bound_owner_id != owner_id:
         raise NetworkError('network_owner_unavailable', 503)
     pending = None

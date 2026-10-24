@@ -3,12 +3,32 @@ from pathlib import Path
 import re
 import unittest
 import importlib.util
+import sys
 from unittest.mock import Mock, patch
 
 ROOT = Path(__file__).resolve().parents[3]
 
 
 class EdgeSourceContract(unittest.TestCase):
+    def test_stored_runtime_fixture_policies_are_strictly_canonical(self):
+        runner = self.runner()
+        with patch.object(sys, 'path', [str(ROOT / 'backend'), *sys.path]):
+            from apps.security import network_policy as policy
+        for fixture in (runner.OPEN, runner.RESTRICTED):
+            self.assertEqual(fixture, policy.canonical_policy(fixture))
+            self.assertEqual(len(policy.policy_digest(fixture)), 64)
+
+    def test_runtime_failure_frames_omit_messages_and_locals(self):
+        runner = self.runner()
+        self.assertTrue(callable(getattr(runner, 'failure_frames', None)), 'Redacted failure frame helper absent')
+        try:
+            raise ValueError('synthetic-private-detail-must-not-escape')
+        except ValueError as error:
+            frames = runner.failure_frames(error)
+        self.assertTrue(frames)
+        self.assertEqual(set(frames[-1]), {'file', 'function', 'line'})
+        self.assertNotIn('synthetic-private-detail-must-not-escape', str(frames))
+
     def runner(self):
         path = ROOT / 'infra/edge/tests/validate_isolated.py'
         self.assertTrue(path.exists(), 'Isolated runner is missing')
@@ -20,11 +40,13 @@ class EdgeSourceContract(unittest.TestCase):
     def test_runner_rejects_unsafe_database_or_extra_configuration(self):
         runner = self.runner()
         config = {'venv': '/opt/hms/validation/identity-20261023/venv', 'database': {
-            'NAME': 'hms_edge_validation_20261024', 'USER': 'synthetic', 'PASSWORD': 'synthetic',
-            'HOST': '127.0.0.1', 'PORT': '5432', 'OPTIONS': {'sslmode': 'require'}}}
+            'NAME': 'hms_edge_validation_20261024', 'USER': 'hms_edge_app', 'PASSWORD': 'synthetic',
+            'HOST': '127.0.0.1', 'PORT': '15549', 'OPTIONS': {'sslmode': 'require'}}}
         runner.validate_config(config)
         for changed in ({**config, 'admin_database': {}}, {**config, 'venv': '/opt/hms/venv'},
                         {**config, 'database': {**config['database'], 'NAME': 'hms_preview'}},
+                        {**config, 'database': {**config['database'], 'PORT': '5548'}},
+                        {**config, 'database': {**config['database'], 'USER': 'hms_app'}},
                         {**config, 'database': {**config['database'], 'OPTIONS': {'sslmode': 'disable'}}}):
             with self.assertRaises(ValueError):
                 runner.validate_config(changed)
@@ -39,6 +61,26 @@ class EdgeSourceContract(unittest.TestCase):
         self.assertNotIn('/etc/letsencrypt', rendered)
         self.assertIn('proxy_pass http://127.0.0.1:18185/api/v1/network-policy/edge-probe/;', rendered)
         self.assertIn('daemon off;', rendered)
+
+    def test_static_boundary_removes_public_direct_file_paths_and_filters_headers(self):
+        nginx = (ROOT / 'infra/hostinger/nginx.conf').read_text()
+        self.assertNotIn('try_files', nginx)
+        for route in ('location = /index.html', 'location /assets/', 'location /'):
+            self.assertIn(route, nginx)
+        private = ROOT / 'infra/edge/static-upstream.conf'
+        proxy = ROOT / 'infra/edge/static-proxy.conf'
+        self.assertTrue(private.exists() and proxy.exists(), 'D2 static boundary is absent')
+        private, proxy = private.read_text(), proxy.read_text()
+        self.assertIn('listen unix:/opt/hms/run/edge-static.sock;', private)
+        self.assertIn('disable_symlinks on;', private)
+        self.assertNotRegex(private, r'listen\s+\d')
+        self.assertIn('proxy_pass http://hms_private_static;', proxy)
+        self.assertIn('proxy_pass_request_headers off;', proxy)
+        self.assertIn('proxy_cache off;', proxy)
+        self.assertIn('proxy_set_header Range $http_range;', proxy)
+        self.assertEqual(set(re.findall(r'proxy_set_header\s+(\S+)', proxy)), {'Host', 'Range', 'Content-Length'})
+        self.assertNotIn('add_header', proxy)
+        self.assertNotIn('proxy_method', proxy)
 
     def test_owned_group_cleanup_survives_exited_leader_and_is_not_repeated(self):
         runner = self.runner()
