@@ -167,7 +167,8 @@ def test_migration_upgrade_pristine_reverse_and_nonpristine_refusal(rows):
             MigrationExecutor(connection).migrate(old)
         assert cls.objects.get(pk=1).revision == 2
     finally:
-        MigrationExecutor(connection).migrate(latest)
+        executor = MigrationExecutor(connection)
+        executor.migrate(executor.loader.graph.leaf_nodes())
 
 
 @pytest.mark.django_db
@@ -202,4 +203,5 @@ def test_migration_reverse_rejects_integer_in_boolean_policy(rows):
         assert cls.objects.get(pk=1).confirmed_policy['allowlist_only'] == 0
         assert type(cls.objects.get(pk=1).confirmed_policy['allowlist_only']) is int
     finally:
-        MigrationExecutor(connection).migrate(latest)
+        executor = MigrationExecutor(connection)
+        executor.migrate(executor.loader.graph.leaf_nodes())

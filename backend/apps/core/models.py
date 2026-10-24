@@ -124,3 +124,5 @@ class StaffAccessRevision(UUIDModel):
 from .security_models import IdentitySecurity, IdentityEnrollment, IdentityChallenge, IdentityBackupCode, IdentityNetworkBudget
 
 from .network_models import NetworkPolicyState, NetworkOperator, NetworkPolicyPreview, NetworkPolicyChange, NetworkPolicyEvent
+
+from .document_models import PatientDocumentIntent, DocumentIntentReceipt, DocumentAccessEvent
