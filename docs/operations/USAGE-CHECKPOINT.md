@@ -1,14 +1,16 @@
 # Usage-aware HMS continuation
 
-State: CHECKPOINTED_USAGE_COOLDOWN
+State: ACTIVE_AFTER_ELAPSED_COOLDOWN
 checkpoint_at_utc: 2026-10-24T05:36:20Z
-resume_not_before_utc: 2026-10-24T11:06:20Z
+resume_not_before_utc: none (prior2026-10-24T11:06:20Z deadline elapsed)
 owner_resume_at_utc: 2026-10-24T05:10:42Z
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330
 owner_schedule_override_at_utc: 2026-10-23T22:04:30Z
 
-Latest stop: NEW usage stop2026-10-24T05:36:20UTC: primary10%remaining/weekly55%. All specialists completed; no new implementation or assignments after this boundary. Earliest resume2026-10-24T11:06:20UTC (24October4:36:20PM IST), only all windows available and>10%; no reset credit. Same heartbeat330minutes; previous05:10resume does not waive this fresh stop.
+Current resume: Scheduled resume2026-10-24T11:07:26UTC after saved11:06:20UTC deadline elapsed. Authenticated primary100%/weekly55%remaining at entry; subsequent guardcontinue minimum54%. No owner waiver or reset credit needed. Historical05:36stop preserved; no active cooldown. Exactd33937f CI40067046203success decoded520PG/168subtests34.29s,115frontend/typecheck/build,19root/schema/docs; source7252345CI40066986031cancelled by laterpush, never claimedpassed. Resume exactGETtime boundary, independentUIreview and edgeisolation/cache design; no repeateddeployment.
+
+Historical stop: NEW usage stop2026-10-24T05:36:20UTC: primary10%remaining/weekly55%. All specialists completed; no new implementation or assignments after this boundary. Earliest resume2026-10-24T11:06:20UTC (24October4:36:20PM IST), only all windows available and>10%; no reset credit. Same heartbeat330minutes; previous05:10resume does not waive this fresh stop.
 
 Root final frontend115/8files58.52s, typecheck/build24modules190ms passed. Root actualPG520/168subtests41.80s/check0/nodrift; testDBabsent0/appCREATEDB=f/previewactive independently confirmed. Root19projecttests10.171s, schema/map/link checks passed. Seven network operations have source implementations, explicit pending acceptance; no deployment. First resume task is exact GET server-time/snapshot deadline regression, remaining concurrency/fresh review, frontend independent review/browser and edge isolated-PG/no304 design amendment. All source stays recoverable on feat/hms-foundation; fresh CI and remote SHA recorded at publication.
 

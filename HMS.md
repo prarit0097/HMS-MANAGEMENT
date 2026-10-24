@@ -1,8 +1,8 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.13.1 | Updated: 24 October 2026, Asia/Calcutta
+Document version: 1.13.2 | Updated: 24 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
-Current state: **CHECKPOINTED — mandatory usage cooldown.** NEW usage stop2026-10-24T05:36:20UTC: primary10%remaining/weekly55%. All specialists completed; no new implementation or assignments after this boundary. Earliest resume2026-10-24T11:06:20UTC (24October4:36:20PM IST), only all windows available and>10%; no reset credit. Same heartbeat330minutes; previous05:10resume does not waive this fresh stop.
+Current state: **ACTIVE — scheduled resume after elapsed cooldown.** Scheduled resume2026-10-24T11:07:26UTC after saved11:06:20UTC deadline elapsed. Authenticated primary100%/weekly55%remaining at entry; subsequent guardcontinue minimum54%. No owner waiver or reset credit needed. Historical05:36stop preserved; no active cooldown. Exactd33937f CI40067046203success decoded520PG/168subtests34.29s,115frontend/typecheck/build,19root/schema/docs; source7252345CI40066986031cancelled by laterpush, never claimedpassed. Resume exactGETtime boundary, independentUIreview and edgeisolation/cache design; no repeateddeployment.
 
 Root final frontend115/8files58.52s, typecheck/build24modules190ms passed. Root actualPG520/168subtests41.80s/check0/nodrift; testDBabsent0/appCREATEDB=f/previewactive independently confirmed. Root19projecttests10.171s, schema/map/link checks passed. Seven network operations have source implementations, explicit pending acceptance; no deployment. First resume task is exact GET server-time/snapshot deadline regression, remaining concurrency/fresh review, frontend independent review/browser and edge isolated-PG/no304 design amendment. All source stays recoverable on feat/hms-foundation; fresh CI and remote SHA recorded at publication.
 
@@ -608,3 +608,9 @@ Root final frontend115/8files58.52s, typecheck/build24modules190ms passed. Root 
 ### CHG-0033 —24October2026 — Record verified source publication and continuation
 
 Source checkpoint725234547a5063264be44f2e0ac58c83d00e4586 committed and pushed to feat/hms-foundation; remote SHA exactly matched, working tree clean at source publication. Actual source CI40066986031 observed in_progress, not a pass. Same native heartbeat successfully updated ACTIVE330minutes with fresh11:06:20UTC deadline and exact pending tasks; no reset credits. Root confirmed all specialists completed; no local visual servers launched. This follow-up is documentation-only publication evidence; verify its own remote SHA at handoff.
+
+### CHG-0034 —24October2026 — Scheduled resume and verified checkpoint CI
+
+Scheduled resume2026-10-24T11:07:26UTC after saved11:06:20UTC deadline elapsed. Authenticated primary100%/weekly55%remaining at entry; subsequent guardcontinue minimum54%. No owner waiver or reset credit needed. Historical05:36stop preserved; no active cooldown. Exactd33937f CI40067046203success decoded520PG/168subtests34.29s,115frontend/typecheck/build,19root/schema/docs; source7252345CI40066986031cancelled by laterpush, never claimedpassed. Resume exactGETtime boundary, independentUIreview and edgeisolation/cache design; no repeateddeployment.
+
+All specialists were completed at initial inventory; backend timing/regression, fresh independent UI reviewer and edge design research run in distinct ownership batches. Root alone Git/VPS. No new feature/test pass/deployment delivered by this resume record.
