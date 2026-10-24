@@ -10,7 +10,7 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.12.1,24October2026: ACTIVE after05:10:42UTC ownerresume, primary100%/weekly69%; saveddeadlineelapsed. NetworkB2 API/authority/transaction/OOB and StageC client next under existingcontract;39implemented46catalogued, sourcea412CI40040673163success, preview47b3618unchanged.
+**Status:** Version1.12.2,24October2026: ACTIVE after05:10:42UTC ownerresume, primary100%/weekly69%; saveddeadlineelapsed. NetworkB2 API/authority/transaction/OOB and StageC client next under existingcontract;39implemented46catalogued, sourcea412CI40040673163success, preview47b3618unchanged.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -438,6 +438,7 @@ Execution contract: [frozen network-access contract](docs/implementation/network
 - [x] StageB1 RED-first `apps/security/network_policy.py` canonical_policy/policy_digest/validate_saved_policy; `core/network_models.py`, model discovery and migration0007 with singleton/unique/revision/time constraints. Individual saved-policy validation only. Test migration/constraints on actual PostgreSQL. No runtime wiring, advertised capability or new route in this bounded foundation. Exactfieldmap in docs/implementation/network-foundation-schema.md; parser17RED and modeldiscoveryRED,33targetedschema/39parser+resolver/168subtests, finalactualPG351/168subtests19.98s/check/nodrift and boundedfreshreview approved after reversebool/intregressionfix.
 - [x] B2a [exact internal snapshot contract](docs/implementation/network-snapshot-contract.md) frozen after independent pre-code review: onejoinedread/strictgraph/pendingfinishmetadatanull/independentpolicies/fixedfallback/no runtimeactivation.
 - [x] B2a RED-first network_snapshot.py/test_network_snapshot.py:81RED->81GREEN, localfull416pass16PGskip168subtests, finalactualPG432pass168subtests20.22s/check/nodrift; freshreview81+11probes no unresolvedboundedfinding. No endpoint/capability/middleware/OOBactivation.
+- [x] Remaining B2 [module/lock/outcome/test execution plan](docs/implementation/network-integration-plan.md) frozen after independent pre-code security review;6environment/14HTTP RED observed, no runtimecompletion claim.
 - [ ] StageB2 exact API/service/OOB and middleware integration, runtime state graph validation, private history, effective summary/current-user ceiling and full permission/CSRF/expiry/replay/real-PG race checks. Only then advertise/activate network management.
 - [ ] StageC API client Network access UI and named page-action tests/representative synthetic walkthroughs.
 - [ ] StageD isolated actual Nginx module/config/HTTP tests across BasicANDnetwork, HTML/assets/SPA/API/HEAD/range/conditional/private probe/forged headers/DBfailure/rollback/HTTPS/direct-origin; templates alone are insufficient.
@@ -804,3 +805,5 @@ Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration
 - 1.12.0 —24October2026: B2a internalreadselector verified432PG/168subtests andboundedreview; new9%usagecheckpoint23:34:44UTC/+330min to05:04:44UTC. All7networkAPIs/runtime/UI/edge pending, livepreviewunchanged.
 
 - 1.12.1 —24October2026: Owner explicitly continued at2026-10-24T05:10:42UTC (10:40:42AM IST). Authenticated primary100%/weekly69%remaining; saved05:04:44UTC deadline already elapsed, so no cooldown waiver or reset credit was needed. Prior stop/scheduling history preserved; guardcontinue, same heartbeat updated. Exact a412637sourceCI40040673163success observed. Resume remaining networkB2 API/authority/transactions/OOB and StageC client under frozencontract; B1/B2a/ICTHospital/initialdeployment are completed and not repeated. No new runtime feature or live deployment delivered by this resume record.
+
+- 1.12.2 —24October2026: freeze full remainingnetworkB2 API/authority/transactions/OOB/middleware plan with securityprecisions and observedREDs; backend andStageCclient inprogress, no liveguard/deployment.
