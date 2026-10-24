@@ -214,3 +214,7 @@ Edge source/harness is WIP NOT DEPLOYABLE. Seven source/safety tests pass; actua
 
 
 Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration stale-bed-edit test could not find Edit bed101 within timed wait); agent earlier64passed. Coordinator typecheck/build still passed. Affected test isolated rerun is recorded in ledger/handoff; this does not establish a repaired full suite. No source changes after stop. Investigate/repeat full suite after cooldown before marking identity delivered.
+
+## Published source / continuation evidence
+
+Source checkpoint725234547a5063264be44f2e0ac58c83d00e4586 committed and pushed to feat/hms-foundation; remote SHA exactly matched, working tree clean at source publication. Actual source CI40066986031 observed in_progress, not a pass. Same native heartbeat successfully updated ACTIVE330minutes with fresh11:06:20UTC deadline and exact pending tasks; no reset credits. Root confirmed all specialists completed; no local visual servers launched. This follow-up is documentation-only publication evidence; verify its own remote SHA at handoff.

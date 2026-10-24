@@ -1,6 +1,6 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.13.0 | Updated: 24 October 2026, Asia/Calcutta
+Document version: 1.13.1 | Updated: 24 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
 Current state: **CHECKPOINTED — mandatory usage cooldown.** NEW usage stop2026-10-24T05:36:20UTC: primary10%remaining/weekly55%. All specialists completed; no new implementation or assignments after this boundary. Earliest resume2026-10-24T11:06:20UTC (24October4:36:20PM IST), only all windows available and>10%; no reset credit. Same heartbeat330minutes; previous05:10resume does not waive this fresh stop.
 
@@ -604,3 +604,7 @@ Root publication checks include19 project tests10.171s, OpenAPI/map/links/creden
 NEW usage stop2026-10-24T05:36:20UTC: primary10%remaining/weekly55%. All specialists completed; no new implementation or assignments after this boundary. Earliest resume2026-10-24T11:06:20UTC (24October4:36:20PM IST), only all windows available and>10%; no reset credit. Same heartbeat330minutes; previous05:10resume does not waive this fresh stop.
 
 Root final frontend115/8files58.52s, typecheck/build24modules190ms passed. Root actualPG520/168subtests41.80s/check0/nodrift; testDBabsent0/appCREATEDB=f/previewactive independently confirmed. Root19projecttests10.171s, schema/map/link checks passed. Seven network operations have source implementations, explicit pending acceptance; no deployment. First resume task is exact GET server-time/snapshot deadline regression, remaining concurrency/fresh review, frontend independent review/browser and edge isolated-PG/no304 design amendment. All source stays recoverable on feat/hms-foundation; fresh CI and remote SHA recorded at publication.
+
+### CHG-0033 —24October2026 — Record verified source publication and continuation
+
+Source checkpoint725234547a5063264be44f2e0ac58c83d00e4586 committed and pushed to feat/hms-foundation; remote SHA exactly matched, working tree clean at source publication. Actual source CI40066986031 observed in_progress, not a pass. Same native heartbeat successfully updated ACTIVE330minutes with fresh11:06:20UTC deadline and exact pending tasks; no reset credits. Root confirmed all specialists completed; no local visual servers launched. This follow-up is documentation-only publication evidence; verify its own remote SHA at handoff.
