@@ -35,11 +35,13 @@ Ruling: continue in existing owner-directed shared checkout/feature branch, with
 ## Task 3 — verification and publication
 
 - [x] Root inspect diff/review findings, run actual PostgreSQL suite including forward/pristine reverse/nonempty guard and retain durable evidence. Use existing private candidate validation only; no live schema or HBA changes. Revoke temporary test database creation privilege and verify disposable DB absent/old preview active.
-- [ ] Root schema/map/link/whitespace/credential checks. OpenAPI operation count46, URLset/roles/frontend unchanged. Do not repeat frontend/browser work for a schema-only change.
-- [ ] Update HMS/plan/ledger with actual counts/limits, commit/push and verify remote SHA. Inspect exact CI; distinguish source/migration test from deployment.
+- [x] Root schema/map/link/whitespace/credential checks. OpenAPI operation count46, URLset/roles/frontend unchanged. Do not repeat frontend/browser work for a schema-only change.
+- [x] Update HMS/plan/ledger with actual counts/limits, commit/push and verify remote SHA. Inspect exact CI; distinguish source/migration test from deployment.
 
 Next runtime work requires separately frozen metadata endpoints/OpenAPI/page actions/permissions/read audit/lock order, then byte/storage/parser/scanner contracts. Whole Task04 stays incomplete.
 
 ## Actual source verification —24October2026
 
 Planningd8feaad committed/pushed/remote verified before code. Initial literalRED70failed6.31s from missing model discovery, followed by focusedGREEN. MissingFK regression1RED4.97s and cached-FK1RED2.33s fixed before acceptance; original independent cached probeRED1/5.70s recheckedGREEN with tracked relatedcases4passed1.92s. Final focused112passed17.72s (79foundation+33network), check0/nodrift. Root actualPostgreSQL658passed168subtests47.16s/check0/nodrift; candidate archive51c0558d356a6ba9975bcb7d31c649635ee87b1f178e55fe07c0df4aafa9168a, private durable log retained. Rootcleanup f/0/active confirms test privilege revoked/database absent/old preview active. No source migration deployed, no new API/grant/UI/file capability. Independent review has no remaining bounded finding. Publication/CI recorded by coordinator separately.
+
+Source5aee4d29939161e09f53e862f407325daad02589 published and remote SHA verified, clean tree at publication. Exact GitHubCI40115929521 all3jobs successful, decoded658PG/168subtests54.36s/check0/no drift,132tracked frontend/typecheck/build24modules142ms,19root/15edge/OpenAPI/Compose/docs. Root candidate658PG/168subtests47.16s is distinct actual validation evidence. No source deployment.

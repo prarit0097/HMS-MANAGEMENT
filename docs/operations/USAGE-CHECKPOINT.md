@@ -1,14 +1,24 @@
 # Usage-aware HMS continuation
 
-State: ACTIVE_AFTER_ELAPSED_COOLDOWN
-checkpoint_at_utc: 2026-10-24T11:35:08Z
-resume_not_before_utc: none (17:05:08UTC deadline explicitly waived by owner16:43:13UTC)
+State: COOLDOWN_USAGE_THRESHOLD
+checkpoint_at_utc: 2026-10-24T17:29:37Z
+resume_not_before_utc: 2026-10-24T22:59:37Z
 owner_resume_at_utc: 2026-10-24T16:43:13Z
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330
 owner_schedule_override_at_utc: 2026-10-23T22:04:30Z
 
-Current owner resume: Owner explicitly requested continue after recovery, verified2026-10-24T16:43:13UTC (10:13:13PM IST), primary97%/weekly39%remaining. This waives ONLY the saved17:05:08UTC deadline from the fresh11:35:08UTC primary9%/weekly41% stop. Recovery alone did not waive it:16:40heartbeat performed checkpoint recovery only. Originalstop/deadline/history preserved in docs and ignored guard archive; no reset credits. Guardcontinue, same native heartbeat to be updated. Futurefresh<=10% still requires new actualUTC+330minutes.
+## Fresh usage checkpoint —24October2026,17:29:37UTC
+
+Authenticated coding windows: primary10%remaining, weekly26%remaining. Stop new implementation/assignments under owner rule. Checkpoint2026-10-24T17:29:37Z; resume not before2026-10-24T22:59:37Z (25October2026,04:29:37AM IST), then only all applicable windows available and>10%. Earlier16:43:13owner resume waived only the old17:05:08deadline and does not waive this fresh stop. Historical11:35:08stop and all earlier history remain preserved. Ignored usage guard records checkpoint_and_stop with this exact330minute deadline; no reset credit consumed, no repeated-reading extension.
+
+Verified source5aee4d29939161e09f53e862f407325daad02589 was pushed and remoteSHA matched, clean at source publication. Exact CI40115929521 all3jobs SUCCESS decoded658PG/168subtests54.36s/check0/nodrift,132tracked frontend/typecheck/build24modules142ms,19root/15edge/OpenAPI/Compose/docs. Root candidate658PG/168subtests47.16s and independent cached-FK review4GREEN are distinct actual evidence. AppCREATEDB=f/testDBabsent0/initialpreviewactive independently checked. No new source/runtime/live migration deployed; original47b3618preview and all other VPS apps remain unchanged.
+
+All specialists finished; no active work to redispatch. Foundation plan publication boxes now reflect verified source/CI. [Next metadata contract](../implementation/patient-document-metadata-contract.md) is saved DESIGN ONLY/UNFROZEN: four proposed metadata APIs, schemas, grants, expiry/replay, audit/lock/race/UI matrix; no API catalogue or code change. First resume task: fresh independent contract review and resolve measured COMMIT/deferred-check/driver timeouts, shared limiter/quota queries, runtime activation/discovery and metadata-only R04 usefulness, installed DRF/auth/network error normalization. Then freeze exact OpenAPI/page-actions/service execution contract before RED-first implementation. Do not repeat dormant foundation, reception/Encounter, completed network tests or initial deployment. No working uploads/scanner/ready/download, clinical/finance/MCP/backups or production release inferred. Whole HMS remains unfinished; roughly20% was a scope-based status estimate, never measured by test counts.
+
+Checkpoint publication is documentation-only; verify its remote SHA and exact CI separately. Same native heartbeat is rescheduled330minutes later, best effort requiring PC/Codex/repository/credentials. No implementation during cooldown; no duplicate automation or new deadlines on unchanged low readings.
+
+Historical owner resume (not current guard state): Owner explicitly requested continue after recovery, verified2026-10-24T16:43:13UTC (10:13:13PM IST), primary97%/weekly39%remaining. This waives ONLY the saved17:05:08UTC deadline from the fresh11:35:08UTC primary9%/weekly41% stop. Recovery alone did not waive it:16:40heartbeat performed checkpoint recovery only. Originalstop/deadline/history preserved in docs and ignored guard archive; no reset credits. Guardcontinue, same native heartbeat to be updated. Futurefresh<=10% still requires new actualUTC+330minutes.
 
 Latest source unit: dormant patient-document foundation verified658actualPG/168subtests47.16s/check0/nodrift;79newfoundationtests, fresh review resolved cached-FK model-validation finding. No API/UI/storage/scanner/ready/upload/download or live migration. Next metadata proposal remains unfrozen; no current cooldown.
 
