@@ -281,7 +281,8 @@
       "action": "Read deployment network access state",
       "operation_id": "network_policy_read",
       "permission": "platform.security.manage",
-      "implementation_status": "planned"
+      "implementation_status": "implemented",
+      "acceptance_status": "pending-security-ui-edge-acceptance"
     },
     {
       "id": "M06.network_preview",
@@ -289,7 +290,8 @@
       "action": "Preview proposed rules",
       "operation_id": "network_policy_preview",
       "permission": "platform.security.manage",
-      "implementation_status": "planned"
+      "implementation_status": "implemented",
+      "acceptance_status": "pending-security-ui-edge-acceptance"
     },
     {
       "id": "M06.network_activate",
@@ -297,7 +299,8 @@
       "action": "Apply preview with timed rollback",
       "operation_id": "network_policy_activate",
       "permission": "platform.security.manage",
-      "implementation_status": "planned"
+      "implementation_status": "implemented",
+      "acceptance_status": "pending-security-ui-edge-acceptance"
     },
     {
       "id": "M06.network_confirm",
@@ -305,7 +308,8 @@
       "action": "Keep pending policy",
       "operation_id": "network_policy_confirm",
       "permission": "platform.security.manage",
-      "implementation_status": "planned"
+      "implementation_status": "implemented",
+      "acceptance_status": "pending-security-ui-edge-acceptance"
     },
     {
       "id": "M06.network_revert",
@@ -313,7 +317,8 @@
       "action": "Restore pending fallback",
       "operation_id": "network_policy_revert",
       "permission": "platform.security.manage",
-      "implementation_status": "planned"
+      "implementation_status": "implemented",
+      "acceptance_status": "pending-security-ui-edge-acceptance"
     },
     {
       "id": "M07.network_history",
@@ -321,7 +326,8 @@
       "action": "Read bounded network change history",
       "operation_id": "network_policy_history",
       "permission": "platform.security.manage",
-      "implementation_status": "planned"
+      "implementation_status": "implemented",
+      "acceptance_status": "pending-security-ui-edge-acceptance"
     },
     {
       "id": "SYSTEM.network_edge_probe",
@@ -329,7 +335,8 @@
       "action": "Internal edge network decision",
       "operation_id": "network_policy_edge_probe",
       "permission": "internal.network.probe",
-      "implementation_status": "planned"
+      "implementation_status": "implemented",
+      "acceptance_status": "pending-security-ui-edge-acceptance"
     }
   ],
   "deferred_actions": [

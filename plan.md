@@ -10,7 +10,25 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.12.3,24October2026: ACTIVE after05:10:42UTC ownerresume, primary100%/weekly69%; saveddeadlineelapsed. NetworkB2 API/authority/transaction/OOB and StageC client next under existingcontract;39implemented46catalogued, sourcea412CI40040673163success, preview47b3618unchanged.
+**Status:** Version1.13.0: CHECKPOINTED, network B2/C source with open acceptance gates. NEW usage stop2026-10-24T05:36:20UTC: primary10%remaining/weekly55%. All specialists completed; no new implementation or assignments after this boundary. Earliest resume2026-10-24T11:06:20UTC (24October4:36:20PM IST), only all windows available and>10%; no reset credit. Same heartbeat330minutes; previous05:10resume does not waive this fresh stop.
+
+Root final frontend115/8files58.52s, typecheck/build24modules190ms passed. Root actualPG520/168subtests41.80s/check0/nodrift; testDBabsent0/appCREATEDB=f/previewactive independently confirmed. Root19projecttests10.171s, schema/map/link checks passed. Seven network operations have source implementations, explicit pending acceptance; no deployment. First resume task is exact GET server-time/snapshot deadline regression, remaining concurrency/fresh review, frontend independent review/browser and edge isolated-PG/no304 design amendment. All source stays recoverable on feat/hms-foundation; fresh CI and remote SHA recorded at publication.
+
+## Current network B2/C/D checkpoint
+
+Network B2/C source exists, acceptance incomplete: environment ceiling AND durable overlay, explicit owner/master/OS operator/fresh MFA, six strict management APIs and session-free private probe, fixed preview/rollback transactions and typed OS operations are implemented. Current-user capability and effective deployment summary are wired. OpenAPI/page actions now distinguish46 source-implemented operations from release acceptance; the seven network operations carry explicit pending-security-ui-edge-acceptance. No live operator/owner/policy/schema or runtime deployment changed.
+
+Root actual PostgreSQL frozen run:520 passed/168subtests41.80s, including12 new concurrency cases; Django check0/no migration drift. First run516passed/1failed39.23s: test reused existing trusted-proxy setting so no actual drift; corrected to assert a genuinely different fingerprint, without weakening production enforcement. Local backend492passed/28explicitPG-indexskips/168subtests43.37s. Reviewer69focused passes fixed mixed-owner GET, summary state short-circuit and unsupportedOPTIONS; independent overflow probe led2RED->503/no-write2GREEN. Final fixes lack complete fresh source re-review. Known read response timing concern: server_time selected after coherent snapshot may cross rollback; add exact RED then coherent projection fix before acceptance. Broader staff-service/operator/owner-transfer/activation-event race cases remain.
+
+Frontend source implements memory drafts, preview/apply/keep/restore, permission navigation, deadline/conflict/unknown-write gates and pinned history. Valid-JSON malformed envelopes reproduced17RED plus enum-array regression; local guards prevent crashes/false success. Specialist full115 tests (72 existing+43 network), typecheck/build pass; root rerun recorded separately. Independent frontend review and actual synthetic browser/staff walkthrough are pending.
+
+Edge source/harness is WIP NOT DEPLOYABLE. Seven source/safety tests pass; actual run failed at private PostgreSQL HBA rejection before Nginx/Gunicorn/HTTP launch. No shared HBA change made. Exact disposable DB/private config removed after zero-connection check;18185/18186 listeners absent and old preview active. Candidate-only Gunicorn26.2.0 installed in validation venv, not live venv. Independent Nginx1.24 source inspection confirms If-None-Match:* can still produce304 despite etag off; strict no304 acceptance is retained. Future explicit isolated-PG and conditional-cache design amendment needed before actual edge matrix. No runtime edge claim.
+
+- [x] B2/C source implemented with bounded automated evidence above.
+- [ ] Complete read-time boundary regression, remaining actual-PG matrix and fresh source review.
+- [ ] Independently review frontend and perform synthetic browser/staff tasks.
+- [ ] Redesign isolated PostgreSQL access/no304 edge handling before actual HTTP matrix; no live HBA changes.
+- [ ] Separately authorised deployment/recovery/release acceptance.
 
 ## 1. Global constraints and owner requirement mapping
 
@@ -807,4 +825,4 @@ Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration
 
 - 1.12.1 —24October2026: Owner explicitly continued at2026-10-24T05:10:42UTC (10:40:42AM IST). Authenticated primary100%/weekly69%remaining; saved05:04:44UTC deadline already elapsed, so no cooldown waiver or reset credit was needed. Prior stop/scheduling history preserved; guardcontinue, same heartbeat updated. Exact a412637sourceCI40040673163success observed. Resume remaining networkB2 API/authority/transactions/OOB and StageC client under frozencontract; B1/B2a/ICTHospital/initialdeployment are completed and not repeated. No new runtime feature or live deployment delivered by this resume record.
 
-- 1.12.3 —24October2026: freeze full remainingnetworkB2 API/authority/transactions/OOB/middleware plan with securityprecisions and observedREDs; backend andStageCclient inprogress, no liveguard/deployment.
+- 1.13.0 —24October2026: freeze full remainingnetworkB2 API/authority/transactions/OOB/middleware plan with securityprecisions and observedREDs; backend andStageCclient inprogress, no liveguard/deployment.

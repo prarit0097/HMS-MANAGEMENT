@@ -27,3 +27,14 @@ urlpatterns += [
     path('api/v1/platform/organisations/<str:organisation_id>/audit-events/<str:event_id>/', audit_history.AdministrationChange.as_view()),
     path('api/v1/auth/security/activity/', audit_history.OwnSecurityActivity.as_view()),
 ]
+
+from apps.core.network_api import NetworkView, EdgeProbe
+urlpatterns += [
+    path('api/v1/platform/network-policy/', NetworkView.as_view(action='read')),
+    path('api/v1/platform/network-policy/previews/', NetworkView.as_view(action='preview')),
+    path('api/v1/platform/network-policy/previews/<str:preview_id>/activate/', NetworkView.as_view(action='activate')),
+    path('api/v1/platform/network-policy/changes/<str:change_id>/confirm/', NetworkView.as_view(action='confirm')),
+    path('api/v1/platform/network-policy/changes/<str:change_id>/revert/', NetworkView.as_view(action='revert')),
+    path('api/v1/platform/network-policy/history/', NetworkView.as_view(action='history')),
+    path('api/v1/network-policy/edge-probe/', EdgeProbe.as_view()),
+]

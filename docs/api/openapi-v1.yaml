@@ -3399,7 +3399,7 @@
         "summary": "Read deployment network access state",
         "description": "PLANNED Stage A contract; not implemented or deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation.",
         "x-permission": "platform.security.manage",
-        "x-implementation-status": "planned",
+        "x-implementation-status": "implemented",
         "responses": {
           "200": {
             "description": "Success",
@@ -3527,7 +3527,8 @@
               }
             }
           }
-        }
+        },
+        "x-acceptance-status": "pending-security-ui-edge-acceptance"
       }
     },
     "/platform/network-policy/previews/": {
@@ -3536,7 +3537,7 @@
         "summary": "Preview a proposed network policy",
         "description": "PLANNED Stage A contract; not implemented or deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation. POST strict object JSON only; no files, coercion or unknown fields; read at most32768 bytes regardless of Content-Length. Lock-order/post-wait current authority/path/revision/deadline rechecks apply to first attempts and replays. Browser/proxy must not automatically retry; ambiguous response requires state/history reload and exact operation retry only.",
         "x-permission": "platform.security.manage",
-        "x-implementation-status": "planned",
+        "x-implementation-status": "implemented",
         "responses": {
           "201": {
             "description": "Success",
@@ -3776,7 +3777,8 @@
               }
             }
           }
-        }
+        },
+        "x-acceptance-status": "pending-security-ui-edge-acceptance"
       }
     },
     "/platform/network-policy/previews/{preview_id}/activate/": {
@@ -3785,7 +3787,7 @@
         "summary": "Apply preview with five-minute rollback",
         "description": "PLANNED Stage A contract; not implemented or deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation. POST strict object JSON only; no files, coercion or unknown fields; read at most32768 bytes regardless of Content-Length. Lock-order/post-wait current authority/path/revision/deadline rechecks apply to first attempts and replays. Browser/proxy must not automatically retry; ambiguous response requires state/history reload and exact operation retry only. expected_revision equals preview base revision. Fixed candidate/fallback and300-second rollback deadline; current IP must also pass candidate. At most one pending change.",
         "x-permission": "platform.security.manage",
-        "x-implementation-status": "planned",
+        "x-implementation-status": "implemented",
         "responses": {
           "200": {
             "description": "Success",
@@ -4004,7 +4006,8 @@
               }
             }
           }
-        }
+        },
+        "x-acceptance-status": "pending-security-ui-edge-acceptance"
       }
     },
     "/platform/network-policy/changes/{change_id}/confirm/": {
@@ -4013,7 +4016,7 @@
         "summary": "Keep the pending policy",
         "description": "PLANNED Stage A contract; not implemented or deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation. POST strict object JSON only; no files, coercion or unknown fields; read at most32768 bytes regardless of Content-Length. Lock-order/post-wait current authority/path/revision/deadline rechecks apply to first attempts and replays. Browser/proxy must not automatically retry; ambiguous response requires state/history reload and exact operation retry only. expected_revision equals original activation revision. Equality with rollback deadline is expired409; confirm/revert cannot extend deadline. Exact terminal replay returns current terminal outcome without write; opposite/later-state actions conflict.",
         "x-permission": "platform.security.manage",
-        "x-implementation-status": "planned",
+        "x-implementation-status": "implemented",
         "responses": {
           "200": {
             "description": "Success",
@@ -4232,7 +4235,8 @@
               }
             }
           }
-        }
+        },
+        "x-acceptance-status": "pending-security-ui-edge-acceptance"
       }
     },
     "/platform/network-policy/changes/{change_id}/revert/": {
@@ -4241,7 +4245,7 @@
         "summary": "Restore the pending change fallback",
         "description": "PLANNED Stage A contract; not implemented or deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation. POST strict object JSON only; no files, coercion or unknown fields; read at most32768 bytes regardless of Content-Length. Lock-order/post-wait current authority/path/revision/deadline rechecks apply to first attempts and replays. Browser/proxy must not automatically retry; ambiguous response requires state/history reload and exact operation retry only. expected_revision equals original activation revision. Equality with rollback deadline is expired409; confirm/revert cannot extend deadline. Exact terminal replay returns current terminal outcome without write; opposite/later-state actions conflict.",
         "x-permission": "platform.security.manage",
-        "x-implementation-status": "planned",
+        "x-implementation-status": "implemented",
         "responses": {
           "200": {
             "description": "Success",
@@ -4460,7 +4464,8 @@
               }
             }
           }
-        }
+        },
+        "x-acceptance-status": "pending-security-ui-edge-acceptance"
       }
     },
     "/platform/network-policy/history/": {
@@ -4469,7 +4474,7 @@
         "summary": "Read bounded network access change history",
         "description": "PLANNED Stage A contract; not implemented or deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation.",
         "x-permission": "platform.security.manage",
-        "x-implementation-status": "planned",
+        "x-implementation-status": "implemented",
         "responses": {
           "200": {
             "description": "Success",
@@ -4662,7 +4667,8 @@
             },
             "description": "Single bounded outcome filter, at most11characters."
           }
-        ]
+        ],
+        "x-acceptance-status": "pending-security-ui-edge-acceptance"
       }
     },
     "/network-policy/edge-probe/": {
@@ -4671,7 +4677,7 @@
         "summary": "Internal edge network decision probe",
         "description": "PLANNED network-only internal probe, no staff authentication. Exact loopback peer must match explicit HMS_NETWORK_PROBE_PEERS, marker X-HMS-Network-Probe exactly1, empty query/body; marker alone insufficient. Invalid context404 before policy DB access. Resolver/environment AND time-selected overlay still enforced. Validated probe skips identity/session middleware; Cookie/Authorization ignored, no session creation/mutation, Set-Cookie or WWW-Authenticate. Fixed internal Nginx GET subrequest only; external exact route blocked404, ordinary proxied requests overwrite marker empty. HTTPS/trusted-forwarder topology, full portal auth_request satisfy all, no cache/retry and origin firewall separately verified. Does not grant patient access.",
         "x-permission": "internal.network.probe",
-        "x-implementation-status": "planned",
+        "x-implementation-status": "implemented",
         "security": [],
         "responses": {
           "204": {
@@ -4730,7 +4736,8 @@
               }
             }
           }
-        }
+        },
+        "x-acceptance-status": "pending-security-ui-edge-acceptance"
       }
     }
   },

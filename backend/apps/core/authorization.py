@@ -32,6 +32,9 @@ def current_user(user):
     roles = sorted({m.role for m in memberships})
     branches = {str(m.branch_id): {'id': str(m.branch_id), 'name': m.branch.name, 'code': m.branch.code} for m in memberships}
     permissions = sorted(set().union(*(ROLE_PERMISSIONS.get(role, set()) for role in roles)))
+    from .network_authority import network_entitled
+    if network_entitled(user):
+        permissions = sorted(set(permissions) | {'platform.security.manage'})
     branch_permissions = {branch: set() for branch in branches}
     for membership in memberships:
         branch_permissions[str(membership.branch_id)].update(ROLE_PERMISSIONS.get(membership.role, set()))

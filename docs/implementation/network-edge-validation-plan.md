@@ -10,6 +10,10 @@
 
 **Spec:** `docs/implementation/network-access-contract.md` §10, `network-integration-plan.md`, `AGENTS.md`, HMS network status, plan Task03 and implementation ledger. All below are planned checks, not passed evidence.
 
+**Checkpoint — coordinator bounded stop, 24 October 2026:** source is WIP and not deployable. Planning unit frozen/pushed at `c9c9eecdaa9434e0fd488b18605520cac2d40544` before CODEGATE; subsequent edge implementation remains coordinator-owned publication work. Local four source assertions failed for intended missing protections, then passed. Two runner safety/render assertions failed before runner implementation, then passed. Cleanup regression had one Windows mocking setup error, corrected to meaningful RED before fix; final seven tests passed in0.198seconds and Python compilation passed. Coordinator actual runner preflight stopped with `OperationalError`, independently classified HBA rejection (not password failure or missing DB); no HTTP/Nginx process started. Coordinator owns exact disposable DB/config cleanup. No actual Nginx parse, scheme, HTTP/cache, timeout, DB failure or fallback acceptance passed.
+
+**Known blocker requiring explicit next design amendment:** current `etag off` plus `if_modified_since off` cannot suppress standalone `If-None-Match: *`304 on stock Nginx1.24 static responses. Official version-pinned [filter source](https://raw.githubusercontent.com/nginx/nginx/release-1.24.0/src/http/modules/ngx_http_not_modified_filter_module.c) tests wildcard before absence of ETag and emits304. Harness deliberately keeps its no304 assertion; do not weaken the frozen requirement or claim the current source verified. A future reviewed solution must preserve the access phase, guard inheritance, security headers and fixed isolation scope; no rewrite-time return that bypasses the guard. HBA rejection requires a future independently isolated PostgreSQL plan, not shared/live HBA mutation. No further implementation unit is authorized at this checkpoint.
+
 ## Scope, ownership and exact files
 
 - Create `infra/edge/network-guard.conf`: server-context auth_request/satisfy-all/no-store/static conditional-cache directives plus exact internal check and external probe blocker. Fixed production backend 127.0.0.1:8185; isolated renderer changes only this fixed endpoint to 18185.
@@ -32,7 +36,7 @@ Gunicorn uses source `hms.wsgi:application`, `DEBUG=false`, fixed allowed host, 
 
 1. Network allow grants no staff authority: valid Basic plus allowed socket IP reaches application authentication, anonymous API remains 401/403. Invalid/missing Basic denies even when network allows; valid Basic cannot overcome network denial (`satisfy all`).
 2. Visitor marker, XFF, Forwarded, cookies and Authorization cannot select private context or rewrite the socket identity. `127.0.0.1` is allowed client and socket-bound `127.0.0.2` denied client; requests use real HTTPS sockets, not a spoofed header simulation.
-3. All app-serving locations inherit the guard, including internal SPA redirect to index. Exact internal location is inaccessible externally and breaks auth recursion. Public exact probe returns404; query/body/method invalid contexts remain denied by backend.
+3. All app-serving locations inherit the guard, including internal SPA redirect to index. Exact internal location is inaccessible externally and breaks auth recursion. Public exact probe returns404; query/body/marker/peer invalid contexts remain404 at backend. Valid HEAD may mirror GET204 with empty body; unsupported POST returns405 per frozen parent §37. Nginx always sends fixed GET.
 4. Probe DB failure/timeout fails closed, never stale allow or HTML200. Backend API still evaluates independently after edge allow. No error_page converts denial/unavailable into SPA success.
 5. No-store must coexist with all existing security headers: put Cache-Control at the same server context as existing add_header directives, and remove conditional304/etag behavior for protected static content. Test range and HEAD rather than assuming caching directives prove access control. Already downloaded bytes are outside revocation guarantees.
 
@@ -44,7 +48,7 @@ Every row records observed status plus bounded header/body assertions. Reports o
 |---|---|
 | Direct trusted-peer probe GET, marker1, HTTPS forwarded by actual Gunicorn | Empty204, no Location/Set-Cookie/WWW-Authenticate; no redirect loop |
 | Direct probe denied policy / missing or unavailable state | Empty403 /503, no-store; no session work (backend specialist independently tests session mutation) |
-| Direct probe wrong marker, absent marker, body, query or method; untrusted peer |404 for invalid context; secure redirect may precede probe for untrusted HTTP peer; forged XFP must not create HTTPS state |
+| Direct probe wrong marker, absent marker, body or query; valid HEAD/unsupported POST; untrusted peer |404 for invalid context; valid HEAD204(empty), unsupported POST405; secure redirect may precede probe for untrusted HTTP peer; forged XFP must not create HTTPS state |
 | Allowed Basic client HTML `/`, `/index.html`, nested SPA, asset, API, login GET | App HTML/assets200; anonymous protected API401/403 distinguished from edge block, login GET contract status rather than invented success |
 | Same paths from denied socket client with valid Basic |403 and no protected body, including nested SPA redirect/index and missing asset |
 | Missing/wrong Basic from allowed/denied socket |401/403; no protected content; explicitly prove Basic AND network |
@@ -61,10 +65,10 @@ Rollback fixture uses source services/models only for generated test data; no mo
 
 ## Tasks and gates
 
-- [x] Coordinator reviewed plan and accepted with precisions before code: exact DB/no admin credentials; separate source/runtime paths; coordinator-only DB lifecycle/package install; owned process-group cleanup; actual2–3second rollback fixture; wrong-port owned-backend DB failure. Specialist amended this plan; production code remains gated until coordinator freezes this unit and communicates CODEGATE.
-- [ ] Write `test_source_contract.py`, run it against current source, retain exact RED failures. Missing guard/integration should fail for intended reasons rather than environment collection errors.
+- [x] Coordinator reviewed plan and accepted with precisions before code: exact DB/no admin credentials; separate source/runtime paths; coordinator-only DB lifecycle/package install; owned process-group cleanup; actual2–3second rollback fixture; wrong-port owned-backend DB failure. Coordinator froze/pushed planning unit then cleared CODEGATE.
+- [x] Write `test_source_contract.py`, run it against current source, retain exact RED failures. Missing guard/integration failed for intended reasons rather than environment collection errors.
 - [ ] Implement minimal reusable guard and hostinger source integration; run source checks GREEN. Parse rendered actual Nginx config, retain `nginx -V`/`-t`; parsing is not runtime acceptance.
-- [ ] Implement private-input runner and synthetic fixtures after backend interfaces stabilize; fail closed on unsafe inputs. Run local syntax/unit checks without printing secrets.
+- [x] Implement private-input runner and synthetic fixtures after backend interfaces stabilize; fail closed on unsafe inputs. Local source/safety/regression checks seven GREEN and compilation passed; actual fixture execution blocked at DB connection preflight.
 - [ ] Coordinator transfers reviewed source and invokes runner in exact prefix with disposable private TLS PG settings. No agent SSH/VPS mutation.
 - [ ] Run actual non-DEBUG Gunicorn/Nginx HTTP matrix, record counts/status/headers, failure restoration, residual gaps and runtime versions.
 - [ ] Coordinator/fresh reviewer reviews source and observed edge evidence. Coordinator alone incorporates accurate HMS/plan/ledger updates, commits/pushes and verifies remote SHA.

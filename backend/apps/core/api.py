@@ -210,4 +210,13 @@ def platform_summary(request):
     organisation = Branch.objects.filter(id__in=branches).select_related('organisation').first().organisation
     scoped = Branch.objects.filter(organisation=organisation)
     staff = get_user_model().objects.filter(memberships__branch__in=scoped).distinct()
-    return Response({'organisation': {'id': str(organisation.id), 'name': organisation.name}, 'branches_count': scoped.count(), 'staff_count': staff.count(), 'active_staff_count': staff.filter(is_active=True, memberships__branch__in=scoped, memberships__is_active=True).distinct().count(), 'security': {'ip_mode': 'allowlist_only' if settings.HMS_IP_ALLOWLIST_ONLY else 'allow_authenticated'}, 'modules': [{'name': name, 'status': state} for name, state in [('Reception', 'foundation'), ('Admissions', 'foundation'), ('Clinical signing', 'planned'), ('Pharmacy', 'planned'), ('Accounts', 'planned'), ('MCP', 'planned'), ('Backups', 'planned')]]})
+    from .network_environment import environment_snapshot
+    from .network_snapshot import load_network_snapshot, NetworkStateUnavailable
+    from .network_authority import NetworkError
+    try:
+        environment = environment_snapshot()
+        overlay = load_network_snapshot(timezone.now())
+        mode = environment.allowlist_only or overlay.effective_policy['allowlist_only']
+    except NetworkStateUnavailable:
+        raise NetworkError('network_policy_unavailable', 503) from None
+    return Response({'organisation': {'id': str(organisation.id), 'name': organisation.name}, 'branches_count': scoped.count(), 'staff_count': staff.count(), 'active_staff_count': staff.filter(is_active=True, memberships__branch__in=scoped, memberships__is_active=True).distinct().count(), 'security': {'ip_mode': 'allowlist_only' if mode else 'allow_authenticated', 'policy_scope': 'effective_deployment', 'blocked_addresses_apply': True}, 'modules': [{'name': name, 'status': state} for name, state in [('Reception', 'foundation'), ('Admissions', 'foundation'), ('Clinical signing', 'planned'), ('Pharmacy', 'planned'), ('Accounts', 'planned'), ('MCP', 'planned'), ('Backups', 'planned')]]})

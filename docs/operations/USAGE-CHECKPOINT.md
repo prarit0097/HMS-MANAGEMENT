@@ -1,14 +1,18 @@
 # Usage-aware HMS continuation
 
-State: ACTIVE_AFTER_ELAPSED_COOLDOWN
-checkpoint_at_utc: 2026-10-23T23:34:44Z
-resume_not_before_utc: none (prior2026-10-24T05:04:44Z deadline elapsed)
+State: CHECKPOINTED_USAGE_COOLDOWN
+checkpoint_at_utc: 2026-10-24T05:36:20Z
+resume_not_before_utc: 2026-10-24T11:06:20Z
 owner_resume_at_utc: 2026-10-24T05:10:42Z
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330
 owner_schedule_override_at_utc: 2026-10-23T22:04:30Z
 
-Current resume: Owner explicitly continued at2026-10-24T05:10:42UTC (10:40:42AM IST). Authenticated primary100%/weekly69%remaining; saved05:04:44UTC deadline already elapsed, so no cooldown waiver or reset credit was needed. Prior stop/scheduling history preserved; guardcontinue, same heartbeat updated. Exact a412637sourceCI40040673163success observed. Resume remaining networkB2 API/authority/transactions/OOB and StageC client under frozencontract; B1/B2a/ICTHospital/initialdeployment are completed and not repeated. No new runtime feature or live deployment delivered by this resume record.
+Latest stop: NEW usage stop2026-10-24T05:36:20UTC: primary10%remaining/weekly55%. All specialists completed; no new implementation or assignments after this boundary. Earliest resume2026-10-24T11:06:20UTC (24October4:36:20PM IST), only all windows available and>10%; no reset credit. Same heartbeat330minutes; previous05:10resume does not waive this fresh stop.
+
+Root final frontend115/8files58.52s, typecheck/build24modules190ms passed. Root actualPG520/168subtests41.80s/check0/nodrift; testDBabsent0/appCREATEDB=f/previewactive independently confirmed. Root19projecttests10.171s, schema/map/link checks passed. Seven network operations have source implementations, explicit pending acceptance; no deployment. First resume task is exact GET server-time/snapshot deadline regression, remaining concurrency/fresh review, frontend independent review/browser and edge isolated-PG/no304 design amendment. All source stays recoverable on feat/hms-foundation; fresh CI and remote SHA recorded at publication.
+
+Historical resume: Owner explicitly continued at2026-10-24T05:10:42UTC (10:40:42AM IST). Authenticated primary100%/weekly69%remaining; saved05:04:44UTC deadline already elapsed, so no cooldown waiver or reset credit was needed. Prior stop/scheduling history preserved; guardcontinue, same heartbeat updated. Exact a412637sourceCI40040673163success observed. Resume remaining networkB2 API/authority/transactions/OOB and StageC client under frozencontract; B1/B2a/ICTHospital/initialdeployment are completed and not repeated. No new runtime feature or live deployment delivered by this resume record.
 
 Historical stop23:34:44UTC primary9%/weekly70%remaining; earliest24October10:34:44AM IST plusallwindows>10. B2a internal selector source verified432PG/168subtests20.22s/local416/16skips168subtests/freshreview81+11probes; allagentscompleted. No source deployment/runtime policy activation. ParentB2 transactionalAPI/OOB/env/authority integration next aftercooldown; source39API/46catalogued unchanged. Sameheartbeat330min; priorownerschedule/historybelow cannotwaivethisfreshstop. Do not extend onrepeatedlowreadings.
 

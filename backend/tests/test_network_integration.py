@@ -1,5 +1,8 @@
 from django.test import override_settings
 from rest_framework.test import APIClient
+import pytest
+
+pytestmark = pytest.mark.django_db
 
 @override_settings(HMS_IP_ALLOWLIST_ONLY=True, HMS_IP_ALLOWLIST=[], HMS_IP_BLOCKLIST=[], HMS_TRUSTED_PROXIES=())
 def test_policy_denies_auth_bootstrap_and_spoofed_forwarded_header():
