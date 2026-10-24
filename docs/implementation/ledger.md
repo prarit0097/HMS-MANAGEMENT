@@ -1,5 +1,11 @@
 # SDD ledger — plan: plan.md
 
+## Patient document foundation — planning gate frozen
+
+Architecture, UI and security proposals plus fresh independent review are recorded in [document review](patient-documents-independent-review.md). Ruling: choose application-mediated private delivery later; next source unit is ONLY the [frozen three-model foundation](patient-document-foundation-contract.md), executed through [its plan](patient-document-foundation-plan.md). PatientDocumentIntent holds registration JPEG/PNG declared metadata/pending-or-withdrawn/fixed30minute expiry; DocumentIntentReceipt holds actor+operation+key/result pointers; DocumentAccessEvent provides a bounded dedicated disclosure-accounting schema. All parent references PROTECT; guarded reverse refuses nonempty tables before DDL. Digest length AND shape and precise withdrawal/event-state constraints receive RED tests before code. No branch duplication/encounter link, role grant, endpoint, OpenAPI change, page, storage/scanner/outbox/ready state or deployed migration. Later document capability requires exact API/page contracts, current branch/category authority, committed read audit and actual storage/parser/scanner/key/worker verification. Clinical references/PDF/delivery remain planned. No application tests run for this documentation gate.
+
+Exact source44a7dcd2d5064e42c922a0315e49b5f115127504 pushed/remote SHA verified. GitHubCI40114749901 completed all3jobs success; decoded579 PostgreSQL tests/168subtests46.14s/check0/no migration drift,132tracked frontend tests/typecheck/build24modules153ms,19root/15edge/OpenAPI/Compose/docs. Earlierfc2ec628 CI40113062043 independently decoded577PG/168subtests45.70s,132frontend/build159ms,19root/schema/docs; it predates final depth fix. These are CI/source evidence, not deployment.
+
 ## Network source acceptance — 24 October 2026
 
 The bounded Task03 B2/C/D source slice is synthetically verified, not deployed. Six management APIs and the private probe retain the frozen owner/master/OS-operator/recent-MFA ceiling, environment AND durable policy, fixed rollback, no-store and session/CSRF requirements. No new endpoint, migration or permission widening accompanies this closure.

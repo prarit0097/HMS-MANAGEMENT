@@ -10,7 +10,13 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
-**Status:** Version1.15.0 ACTIVE. Owner explicitly requested continue after recovery, verified2026-10-24T16:43:13UTC (10:13:13PM IST), primary97%/weekly39%remaining. This waives ONLY the saved17:05:08UTC deadline from the fresh11:35:08UTC primary9%/weekly41% stop. Recovery alone did not waive it:16:40heartbeat performed checkpoint recovery only. Originalstop/deadline/history preserved in docs and ignored guard archive; no reset credits. Guardcontinue, same native heartbeat to be updated. Futurefresh<=10% still requires new actualUTC+330minutes.
+**Status:** Version1.16.0 ACTIVE. Owner explicitly requested continue after recovery, verified2026-10-24T16:43:13UTC (10:13:13PM IST), primary97%/weekly39%remaining. This waives ONLY the saved17:05:08UTC deadline from the fresh11:35:08UTC primary9%/weekly41% stop. Recovery alone did not waive it:16:40heartbeat performed checkpoint recovery only. Originalstop/deadline/history preserved in docs and ignored guard archive; no reset credits. Guardcontinue, same native heartbeat to be updated. Futurefresh<=10% still requires new actualUTC+330minutes.
+
+Exact source44a7dcd2d5064e42c922a0315e49b5f115127504 pushed/remote SHA verified. GitHubCI40114749901 completed all3jobs success; decoded579 PostgreSQL tests/168subtests46.14s/check0/no migration drift,132tracked frontend tests/typecheck/build24modules153ms,19root/15edge/OpenAPI/Compose/docs. Earlierfc2ec628 CI40113062043 independently decoded577PG/168subtests45.70s,132frontend/build159ms,19root/schema/docs; it predates final depth fix. These are CI/source evidence, not deployment.
+
+## Patient document foundation — planning gate frozen
+
+Architecture, UI and security proposals plus fresh independent review are recorded in [document review](docs/implementation/patient-documents-independent-review.md). Ruling: choose application-mediated private delivery later; next source unit is ONLY the [frozen three-model foundation](docs/implementation/patient-document-foundation-contract.md), executed through [its plan](docs/implementation/patient-document-foundation-plan.md). PatientDocumentIntent holds registration JPEG/PNG declared metadata/pending-or-withdrawn/fixed30minute expiry; DocumentIntentReceipt holds actor+operation+key/result pointers; DocumentAccessEvent provides a bounded dedicated disclosure-accounting schema. All parent references PROTECT; guarded reverse refuses nonempty tables before DDL. Digest length AND shape and precise withdrawal/event-state constraints receive RED tests before code. No branch duplication/encounter link, role grant, endpoint, OpenAPI change, page, storage/scanner/outbox/ready state or deployed migration. Later document capability requires exact API/page contracts, current branch/category authority, committed read audit and actual storage/parser/scanner/key/worker verification. Clinical references/PDF/delivery remain planned. No application tests run for this documentation gate.
 
 ## Network source acceptance — 24 October 2026
 
@@ -531,6 +537,8 @@ Consumes: Task 02; produces section 8 IP evaluation/preview functions. Pages M06
 - [ ] Update docs and commit/push `feat: enforce trusted network access policies`.
 
 ### Task 04 — Patients, protected files, appointments and queues
+
+Next bounded source unit: [document foundation plan](docs/implementation/patient-document-foundation-plan.md), schema only. HTTP/file features remain unfrozen/planned.
 
 Files: `backend/apps/patients/{models,contracts,services,selectors,documents,api}.py`, `backend/apps/reception/{models,contracts,services,api}.py`, initial `backend/apps/coverage/{models,contracts,selectors}.py`, their `tests/`, `frontend/src/features/{patients,reception}/`, shared payer-strip component, `e2e/reception.spec.ts`.
 Consumes: access/IP/audit; produces register/search/book/check-in and initial `get_coverage_summary()` contracts for downstream portals; Task 12 extends case management. Pages R01–R06/R12.
