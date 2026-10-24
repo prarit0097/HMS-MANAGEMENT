@@ -1,5 +1,12 @@
 # SDD ledger — plan: plan.md
 
+## Gateway D2 amendment frozen before code
+
+D2 edge amendment frozen after independent design/security review: guarded noncached outer Nginx proxy forwards only fixedHost/Range over private0600 Unix socket to sibling static server; strips all conditional/session/auth/body headers to prevent inner304, explicit proxy_cacheoff prevents outerconditionalfilter. PreserveBasicANDauth_request/no-store/CSP/HSTS for every public static route. Separate exact ephemeralTLS PG17.11 container/network/path/loopback15549 with app-only private config replaces rejected sharedPG connection; no sharedHBA/globalmodule/liveproxy changes. Token+ID+mount receipts and scoped interrupted-lifecycle cleanup mandatory. Exact files/resources/startup/HBA/socket fault/test contracts in network-edge-validation-plan.md. Source-backed inference requires actual wildcard/no304 RED and runtimeHTTP proof; not deployment approval.
+
+- Ruling: same-process privateUnix static upstream retains mature path/range/MIME handling and needs no dependency/extraTCPstaticlistener; customPython responder rejected as larger security surface. Dedicated ephemeralPG avoids all sharedHBA edits. Costs: extra private socket/lifecycle/config/test surface and384MiB bounded testcontainer. Root-only provisioning/cleanup, source-onlytemplates, future productionworker/socketpermissions separate StageE. Independent reviewer precisions mandatory; current code WIP until actual evidence.
+
+
 ## Independent UI repair gate frozen
 
 Frozen independent UI review repair: all network request success/error settlements bind their dispatch context generation; navigation/reload/offline invalidate them. Stale POST releases only its busy lock and cannot overwrite newer GET state, show old messages/errors or trigger reload. Offline cannot be cleared by a prior GET; reconnect requires an explicit successful Reload status. Draft memory is retained. Local bounded validation of error message/code/known field-array projections prevents .join/.startsWith crashes; malformed POST is unknown outcome, malformed GET unavailable. No shared API helper, endpoint/schema or permission changes. Independent executable REDs reproduced all3Important findings before production changes; portable regressions and fresh independent review required.

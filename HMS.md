@@ -1,6 +1,6 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.13.4 | Updated: 24 October 2026, Asia/Calcutta
+Document version: 1.13.5 | Updated: 24 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
 Current state: **ACTIVE — scheduled resume after elapsed cooldown.** Scheduled resume2026-10-24T11:07:26UTC after saved11:06:20UTC deadline elapsed. Authenticated primary100%/weekly55%remaining at entry; subsequent guardcontinue minimum54%. No owner waiver or reset credit needed. Historical05:36stop preserved; no active cooldown. Exactd33937f CI40067046203success decoded520PG/168subtests34.29s,115frontend/typecheck/build,19root/schema/docs; source7252345CI40066986031cancelled by laterpush, never claimedpassed. Resume exactGETtime boundary, independentUIreview and edgeisolation/cache design; no repeateddeployment.
 
@@ -628,3 +628,9 @@ Independent UI review has three executable Important findings (late activation o
 ### CHG-0036 —24October2026 — Freeze independent network UI repairs
 
 Frozen independent UI review repair: all network request success/error settlements bind their dispatch context generation; navigation/reload/offline invalidate them. Stale POST releases only its busy lock and cannot overwrite newer GET state, show old messages/errors or trigger reload. Offline cannot be cleared by a prior GET; reconnect requires an explicit successful Reload status. Draft memory is retained. Local bounded validation of error message/code/known field-array projections prevents .join/.startsWith crashes; malformed POST is unknown outcome, malformed GET unavailable. No shared API helper, endpoint/schema or permission changes. Independent executable REDs reproduced all3Important findings before production changes; portable regressions and fresh independent review required.
+
+### CHG-0037 —24October2026 — Freeze isolated gateway D2 amendment
+
+D2 edge amendment frozen after independent design/security review: guarded noncached outer Nginx proxy forwards only fixedHost/Range over private0600 Unix socket to sibling static server; strips all conditional/session/auth/body headers to prevent inner304, explicit proxy_cacheoff prevents outerconditionalfilter. PreserveBasicANDauth_request/no-store/CSP/HSTS for every public static route. Separate exact ephemeralTLS PG17.11 container/network/path/loopback15549 with app-only private config replaces rejected sharedPG connection; no sharedHBA/globalmodule/liveproxy changes. Token+ID+mount receipts and scoped interrupted-lifecycle cleanup mandatory. Exact files/resources/startup/HBA/socket fault/test contracts in network-edge-validation-plan.md. Source-backed inference requires actual wildcard/no304 RED and runtimeHTTP proof; not deployment approval.
+
+Root preflight Docker29.3.0/local pinned image/UID999+GID999/freeports/memory and actual image entrypoint checked; no live change or D2test pass. Independent review found no architectural blocker after bootstrap/HBA/run-token/socket-restart/external-probe precisions.
