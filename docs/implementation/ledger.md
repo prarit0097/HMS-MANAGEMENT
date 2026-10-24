@@ -1,5 +1,12 @@
 # SDD ledger — plan: plan.md
 
+## Independent UI repair gate frozen
+
+Frozen independent UI review repair: all network request success/error settlements bind their dispatch context generation; navigation/reload/offline invalidate them. Stale POST releases only its busy lock and cannot overwrite newer GET state, show old messages/errors or trigger reload. Offline cannot be cleared by a prior GET; reconnect requires an explicit successful Reload status. Draft memory is retained. Local bounded validation of error message/code/known field-array projections prevents .join/.startsWith crashes; malformed POST is unknown outcome, malformed GET unavailable. No shared API helper, endpoint/schema or permission changes. Independent executable REDs reproduced all3Important findings before production changes; portable regressions and fresh independent review required.
+
+- Ruling: local defensive envelope checks repair this bounded client without silently changing error behavior of other hospital pages. Generation changes invalidate server binding context while preserving unsaved draft; cost is explicit reload after ambiguous/stale work, never false success. Root read source/probes/design and approved production code only after this publication.
+
+
 ## Read-time correction frozen before code
 
 Frozen narrow read-time amendment: read_network_state captures started_at before preliminary authority and selected_at after owner-label/environment reads; backwards movement fails503. Final authority receives selected_at and its returned coherent snapshot supplies ALL policy/revision/pending fields and identical server_time, with initial/final owner equality. No GET writes/new schemas/permission widening. Real API RED4failed/3passed2.94s reproduced equality/after rollback candidate, backwardclock and stale revision after real reconciliation before code. Existing exact API schema and fixed300second deadlines remain. Remaining4actualPG race scenarios are frozen in network-read-time-plan.md; new code awaits this gate.

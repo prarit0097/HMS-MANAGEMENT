@@ -1,6 +1,6 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.13.3 | Updated: 24 October 2026, Asia/Calcutta
+Document version: 1.13.4 | Updated: 24 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
 Current state: **ACTIVE — scheduled resume after elapsed cooldown.** Scheduled resume2026-10-24T11:07:26UTC after saved11:06:20UTC deadline elapsed. Authenticated primary100%/weekly55%remaining at entry; subsequent guardcontinue minimum54%. No owner waiver or reset credit needed. Historical05:36stop preserved; no active cooldown. Exactd33937f CI40067046203success decoded520PG/168subtests34.29s,115frontend/typecheck/build,19root/schema/docs; source7252345CI40066986031cancelled by laterpush, never claimedpassed. Resume exactGETtime boundary, independentUIreview and edgeisolation/cache design; no repeateddeployment.
 
@@ -624,3 +624,7 @@ All specialists were completed at initial inventory; backend timing/regression, 
 Frozen narrow read-time amendment: read_network_state captures started_at before preliminary authority and selected_at after owner-label/environment reads; backwards movement fails503. Final authority receives selected_at and its returned coherent snapshot supplies ALL policy/revision/pending fields and identical server_time, with initial/final owner equality. No GET writes/new schemas/permission widening. Real API RED4failed/3passed2.94s reproduced equality/after rollback candidate, backwardclock and stale revision after real reconciliation before code. Existing exact API schema and fixed300second deadlines remain. Remaining4actualPG race scenarios are frozen in network-read-time-plan.md; new code awaits this gate.
 
 Independent UI review has three executable Important findings (late activation overwrite, malformed error fields crash, offline lateGET clears reload gate), all pending correction and fresh review. No acceptance/deployment claim.
+
+### CHG-0036 —24October2026 — Freeze independent network UI repairs
+
+Frozen independent UI review repair: all network request success/error settlements bind their dispatch context generation; navigation/reload/offline invalidate them. Stale POST releases only its busy lock and cannot overwrite newer GET state, show old messages/errors or trigger reload. Offline cannot be cleared by a prior GET; reconnect requires an explicit successful Reload status. Draft memory is retained. Local bounded validation of error message/code/known field-array projections prevents .join/.startsWith crashes; malformed POST is unknown outcome, malformed GET unavailable. No shared API helper, endpoint/schema or permission changes. Independent executable REDs reproduced all3Important findings before production changes; portable regressions and fresh independent review required.
