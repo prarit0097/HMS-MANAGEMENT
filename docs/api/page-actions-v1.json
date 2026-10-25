@@ -1,6 +1,6 @@
 {
-  "version": "0.6.0",
-  "scope": "Phase A subset of plan.md page catalogue. API contract existence is distinct from implementation/verification/deployment. Frontend combines subset pages into tabs; not every API action has a UI control yet. Version0.6 catalogs46 source-implemented operations, including seven network operations with bounded synthetic source acceptance; not deployed.",
+  "version": "0.7.0",
+  "scope": "Page-action capability mapping; API existence is distinct from an implemented staff control. Version0.7 catalogues50 operations:46 source-implemented and4 PLANNED registration document metadata operations. Planned contracts are not implementation, verification, runtime enablement or deployment. B1 is pure helpers only; B2 HTTP/services/roles/DB/limiter require separate runtime gates. R04 document UI is deferred until working ingestion. Production deployment and hospital release remain separate.",
   "actions": [
     {
       "id": "system.health",
@@ -337,6 +337,54 @@
       "permission": "internal.network.probe",
       "implementation_status": "implemented",
       "acceptance_status": "synthetic-source-verified-not-deployed"
+    },
+    {
+      "id": "R04.listPatientDocumentIntents",
+      "page": "R04",
+      "action": "Deferred API mapping: List registration document intent metadata",
+      "operation_id": "listPatientDocumentIntents",
+      "permission": "patients.read AND documents.registration.read",
+      "implementation_status": "planned",
+      "acceptance_status": "not-implemented-not-verified-not-deployed",
+      "ui_status": "deferred-ui",
+      "implemented_control": false,
+      "description": "API-only future capability mapping. No R04 entry, fetch, count, detail/withdraw control or file chooser until separately frozen working ingestion/UI. B1 pure helpers introduce no routes/grants/DB; runtime flag defaults false and permission strings never imply availability."
+    },
+    {
+      "id": "R04.createPatientDocumentIntent",
+      "page": "R04",
+      "action": "Deferred API mapping: Declare registration document intent metadata",
+      "operation_id": "createPatientDocumentIntent",
+      "permission": "patients.read AND documents.registration.read AND patients.write AND documents.registration.write",
+      "implementation_status": "planned",
+      "acceptance_status": "not-implemented-not-verified-not-deployed",
+      "ui_status": "deferred-ui",
+      "implemented_control": false,
+      "description": "API-only future capability mapping. No R04 entry, fetch, count, detail/withdraw control or file chooser until separately frozen working ingestion/UI. B1 pure helpers introduce no routes/grants/DB; runtime flag defaults false and permission strings never imply availability."
+    },
+    {
+      "id": "R04.getPatientDocumentIntent",
+      "page": "R04",
+      "action": "Deferred API mapping: Read registration document intent metadata",
+      "operation_id": "getPatientDocumentIntent",
+      "permission": "patients.read AND documents.registration.read",
+      "implementation_status": "planned",
+      "acceptance_status": "not-implemented-not-verified-not-deployed",
+      "ui_status": "deferred-ui",
+      "implemented_control": false,
+      "description": "API-only future capability mapping. No R04 entry, fetch, count, detail/withdraw control or file chooser until separately frozen working ingestion/UI. B1 pure helpers introduce no routes/grants/DB; runtime flag defaults false and permission strings never imply availability."
+    },
+    {
+      "id": "R04.withdrawPatientDocumentIntent",
+      "page": "R04",
+      "action": "Deferred API mapping: Withdraw own registration document intent",
+      "operation_id": "withdrawPatientDocumentIntent",
+      "permission": "patients.read AND documents.registration.read AND patients.write AND documents.registration.write",
+      "implementation_status": "planned",
+      "acceptance_status": "not-implemented-not-verified-not-deployed",
+      "ui_status": "deferred-ui",
+      "implemented_control": false,
+      "description": "API-only future capability mapping. No R04 entry, fetch, count, detail/withdraw control or file chooser until separately frozen working ingestion/UI. B1 pure helpers introduce no routes/grants/DB; runtime flag defaults false and permission strings never imply availability."
     }
   ],
   "deferred_actions": [
@@ -346,6 +394,7 @@
     "reservation/exclusive-room/transfer/discharge workflows",
     "finance, pharmacy, insurance, therapy",
     "backup/import/export jobs",
-    "remote MCP OAuth and tools"
+    "remote MCP OAuth and tools",
+    "R04 document entry/fetch/count/details/withdraw/upload/download UI until working ingestion and separate UI freeze"
   ]
 }

@@ -2,8 +2,8 @@
   "openapi": "3.0.3",
   "info": {
     "title": "HMS API and bounded master configuration",
-    "version": "0.6.0",
-    "description": "Frozen first-slice design source, not a claim that every operation is verified or deployed. Session and CSRF protected hospital workspace. All capabilities outside this catalogue are deferred. Version0.6 catalogs46 source-implemented operations, including seven Task03 network operations with bounded synthetic source acceptance. Production deployment and hospital release are separate."
+    "version": "0.7.0",
+    "description": "Session and CSRF protected API-first hospital workspace. Version0.7 catalogues50 operations:46 source-implemented and4 PLANNED registration document metadata operations. Planned contracts are not implementation, verification, runtime enablement or deployment. B1 is pure helpers only; B2 DB/limiter/services and B3 HTTP/role integration require separate execution gates. R04 document UI is deferred until working ingestion. Production deployment and hospital release remain separate."
   },
   "servers": [
     {
@@ -3397,7 +3397,7 @@
       "get": {
         "operationId": "network_policy_read",
         "summary": "Read deployment network access state",
-        "description": "PLANNED Stage A contract; not implemented or deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation.",
+        "description": "Source implemented with bounded synthetic acceptance; not deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation.",
         "x-permission": "platform.security.manage",
         "x-implementation-status": "implemented",
         "responses": {
@@ -3535,7 +3535,7 @@
       "post": {
         "operationId": "network_policy_preview",
         "summary": "Preview a proposed network policy",
-        "description": "PLANNED Stage A contract; not implemented or deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation. POST strict object JSON only; no files, coercion or unknown fields; read at most32768 bytes regardless of Content-Length. Lock-order/post-wait current authority/path/revision/deadline rechecks apply to first attempts and replays. Browser/proxy must not automatically retry; ambiguous response requires state/history reload and exact operation retry only.",
+        "description": "Source implemented with bounded synthetic acceptance; not deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation. POST strict object JSON only; no files, coercion or unknown fields; read at most32768 bytes regardless of Content-Length. Lock-order/post-wait current authority/path/revision/deadline rechecks apply to first attempts and replays. Browser/proxy must not automatically retry; ambiguous response requires state/history reload and exact operation retry only.",
         "x-permission": "platform.security.manage",
         "x-implementation-status": "implemented",
         "responses": {
@@ -3785,7 +3785,7 @@
       "post": {
         "operationId": "network_policy_activate",
         "summary": "Apply preview with five-minute rollback",
-        "description": "PLANNED Stage A contract; not implemented or deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation. POST strict object JSON only; no files, coercion or unknown fields; read at most32768 bytes regardless of Content-Length. Lock-order/post-wait current authority/path/revision/deadline rechecks apply to first attempts and replays. Browser/proxy must not automatically retry; ambiguous response requires state/history reload and exact operation retry only. expected_revision equals preview base revision. Fixed candidate/fallback and300-second rollback deadline; current IP must also pass candidate. At most one pending change.",
+        "description": "Source implemented with bounded synthetic acceptance; not deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation. POST strict object JSON only; no files, coercion or unknown fields; read at most32768 bytes regardless of Content-Length. Lock-order/post-wait current authority/path/revision/deadline rechecks apply to first attempts and replays. Browser/proxy must not automatically retry; ambiguous response requires state/history reload and exact operation retry only. expected_revision equals preview base revision. Fixed candidate/fallback and300-second rollback deadline; current IP must also pass candidate. At most one pending change.",
         "x-permission": "platform.security.manage",
         "x-implementation-status": "implemented",
         "responses": {
@@ -4014,7 +4014,7 @@
       "post": {
         "operationId": "network_policy_confirm",
         "summary": "Keep the pending policy",
-        "description": "PLANNED Stage A contract; not implemented or deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation. POST strict object JSON only; no files, coercion or unknown fields; read at most32768 bytes regardless of Content-Length. Lock-order/post-wait current authority/path/revision/deadline rechecks apply to first attempts and replays. Browser/proxy must not automatically retry; ambiguous response requires state/history reload and exact operation retry only. expected_revision equals original activation revision. Equality with rollback deadline is expired409; confirm/revert cannot extend deadline. Exact terminal replay returns current terminal outcome without write; opposite/later-state actions conflict.",
+        "description": "Source implemented with bounded synthetic acceptance; not deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation. POST strict object JSON only; no files, coercion or unknown fields; read at most32768 bytes regardless of Content-Length. Lock-order/post-wait current authority/path/revision/deadline rechecks apply to first attempts and replays. Browser/proxy must not automatically retry; ambiguous response requires state/history reload and exact operation retry only. expected_revision equals original activation revision. Equality with rollback deadline is expired409; confirm/revert cannot extend deadline. Exact terminal replay returns current terminal outcome without write; opposite/later-state actions conflict.",
         "x-permission": "platform.security.manage",
         "x-implementation-status": "implemented",
         "responses": {
@@ -4243,7 +4243,7 @@
       "post": {
         "operationId": "network_policy_revert",
         "summary": "Restore the pending change fallback",
-        "description": "PLANNED Stage A contract; not implemented or deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation. POST strict object JSON only; no files, coercion or unknown fields; read at most32768 bytes regardless of Content-Length. Lock-order/post-wait current authority/path/revision/deadline rechecks apply to first attempts and replays. Browser/proxy must not automatically retry; ambiguous response requires state/history reload and exact operation retry only. expected_revision equals original activation revision. Equality with rollback deadline is expired409; confirm/revert cannot extend deadline. Exact terminal replay returns current terminal outcome without write; opposite/later-state actions conflict.",
+        "description": "Source implemented with bounded synthetic acceptance; not deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation. POST strict object JSON only; no files, coercion or unknown fields; read at most32768 bytes regardless of Content-Length. Lock-order/post-wait current authority/path/revision/deadline rechecks apply to first attempts and replays. Browser/proxy must not automatically retry; ambiguous response requires state/history reload and exact operation retry only. expected_revision equals original activation revision. Equality with rollback deadline is expired409; confirm/revert cannot extend deadline. Exact terminal replay returns current terminal outcome without write; opposite/later-state actions conflict.",
         "x-permission": "platform.security.manage",
         "x-implementation-status": "implemented",
         "responses": {
@@ -4472,7 +4472,7 @@
       "get": {
         "operationId": "network_policy_history",
         "summary": "Read bounded network access change history",
-        "description": "PLANNED Stage A contract; not implemented or deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation.",
+        "description": "Source implemented with bounded synthetic acceptance; not deployed. Requires active authenticated user/current epoch, configured and stored installation owner binding, active owner master_admin membership, separately OS-provisioned active NetworkOperator, enrolled MFA and finite proof age 0..900 seconds unconditionally even in DEBUG or when ordinary admin MFA is disabled. Generic master/superuser/operator alone grants nothing. All responses no-store. No body/query except those declared; unknown/repeated query keys rejected. No session creation/GET mutation.",
         "x-permission": "platform.security.manage",
         "x-implementation-status": "implemented",
         "responses": {
@@ -4738,6 +4738,1657 @@
           }
         },
         "x-acceptance-status": "synthetic-source-verified-not-deployed"
+      }
+    },
+    "/patients/{patient_id}/documents/": {
+      "get": {
+        "operationId": "listPatientDocumentIntents",
+        "summary": "List registration document intent metadata",
+        "description": "PLANNED API-only contract, not implemented, verified, enabled or deployed. B1 next source unit is pure helpers only: no HTTP, grants, DB or staff UI. B2 services/routes/grants require separate frozen execution gates, actual PostgreSQL authority/audit/race/commit-budget evidence and shared limiter implementation. R04 entry/fetch/controls remain deferred until working ingestion. HMS_DOCUMENT_METADATA_ENABLED defaults false; disabled returns local503 after session/action checks without object lookup/write. Grants never imply availability. Metadata accepts no bytes and never probes storage/scanner; upload/download remain false. Only reception is proposed for document grants at the exact patient registration branch; master/doctor/nurse alone receive none. Global CurrentUser union is not scope authority; current branch permission conjunction is rechecked after waits. No action grant anywhere403 before object lookup; missing/foreign/inaccessible/mismatched patient/document identical404. Active identity/current captured epoch AND effective trusted-proxy environment/overlay network policy required. Unchanged middleware may return401 not_authenticated,403 network_denied or503 network_policy_unavailable before view. Local anonymous response403 not_authenticated. No new MFA code/requirement for patient paths. Local JSON negotiator ALWAYS returns fixed application/json, ignoring Accept/indent, disables URL format override: format is unknown query400, no local406 promise. Registered string path segments receive canonical lowercase UUID validation after authentication/action; malformed IDs concealed404. Unregistered content/unknown routes remain outside closed document JSON404 promise. HEAD/OPTIONS/PUT/PATCH/DELETE405 without disclosure or implicit metadata. GET bodies rejected by bounded inspection; Range400. Unknown/repeated query keys400. No conditional304/ETag/Last-Modified. All responses no-store/nosniff; Vary Cookie on view responses only. A shared atomic actor limiter permits60 requests per fixed UTC minute across four operations after authentication/action and before PHI lookup; minute edges may permit120 close requests. Exact shared backend/algorithm and actual bounds remain B2 gates; unavailable limiter503. Successful disclosures require committed dedicated audit; no lazy queries/projection escape before commit. Complete fixed encoded response <=256KiB or local503 before disclosure. Operational failure/unknown commit returns503 without projection; no automatic in-request retry. No request body. No query except listed parameters.",
+        "x-permission": "patients.read AND documents.registration.read",
+        "x-implementation-status": "planned",
+        "x-acceptance-status": "not-implemented-not-verified-not-deployed",
+        "x-ui-status": "deferred-ui-until-working-ingestion",
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+              "minLength": 36,
+              "maxLength": 36
+            },
+            "description": "Registered string segment; exact canonical UUID validation after authentication/action."
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 25
+            },
+            "description": "canonical ASCII decimal integer1..100 with no sign, leading zeros or whitespace; no duplicate parameter."
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 512,
+              "pattern": "^[A-Za-z0-9_-]+$",
+              "description": "Unpadded canonical base64url of compact UTF-8 JSON exact keys v,patient_id,category,created_at,id: v actual integer1, category registration, canonical UUIDs and fixed-six-digit valid UTC time. No extra/duplicate keys or noncanonical encoding. Patient/category must match request. Position only, not authority."
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "registration"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success only after required disclosure event and outermost transaction commit. Exact replay uses the same success status.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed closed input/body/query/header, forbidden Range or strict parser failure.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataError_validation_error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "UNCHANGED IdentitySessionMiddleware rejects stale epoch before view.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataMiddleware_session"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Local anonymous/action/CSRF denial OR unchanged pre-view network denial. Vary Cookie applies only to local view responses.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataError_not_authenticated"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataError_permission_denied"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataError_csrf_failed"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataMiddleware_network_denied"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Missing/foreign/scope-mismatch or malformed UUID in registered shape; unregistered content route outside this envelope promise.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataError_not_found"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Unsupported method; no object disclosure/event.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataError_method_not_allowed"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Actor fixed-minute limiter or create quota reached. No automatic writes/retries.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              },
+              "Retry-After": {
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 3600
+                },
+                "description": "Integer seconds until applicable window/quota exit, rounded up and clamped1..3600."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataError_rate_limited"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Local disabled/dependency/audit/budget/clock/unknown-commit failure OR unchanged pre-view network evaluator outage; no projection.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataError_document_metadata_unavailable"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataMiddleware_network_unavailable"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createPatientDocumentIntent",
+        "summary": "Declare registration document intent metadata",
+        "description": "PLANNED API-only contract, not implemented, verified, enabled or deployed. B1 next source unit is pure helpers only: no HTTP, grants, DB or staff UI. B2 services/routes/grants require separate frozen execution gates, actual PostgreSQL authority/audit/race/commit-budget evidence and shared limiter implementation. R04 entry/fetch/controls remain deferred until working ingestion. HMS_DOCUMENT_METADATA_ENABLED defaults false; disabled returns local503 after session/action checks without object lookup/write. Grants never imply availability. Metadata accepts no bytes and never probes storage/scanner; upload/download remain false. Only reception is proposed for document grants at the exact patient registration branch; master/doctor/nurse alone receive none. Global CurrentUser union is not scope authority; current branch permission conjunction is rechecked after waits. No action grant anywhere403 before object lookup; missing/foreign/inaccessible/mismatched patient/document identical404. Active identity/current captured epoch AND effective trusted-proxy environment/overlay network policy required. Unchanged middleware may return401 not_authenticated,403 network_denied or503 network_policy_unavailable before view. Local anonymous response403 not_authenticated. No new MFA code/requirement for patient paths. Local JSON negotiator ALWAYS returns fixed application/json, ignoring Accept/indent, disables URL format override: format is unknown query400, no local406 promise. Registered string path segments receive canonical lowercase UUID validation after authentication/action; malformed IDs concealed404. Unregistered content/unknown routes remain outside closed document JSON404 promise. HEAD/OPTIONS/PUT/PATCH/DELETE405 without disclosure or implicit metadata. GET bodies rejected by bounded inspection; Range400. Unknown/repeated query keys400. No conditional304/ETag/Last-Modified. All responses no-store/nosniff; Vary Cookie on view responses only. A shared atomic actor limiter permits60 requests per fixed UTC minute across four operations after authentication/action and before PHI lookup; minute edges may permit120 close requests. Exact shared backend/algorithm and actual bounds remain B2 gates; unavailable limiter503. Successful disclosures require committed dedicated audit; no lazy queries/projection escape before commit. Complete fixed encoded response <=256KiB or local503 before disclosure. Operational failure/unknown commit returns503 without projection; no automatic in-request retry. POST requires exact application/json with optional UTF-8 charset; no alternate media/multipart/content encoding. Capture at most4097 ORIGINAL bytes before ordinary DRF auth/real CSRF parsing; >4096 returns413. Preserve bounded original bytes/replay; strict UTF-8 object JSON, no BOM/nonfinite/duplicate keys at any depth, no unknown fields/coercion, max depth8 root1; pre-handler ParseError/RecursionError normalize400. Valid CSRF JSON at exactly4096 accepted if fields valid. Reject controls before trim and unpaired surrogates. Missing/malformed canonical UUID Idempotency-Key400. Fingerprint SHA256 of UTF-8 compact sorted-key ensure_ascii JSON {operation,patient_id,document_id,payload}; normalized payload, create document_id null. Actor+operation+key receipt namespace; replay reauthorizes current scope then returns current state with a NEW committed disclosure event, without duplicate intent/receipt/version bump. Changed valid command fingerprint409 with no result/event. No request JSON persisted. Unknown commit later reconciles only through exact same-key retry; no blind automatic mutation. New intents expire exactly30minutes after server created_at; slow creation may already project expired. At most20 pending unexpired intents/patient and1000 newly created intents/organisation in rolling3600seconds; org/patient locks prevent overshoot. History consumes rolling quota even after withdrawal/expiry; replay/withdraw exempt from creation quotas. Bounded threshold queries, durable index/performance and shared quota implementation remain B2 gates. Intent only declares metadata; no file was received. Exact replay201 returns current terminal projection without timestamp refresh.",
+        "x-permission": "patients.read AND documents.registration.read AND patients.write AND documents.registration.write",
+        "x-implementation-status": "planned",
+        "x-acceptance-status": "not-implemented-not-verified-not-deployed",
+        "x-ui-status": "deferred-ui-until-working-ingestion",
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+              "minLength": 36,
+              "maxLength": 36
+            },
+            "description": "Registered string segment; exact canonical UUID validation after authentication/action."
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+              "minLength": 36,
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Ordinary real SessionAuthentication CSRF cookie/header verification; never bypassed."
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Success only after required disclosure event and outermost transaction commit. Exact replay uses the same success status.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed closed input/body/query/header, forbidden Range or strict parser failure.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataError_validation_error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "UNCHANGED IdentitySessionMiddleware rejects stale epoch before view.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataMiddleware_session"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Local anonymous/action/CSRF denial OR unchanged pre-view network denial. Vary Cookie applies only to local view responses.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataError_not_authenticated"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataError_permission_denied"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataError_csrf_failed"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataMiddleware_network_denied"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Missing/foreign/scope-mismatch or malformed UUID in registered shape; unregistered content route outside this envelope promise.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataError_not_found"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Unsupported method; no object disclosure/event.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataError_method_not_allowed"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Actor fixed-minute limiter or create quota reached. No automatic writes/retries.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              },
+              "Retry-After": {
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 3600
+                },
+                "description": "Integer seconds until applicable window/quota exit, rounded up and clamped1..3600."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataError_rate_limited"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Local disabled/dependency/audit/budget/clock/unknown-commit failure OR unchanged pre-view network evaluator outage; no projection.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataError_document_metadata_unavailable"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataMiddleware_network_unavailable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflicting idempotent command, stale/max version or new withdrawal against terminal state.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataError_idempotency_conflict"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Original JSON exceeded4096 bytes.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataError_request_too_large"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Unsupported Content-Type/charset/content encoding.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataError_unsupported_media_type"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentMetadataCreate"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/patients/{patient_id}/documents/{document_id}/": {
+      "get": {
+        "operationId": "getPatientDocumentIntent",
+        "summary": "Read registration document intent metadata",
+        "description": "PLANNED API-only contract, not implemented, verified, enabled or deployed. B1 next source unit is pure helpers only: no HTTP, grants, DB or staff UI. B2 services/routes/grants require separate frozen execution gates, actual PostgreSQL authority/audit/race/commit-budget evidence and shared limiter implementation. R04 entry/fetch/controls remain deferred until working ingestion. HMS_DOCUMENT_METADATA_ENABLED defaults false; disabled returns local503 after session/action checks without object lookup/write. Grants never imply availability. Metadata accepts no bytes and never probes storage/scanner; upload/download remain false. Only reception is proposed for document grants at the exact patient registration branch; master/doctor/nurse alone receive none. Global CurrentUser union is not scope authority; current branch permission conjunction is rechecked after waits. No action grant anywhere403 before object lookup; missing/foreign/inaccessible/mismatched patient/document identical404. Active identity/current captured epoch AND effective trusted-proxy environment/overlay network policy required. Unchanged middleware may return401 not_authenticated,403 network_denied or503 network_policy_unavailable before view. Local anonymous response403 not_authenticated. No new MFA code/requirement for patient paths. Local JSON negotiator ALWAYS returns fixed application/json, ignoring Accept/indent, disables URL format override: format is unknown query400, no local406 promise. Registered string path segments receive canonical lowercase UUID validation after authentication/action; malformed IDs concealed404. Unregistered content/unknown routes remain outside closed document JSON404 promise. HEAD/OPTIONS/PUT/PATCH/DELETE405 without disclosure or implicit metadata. GET bodies rejected by bounded inspection; Range400. Unknown/repeated query keys400. No conditional304/ETag/Last-Modified. All responses no-store/nosniff; Vary Cookie on view responses only. A shared atomic actor limiter permits60 requests per fixed UTC minute across four operations after authentication/action and before PHI lookup; minute edges may permit120 close requests. Exact shared backend/algorithm and actual bounds remain B2 gates; unavailable limiter503. Successful disclosures require committed dedicated audit; no lazy queries/projection escape before commit. Complete fixed encoded response <=256KiB or local503 before disclosure. Operational failure/unknown commit returns503 without projection; no automatic in-request retry. No request body. No query except listed parameters.",
+        "x-permission": "patients.read AND documents.registration.read",
+        "x-implementation-status": "planned",
+        "x-acceptance-status": "not-implemented-not-verified-not-deployed",
+        "x-ui-status": "deferred-ui-until-working-ingestion",
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+              "minLength": 36,
+              "maxLength": 36
+            },
+            "description": "Registered string segment; exact canonical UUID validation after authentication/action."
+          },
+          {
+            "name": "document_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+              "minLength": 36,
+              "maxLength": 36
+            },
+            "description": "Must belong to addressed accessible patient; mismatches concealed404."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success only after required disclosure event and outermost transaction commit. Exact replay uses the same success status.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed closed input/body/query/header, forbidden Range or strict parser failure.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataError_validation_error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "UNCHANGED IdentitySessionMiddleware rejects stale epoch before view.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataMiddleware_session"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Local anonymous/action/CSRF denial OR unchanged pre-view network denial. Vary Cookie applies only to local view responses.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataError_not_authenticated"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataError_permission_denied"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataError_csrf_failed"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataMiddleware_network_denied"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Missing/foreign/scope-mismatch or malformed UUID in registered shape; unregistered content route outside this envelope promise.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataError_not_found"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Unsupported method; no object disclosure/event.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataError_method_not_allowed"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Actor fixed-minute limiter or create quota reached. No automatic writes/retries.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              },
+              "Retry-After": {
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 3600
+                },
+                "description": "Integer seconds until applicable window/quota exit, rounded up and clamped1..3600."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataError_rate_limited"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Local disabled/dependency/audit/budget/clock/unknown-commit failure OR unchanged pre-view network evaluator outage; no projection.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataError_document_metadata_unavailable"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataMiddleware_network_unavailable"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/patients/{patient_id}/documents/{document_id}/withdraw/": {
+      "post": {
+        "operationId": "withdrawPatientDocumentIntent",
+        "summary": "Withdraw own registration document intent",
+        "description": "PLANNED API-only contract, not implemented, verified, enabled or deployed. B1 next source unit is pure helpers only: no HTTP, grants, DB or staff UI. B2 services/routes/grants require separate frozen execution gates, actual PostgreSQL authority/audit/race/commit-budget evidence and shared limiter implementation. R04 entry/fetch/controls remain deferred until working ingestion. HMS_DOCUMENT_METADATA_ENABLED defaults false; disabled returns local503 after session/action checks without object lookup/write. Grants never imply availability. Metadata accepts no bytes and never probes storage/scanner; upload/download remain false. Only reception is proposed for document grants at the exact patient registration branch; master/doctor/nurse alone receive none. Global CurrentUser union is not scope authority; current branch permission conjunction is rechecked after waits. No action grant anywhere403 before object lookup; missing/foreign/inaccessible/mismatched patient/document identical404. Active identity/current captured epoch AND effective trusted-proxy environment/overlay network policy required. Unchanged middleware may return401 not_authenticated,403 network_denied or503 network_policy_unavailable before view. Local anonymous response403 not_authenticated. No new MFA code/requirement for patient paths. Local JSON negotiator ALWAYS returns fixed application/json, ignoring Accept/indent, disables URL format override: format is unknown query400, no local406 promise. Registered string path segments receive canonical lowercase UUID validation after authentication/action; malformed IDs concealed404. Unregistered content/unknown routes remain outside closed document JSON404 promise. HEAD/OPTIONS/PUT/PATCH/DELETE405 without disclosure or implicit metadata. GET bodies rejected by bounded inspection; Range400. Unknown/repeated query keys400. No conditional304/ETag/Last-Modified. All responses no-store/nosniff; Vary Cookie on view responses only. A shared atomic actor limiter permits60 requests per fixed UTC minute across four operations after authentication/action and before PHI lookup; minute edges may permit120 close requests. Exact shared backend/algorithm and actual bounds remain B2 gates; unavailable limiter503. Successful disclosures require committed dedicated audit; no lazy queries/projection escape before commit. Complete fixed encoded response <=256KiB or local503 before disclosure. Operational failure/unknown commit returns503 without projection; no automatic in-request retry. POST requires exact application/json with optional UTF-8 charset; no alternate media/multipart/content encoding. Capture at most4097 ORIGINAL bytes before ordinary DRF auth/real CSRF parsing; >4096 returns413. Preserve bounded original bytes/replay; strict UTF-8 object JSON, no BOM/nonfinite/duplicate keys at any depth, no unknown fields/coercion, max depth8 root1; pre-handler ParseError/RecursionError normalize400. Valid CSRF JSON at exactly4096 accepted if fields valid. Reject controls before trim and unpaired surrogates. Missing/malformed canonical UUID Idempotency-Key400. Fingerprint SHA256 of UTF-8 compact sorted-key ensure_ascii JSON {operation,patient_id,document_id,payload}; normalized payload, create document_id null. Actor+operation+key receipt namespace; replay reauthorizes current scope then returns current state with a NEW committed disclosure event, without duplicate intent/receipt/version bump. Changed valid command fingerprint409 with no result/event. No request JSON persisted. Unknown commit later reconciles only through exact same-key retry; no blind automatic mutation. Current creator only403 otherwise; first withdrawal requires current version1..2147483646, stored pending and selected_at strictly before expiry. New key expired/withdrawn409 intent_state_conflict; stale/max2147483647 version409 version_conflict. Increment once; retained traceable reason, no delete/restore. Same-key successful replay200 remains valid after expiry and shows current state. Selection crossing expiry rolls back transition/receipt/event.",
+        "x-permission": "patients.read AND documents.registration.read AND patients.write AND documents.registration.write",
+        "x-implementation-status": "planned",
+        "x-acceptance-status": "not-implemented-not-verified-not-deployed",
+        "x-ui-status": "deferred-ui-until-working-ingestion",
+        "parameters": [
+          {
+            "name": "patient_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+              "minLength": 36,
+              "maxLength": 36
+            },
+            "description": "Registered string segment; exact canonical UUID validation after authentication/action."
+          },
+          {
+            "name": "document_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+              "minLength": 36,
+              "maxLength": 36
+            },
+            "description": "Must belong to addressed accessible patient; mismatches concealed404."
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+              "minLength": 36,
+              "maxLength": 36
+            }
+          },
+          {
+            "name": "X-CSRFToken",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Ordinary real SessionAuthentication CSRF cookie/header verification; never bypassed."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success only after required disclosure event and outermost transaction commit. Exact replay uses the same success status.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed closed input/body/query/header, forbidden Range or strict parser failure.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataError_validation_error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "UNCHANGED IdentitySessionMiddleware rejects stale epoch before view.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataMiddleware_session"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Local anonymous/action/CSRF denial OR unchanged pre-view network denial. Vary Cookie applies only to local view responses.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataError_not_authenticated"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataError_permission_denied"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataError_csrf_failed"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataMiddleware_network_denied"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Missing/foreign/scope-mismatch or malformed UUID in registered shape; unregistered content route outside this envelope promise.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataError_not_found"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Unsupported method; no object disclosure/event.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataError_method_not_allowed"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Actor fixed-minute limiter or create quota reached. No automatic writes/retries.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              },
+              "Retry-After": {
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 3600
+                },
+                "description": "Integer seconds until applicable window/quota exit, rounded up and clamped1..3600."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataError_rate_limited"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Local disabled/dependency/audit/budget/clock/unknown-commit failure OR unchanged pre-view network evaluator outage; no projection.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataError_document_metadata_unavailable"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataMiddleware_network_unavailable"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflicting idempotent command, stale/max version or new withdrawal against terminal state.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataError_idempotency_conflict"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataError_version_conflict"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DocumentMetadataError_intent_state_conflict"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Original JSON exceeded4096 bytes.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataError_request_too_large"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Unsupported Content-Type/charset/content encoding.",
+            "headers": {
+              "Cache-Control": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "no-store"
+                  ]
+                },
+                "description": "All responses, including pre-view errors, are no-store."
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "enum": [
+                    "nosniff"
+                  ]
+                },
+                "description": "Outer SecurityMiddleware supplies nosniff."
+              },
+              "Vary": {
+                "schema": {
+                  "type": "string"
+                },
+                "description": "Document view responses include Cookie. Pre-view middleware errors do not promise Vary: Cookie."
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentMetadataError_unsupported_media_type"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DocumentMetadataWithdraw"
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -7480,8 +9131,917 @@
           "message"
         ],
         "description": "Strict allowlisted fields and bounded plain messages; never echo complete malicious input or installation/fallback rules. Response adapter bounds errors before returning. Unsupported media type415 is a structured error. No request_id/extra fields in this network-specific projection."
+      },
+      "DocumentMetadataCreate": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "type": "string",
+            "enum": [
+              "registration"
+            ]
+          },
+          "filename": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[^\\u0000-\\u001f\\u007f-\\u009f\\u061c\\u200e\\u200f\\u202a-\\u202e\\u2066-\\u2069]+(?![\\s\\S])",
+            "description": "Reject C0/C1/DEL/bidi formatting controls and unpaired surrogates BEFORE outer whitespace trim. After trim require 1..120 Unicode scalar values, no slash/backslash, dot or dot-dot path; no Unicode normalization. Display declaration only."
+          },
+          "media_type": {
+            "type": "string",
+            "enum": [
+              "image/jpeg",
+              "image/png"
+            ]
+          },
+          "size_bytes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10485760,
+            "description": "Actual JSON integer; bool, float and string rejected. Declared size only."
+          },
+          "sha256": {
+            "type": "string",
+            "minLength": 64,
+            "maxLength": 64,
+            "pattern": "^[0-9a-f]{64}$",
+            "description": "Declared lowercase ASCII digest, not proof of any received bytes."
+          }
+        },
+        "required": [
+          "category",
+          "filename",
+          "media_type",
+          "size_bytes",
+          "sha256"
+        ]
+      },
+      "DocumentMetadataWithdraw": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "expected_version": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 10,
+            "pattern": "^[^\\u0000-\\u001f\\u007f-\\u009f\\u061c\\u200e\\u200f\\u202a-\\u202e\\u2066-\\u2069]+(?![\\s\\S])",
+            "description": "Reject controls/bidi/unpaired surrogates BEFORE trim. After outer trim require 10..500 Unicode scalar values. Persisted under foundation protection, never echoed in ordinary projections."
+          }
+        },
+        "required": [
+          "expected_version",
+          "reason"
+        ]
+      },
+      "DocumentMetadataCapabilities": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "can_create_intent": {
+            "type": "boolean",
+            "description": "Current exact-branch write conjunction AND enabled metadata runtime policy; never implies a usable upload or UI control."
+          },
+          "can_upload": {
+            "type": "boolean",
+            "enum": [
+              false
+            ]
+          },
+          "can_download": {
+            "type": "boolean",
+            "enum": [
+              false
+            ]
+          },
+          "upload_categories": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 0
+          },
+          "allowed_media_types": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "image/jpeg",
+                "image/png"
+              ]
+            },
+            "minItems": 2,
+            "maxItems": 2,
+            "uniqueItems": true,
+            "enum": [
+              [
+                "image/jpeg",
+                "image/png"
+              ]
+            ]
+          },
+          "max_size_bytes": {
+            "type": "integer",
+            "enum": [
+              10485760
+            ]
+          },
+          "max_filename_characters": {
+            "type": "integer",
+            "enum": [
+              120
+            ]
+          }
+        },
+        "required": [
+          "can_create_intent",
+          "can_upload",
+          "can_download",
+          "upload_categories",
+          "allowed_media_types",
+          "max_size_bytes",
+          "max_filename_characters"
+        ]
+      },
+      "DocumentMetadataIntent": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "minLength": 36,
+            "maxLength": 36
+          },
+          "patient_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "minLength": 36,
+            "maxLength": 36
+          },
+          "branch_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "minLength": 36,
+            "maxLength": 36
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "registration"
+            ]
+          },
+          "filename": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120,
+            "pattern": "^[^\\u0000-\\u001f\\u007f-\\u009f\\u061c\\u200e\\u200f\\u202a-\\u202e\\u2066-\\u2069]+(?![\\s\\S])",
+            "description": "Trimmed declared filename rendered only as text; never a filesystem path or content receipt."
+          },
+          "media_type": {
+            "type": "string",
+            "enum": [
+              "image/jpeg",
+              "image/png"
+            ]
+          },
+          "size_bytes": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10485760
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "expired",
+              "withdrawn"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 2147483647
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{6}Z$",
+            "minLength": 27,
+            "maxLength": 27,
+            "description": "Valid actual UTC datetime with exactly six fractional digits; equality at expires_at is expired."
+          },
+          "expires_at": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{6}Z$",
+            "minLength": 27,
+            "maxLength": 27,
+            "description": "Valid actual UTC datetime with exactly six fractional digits; equality at expires_at is expired."
+          },
+          "is_creator": {
+            "type": "boolean"
+          },
+          "can_withdraw": {
+            "type": "boolean",
+            "description": "Current conjunctive grants, creator, pending unexpired projection and incrementable version at the response server_time."
+          },
+          "can_upload": {
+            "type": "boolean",
+            "enum": [
+              false
+            ]
+          },
+          "can_download": {
+            "type": "boolean",
+            "enum": [
+              false
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "patient_id",
+          "branch_id",
+          "category",
+          "filename",
+          "media_type",
+          "size_bytes",
+          "status",
+          "version",
+          "created_at",
+          "expires_at",
+          "is_creator",
+          "can_withdraw",
+          "can_upload",
+          "can_download"
+        ],
+        "description": "No creator identifier/name, digest, withdrawal reason/actor, patient demographics, URL, scan or storage data. Persist only pending/withdrawn; project expired at server_time >= expires_at without GET writes/version bumps."
+      },
+      "DocumentMetadataResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "server_time": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{6}Z$",
+            "minLength": 27,
+            "maxLength": 27,
+            "description": "Valid actual UTC datetime with exactly six fractional digits; equality at expires_at is expired."
+          },
+          "document": {
+            "$ref": "#/components/schemas/DocumentMetadataIntent"
+          },
+          "capabilities": {
+            "$ref": "#/components/schemas/DocumentMetadataCapabilities"
+          }
+        },
+        "required": [
+          "server_time",
+          "document",
+          "capabilities"
+        ]
+      },
+      "DocumentMetadataList": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "server_time": {
+            "type": "string",
+            "format": "date-time",
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\\.[0-9]{6}Z$",
+            "minLength": 27,
+            "maxLength": 27,
+            "description": "Valid actual UTC datetime with exactly six fractional digits; equality at expires_at is expired."
+          },
+          "results": {
+            "type": "array",
+            "maxItems": 100,
+            "items": {
+              "$ref": "#/components/schemas/DocumentMetadataIntent"
+            }
+          },
+          "has_more": {
+            "type": "boolean"
+          },
+          "next_cursor": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 512,
+            "pattern": "^[A-Za-z0-9_-]+$",
+            "description": "Unpadded canonical base64url of compact UTF-8 JSON exact keys v,patient_id,category,created_at,id: v actual integer1, category registration, canonical UUIDs and fixed-six-digit valid UTC time. No extra/duplicate keys or noncanonical encoding. Patient/category must match request. Position only, not authority.",
+            "nullable": true
+          },
+          "capabilities": {
+            "$ref": "#/components/schemas/DocumentMetadataCapabilities"
+          }
+        },
+        "required": [
+          "server_time",
+          "results",
+          "has_more",
+          "next_cursor",
+          "capabilities"
+        ],
+        "description": "Newest first by created_at DESC,id DESC; strict older-than keyset tuple. Select at most limit+1 IDs (maximum101), disclose at most limit; sentinel not audited/disclosed. next_cursor nonnull iff has_more and encodes last disclosed tuple. No COUNT/total. One selected_at/server_time supplies expiry/action projections. Each request selects its own page; refresh first page for new inserts."
+      },
+      "DocumentMetadataError_validation_error": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "validation_error"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "Check the highlighted details."
+            ],
+            "maxLength": 200
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "minLength": 36,
+            "maxLength": 36
+          },
+          "field_errors": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "category": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 3,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160,
+                  "description": "Fixed safe server message from an allowlist, never supplied values or exception text."
+                }
+              },
+              "filename": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 3,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160,
+                  "description": "Fixed safe server message from an allowlist, never supplied values or exception text."
+                }
+              },
+              "media_type": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 3,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160,
+                  "description": "Fixed safe server message from an allowlist, never supplied values or exception text."
+                }
+              },
+              "size_bytes": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 3,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160,
+                  "description": "Fixed safe server message from an allowlist, never supplied values or exception text."
+                }
+              },
+              "sha256": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 3,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160,
+                  "description": "Fixed safe server message from an allowlist, never supplied values or exception text."
+                }
+              },
+              "expected_version": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 3,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160,
+                  "description": "Fixed safe server message from an allowlist, never supplied values or exception text."
+                }
+              },
+              "reason": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 3,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160,
+                  "description": "Fixed safe server message from an allowlist, never supplied values or exception text."
+                }
+              },
+              "limit": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 3,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160,
+                  "description": "Fixed safe server message from an allowlist, never supplied values or exception text."
+                }
+              },
+              "cursor": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 3,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160,
+                  "description": "Fixed safe server message from an allowlist, never supplied values or exception text."
+                }
+              },
+              "Idempotency-Key": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 3,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160,
+                  "description": "Fixed safe server message from an allowlist, never supplied values or exception text."
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "description": "Local document error; fixed safe message. No arbitrary exception, supplied value, filename/body, SQL or PHI echoed."
+      },
+      "DocumentMetadataError_not_authenticated": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "not_authenticated"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "Your session ended. Sign in again."
+            ],
+            "maxLength": 200
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "minLength": 36,
+            "maxLength": 36
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "description": "Local document error; fixed safe message. No arbitrary exception, supplied value, filename/body, SQL or PHI echoed."
+      },
+      "DocumentMetadataError_permission_denied": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "permission_denied"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "You do not have access to this action."
+            ],
+            "maxLength": 200
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "minLength": 36,
+            "maxLength": 36
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "description": "Local document error; fixed safe message. No arbitrary exception, supplied value, filename/body, SQL or PHI echoed."
+      },
+      "DocumentMetadataError_csrf_failed": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "csrf_failed"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "Refresh the page and try again."
+            ],
+            "maxLength": 200
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "minLength": 36,
+            "maxLength": 36
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "description": "Local document error; fixed safe message. No arbitrary exception, supplied value, filename/body, SQL or PHI echoed."
+      },
+      "DocumentMetadataError_not_found": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "not_found"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "This record is unavailable."
+            ],
+            "maxLength": 200
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "minLength": 36,
+            "maxLength": 36
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "description": "Local document error; fixed safe message. No arbitrary exception, supplied value, filename/body, SQL or PHI echoed."
+      },
+      "DocumentMetadataError_method_not_allowed": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "method_not_allowed"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "This action is unavailable."
+            ],
+            "maxLength": 200
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "minLength": 36,
+            "maxLength": 36
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "description": "Local document error; fixed safe message. No arbitrary exception, supplied value, filename/body, SQL or PHI echoed."
+      },
+      "DocumentMetadataError_idempotency_conflict": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "idempotency_conflict"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "This request could not be repeated. Refresh before continuing."
+            ],
+            "maxLength": 200
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "minLength": 36,
+            "maxLength": 36
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "description": "Local document error; fixed safe message. No arbitrary exception, supplied value, filename/body, SQL or PHI echoed."
+      },
+      "DocumentMetadataError_version_conflict": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "version_conflict"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "The record changed. Refresh before continuing."
+            ],
+            "maxLength": 200
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "minLength": 36,
+            "maxLength": 36
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "description": "Local document error; fixed safe message. No arbitrary exception, supplied value, filename/body, SQL or PHI echoed."
+      },
+      "DocumentMetadataError_intent_state_conflict": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "intent_state_conflict"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "This request can no longer be withdrawn."
+            ],
+            "maxLength": 200
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "minLength": 36,
+            "maxLength": 36
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "description": "Local document error; fixed safe message. No arbitrary exception, supplied value, filename/body, SQL or PHI echoed."
+      },
+      "DocumentMetadataError_request_too_large": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "request_too_large"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "This request is too large."
+            ],
+            "maxLength": 200
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "minLength": 36,
+            "maxLength": 36
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "description": "Local document error; fixed safe message. No arbitrary exception, supplied value, filename/body, SQL or PHI echoed."
+      },
+      "DocumentMetadataError_unsupported_media_type": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "unsupported_media_type"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "Use a supported request format."
+            ],
+            "maxLength": 200
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "minLength": 36,
+            "maxLength": 36
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "description": "Local document error; fixed safe message. No arbitrary exception, supplied value, filename/body, SQL or PHI echoed."
+      },
+      "DocumentMetadataError_rate_limited": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "rate_limited"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "Too many requests. Try again shortly."
+            ],
+            "maxLength": 200
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "minLength": 36,
+            "maxLength": 36
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "description": "Local document error; fixed safe message. No arbitrary exception, supplied value, filename/body, SQL or PHI echoed."
+      },
+      "DocumentMetadataError_document_metadata_unavailable": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "document_metadata_unavailable"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "Document details are unavailable. Try again later."
+            ],
+            "maxLength": 200
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+            "minLength": 36,
+            "maxLength": 36
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "description": "Local document error; fixed safe message. No arbitrary exception, supplied value, filename/body, SQL or PHI echoed."
+      },
+      "DocumentMetadataMiddleware_session": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "not_authenticated"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "Your session ended. Sign in again."
+            ]
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "description": "UNCHANGED pre-view middleware response; document-local normalization and view Vary: Cookie do not apply."
+      },
+      "DocumentMetadataMiddleware_network_denied": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "network_denied"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "Access is not available from this network. Contact your administrator."
+            ]
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "description": "UNCHANGED pre-view middleware response; document-local normalization and view Vary: Cookie do not apply."
+      },
+      "DocumentMetadataMiddleware_network_unavailable": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "string",
+            "enum": [
+              "network_policy_unavailable"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "enum": [
+              "Network settings are temporarily unavailable."
+            ]
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "description": "UNCHANGED pre-view middleware response; document-local normalization and view Vary: Cookie do not apply."
       }
     }
   },
-  "x-status": "Phase A contract; implementation/evidence tracked in HMS.md and ledger."
+  "x-status": "0.7 design catalogue:50 operations,46 implemented,4 planned document metadata operations. Evidence and rollout tracked in HMS.md/ledger; no new runtime path or grant."
 }
