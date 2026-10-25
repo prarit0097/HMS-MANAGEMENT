@@ -1,5 +1,15 @@
 # SDD ledger — plan: plan.md
 
+## Fresh usage stop and authorised deployment request —26 October 2026
+
+Owner explicitly requested deploying all currently implemented code to hms.praritsidana.com and updating MD files afterwards. This authorises an update of the existing restricted synthetic HMS preview, preserving its separate /opt/hms boundary and all other VPS apps; it does not make unfinished features implemented or permit real-patient release. Deployment is now the first pending task, ahead of B2a development.
+
+Authenticated usage at2026-10-25T20:22:58Z: primary10%/weekly55%remaining. Fresh mandatory stop; earliest resume2026-10-26T01:52:58Z (26October07:22:58AM IST), only with all applicable windows available and>10%. The earlier01:18IST resume predates this stop. No reset credit consumed; preserve historical deadlines. No new assignments, implementation, deployment or VPS mutation was performed after this reading. All specialist work had finished.
+
+Latest published source/documentation b5ea87e857b9a17b37ae6c045bf1113c8f6179c4 was pushed and remoteSHA verified in the preceding turn. Application source66bfa remains distinct from last recorded deployed preview47b3618. This turn did not inspect the VPS and does not newly attest its runtime SHA. Latest-code deployment is NOT COMPLETE; no migration/config/key/policy/edge change was made. New checkpoint CI must be checked separately.
+
+First resume: verify exact current Git/CI and read-only VPS inventory/version; review existing hostinger-preview-plan and completed network acceptance against remaining StageE worker/socket/proxy/rollback gates. Freeze the exact update/migration/config/backup/rollback steps, preserve Basic+session/network isolation, and test the candidate before changing HMS only. Preserve all other applications and private credentials. Do not blindly replace the old runtime with code whose required identity/network configuration is unprovisioned. Then perform the owner-authorised update, verify actual HTTPS/API/session/CSRF/MFA/IP guard/worker/rollback/backup behavior and other-app preservation, and publish accurate HMS.md/plan.md/ledger deployment evidence with source SHA. No new real-data release or paid provisioning. B2a final schema/contract/RED work remains later and unimplemented.
+
 ## B2a admission design progress —26 October 2026
 
 Saved the narrow admission contract and reconciled its parent/service plan: existing DB Session/ModelBackend current+fallback hashes without session mutation or lazy-user resolution; preliminary unlocked authority followed by locked revalidation; strict epochs/same-branch grants; valid disabled calls commit an allowance before503; concealed malformed path404 versus invalid command key400 and preserved413; descriptor repr suppression; sampled final session/network semantics. Two bounded independent reviewers covered session/security and schema; security amendments are incorporated. B2a remains DRAFT, not implementation-frozen: stable importable migration expression/replay and final PostgreSQL ORM finite/timezone acceptance are open. B2b/B2c/B3 and staff document ingestion remain unimplemented.
