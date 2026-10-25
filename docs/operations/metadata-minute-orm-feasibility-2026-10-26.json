@@ -1,0 +1,54 @@
+{
+  "kind": "planning_only",
+  "database": "SQLite :memory:",
+  "unsafe_equality_accepts_invalid_text": true,
+  "ddl": "CREATE TABLE \"probe_probe\" (\"id\" integer NOT NULL PRIMARY KEY AUTOINCREMENT, \"started\" datetime NOT NULL, CONSTRAINT \"probe_exact_minute\" CHECK (((\"started\" = django_datetime_trunc('minute', \"started\", 'UTC', 'UTC')) IS TRUE)))",
+  "cases": [
+    {
+      "second": 0,
+      "microsecond": 0,
+      "accepted": true
+    },
+    {
+      "second": 1,
+      "microsecond": 0,
+      "accepted": false
+    },
+    {
+      "second": 0,
+      "microsecond": 1,
+      "accepted": false
+    },
+    {
+      "second": 59,
+      "microsecond": 999999,
+      "accepted": false
+    }
+  ],
+  "malformed_direct_sql": [
+    {
+      "value": "",
+      "accepted": false
+    },
+    {
+      "value": "not-a-date",
+      "accepted": false
+    },
+    {
+      "value": "infinity",
+      "accepted": false
+    },
+    {
+      "value": "-infinity",
+      "accepted": false
+    },
+    {
+      "value": "2026-02-30 00:00:00",
+      "accepted": false
+    }
+  ],
+  "migration_serialization": "__main__.ExactMinute(models.F('started'))",
+  "production_expression_or_migration": false,
+  "probe_sha256": "6299a110cd17207d580b70ccba98a1c4fa8514a481c8fdeeffd9a8676f95f25c",
+  "limitations": "Planning prototype only; __main__ serialization is not production migration replay. PostgreSQL isfinite/ORM constraint and stable production expression remain unimplemented/unrun."
+}

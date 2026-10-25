@@ -1,5 +1,17 @@
 # SDD ledger — plan: plan.md
 
+## B2a admission design progress —26 October 2026
+
+Saved the narrow admission contract and reconciled its parent/service plan: existing DB Session/ModelBackend current+fallback hashes without session mutation or lazy-user resolution; preliminary unlocked authority followed by locked revalidation; strict epochs/same-branch grants; valid disabled calls commit an allowance before503; concealed malformed path404 versus invalid command key400 and preserved413; descriptor repr suppression; sampled final session/network semantics. Two bounded independent reviewers covered session/security and schema; security amendments are incorporated. B2a remains DRAFT, not implementation-frozen: stable importable migration expression/replay and final PostgreSQL ORM finite/timezone acceptance are open. B2b/B2c/B3 and staff document ingestion remain unimplemented.
+
+An ignored in-memory SQLite ORM planning prototype reproduced bare-equality CHECK allowing malformed text. Its `IS TRUE` candidate passed four aligned/precision cases and rejected five malformed raw-SQL values; MigrationWriter serialized a prototype `__main__` class, which is explicitly NOT permanent migration replay proof. Redacted evidence is saved in docs/operations/metadata-minute-orm-feasibility-2026-10-26.json. No project database, production source, migration, HTTP, role, setting, frontend or VPS change. Local19root tests passed10.117s; page-action/link and whitespace checks passed. Existing checkpoint f130454 exact CI40172862420 is success by observed status, not newly decoded logs. No unchanged app suite rerun locally. Next: isolated stable-path/schema proof, exact freeze, literal RED before B2a production code.
+
+## Owner resume —26 October 2026, 01:18:20 IST
+
+Owner explicitly requested `continue`; authenticated at 2026-10-25T19:48:20Z with primary29% and weekly57% remaining. This lifts the25October07:25:27UTC manual hold; no cooldown waiver or reset credit is needed. Preserve all historical stops/resumes. The same native heartbeat was updated ACTIVE, without a duplicate. Future fresh<=10% still requires checkpoint+330minutes. No running team existed at resume.
+
+Published checkpoint f1304545226d4f530ee31810301697774ec0633c has exact GitHub run40172862420 completed SUCCESS (observed run status, logs not newly decoded). Application source66bfa10160eae5342b0b64a601ad05b992d40753 remains unchanged. Resume the B2a admission contract and independent session/schema reviews; B1 helpers are complete, four metadata HTTP operations remain planned. No new source deployment or real-data release; preserve preview47b3618 and other VPS applications.
+
 ## Owner pause —25October2026,07:25:27UTC
 
 Owner explicitly requested stop/save to preserve remaining limit. Authenticated primary19%/weekly87%remaining at pause; this is NOT a fresh<=10stop and creates NO new330minute cooldown. Automatic continuation is PAUSED; do no implementation, assignment or review until a later explicit owner resume. Historical24October17:29:37threshold stop/22:59:37deadline and25October06:44:43resume remain preserved. One drafting agent interrupted; no admission-contract file was written. Broad B2service plan/review are saved DESIGN ONLY/UNFROZEN; never claim B2a ready from agent memory. No source/process/test work remains running.

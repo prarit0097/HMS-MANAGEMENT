@@ -1,12 +1,18 @@
 # Usage-aware HMS continuation
 
-State: PAUSED_BY_OWNER
+State: ACTIVE
 checkpoint_at_utc: 2026-10-25T07:25:27Z
-resume_not_before_utc: none (manual owner hold; explicit resume required)
-owner_resume_at_utc: 2026-10-25T06:44:43Z
+resume_not_before_utc: none (owner explicitly resumed)
+owner_resume_at_utc: 2026-10-25T19:48:20Z
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330
 owner_schedule_override_at_utc: 2026-10-23T22:04:30Z
+
+## Owner resume —26 October 2026, 01:18:20 IST
+
+Owner explicitly requested `continue`; authenticated at 2026-10-25T19:48:20Z with primary29% and weekly57% remaining. This lifts the25October07:25:27UTC manual hold; no cooldown waiver or reset credit is needed. Preserve all historical stops/resumes. The same native heartbeat was updated ACTIVE, without a duplicate. Future fresh<=10% still requires checkpoint+330minutes. No running team existed at resume.
+
+Published checkpoint f1304545226d4f530ee31810301697774ec0633c has exact GitHub run40172862420 completed SUCCESS (observed run status, logs not newly decoded). Application source66bfa10160eae5342b0b64a601ad05b992d40753 remains unchanged. Resume the B2a admission contract and independent session/schema reviews; B1 helpers are complete, four metadata HTTP operations remain planned. No new source deployment or real-data release; preserve preview47b3618 and other VPS applications.
 
 ## Owner pause —25October2026,07:25:27UTC
 
