@@ -1,12 +1,18 @@
 # Usage-aware HMS continuation
 
-State: USAGE_COOLDOWN
+State: ACTIVE
 checkpoint_at_utc: 2026-10-25T20:22:58Z
-resume_not_before_utc: 2026-10-25T22:00:00Z
-owner_resume_at_utc: 2026-10-25T19:48:20Z
+resume_not_before_utc: none (owner deadline elapsed; all windows>10)
+owner_resume_at_utc: 2026-10-25T22:00:14Z
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330 (threshold rule; current owner wake is03:30 local)
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## Scheduled rollout resume —26 October2026,03:30:14IST
+
+Authenticated at2026-10-25T22:00:14Z after the owner's22:00UTC deadline: primary99%/weekly53%remaining; all windows>10, no resetcredit. Historical20:22:58stop and owner03:30override are retained. Resume is active. Owner's first task is the latest implemented-source update of the restricted synthetic Hostinger preview. Three independent specialist roles review rollout security/design, source readiness and exactCI/acceptance; coordinator alone Git/VPS.
+
+Exact HEAD3634a98817e454b277e0786cddb0d99ad35d4ea8 GitHubCI40230849210 verifiedSUCCESS all3jobs, decoded1276PG/168subtests39.33s/check0/nodrift,132frontend/typecheck/build155ms,19root/15edge/schema/Compose/docs. Read-only VPS inventory confirms /opt/hms/current->releases/preview-20261023, hms-preview active, only core0001 applied; single existing synthetic previeworg/master. Existing runtime lacks MFA keys/owner/probe config. New owner/operator/keys/migrations/private-static lifecycle must be reviewed/provisioned before switch. Shared globalNginx workers arewww-data; do not change global identity or other sites. No deployment yet from this resume.
 
 ## Owner workflow and schedule override —26 October 2026,01:56:25IST
 

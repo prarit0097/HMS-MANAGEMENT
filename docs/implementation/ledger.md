@@ -1,5 +1,17 @@
 # SDD ledger — plan: plan.md
 
+## Preview rollout plan approved —26 October2026
+
+Three independent roles completed source/security/design/CI reviews; coordinator approved docs/implementation/preview-update-2026-10-26-plan.md for gated execution. Existing source exactCI3634a98 allgreen1276PG/132frontend/19root15edge. Fresh frontend build24modules1.41s completed locally. Actual isolated root-master/www-data socket lifecycle passed10checks, including unsafe-parent bypass reproduction and guarded-parent denial through reload/recreation; no global Nginx/TCP/live change. Existing www-data group remains trusted OS boundary, not per-app isolation. Stable parent root:www-data0750 plus finalsocket0660 selected. No privileged rollback worker needed because effective fallback selects persisted deadline intrinsically.
+
+Candidate restore/migration/keys/owner/operator/live acceptance remain gates, not completed deployment. Plan uses separate venv, immutable source, canonical real static directory, existingorg/master, audited bootstrap, retained Basic/network restriction and failclosed recovery without reverse-history deletion. Next execute isolated backup-restore rehearsal and candidate checks before live maintenance/switch. New app source remains unchanged from66bfa.
+
+## Scheduled rollout resume —26 October2026,03:30:14IST
+
+Authenticated at2026-10-25T22:00:14Z after the owner's22:00UTC deadline: primary99%/weekly53%remaining; all windows>10, no resetcredit. Historical20:22:58stop and owner03:30override are retained. Resume is active. Owner's first task is the latest implemented-source update of the restricted synthetic Hostinger preview. Three independent specialist roles review rollout security/design, source readiness and exactCI/acceptance; coordinator alone Git/VPS.
+
+Exact HEAD3634a98817e454b277e0786cddb0d99ad35d4ea8 GitHubCI40230849210 verifiedSUCCESS all3jobs, decoded1276PG/168subtests39.33s/check0/nodrift,132frontend/typecheck/build155ms,19root/15edge/schema/Compose/docs. Read-only VPS inventory confirms /opt/hms/current->releases/preview-20261023, hms-preview active, only core0001 applied; single existing synthetic previeworg/master. Existing runtime lacks MFA keys/owner/probe config. New owner/operator/keys/migrations/private-static lifecycle must be reviewed/provisioned before switch. Shared globalNginx workers arewww-data; do not change global identity or other sites. No deployment yet from this resume.
+
 ## Owner workflow and schedule override —26 October 2026,01:56:25IST
 
 Owner explicitly requires every completed code change to follow verified GitHub push -> reviewed/tested VPS deployment -> live verification -> MD deployment record. Apply this to the existing restricted HMS preview at hms.praritsidana.com under /opt/hms, preserving all other VPS apps, credentials and access restrictions. Push is never proof of deployment; record actual source/runtime SHA and open gates. Failed checks stop rollout and are documented; do not bypass security, backup or rollback checks. Documentation-only commits do not require restarting an unchanged application.
