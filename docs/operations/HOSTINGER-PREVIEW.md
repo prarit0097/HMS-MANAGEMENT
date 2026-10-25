@@ -1,20 +1,30 @@
 # Hostinger HMS preview
 
-Status: deployed authenticated preview on23October2026; no hospital production cutover. URL: https://hms.praritsidana.com . Owner authorised this environment and expressly waived the active usage cooldown for deployment only.
+Status: latest implemented source deployed26October2026 at03:42:49IST, release522f00d; original preview established23October. No hospital production cutover. URL: https://hms.praritsidana.com . Owner authorised this environment and expressly waived the active usage cooldown for deployment only.
+
+## Current verified rollout —26 October2026
+
+Latest implemented source is live: release522f00d184165249b522c0c3a89bb782458e45e6/appsource66bfa, switched03:42:49IST. See [redacted deployment evidence](preview-update-evidence-2026-10-26.json) and [reviewed plan](../implementation/preview-update-2026-10-26-plan.md). Live HTTPS/API/session/CSRF/MFA/network/asset/backup checks passed; actual livebrowser/staff and owner authenticator import remain open. Login now requires the enrolled owner's authenticator/recovery proof; private access material is mode0600 on the VPS and in an ignored owner handoff, never Git. Do not run the original password-only verify_preview.py unchanged after enrollment.
+
+Current source/venv are /opt/hms/releases/preview-20261026-522f00d and /opt/hms/releases/venv-20261026; current symlink and canonical real static root point at this release/build. Backend loopback8185/DB5548 remain private. Root-owned /opt/hms/run0750 with www-data group and socket0660 carries the UDS-only static backend; public shell/assets require Basic AND network auth_request, conditional headers cannot produce304. Shared www-data is an explicit existing OS trust boundary, not per-app UID isolation. TLS app-role is NOCREATEDB. Migration core0008 includes dormant documents only; four metadata APIs remain planned.
+
+Existing preview organisation/master were retained; separate network operator and keyring/owner/probe configuration provisioned through audited commands. Environment policy remains the original authenticated-preview ceiling; no visitor IP is automatically added. Equivalent policy confirm/revert acceptance leaves revision6/no pending. Owner can choose IP restrictions through the deployed MFA-protected Network access flow. Read-time rollback is independent of a scheduler; no privileged periodic worker added.
+
+Backups remain private local dumps, with matching keyring retained separately; both pre/post-upgrade isolated restore were verified, including decrypting the enrolled factor and10recovery-code hashes. This is not encrypted off-host recovery. On failure close HMS first; retain DB/history/keys and forward repair. Do not reverse0007 after provisioning or blindly restore old47b3618 ignoring durable restrictions.48other configuration hashes/18container identities preserved. The historical first-install evidence below remains dated context.
 
 ## Access and scope
 
 Use the generated owner details from the ignored local access file supplied in the coordinator handoff. The browser security prompt and HMS login use those same initial details. Root-only recovery copy: `/opt/hms/secrets/owner-access.json`. Never place passwords in GitHub, screenshots, command arguments, issue text or chat. The browser automation available in this session could not handle the HTTP Basic prompt; actual HTTPS/session/API checks passed through the verification script, but no authenticated live browser walkthrough is claimed.
 
-This version contains login, dashboard, patient registration/search/detail, appointments/check-in, pageable bed listing/admission selection and nonclinical master summary. Other portals remain unavailable. UI prominently says INITIAL PREVIEW and synthetic data only. Initial owner has explicit master_admin and reception memberships, no clinical signing. The preview database initially has120synthetic beds, zero patients. Do not enter real hospital data until the remaining release gates are completed.
+This version contains login/MFA/account security, dashboard, patient registration/search/detail, appointments/check-in, pageable bed listing/admission selection, branch/bed configuration, scoped staff administration, administration/security history, network access management and nonclinical master summary. Other portals remain unavailable. UI prominently says INITIAL PREVIEW and synthetic data only. Initial owner has explicit master_admin and reception memberships, no clinical signing. The preview database initially has120synthetic beds, zero patients. Do not enter real hospital data until the remaining release gates are completed.
 
 ## Isolation and runtime
 
 | Resource | Dedicated HMS value |
 |---|---|
-| Root/source | `/opt/hms`, `/opt/hms/releases/preview-20261023`, `/opt/hms/current` symlink |
+| Root/source | `/opt/hms`, `/opt/hms/releases/preview-20261026-522f00d`, `/opt/hms/current` symlink |
 | User/service | `hms-preview`, `hms-preview.service` |
-| Backend | Python3.12 virtualenv `/opt/hms/venv`, Gunicorn26.2.0, two workers, loopback127.0.0.1:8185 |
+| Backend | Python3.12 virtualenv `/opt/hms/releases/venv-20261026`, Gunicorn26.2.0, two workers, loopback127.0.0.1:8185 |
 | Static app | `/opt/hms/static`, React production build; no Vite/runserver exposure |
 | Database | Compose project `hms-preview`, `postgres:17.11-bookworm`, loopback127.0.0.1:5548, `/opt/hms/data/postgres` |
 | Database roles | Private container admin; hms_app is not superuser and has no CREATEDB after test runs |
@@ -26,7 +36,7 @@ This version contains login, dashboard, patient registration/search/detail, appo
 
 The VPS OS, Docker engine and Nginx remain shared host dependencies. This is process/database/config isolation, not a separate VM security boundary. No existing application stack was restarted. All pre-existing Nginx file checksums remained unchanged; Nginx was syntax-checked and gracefully reloaded to add this host. Other checked domains returned200 or their existing redirect.
 
-Nginx replaces X-Forwarded-For/Proto, clears alternative forwarded headers and inbound Authorization before proxying. Gunicorn trusts only loopback to establish HTTPS `wsgi.url_scheme`; Django does not globally trust arbitrary forwarded scheme headers. App trust for client-IP policy is loopback-only. Unique shared Nginx login rate zone uses actual peer IP. IP mode initially permits authenticated users from any network; configurable environment allow/block lists exist, master-admin IP editing/recovery UI is still planned. This is not a completed IP administration product.
+Nginx replaces X-Forwarded-For/Proto, clears alternative forwarded headers and inbound Authorization before proxying. Gunicorn trusts only loopback to establish HTTPS `wsgi.url_scheme`; Django does not globally trust arbitrary forwarded scheme headers. App trust for client-IP policy is loopback-only. Unique shared Nginx login rate zone uses actual peer IP. IP mode initially permits authenticated users from any network; configurable environment allow/block lists exist, MFA-protected network management is now deployed as recorded above; initial network mode remains the approved restricted-preview policy, not hospital release approval.
 
 ## Verified evidence
 
@@ -53,7 +63,7 @@ systemctl start hms-preview-backup.service
 python3 /opt/hms/current/infra/hostinger/verify_preview.py
 ```
 
-The smoke script intentionally consumes login rate budget. Do not repeatedly run it during an owner login. It reads private credentials locally and prints only assertions. Owner account management/MFA is unfinished; administrative credential rotation must update app and edge deliberately, with no shared/default password in source.
+The smoke script intentionally consumes login rate budget. Do not repeatedly run it during an owner login. It reads private credentials locally and prints only assertions. Owner MFA is now enrolled and verified; the original smoke script needs the MFA-aware coordinator harness. Administrative credential rotation must update app and edge deliberately, with no shared/default password in source.
 
 Rollback to unavailable preview without affecting other sites: stop only hms-preview.service, unlink only `/etc/nginx/sites-enabled/hms-preview`, run `nginx -t`, then reload nginx if valid. Preserve all `/opt/hms` data/secrets/releases/backups. Do not run Docker prune, stop the global proxy, or delete database volumes. Certificate/backup timers are dedicated; disable only their HMS-specific schedule if preview is retired.
 

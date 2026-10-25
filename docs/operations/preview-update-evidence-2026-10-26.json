@@ -1,0 +1,109 @@
+{
+  "status": "deployed restricted synthetic preview; not hospital real-data release",
+  "deployed_release_sha": "522f00d184165249b522c0c3a89bb782458e45e6",
+  "application_source_sha": "66bfa10160eae5342b0b64a601ad05b992d40753",
+  "release_path": "/opt/hms/releases/preview-20261026-522f00d",
+  "switch_at_utc": "2026-10-25T22:12:49.774761+00:00",
+  "static_sha256": {
+    "index-iU1dvqzc.css": "e326cb9299958b870c1d1aa243363203c753037ae1105fee7cd9bc628dc1e4a2",
+    "index-CVDsI9ox.js": "b5208f46e869bb4f7dbc26d406ab31424b5fb50952c32387000717d9c72c14ad"
+  },
+  "acceptance": "LIVE HTTPS/API/MFA/CSRF/static/network confirm+revert/history/logout verified; browser/staff walkthrough remains open",
+  "operational_note": "First socket check raced asynchronous graceful reload; preview stayed503. Confirmed socket appeared, then bounded readiness/rights/worker checks before opening; no repeated bootstrap or reverse migration.",
+  "source_archive_files_verified": 195,
+  "final_network_revision": 6,
+  "no_pending_candidate": true,
+  "owner_mfa_enrolled": true,
+  "private_key_backup_restore_verified": true,
+  "other_nginx_files_preserved": 48,
+  "existing_docker_ids_preserved": 18,
+  "source_archive_sha256": "647496549bbd118dc43b555536c219ba60b3d610bfd3125390e07a3210bc79b3",
+  "frontend_archive_sha256": "213274d32676647f4a5f9b23b07215ee2869ed5bddbf766429ac45ff9081ff02",
+  "source_ci": {
+    "sha": "3634a98817e454b277e0786cddb0d99ad35d4ea8",
+    "run": 40230849210,
+    "all_three_jobs": "success",
+    "postgres_passed": 1276,
+    "subtests": 168,
+    "frontend_passed": 132,
+    "root_tests": 19,
+    "edge_source_tests": 15
+  },
+  "candidate": {
+    "restored_old_database_upgrade": "core0001 to core0008",
+    "preserved_beds": 120,
+    "preserved_patients": 0,
+    "preserved_organisations": 1,
+    "django_check": 0,
+    "migration_drift": false,
+    "fresh_isolated_edge_checks": 363,
+    "baseline_wildcard_status": 304,
+    "baseline_was_red": true,
+    "shared_hba_sha256_unchanged": "d2d4b94383868aefa5559e6061b3324d8766d4db8c007e46afe1fa1293789b70",
+    "same_worker_socket_lifecycle_checks": 10
+  },
+  "live_checks": [
+    "Basic required; Basic alone is not app session",
+    "HTTPS shell/index/nested route/assets security headers and no-store; wildcard no304",
+    "served JS SHA256 matches deployed build",
+    "external private probe and internal-check URL404",
+    "CSRF missing-token login and network POST denied",
+    "real API enrollment/private recovery handoff; fresh password+TOTP login202",
+    "pending MFA challenge cannot access auth/me or network management",
+    "secure HttpOnly SameSite session cookies; secure CSRF cookie",
+    "foreign branch403; reception patient/appointment reads and bed101+ pagination",
+    "equivalent policy preview nonactivation, apply+confirm, apply+revert, exact history",
+    "final revision6/no pending candidate; logout invalidates session"
+  ],
+  "external_windows_ports_denied": [
+    8185,
+    5548,
+    18185,
+    18186,
+    15549
+  ],
+  "postchange_isolated_restore": {
+    "isolated_postchange_restore": true,
+    "actual_enrolled_secret_decrypts_with_private_keyring": true,
+    "owner_password_hash_valid": true,
+    "recovery_codes_remaining": 10,
+    "no_pending_policy": true,
+    "revision": 6,
+    "beds": 120,
+    "patients": 0
+  },
+  "backup_checksums": {
+    "prechange": "2af7c94d808ee9ddcd837644915a2c375bba284cba3d4ec4a2a0c9f0d34f1b81",
+    "maintenance": "8012bfd36ab50eecadfd474e645a023e897b0f3e335dd0c21fb2bd88d3da50c1",
+    "postchange": "11bbfdff8c683bdd361a52431c6e0de4abfa39439187100a8ab798f5f4b9e02e"
+  },
+  "remaining": [
+    "Actual live browser/Basic prompt/keyboard/staff walkthrough and owner authenticator import are not verified",
+    "Live destructive outage/denied-network/timeout fallback are isolated matrix evidence, not deliberately repeated live",
+    "Shared root/www-data OS trust is not independent per-app UID isolation",
+    "Backups are private local dumps plus separate private keys, not encrypted off-host disaster recovery",
+    "Four metadata APIs, ingestion/scanner/download, clinical/finance/MCP/dataops and full hospital release remain unimplemented/open"
+  ],
+  "external_windows_https_checks": {
+    "external_windows_https": true,
+    "hms_static200_even_wildcard_never304": true,
+    "basic_required401": true,
+    "external_private_routes404": true,
+    "untrusted_forwarded_and_probe_headers_cannot_expose_private_route": true,
+    "other_public_sites_current_status": {
+      "pdf.praritsidana.com": 200,
+      "postzyo.com": 200,
+      "riimshospitals.com": 200,
+      "rezoom.praritsidana.com": 200,
+      "nirogidhara.com": 200
+    },
+    "note": "current external reachability, not baseline response-body equality or live restricted-IP proof"
+  },
+  "documentation_publication_checks": {
+    "root_tests": 19,
+    "duration_seconds": 23.825,
+    "links_page_action_map": "passed",
+    "whitespace": "passed",
+    "credentials": "private access material excluded; staged scan required beforecommit"
+  }
+}

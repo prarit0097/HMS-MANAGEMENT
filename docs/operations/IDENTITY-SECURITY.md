@@ -1,6 +1,6 @@
 # Identity security operations — source design and release gates
 
-This runbook accompanies [the identity security contract](../implementation/identity-security-contract.md). Bounded source is verified with259actualPostgreSQL/25subtests and64frontend tests, final freshness/negative/race coverage and bounded source review; these instructions do not claim deployment or account enrollment. Existing Hostinger preview47b3618uses its original password/session controls. Do not add real hospital data until full release gates pass.
+This runbook accompanies [the identity security contract](../implementation/identity-security-contract.md). Bounded source is verified with259actualPostgreSQL/25subtests and64frontend tests, final freshness/negative/race coverage and bounded source review; these instructions do not claim deployment or account enrollment. Update26October2026: restricted preview522f00d now deploys identity controls; actual owner API enrollment/fresh password+TOTP challenge, pending-session denial, secure logout and post-change backup/key decryption were verified. Livebrowser/staff/authenticator import remain open; see Hostinger rollout evidence. Original source counts below are historical. Do not add real hospital data until full release gates pass.
 
 ## Dedicated encryption material
 
