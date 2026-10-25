@@ -10,6 +10,10 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
+## Owner resume —25October2026,06:44:43UTC
+
+Owner requested continue; authenticated primary96%/weekly99%remaining. Prior2026-10-24T22:59:37UTC deadline has elapsed, so no waiver/reset credit needed. Historical17:29:37UTC stop/deadline remain preserved. Guardcontinue; all applicable coding windows available and>10%. Current Git739da246b0d7532018827e83a36a07ec5c25830b, clean at resume; exact checkpoint CI40116508123 verified successful:658PG/168subtests31.82s/check0/nodrift,132frontend/typecheck/build157ms,19root15edge/schema/Compose/docs. Existing source5aee4d2 foundation and network/reception/Encounter are complete within bounded contracts; do not repeat them. No active team existed; three independent API/transaction/UI reviews now address metadata DRAFT freeze gaps, with five specialist roles in batches. No new API/code/deployment from this resume record. Futurefresh<=10% requires a new actualUTC+330minute checkpoint; same heartbeat, no reset credits.
+
 ## Fresh usage checkpoint —24October2026,17:29:37UTC
 
 Authenticated coding windows: primary10%remaining, weekly26%remaining. Stop new implementation/assignments under owner rule. Checkpoint2026-10-24T17:29:37Z; resume not before2026-10-24T22:59:37Z (25October2026,04:29:37AM IST), then only all applicable windows available and>10%. Earlier16:43:13owner resume waived only the old17:05:08deadline and does not waive this fresh stop. Historical11:35:08stop and all earlier history remain preserved. Ignored usage guard records checkpoint_and_stop with this exact330minute deadline; no reset credit consumed, no repeated-reading extension.
@@ -20,7 +24,7 @@ All specialists finished; no active work to redispatch. Foundation plan publicat
 
 Checkpoint publication is documentation-only; verify its remote SHA and exact CI separately. Same native heartbeat is rescheduled330minutes later, best effort requiring PC/Codex/repository/credentials. No implementation during cooldown; no duplicate automation or new deadlines on unchanged low readings.
 
-**Status:** Version1.18.0 COOLDOWN. Historical owner-resume record: Owner explicitly requested continue after recovery, verified2026-10-24T16:43:13UTC (10:13:13PM IST), primary97%/weekly39%remaining. This waives ONLY the saved17:05:08UTC deadline from the fresh11:35:08UTC primary9%/weekly41% stop. Recovery alone did not waive it:16:40heartbeat performed checkpoint recovery only. Originalstop/deadline/history preserved in docs and ignored guard archive; no reset credits. Guardcontinue, same native heartbeat to be updated. Futurefresh<=10% still requires new actualUTC+330minutes.
+**Status:** Version1.19.0 ACTIVE; resumed after elapsed cooldown. Historical cooldown record: Historical owner-resume record: Owner explicitly requested continue after recovery, verified2026-10-24T16:43:13UTC (10:13:13PM IST), primary97%/weekly39%remaining. This waives ONLY the saved17:05:08UTC deadline from the fresh11:35:08UTC primary9%/weekly41% stop. Recovery alone did not waive it:16:40heartbeat performed checkpoint recovery only. Originalstop/deadline/history preserved in docs and ignored guard archive; no reset credits. Guardcontinue, same native heartbeat to be updated. Futurefresh<=10% still requires new actualUTC+330minutes.
 
 Exact source44a7dcd2d5064e42c922a0315e49b5f115127504 pushed/remote SHA verified. GitHubCI40114749901 completed all3jobs success; decoded579 PostgreSQL tests/168subtests46.14s/check0/no migration drift,132tracked frontend tests/typecheck/build24modules153ms,19root/15edge/OpenAPI/Compose/docs. Earlierfc2ec628 CI40113062043 independently decoded577PG/168subtests45.70s,132frontend/build159ms,19root/schema/docs; it predates final depth fix. These are CI/source evidence, not deployment.
 

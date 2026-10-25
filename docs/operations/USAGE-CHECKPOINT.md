@@ -1,12 +1,16 @@
 # Usage-aware HMS continuation
 
-State: COOLDOWN_USAGE_THRESHOLD
+State: ACTIVE_AFTER_ELAPSED_COOLDOWN
 checkpoint_at_utc: 2026-10-24T17:29:37Z
-resume_not_before_utc: 2026-10-24T22:59:37Z
-owner_resume_at_utc: 2026-10-24T16:43:13Z
+resume_not_before_utc: none (historical22:59:37UTC deadline elapsed)
+owner_resume_at_utc: 2026-10-25T06:44:43Z
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330
 owner_schedule_override_at_utc: 2026-10-23T22:04:30Z
+
+## Owner resume —25October2026,06:44:43UTC
+
+Owner requested continue; authenticated primary96%/weekly99%remaining. Prior2026-10-24T22:59:37UTC deadline has elapsed, so no waiver/reset credit needed. Historical17:29:37UTC stop/deadline remain preserved. Guardcontinue; all applicable coding windows available and>10%. Current Git739da246b0d7532018827e83a36a07ec5c25830b, clean at resume; exact checkpoint CI40116508123 verified successful:658PG/168subtests31.82s/check0/nodrift,132frontend/typecheck/build157ms,19root15edge/schema/Compose/docs. Existing source5aee4d2 foundation and network/reception/Encounter are complete within bounded contracts; do not repeat them. No active team existed; three independent API/transaction/UI reviews now address metadata DRAFT freeze gaps, with five specialist roles in batches. No new API/code/deployment from this resume record. Futurefresh<=10% requires a new actualUTC+330minute checkpoint; same heartbeat, no reset credits.
 
 ## Fresh usage checkpoint —24October2026,17:29:37UTC
 
