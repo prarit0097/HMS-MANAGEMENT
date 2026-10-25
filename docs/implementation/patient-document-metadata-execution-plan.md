@@ -1,6 +1,6 @@
 # Patient document metadata B1 pure contract helpers implementation plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans for the assigned implementation task; coordinator arranges independent review. Steps use checkbox (`- [ ]`) syntax. Coordinator alone commits/pushes the shared checkout.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans for the assigned implementation task; coordinator arranges independent review. Steps use checkbox (`- [x]`) syntax. Coordinator alone commits/pushes the shared checkout.
 
 **Status:** 25 October 2026, FROZEN B1 after independent review; root verifies/publishes catalogue before authorising RED-first helper implementation.
 
@@ -73,8 +73,8 @@ Hash UTF8 of `json.dumps({operation,patient_id,document_id,payload}, ensure_asci
 
 **Files:** Create `backend/tests/test_patient_document_contracts.py`; production module must still be absent when first RED executes. Test bodies use public interfaces; no Django database mark or fixtures.
 
-- [ ] Write import/discovery tests and the behavior matrix below. The first recorded RED must show absent module/public interface, with the installed pytest environment healthy; do not misreport dependency/configuration failure as valid RED.
-- [ ] Run from `E:/coding/HMS/backend`: `.venv/Scripts/python.exe -m pytest tests/test_patient_document_contracts.py -q`; retain actual failure output/time. Coordinator reviews RED before production code.
+- [x] Write import/discovery tests and the behavior matrix below. The first recorded RED must show absent module/public interface, with the installed pytest environment healthy; do not misreport dependency/configuration failure as valid RED.
+- [x] Run from `E:/coding/HMS/backend`: `.venv/Scripts/python.exe -m pytest tests/test_patient_document_contracts.py -q`; retain actual failure output/time. Coordinator reviews RED before production code.
 
 | Required test names/groups | Exact assertions |
 |---|---|
@@ -97,17 +97,25 @@ Hash UTF8 of `json.dumps({operation,patient_id,document_id,payload}, ensure_asci
 
 **Files:** Create `backend/apps/core/document_contracts.py`; update only owned test file for justified test corrections with explanation and retained original RED evidence.
 
-- [ ] After coordinator freeze and recorded RED approval, implement the public interfaces above using standard-library json/uuid/base64/datetime/hashlib and small shared validation helpers. Implement original-byte type/size check before decode; duplicate object_pairs_hook and parse_constant rejection; bounded nesting/surrogate walk; shared exact-payload validators; exact cursor re-encoding. No framework or transport code.
-- [ ] Run the same focused command; require all assertions pass and record actual totals/time. Test fixes cannot relax stated grammar or disguise RED.
-- [ ] Request fresh independent review of source/tests against the frozen matrix, concentrating on before-trim controls, canonical byte encodings, bool coercion and fingerprint revalidation. For any Important finding, add reproducing RED, minimally fix and rerun focused tests.
+- [x] After coordinator freeze and recorded RED approval, implement the public interfaces above using standard-library json/uuid/base64/datetime/hashlib and small shared validation helpers. Implement original-byte type/size check before decode; duplicate object_pairs_hook and parse_constant rejection; bounded nesting/surrogate walk; shared exact-payload validators; exact cursor re-encoding. No framework or transport code.
+- [x] Run the same focused command; require all assertions pass and record actual totals/time. Test fixes cannot relax stated grammar or disguise RED.
+- [x] Request fresh independent review of source/tests against the frozen matrix, concentrating on before-trim controls, canonical byte encodings, bool coercion and fingerprint revalidation. For any Important finding, add reproducing RED, minimally fix and rerun focused tests.
 
 ## Task3: Verification and coordinator publication
 
-- [ ] Run from backend: `.venv/Scripts/python.exe manage.py check`; expect no issues.
-- [ ] Run `.venv/Scripts/python.exe manage.py makemigrations --check --dry-run`; expect no changes.
-- [ ] Run `.venv/Scripts/python.exe -m pytest -q`; record actual result/skips/database backend honestly. SQLite cannot verify PostgreSQL races; this B1 introduces none and must not claim B2 lock/timeout/audit safety from this run.
-- [ ] Coordinator runs the repository's exact established OpenAPI/docs/root checks after planned catalogue updates. Confirm46implemented/4planned operation distinction, unchanged URL/grant/current-user sets, no migration drift and no frontend source changes. Do not invent a check command or claim a count before reading its actual output.
-- [ ] Coordinator updates HMS.md affected status/interfaces/evidence/new change record, plan.md B1status/B2-B3open, ledger and this plan's checked steps in the same completed change set. Clearly label B1helpers implemented/verified versus HTTP/services/UI planned and runtime undeployed.
+- [x] Run from backend: `.venv/Scripts/python.exe manage.py check`; expect no issues.
+- [x] Run `.venv/Scripts/python.exe manage.py makemigrations --check --dry-run`; expect no changes.
+- [x] Run `.venv/Scripts/python.exe -m pytest -q`; record actual result/skips/database backend honestly. SQLite cannot verify PostgreSQL races; this B1 introduces none and must not claim B2 lock/timeout/audit safety from this run.
+- [x] Coordinator runs the repository's exact established OpenAPI/docs/root checks after planned catalogue updates. Confirm46implemented/4planned operation distinction, unchanged URL/grant/current-user sets, no migration drift and no frontend source changes. Do not invent a check command or claim a count before reading its actual output.
+- [x] Coordinator updates HMS.md affected status/interfaces/evidence/new change record, plan.md B1status/B2-B3open, ledger and this plan's checked steps in the same completed change set. Clearly label B1helpers implemented/verified versus HTTP/services/UI planned and runtime undeployed.
 - [ ] Coordinator commits only reviewed owned changes plus required integration docs, pushes normally and verifies remote SHA; retain exact CI state separately. No force push, live changes or unrelated files. Report unrun PostgreSQL/B2/B3/browser/real-record checks explicitly.
 
 Self-review: every B1requirement maps to a public interface and named RED group. No product capability, shared limiter schema or full-network time claim is included. B1 does not close patient-document Task04. All boxes remain unchecked until observed evidence; this draft itself runs no executable tests.
+
+## Observed B1 evidence
+
+Added only backend/apps/core/document_contracts.py and tests/test_patient_document_contracts.py. Public interfaces parse_create/parse_withdraw/canonical_uuid/parse_list_query/encode_cursor/command_fingerprint and fixed DocumentContractError implement the frozen standard-library-only rules. Exact original-byte4096 limit, strict JSON/scalars/depth/decoded duplicates/nonfinite inputs, controls BEFORE trim, Gregorian UTC timestamps, canonical fixed-order cursor/base64 round-trip, and recursively sorted ASCII command fingerprints are independently executable. Fingerprints revalidate normalized payloads without incorrectly reapplying wire-size to ASCII escape expansion. No Django/DRF/DB/IO import or permission/route/schema/UI change; helper validation is not HTTP ingress, CSRF, authorisation, idempotent execution or file safety.
+
+LiteralRED614module-missing errors26.20s preceded all production code; root verified module absent and approved GREEN. Final tracked618passed4.69s after strengthening four non-vacuous duplicate/cursor cases, no production relaxation. Fresh independent review found no Important/Critical source defect; root reran combined tracked+ignored probes717passed4.43s, moduleSHA256961c42ad69b41a2b6ccb3e13e415fd5a03b82e460b6979f982e60c7cdc2b6096 matched reviewed source. Root actualPostgreSQL1276passed/168subtests54.63s, Django check0/no migration drift. Candidate archive3cb84bdd5e18f8340969066ca0b7c57c5ef02760e9c2d1f4aec9ee46cff8b68b and private durable document-contracts-20261025.log bind actual validation. Cleanup independently appCREATEDB=f/testDBabsent0/previewactive. No unchanged frontend/browser suite rerun locally; publication CI remains separate until observed.
+
+B1 complete within this bounded contract;50catalogued/46source-implemented HTTP operations remain unchanged. NextB2service plan is DESIGN ONLY until independent review/exact freeze: durable actor limiter/schema, current scoped context/epoch/grants, audited two-phase transactions, quota SQL plans and final time/policy projection need actual PostgreSQL races/timeout/COMMIT evidence. B3HTTP/real-CSRF/role/API acceptance and usable ingestion/UI remain planned. No source deployed to initial47b3618preview; no real records/resources or other VPS app changes.
