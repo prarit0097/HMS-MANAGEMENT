@@ -1,5 +1,13 @@
 # SDD ledger — plan: plan.md
 
+## Owner workflow and schedule override —26 October 2026,01:56:25IST
+
+Owner explicitly requires every completed code change to follow verified GitHub push -> reviewed/tested VPS deployment -> live verification -> MD deployment record. Apply this to the existing restricted HMS preview at hms.praritsidana.com under /opt/hms, preserving all other VPS apps, credentials and access restrictions. Push is never proof of deployment; record actual source/runtime SHA and open gates. Failed checks stop rollout and are documented; do not bypass security, backup or rollback checks. Documentation-only commits do not require restarting an unchanged application.
+
+Owner schedules work for26October2026 at03:30AM Asia/Calcutta (2026-10-25T22:00:00Z). This explicitly replaces ONLY the current01:52:58UTC earliest-resume deadline from20:22:58UTC stop; retain the original stop/history. Authenticated at2026-10-25T20:26:25Z: primary9%/weekly54%remaining. Expected recovery at03:30 is unverified; resume then ONLY if every applicable coding window is available and>10%. No new implementation/deployment before then, no reset credits and no fresh330minute deadline from this unchanged low reading. Future fresh<=10 stops still require330minutes. Same native heartbeat scheduled for03:30 local; execution is best effort requiring PC/Codex/repository/credentials available.
+
+Owner requests maximum agents for faster completion: use all available concurrent slots for independent, disjoint tasks (currently4 including coordinator, hence up to3 child agents), with specialist roles in batches and no duplicate team. Coordinator alone handles shared Git and VPS mutations; never run conflicting deploy/migration agents. First resumed task remains latest-code preview rollout preflight/candidate/security/backup/rollback and actual live verification; then continue remaining implementation. No deployment happened during this scheduling update.
+
 ## Fresh usage stop and authorised deployment request —26 October 2026
 
 Owner explicitly requested deploying all currently implemented code to hms.praritsidana.com and updating MD files afterwards. This authorises an update of the existing restricted synthetic HMS preview, preserving its separate /opt/hms boundary and all other VPS apps; it does not make unfinished features implemented or permit real-patient release. Deployment is now the first pending task, ahead of B2a development.

@@ -2,11 +2,19 @@
 
 State: USAGE_COOLDOWN
 checkpoint_at_utc: 2026-10-25T20:22:58Z
-resume_not_before_utc: 2026-10-26T01:52:58Z
+resume_not_before_utc: 2026-10-25T22:00:00Z
 owner_resume_at_utc: 2026-10-25T19:48:20Z
 automation_id: continue-hms-after-usage-cooldown
-automation_interval_minutes: 330
-owner_schedule_override_at_utc: 2026-10-23T22:04:30Z
+automation_interval_minutes: 330 (threshold rule; current owner wake is03:30 local)
+owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## Owner workflow and schedule override —26 October 2026,01:56:25IST
+
+Owner explicitly requires every completed code change to follow verified GitHub push -> reviewed/tested VPS deployment -> live verification -> MD deployment record. Apply this to the existing restricted HMS preview at hms.praritsidana.com under /opt/hms, preserving all other VPS apps, credentials and access restrictions. Push is never proof of deployment; record actual source/runtime SHA and open gates. Failed checks stop rollout and are documented; do not bypass security, backup or rollback checks. Documentation-only commits do not require restarting an unchanged application.
+
+Owner schedules work for26October2026 at03:30AM Asia/Calcutta (2026-10-25T22:00:00Z). This explicitly replaces ONLY the current01:52:58UTC earliest-resume deadline from20:22:58UTC stop; retain the original stop/history. Authenticated at2026-10-25T20:26:25Z: primary9%/weekly54%remaining. Expected recovery at03:30 is unverified; resume then ONLY if every applicable coding window is available and>10%. No new implementation/deployment before then, no reset credits and no fresh330minute deadline from this unchanged low reading. Future fresh<=10 stops still require330minutes. Same native heartbeat scheduled for03:30 local; execution is best effort requiring PC/Codex/repository/credentials available.
+
+Owner requests maximum agents for faster completion: use all available concurrent slots for independent, disjoint tasks (currently4 including coordinator, hence up to3 child agents), with specialist roles in batches and no duplicate team. Coordinator alone handles shared Git and VPS mutations; never run conflicting deploy/migration agents. First resumed task remains latest-code preview rollout preflight/candidate/security/backup/rollback and actual live verification; then continue remaining implementation. No deployment happened during this scheduling update.
 
 ## Fresh usage stop and authorised deployment request —26 October 2026
 

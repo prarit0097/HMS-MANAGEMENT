@@ -1,7 +1,15 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.24.0 | Updated: 26 October 2026, Asia/Calcutta
+Document version: 1.25.0 | Updated: 26 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
+## Owner workflow and schedule override —26 October 2026,01:56:25IST
+
+Owner explicitly requires every completed code change to follow verified GitHub push -> reviewed/tested VPS deployment -> live verification -> MD deployment record. Apply this to the existing restricted HMS preview at hms.praritsidana.com under /opt/hms, preserving all other VPS apps, credentials and access restrictions. Push is never proof of deployment; record actual source/runtime SHA and open gates. Failed checks stop rollout and are documented; do not bypass security, backup or rollback checks. Documentation-only commits do not require restarting an unchanged application.
+
+Owner schedules work for26October2026 at03:30AM Asia/Calcutta (2026-10-25T22:00:00Z). This explicitly replaces ONLY the current01:52:58UTC earliest-resume deadline from20:22:58UTC stop; retain the original stop/history. Authenticated at2026-10-25T20:26:25Z: primary9%/weekly54%remaining. Expected recovery at03:30 is unverified; resume then ONLY if every applicable coding window is available and>10%. No new implementation/deployment before then, no reset credits and no fresh330minute deadline from this unchanged low reading. Future fresh<=10 stops still require330minutes. Same native heartbeat scheduled for03:30 local; execution is best effort requiring PC/Codex/repository/credentials available.
+
+Owner requests maximum agents for faster completion: use all available concurrent slots for independent, disjoint tasks (currently4 including coordinator, hence up to3 child agents), with specialist roles in batches and no duplicate team. Coordinator alone handles shared Git and VPS mutations; never run conflicting deploy/migration agents. First resumed task remains latest-code preview rollout preflight/candidate/security/backup/rollback and actual live verification; then continue remaining implementation. No deployment happened during this scheduling update.
+
 ## Fresh usage stop and authorised deployment request —26 October 2026
 
 Owner explicitly requested deploying all currently implemented code to hms.praritsidana.com and updating MD files afterwards. This authorises an update of the existing restricted synthetic HMS preview, preserving its separate /opt/hms boundary and all other VPS apps; it does not make unfinished features implemented or permit real-patient release. Deployment is now the first pending task, ahead of B2a development.
@@ -829,3 +837,7 @@ First owner-resumed task: reconcile B2service-plan/review and write/review exact
 ### CHG-0049 —26 October 2026 — Save authorised preview update at usage threshold
 
 Owner requests all implemented code live plus updated MD files. Authenticated primary10%/weekly55% triggered mandatory stop20:22:58UTC; earliest resume01:52:58UTC. Saved deployment as first next task with version/config/migration/backup/rollback/security gates; no VPS/deployment work performed. No new application test claim; checkpoint link/API/whitespace/credential verification is recorded at publication. Source and last recorded deployed preview remain distinct; no secrets or real data published.
+
+### CHG-0050 —26 October 2026 — Save automatic rollout workflow and03:30 schedule
+
+Owner mandates push/tested preview deployment/live verification/MD records for completed code changes and maximum safe parallel agents. Explicit03:30IST override replaces only current cooldown deadline; primary9%weekly54% at scheduling, recovery unverified. No implementation/deployment or resetcredit. Sameheartbeat updated; historical stop retained. Publication checks are link/API/whitespace/privatecredential and remoteSHA, not application test or live success claims.
