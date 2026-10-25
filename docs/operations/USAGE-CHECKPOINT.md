@@ -1,12 +1,22 @@
 # Usage-aware HMS continuation
 
-State: ACTIVE_AFTER_ELAPSED_COOLDOWN
-checkpoint_at_utc: 2026-10-24T17:29:37Z
-resume_not_before_utc: none (historical22:59:37UTC deadline elapsed)
+State: PAUSED_BY_OWNER
+checkpoint_at_utc: 2026-10-25T07:25:27Z
+resume_not_before_utc: none (manual owner hold; explicit resume required)
 owner_resume_at_utc: 2026-10-25T06:44:43Z
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330
 owner_schedule_override_at_utc: 2026-10-23T22:04:30Z
+
+## Owner pause —25October2026,07:25:27UTC
+
+Owner explicitly requested stop/save to preserve remaining limit. Authenticated primary19%/weekly87%remaining at pause; this is NOT a fresh<=10stop and creates NO new330minute cooldown. Automatic continuation is PAUSED; do no implementation, assignment or review until a later explicit owner resume. Historical24October17:29:37threshold stop/22:59:37deadline and25October06:44:43resume remain preserved. One drafting agent interrupted; no admission-contract file was written. Broad B2service plan/review are saved DESIGN ONLY/UNFROZEN; never claim B2a ready from agent memory. No source/process/test work remains running.
+
+Verified source66bfa10160eae5342b0b64a601ad05b992d40753 pushed/remoteSHA matched. ExactCI40171838097 all3jobs SUCCESS decoded1276PG/168subtests42.74s/check0/nodrift,132trackedfrontend/typecheck/build147ms,19root15edge/schema/Compose/docs. Root actualcandidate1276PG/168subtests54.63s and combined717helpers/probes4.43s are separate evidence. Per-file collection confirms618tracked+99ignored probes; prior reviewer's614+103 arithmetic was stale, without source change.50catalogued/46source-implemented HTTP operations,4metadata operations stillplanned. B1purehelpers complete; no actual upload/ready/download/service/HTTP feature implied. Unchanged frontend rerun occurred in CI, not a new local UI task.
+
+[Redacted feasibility evidence](metadata-feasibility-2026-10-25.json): five isolated actualPG probes passed2.82s/check0/nodrift, statement timeout57014 about101.62ms/reusable connection; server transaction timeout25P04 about123.46ms/reconnect; deferredFK forced before selection/rolled back.10,000synthetic metadata rows/100patients/2organisations: active query0.141ms; organisation quota2.155ms using sequential scan/filter8000historical rows. Temporary global time index used bitmap scan but2.505ms with12cold reads; NOT adopted/no speedup claim. LIMIT bounds output, not all scanned work; no production/million-row capacity claim. Raw three-argumentPG UTC DATE_TRUNC correctly accepts aligned/rejects second/microsecond in UTC andAsia/Kolkata; naïve timezone comparison rejects aligned IST. Additional isolated in-memorySQLite raw UTC-function comparison passed3cases. Actual custom ORM constraint/migration stillunimplemented. Probe index removed/testDBabsent/appNOCREATEDB/previewactive independently checked; no live schema/HBA/globalproxy changes.
+
+First owner-resumed task: reconcile B2service-plan/review and write/review exact B2a admission contract before production RED/code. Required rulings: read-only existing DBSession/backend/auth-hash validation (auth.get_user mutates); persisted session final-sample with honest concurrentLogout limitations; valid disabled calls commit allowance then503 outside phaseA/noPatientlookup; strict false-default flag; global no-action403 vs concealed targetscope404; portable minute constraint using verifiedPG3argUTC andSQLite semantics; final statement-consistent network graph plus pure rollback-deadline reselection, no operator locks. Session mutations/network changes committed after final sample may be in-flight; no instant revocation promise. B2a limiter/auth/admission, B2b audited fourbusinessservices, B2c actual races/fault/query acceptance remain unimplemented/unfrozen. No automatic resumption or fresh deadline from this manual pause. Preview47b3618/allotherVPSapps unchanged.
 
 ## Owner resume —25October2026,06:44:43UTC
 

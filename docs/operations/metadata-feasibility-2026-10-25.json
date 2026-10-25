@@ -1,0 +1,343 @@
+{
+  "server_controls": {
+    "settings": [
+      "2s",
+      "3s",
+      "5s"
+    ],
+    "statement_timeout_sqlstate": "57014",
+    "elapsed_ms": 101.62,
+    "connection_reusable": true
+  },
+  "transaction_timeout": {
+    "sqlstate": "25P04",
+    "elapsed_ms": 123.46,
+    "reconnected": true,
+    "commit_ack_sla_claim": false
+  },
+  "deferred_fk": {
+    "forced_before_selection": true,
+    "event_rolled_back": true,
+    "no_service_implemented": true
+  },
+  "quota_queries": {
+    "rows": 10000,
+    "patients": 100,
+    "organisations": 2,
+    "active_threshold_rows": 20,
+    "organisation_threshold_rows": 1000,
+    "plans": {
+      "active": [
+        {
+          "Plan": {
+            "Node Type": "Limit",
+            "Actual Rows": 20,
+            "Actual Loops": 1,
+            "Shared Hit Blocks": 22,
+            "Shared Read Blocks": 0,
+            "Plans": [
+              {
+                "Node Type": "Sort",
+                "Actual Rows": 20,
+                "Actual Loops": 1,
+                "Shared Hit Blocks": 22,
+                "Shared Read Blocks": 0,
+                "Plans": [
+                  {
+                    "Node Type": "Bitmap Heap Scan",
+                    "Relation Name": "core_patientdocumentintent",
+                    "Actual Rows": 20,
+                    "Actual Loops": 1,
+                    "Shared Hit Blocks": 22,
+                    "Shared Read Blocks": 0,
+                    "Plans": [
+                      {
+                        "Node Type": "BitmapAnd",
+                        "Actual Rows": 0,
+                        "Actual Loops": 1,
+                        "Shared Hit Blocks": 21,
+                        "Shared Read Blocks": 0,
+                        "Plans": [
+                          {
+                            "Node Type": "Bitmap Index Scan",
+                            "Index Name": "core_patientdocumentintent_patient_id_49de0147",
+                            "Actual Rows": 100,
+                            "Actual Loops": 1,
+                            "Shared Hit Blocks": 2,
+                            "Shared Read Blocks": 0
+                          },
+                          {
+                            "Node Type": "Bitmap Index Scan",
+                            "Index Name": "doc_intent_status_expiry_id",
+                            "Actual Rows": 2000,
+                            "Actual Loops": 1,
+                            "Shared Hit Blocks": 19,
+                            "Shared Read Blocks": 0
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "Planning Time": 0.095,
+          "Execution Time": 0.141
+        }
+      ],
+      "organisation": [
+        {
+          "Plan": {
+            "Node Type": "Limit",
+            "Actual Rows": 1000,
+            "Actual Loops": 1,
+            "Shared Hit Blocks": 274,
+            "Shared Read Blocks": 0,
+            "Plans": [
+              {
+                "Node Type": "Sort",
+                "Actual Rows": 1000,
+                "Actual Loops": 1,
+                "Shared Hit Blocks": 274,
+                "Shared Read Blocks": 0,
+                "Plans": [
+                  {
+                    "Node Type": "Hash Join",
+                    "Actual Rows": 1000,
+                    "Actual Loops": 1,
+                    "Shared Hit Blocks": 274,
+                    "Shared Read Blocks": 0,
+                    "Plans": [
+                      {
+                        "Node Type": "Hash Join",
+                        "Actual Rows": 2000,
+                        "Actual Loops": 1,
+                        "Shared Hit Blocks": 273,
+                        "Shared Read Blocks": 0,
+                        "Plans": [
+                          {
+                            "Node Type": "Seq Scan",
+                            "Relation Name": "core_patientdocumentintent",
+                            "Actual Rows": 2000,
+                            "Actual Loops": 1,
+                            "Rows Removed by Filter": 8000,
+                            "Shared Hit Blocks": 271,
+                            "Shared Read Blocks": 0
+                          },
+                          {
+                            "Node Type": "Hash",
+                            "Actual Rows": 100,
+                            "Actual Loops": 1,
+                            "Shared Hit Blocks": 2,
+                            "Shared Read Blocks": 0,
+                            "Plans": [
+                              {
+                                "Node Type": "Seq Scan",
+                                "Relation Name": "core_patient",
+                                "Actual Rows": 100,
+                                "Actual Loops": 1,
+                                "Shared Hit Blocks": 2,
+                                "Shared Read Blocks": 0
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "Node Type": "Hash",
+                        "Actual Rows": 1,
+                        "Actual Loops": 1,
+                        "Shared Hit Blocks": 1,
+                        "Shared Read Blocks": 0,
+                        "Plans": [
+                          {
+                            "Node Type": "Seq Scan",
+                            "Relation Name": "core_branch",
+                            "Actual Rows": 1,
+                            "Actual Loops": 1,
+                            "Rows Removed by Filter": 1,
+                            "Shared Hit Blocks": 1,
+                            "Shared Read Blocks": 0
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "Planning Time": 0.236,
+          "Execution Time": 2.155
+        }
+      ],
+      "organisation_candidate_index": [
+        {
+          "Plan": {
+            "Node Type": "Limit",
+            "Actual Rows": 1000,
+            "Actual Loops": 1,
+            "Shared Hit Blocks": 154,
+            "Shared Read Blocks": 12,
+            "Plans": [
+              {
+                "Node Type": "Sort",
+                "Actual Rows": 1000,
+                "Actual Loops": 1,
+                "Shared Hit Blocks": 154,
+                "Shared Read Blocks": 12,
+                "Plans": [
+                  {
+                    "Node Type": "Hash Join",
+                    "Actual Rows": 1000,
+                    "Actual Loops": 1,
+                    "Shared Hit Blocks": 154,
+                    "Shared Read Blocks": 12,
+                    "Plans": [
+                      {
+                        "Node Type": "Bitmap Heap Scan",
+                        "Relation Name": "core_patientdocumentintent",
+                        "Actual Rows": 2000,
+                        "Actual Loops": 1,
+                        "Shared Hit Blocks": 151,
+                        "Shared Read Blocks": 12,
+                        "Plans": [
+                          {
+                            "Node Type": "Bitmap Index Scan",
+                            "Index Name": "metadata_quota_time_probe",
+                            "Actual Rows": 2000,
+                            "Actual Loops": 1,
+                            "Shared Hit Blocks": 0,
+                            "Shared Read Blocks": 12
+                          }
+                        ]
+                      },
+                      {
+                        "Node Type": "Hash",
+                        "Actual Rows": 50,
+                        "Actual Loops": 1,
+                        "Shared Hit Blocks": 3,
+                        "Shared Read Blocks": 0,
+                        "Plans": [
+                          {
+                            "Node Type": "Hash Join",
+                            "Actual Rows": 50,
+                            "Actual Loops": 1,
+                            "Shared Hit Blocks": 3,
+                            "Shared Read Blocks": 0,
+                            "Plans": [
+                              {
+                                "Node Type": "Seq Scan",
+                                "Relation Name": "core_patient",
+                                "Actual Rows": 100,
+                                "Actual Loops": 1,
+                                "Shared Hit Blocks": 2,
+                                "Shared Read Blocks": 0
+                              },
+                              {
+                                "Node Type": "Hash",
+                                "Actual Rows": 1,
+                                "Actual Loops": 1,
+                                "Shared Hit Blocks": 1,
+                                "Shared Read Blocks": 0,
+                                "Plans": [
+                                  {
+                                    "Node Type": "Seq Scan",
+                                    "Relation Name": "core_branch",
+                                    "Actual Rows": 1,
+                                    "Actual Loops": 1,
+                                    "Rows Removed by Filter": 1,
+                                    "Shared Hit Blocks": 1,
+                                    "Shared Read Blocks": 0
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "Planning Time": 0.39,
+          "Execution Time": 2.505
+        }
+      ]
+    },
+    "production_capacity_claim": false,
+    "limit_bounds_scanned_work": false
+  },
+  "minute_expression": {
+    "observations": {
+      "UTC": [
+        {
+          "delta_us": 0,
+          "naive_comparison": true,
+          "aware_comparison": true
+        },
+        {
+          "delta_us": 1000000,
+          "naive_comparison": false,
+          "aware_comparison": false
+        },
+        {
+          "delta_us": 1,
+          "naive_comparison": false,
+          "aware_comparison": false
+        }
+      ],
+      "Asia/Kolkata": [
+        {
+          "delta_us": 0,
+          "naive_comparison": false,
+          "aware_comparison": true
+        },
+        {
+          "delta_us": 1000000,
+          "naive_comparison": false,
+          "aware_comparison": false
+        },
+        {
+          "delta_us": 1,
+          "naive_comparison": false,
+          "aware_comparison": false
+        }
+      ]
+    },
+    "django_expression_implemented": false,
+    "sqlite_expression_verified": false
+  },
+  "kind": "planning-feasibility-not-service-acceptance",
+  "recorded_at_utc": "2026-10-25T07:25:27Z",
+  "source_commit": "66bfa10160eae5342b0b64a601ad05b992d40753",
+  "probe_sha256": "53c40ce47c0c991c5468bccb9bf34075fbc270b439a41e300910ae5c4abca57e",
+  "tests_passed": 5,
+  "elapsed_seconds": 2.82,
+  "system_check_issues": 0,
+  "migration_drift": false,
+  "cleanup": {
+    "app_createdb": false,
+    "test_database_absent": true,
+    "initial_preview_active": true,
+    "temporary_index_removed": true
+  },
+  "sqlite_in_memory_probe": {
+    "raw_utc_function_comparison": [
+      true,
+      false,
+      false
+    ],
+    "cases": [
+      "aligned",
+      "one_second",
+      "one_microsecond"
+    ],
+    "orm_constraint_implemented": false
+  },
+  "candidate_index_adopted": false,
+  "commit_ack_or_http_sla_claim": false
+}
