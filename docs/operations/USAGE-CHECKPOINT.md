@@ -3,10 +3,16 @@
 State: ACTIVE
 checkpoint_at_utc: 2026-10-25T20:22:58Z
 resume_not_before_utc: none (owner deadline elapsed; all windows>10)
-owner_resume_at_utc: 2026-10-25T22:00:14Z
+owner_resume_at_utc: 2026-10-26T03:36:11Z
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330 (threshold rule; current owner wake is03:30 local)
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## Owner resume and B2a-S schema freeze —26 October2026,09:06:11IST
+
+Owner requested continue at2026-10-26T03:36:11Z; authenticated primary100%/weekly45%remaining, active/no cooldown/reset credit. Historical stops retained. Exact1edab14 CI40239798825 completedSUCCESS (run status verified; no new decoded count claim). Current deployed app522f00d/source66bfa remains unchanged; do not repeat rollout. Three independent roles handled schema plan, isolated prototype and scenario/threat review.
+
+Frozen narrow document-rate-schema-plan.md adds only dormant actor-window model/permanent minute expression/0009/discovery plus tests and required historical0008 refusal-test leaf restoration. No runtime grants/settings/admission/API/UI changes. Actual isolated SQLite25 and PostgreSQL25cases in each UTC/AsiaKolkata connection timezone passed plus importable prototype serialization/DDL/replay/duplicate checks; isolated resources cleaned/live active. Initial SQLite fixture-format failure corrected without weakening SQL. Real production import/model/migration evidence must follow literal RED before code; parentB2a remains DRAFT. See document-rate-schema-feasibility-2026-10-26.json. Standing push->testedpreviewdeploy->liveverify->MD rule applies to the completed code change.
 
 ## Latest implemented source is live —26 October2026
 

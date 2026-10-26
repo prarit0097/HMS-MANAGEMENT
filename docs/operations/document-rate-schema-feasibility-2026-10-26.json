@@ -1,0 +1,49 @@
+{
+  "kind": "design feasibility only; not production model/migration acceptance",
+  "postgresql": {
+    "generated_ddl_checked": true,
+    "kind": "isolated_design_probe",
+    "migration_forward_reverse_replay": true,
+    "probe_tables_removed": true,
+    "production_migration_path_verified": false,
+    "results": [
+      {
+        "cases_passed": 25,
+        "connection_timezone": "UTC"
+      },
+      {
+        "cases_passed": 25,
+        "connection_timezone": "Asia/Kolkata"
+      }
+    ],
+    "service_implemented": false,
+    "sqlite_timezone_limit": null,
+    "stable_module_serialization": true,
+    "value_params_repeated": 3,
+    "vendor": "postgresql"
+  },
+  "sqlite": {
+    "generated_ddl_checked": true,
+    "kind": "isolated_design_probe",
+    "migration_forward_reverse_replay": true,
+    "probe_tables_removed": true,
+    "production_migration_path_verified": false,
+    "results": [
+      {
+        "cases_passed": 25,
+        "connection_timezone": "UTC"
+      }
+    ],
+    "service_implemented": false,
+    "sqlite_timezone_limit": "UTC storage; no SQL session timezone",
+    "stable_module_serialization": true,
+    "value_params_repeated": 2,
+    "vendor": "sqlite"
+  },
+  "probe_sha256": "6d788fbe34b3ef07fe3020ae3dc60a9ebcca0d1c325def6a4924a759738ff5dc",
+  "expression_prototype_sha256": "48faa8ae5133d49935d07b288bdec9ee8d3dfa00c8b72f68e942f8d14b22f460",
+  "initial_sqlite_failure": "Raw fixture datetime bypassed Django SQLite canonical UTC adapter; count1 incorrectly rejected; fixture-only preparation fixed, malformed strings remained direct SQL.",
+  "live_database_changed": false,
+  "temporary_container_and_network_removed": true,
+  "live_hms_active_after_cleanup": true
+}

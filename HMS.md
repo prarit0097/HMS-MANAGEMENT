@@ -1,7 +1,13 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.27.0 | Updated: 26 October 2026, Asia/Calcutta
+Document version: 1.28.0 | Updated: 26 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
+## Owner resume and B2a-S schema freeze —26 October2026,09:06:11IST
+
+Owner requested continue at2026-10-26T03:36:11Z; authenticated primary100%/weekly45%remaining, active/no cooldown/reset credit. Historical stops retained. Exact1edab14 CI40239798825 completedSUCCESS (run status verified; no new decoded count claim). Current deployed app522f00d/source66bfa remains unchanged; do not repeat rollout. Three independent roles handled schema plan, isolated prototype and scenario/threat review.
+
+Frozen narrow document-rate-schema-plan.md adds only dormant actor-window model/permanent minute expression/0009/discovery plus tests and required historical0008 refusal-test leaf restoration. No runtime grants/settings/admission/API/UI changes. Actual isolated SQLite25 and PostgreSQL25cases in each UTC/AsiaKolkata connection timezone passed plus importable prototype serialization/DDL/replay/duplicate checks; isolated resources cleaned/live active. Initial SQLite fixture-format failure corrected without weakening SQL. Real production import/model/migration evidence must follow literal RED before code; parentB2a remains DRAFT. See document-rate-schema-feasibility-2026-10-26.json. Standing push->testedpreviewdeploy->liveverify->MD rule applies to the completed code change.
+
 ## Latest implemented source is live —26 October2026
 
 The restricted synthetic preview at https://hms.praritsidana.com was switched at2026-10-25T22:12:49.774761Z (26October03:42:49IST) to release522f00d184165249b522c0c3a89bb782458e45e6, containing unchanged application source66bfa10160eae5342b0b64a601ad05b992d40753.195committed archive files were individually hash-verified against the running release; served JS bytes match the built artifact. Runtime is /opt/hms/releases/preview-20261026-522f00d with separate immutable venv, two loopback Gunicorn workers, core0001→0008 migrations, durable keyring, explicit existing security owner and separately audited network operator. No unfinished feature is enabled by deployment. Four metadata APIs stay planned;46HTTP operations are source-implemented.
@@ -871,3 +877,7 @@ Resumed at03:30:14IST primary99weekly53 afterownerdeadline. Exact3634a98CI verif
 ### CHG-0052 —26 October2026 — Deploy current implemented source to restricted Hostinger preview
 
 Owner-authorised latest-code rollout522f00d switched03:42:49IST;195source files verified and JS hash matches served artifact. Candidate restore/core0001→0008/check/nodrift, fresh363edge and10same-worker lifecycle checks, live HTTPS/MFA/session/CSRF/network confirm/revert/history/logout, externalorigin denial,48config/18container preservation and post-change backup/key restore verified. Private owner MFA/recovery handoff remains excluded; livebrowser/staff/import acceptance explicitly open. No new production code or unfinished metadata feature; documentation-only evidence publication does not restart unchanged runtime. Exact current sourceCI3634a98 passed; evidence-publication CI separately pending at commit.
+
+### CHG-0053 —26 October2026 — Freeze dormant rate-window schema after feasibility
+
+Ownerresumed09:06:11IST primary100weekly45/no cooldown/reset. NarrowB2a-S plan independently reviewed; actual imported-prototype SQLite25/PG25+25 timezone cases/replay/DDL passed, no liveDB change. Required historicalmigration fixture fix planned. Production model/expression/0009 still absent pending literalRED. Parentadmission/services/API remainunimplemented. Completed code must pass review/actualPG/CI/push and separate verified preview rollout.
