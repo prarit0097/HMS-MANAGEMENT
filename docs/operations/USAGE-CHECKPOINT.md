@@ -1,8 +1,8 @@
 # Usage-aware HMS continuation
 
-State: ACTIVE
-checkpoint_at_utc: 2026-10-25T20:22:58Z
-resume_not_before_utc: none (owner deadline elapsed; all windows>10)
+State: PAUSED_BY_OWNER
+checkpoint_at_utc: 2026-10-26T04:10:34Z
+resume_not_before_utc: none (manual owner hold; explicit resume required)
 owner_resume_at_utc: 2026-10-26T03:36:11Z
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330 (threshold rule; current owner wake is03:30 local)
@@ -13,6 +13,16 @@ owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
 Owner requested continue at2026-10-26T03:36:11Z; authenticated primary100%/weekly45%remaining, active/no cooldown/reset credit. Historical stops retained. Exact1edab14 CI40239798825 completedSUCCESS (run status verified; no new decoded count claim). Current deployed app522f00d/source66bfa remains unchanged; do not repeat rollout. Three independent roles handled schema plan, isolated prototype and scenario/threat review.
 
 Frozen narrow document-rate-schema-plan.md adds only dormant actor-window model/permanent minute expression/0009/discovery plus tests and required historical0008 refusal-test leaf restoration. No runtime grants/settings/admission/API/UI changes. Actual isolated SQLite25 and PostgreSQL25cases in each UTC/AsiaKolkata connection timezone passed plus importable prototype serialization/DDL/replay/duplicate checks; isolated resources cleaned/live active. Initial SQLite fixture-format failure corrected without weakening SQL. Real production import/model/migration evidence must follow literal RED before code; parentB2a remains DRAFT. See document-rate-schema-feasibility-2026-10-26.json. Standing push->testedpreviewdeploy->liveverify->MD rule applies to the completed code change.
+
+## Owner pause —26 October2026,09:40:34IST
+
+Owner explicitly requested save/stop to preserve remaining usage at2026-10-26T04:10:34Z. Authenticated primary22%/weekly33%remaining. This is a manual hold, NOT a fresh<=10% stop; no new330minute deadline. No implementation, review, assignment, deployment or automatic continuation until later explicit owner resume. All specialists completed; no owned test process remains running. Native continuation is PAUSED; historical threshold/scheduling records retained, no reset credit.
+
+Source3dd803f844b47aaa67fbd0cdc6be22185bba344c is committed/pushed/remoteSHA verified, exactCI40267300944 completedSUCCESS (run status verified; logs not newly decoded). Root actualPG1320pass/5SQLite-onlyskips/168subtests51.85s/check0/nodrift withone documented isolated-maintenance warning; focusedSQLite744pass/2PGskips10.55s, independentreview744/2skips10.26s/no ImportantCritical. Local19root9.719s and docs/link/whitespace/privatecredential checks passed. B2a-S dormant schema/0009 verified; no new API/grants/flag/admission/UI capability. ParentB2a remainsDRAFT.
+
+LATEST CODE IS NOT YET DEPLOYED: running preview remains522f00d/core0008, active and unchanged. Candidate /opt/hms/releases/preview-20261026-3dd803f is staged; sourcearchiveSHA427ec1392f1bbcc867aeb1e54445a5016cec50f052ec1d724b4e248bc2af3ce2. Fresh private backup/baseline and successful restored-copy rehearsal are under /opt/hms/backups/rate-rollout-20261026. Actual clone upgrade0008→0009 preserved all33preexisting tables/rows, with expected catalog additions only (migration1/contenttype1/permissioncatalog4, not user grants); empty rate table, nonempty reverse refusal, actual key decryption, prior-source compatibility retaining0009, networkrevision6/noPending verified. Receipt-owned temporary PG resources removed/live service active. No live maintenance/migration/source switch was started. Existing static/venv/env/roles/keys/network/proxy/otherapps preserved.
+
+First explicit owner-resumed task: authenticate limits/read currentGitCI/checkpoint and inspect exact candidate/backup receipts plus current runtime; do not rerun staging/bootstrap or assume an existing path is empty. Complete reviewed bounded0009 rollout under rate-schema-preview-rollout-plan.md: fresh final backup, short HMS-only maintenance, additive migrate, coherent source switch reusing unchanged venv/static/security configuration, MFA/session/network/read/logout verification, post-backup restore and other-app preservation; publish actual deployedSHA/evidence. Recheck policy/credential drift instead of overwriting it. Standing per-code rollout requirement is pending because the later owner stop takes precedence. Only then continue parentB2a authority/admission design/RED/code. No secrets/real data published or paid resources provisioned.
 
 ## Latest implemented source is live —26 October2026
 

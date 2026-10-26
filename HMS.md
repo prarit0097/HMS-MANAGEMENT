@@ -1,7 +1,17 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.29.0 | Updated: 26 October 2026, Asia/Calcutta
+Document version: 1.30.0 | Updated: 26 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
+## Owner pause —26 October2026,09:40:34IST
+
+Owner explicitly requested save/stop to preserve remaining usage at2026-10-26T04:10:34Z. Authenticated primary22%/weekly33%remaining. This is a manual hold, NOT a fresh<=10% stop; no new330minute deadline. No implementation, review, assignment, deployment or automatic continuation until later explicit owner resume. All specialists completed; no owned test process remains running. Native continuation is PAUSED; historical threshold/scheduling records retained, no reset credit.
+
+Source3dd803f844b47aaa67fbd0cdc6be22185bba344c is committed/pushed/remoteSHA verified, exactCI40267300944 completedSUCCESS (run status verified; logs not newly decoded). Root actualPG1320pass/5SQLite-onlyskips/168subtests51.85s/check0/nodrift withone documented isolated-maintenance warning; focusedSQLite744pass/2PGskips10.55s, independentreview744/2skips10.26s/no ImportantCritical. Local19root9.719s and docs/link/whitespace/privatecredential checks passed. B2a-S dormant schema/0009 verified; no new API/grants/flag/admission/UI capability. ParentB2a remainsDRAFT.
+
+LATEST CODE IS NOT YET DEPLOYED: running preview remains522f00d/core0008, active and unchanged. Candidate /opt/hms/releases/preview-20261026-3dd803f is staged; sourcearchiveSHA427ec1392f1bbcc867aeb1e54445a5016cec50f052ec1d724b4e248bc2af3ce2. Fresh private backup/baseline and successful restored-copy rehearsal are under /opt/hms/backups/rate-rollout-20261026. Actual clone upgrade0008→0009 preserved all33preexisting tables/rows, with expected catalog additions only (migration1/contenttype1/permissioncatalog4, not user grants); empty rate table, nonempty reverse refusal, actual key decryption, prior-source compatibility retaining0009, networkrevision6/noPending verified. Receipt-owned temporary PG resources removed/live service active. No live maintenance/migration/source switch was started. Existing static/venv/env/roles/keys/network/proxy/otherapps preserved.
+
+First explicit owner-resumed task: authenticate limits/read currentGitCI/checkpoint and inspect exact candidate/backup receipts plus current runtime; do not rerun staging/bootstrap or assume an existing path is empty. Complete reviewed bounded0009 rollout under rate-schema-preview-rollout-plan.md: fresh final backup, short HMS-only maintenance, additive migrate, coherent source switch reusing unchanged venv/static/security configuration, MFA/session/network/read/logout verification, post-backup restore and other-app preservation; publish actual deployedSHA/evidence. Recheck policy/credential drift instead of overwriting it. Standing per-code rollout requirement is pending because the later owner stop takes precedence. Only then continue parentB2a authority/admission design/RED/code. No secrets/real data published or paid resources provisioned.
+
 ## Dormant rate-window schema source verified —26 October2026
 
 Added DocumentMetadataRateWindow plus permanent ActorField/MinuteAligned, model discovery and additive0009 final reverse guard. Required actor cannot silently auto-allocate onSQLite; exact finiteUTCminute, count1..60, required fields/no defaults, FK/PROTECT and guarded quiesced reversal tested. Existing models/old migrations unchanged; old0008 refusal test now restores actual graph leaves in finally while retaining historical0007 target. No auth/grants/flag/admission algorithm/services/API/UI changed;50catalogued46HTTPimplemented4metadataAPIplanned unchanged. Parent admission stays DRAFT.
@@ -899,3 +909,7 @@ LiteralRED39 absent-feature failures and foundation79GREEN recorded. Actual SQLi
 ### CHG-0055 —26 October2026 — Implement verified dormant document rate-window schema
 
 Permanent actor/minute classes, three-fieldmodel/discovery and guarded0009; one historicalfixturefinally fix. RED39/49 precedesimplementation, SQLite744green, independentreviewapproved, actualPG1320/168subtests51.85s/check0/nodrift with5explicitSQLite-onlyskips/one safeisolatedmaintenance warning. Test-only timezone/writer verification corrections documented without weakening schema. No runtimefeature/API/grant/UI. Sourcecommit/push/exactCI thenstanding reviewedpreviewdeploy/liveverify are required; notyetlive fromthissourceevidence.
+
+### CHG-0056 —26 October2026 — Save owner-paused verified source and pending rollout
+
+Ownerstop09:40:34IST primary22weekly33; manualhold/no new330min/resetcredit. Source3dd803f pushed/remoteverified/exactCIgreen; candidate restore0008→0009 preserving33tables/key/network/emptywindow/reverseguard and oldsourcecompatibility passed. Live remains522f00d/core0008; no live update performed. Save exact stagedcandidate/backup receipts; firstresume completes bounded rollout, then B2a. All agents/processes complete, automationPAUSED, no automaticresume until explicitownerinstruction.
