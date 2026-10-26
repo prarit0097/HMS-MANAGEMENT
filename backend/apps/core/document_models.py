@@ -8,6 +8,7 @@ from django.db import models, router
 from django.db.models import F, Q, Value
 from django.db.models.functions import Length
 from django.db.models.lookups import Exact, GreaterThanOrEqual, LessThanOrEqual
+from django.db.utils import NotSupportedError
 from django.utils import timezone
 
 
@@ -18,6 +19,44 @@ def length_between(field, minimum, maximum):
 def sha256_shape(field):
     # Length is explicit: regex '$' alone can match before a trailing newline.
     return Exact(Length(field), Value(64)) & Q(**{f'{field}__regex': r'^[0-9a-f]{64}$'})
+
+
+class DocumentMetadataActorField(models.OneToOneField):
+    """Permanent migration type: a required actor must not become a SQLite rowid."""
+    def db_type(self, connection):
+        parent = super().db_type(connection)
+        if connection.vendor == 'sqlite' and isinstance(parent, str) and parent.lower() == 'integer':
+            return 'bigint'
+        return parent
+
+
+class DocumentMetadataMinuteAligned(models.Func):
+    """Permanent migration expression for finite, exact UTC-minute instants."""
+    arity = 1
+    output_field = models.BooleanField()
+
+    def as_postgresql(self, compiler, connection, **extra_context):
+        sql, params = compiler.compile(self.source_expressions[0])
+        return f"((isfinite({sql}) AND {sql} = DATE_TRUNC('minute', {sql}, 'UTC')) IS TRUE)", list(params) * 3
+
+    def as_sqlite(self, compiler, connection, **extra_context):
+        sql, params = compiler.compile(self.source_expressions[0])
+        return f"(({sql} = django_datetime_trunc('minute', {sql}, 'UTC', 'UTC')) IS TRUE)", list(params) * 2
+
+    def as_sql(self, compiler, connection, **extra_context):
+        raise NotSupportedError('Document metadata minute constraints require PostgreSQL or SQLite.')
+
+
+class DocumentMetadataRateWindow(models.Model):
+    actor = DocumentMetadataActorField(settings.AUTH_USER_MODEL, primary_key=True, on_delete=models.PROTECT, related_name='+')
+    window_started_at = models.DateTimeField()
+    admitted_count = models.PositiveSmallIntegerField()
+
+    class Meta:
+        constraints = [
+            models.CheckConstraint(condition=Q(admitted_count__gte=1, admitted_count__lte=60), name='doc_metadata_rate_count'),
+            models.CheckConstraint(condition=DocumentMetadataMinuteAligned(F('window_started_at')), name='doc_metadata_rate_minute'),
+        ]
 
 
 class PatientDocumentIntent(models.Model):

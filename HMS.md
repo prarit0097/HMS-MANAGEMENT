@@ -1,7 +1,13 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.28.1 | Updated: 26 October 2026, Asia/Calcutta
+Document version: 1.29.0 | Updated: 26 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
+## Dormant rate-window schema source verified —26 October2026
+
+Added DocumentMetadataRateWindow plus permanent ActorField/MinuteAligned, model discovery and additive0009 final reverse guard. Required actor cannot silently auto-allocate onSQLite; exact finiteUTCminute, count1..60, required fields/no defaults, FK/PROTECT and guarded quiesced reversal tested. Existing models/old migrations unchanged; old0008 refusal test now restores actual graph leaves in finally while retaining historical0007 target. No auth/grants/flag/admission algorithm/services/API/UI changed;50catalogued46HTTPimplemented4metadataAPIplanned unchanged. Parent admission stays DRAFT.
+
+Actual literalRED39fail3.63s then actorRED49fail3.32s preceded code. SQLite744pass2PGskip10.55s; independent744pass2skip10.26s/check0/nodrift/no ImportantCritical finding. Root actual isolated PG1320pass5SQLite-onlyskip168subtests51.85s/check0/nodrift; one expected maintenance-db warning fell back only to the exact isolated app-owned DB, no live privileges/HBA touched. FirstPG1319pass1testfail60.80s was driver/server timezone mismatch in test hydration, fixed to exactSQLepoch without relaxing constraints. Fullwriter numeric-localguard manual-porting limitation explicitly tested; schema-only writer production imports and actual complete MigrationExecutor replay/guard pass. See document-rate-schema-source-evidence-2026-10-26.json. Source publication/exactCI and separate live0009 rollout are NEXT, not already deployed; current runtime remains522f00d/core0008.
+
 ## Required actor pre-GREEN correction —26 October2026
 
 Tests-only literal RED39 failures3.63s verifies absent model/expression/0009; existing foundation79passed9.62s after true-leaf finally amendment. Production remained untouched. Isolated SQLite revealed ordinary integer PK silently auto-allocates missing actor, violating identity binding. Independent review and actual SQLite/PG revised probes approved permanent OneToOne subclass SQLitebigint-only type correction;25SQLite/25UTC+25ISTPG plus7required-column/actor cases, ProtectedError/replay/cleanup passed. Frozen plan amended before GREEN; NULL/omitted tests retained, PG type unchanged, no broader API/auth scope. Production stable-path acceptance remains to be implemented/tested.
@@ -889,3 +895,7 @@ Ownerresumed09:06:11IST primary100weekly45/no cooldown/reset. NarrowB2a-S plan i
 ### CHG-0054 —26 October2026 — Correct SQLite required-actor design before production
 
 LiteralRED39 absent-feature failures and foundation79GREEN recorded. Actual SQLite rowid auto-allocation defect reproduced before code; schema amended to permanent OneToOne subclass SQLitebigint type only after independent review/probe SQLite+PG replay/requiredactor7casesGREEN. No production code yet; no weakened validation or new capability. Productionimplementation follows explicit coordinator GREEN approval.
+
+### CHG-0055 —26 October2026 — Implement verified dormant document rate-window schema
+
+Permanent actor/minute classes, three-fieldmodel/discovery and guarded0009; one historicalfixturefinally fix. RED39/49 precedesimplementation, SQLite744green, independentreviewapproved, actualPG1320/168subtests51.85s/check0/nodrift with5explicitSQLite-onlyskips/one safeisolatedmaintenance warning. Test-only timezone/writer verification corrections documented without weakening schema. No runtimefeature/API/grant/UI. Sourcecommit/push/exactCI thenstanding reviewedpreviewdeploy/liveverify are required; notyetlive fromthissourceevidence.

@@ -125,4 +125,4 @@ from .security_models import IdentitySecurity, IdentityEnrollment, IdentityChall
 
 from .network_models import NetworkPolicyState, NetworkOperator, NetworkPolicyPreview, NetworkPolicyChange, NetworkPolicyEvent
 
-from .document_models import PatientDocumentIntent, DocumentIntentReceipt, DocumentAccessEvent
+from .document_models import PatientDocumentIntent, DocumentIntentReceipt, DocumentAccessEvent, DocumentMetadataRateWindow

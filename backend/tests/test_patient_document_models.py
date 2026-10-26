@@ -250,14 +250,18 @@ def test_foundation_migration_pristine_round_trip_preserves_existing_rows(rows):
 @pytest.mark.django_db(transaction=True)
 @pytest.mark.parametrize('kind', NAMES)
 def test_foundation_reverse_refuses_rows_before_any_drop(rows, kind):
+    leaf = MigrationExecutor(connection).loader.graph.leaf_nodes()
     obj = {NAMES[0]: intent, NAMES[1]: receipt, NAMES[2]: event}[kind](rows)
     ensure_synthetic_network_row()
     before = network_snapshot()
-    with pytest.raises(RuntimeError, match='empty'):
-        MigrationExecutor(connection).migrate([('core', '0007_network_policy')])
-    assert all(model(n)._meta.db_table in connection.introspection.table_names() for n in NAMES)
-    assert model(kind).objects.filter(pk=obj.pk).exists()
-    assert network_snapshot() == before
+    try:
+        with pytest.raises(RuntimeError, match='empty'):
+            MigrationExecutor(connection).migrate([('core', '0007_network_policy')])
+        assert all(model(n)._meta.db_table in connection.introspection.table_names() for n in NAMES)
+        assert model(kind).objects.filter(pk=obj.pk).exists()
+        assert network_snapshot() == before
+    finally:
+        MigrationExecutor(connection).migrate(leaf)
 
 
 @pytest.mark.parametrize('nonempty', NAMES)

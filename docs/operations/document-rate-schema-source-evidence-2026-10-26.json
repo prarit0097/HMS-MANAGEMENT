@@ -1,0 +1,47 @@
+{
+  "scope": "Dormant B2a-S schema only; no runtime allowance/API/grant/UI",
+  "literal_red": {
+    "initial_failures": 39,
+    "initial_seconds": 3.63,
+    "actor_amended_failures": 49,
+    "actor_seconds": 3.32,
+    "causes": "missing model/expression/0009; no environment/collection errors"
+  },
+  "sqlite": {
+    "passed": 744,
+    "postgresql_skipped": 2,
+    "seconds": 10.55,
+    "independent_review_passed": 744,
+    "independent_review_seconds": 10.26
+  },
+  "actual_postgresql": {
+    "passed": 1320,
+    "sqlite_only_skipped": 5,
+    "subtests": 168,
+    "seconds": 51.85,
+    "warnings": 1,
+    "warning_reason": "Pinned Django denied postgres maintenance DB then safely reused the sole exact labelled ephemeral DB; no live DB fallback or privilege/HBA changes.",
+    "check_issues": 0,
+    "migration_drift": false,
+    "snapshot_archive_sha256": "3abbef0ff7366482bc801cdf6f3c5de393a4c6cc50d16952f03da398496e01a3",
+    "temporary_resources_removed": true,
+    "live_preview_active": true
+  },
+  "first_pg_attempt": {
+    "passed": 1319,
+    "failed": 1,
+    "sqlite_skipped": 5,
+    "subtests": 168,
+    "seconds": 60.8,
+    "cause": "Test manually changed serverTimeZone but driver loader stayedUTC; unchanged-row assertion usedORMhydration. Test changed to exact SQL epoch comparison, preserving all cases and finally restoration. No production constraint relaxation."
+  },
+  "migration_writer_ruling": "Full numeric-migration RunPython function correctly marks needs_manual_porting; schema-only writer roundtrip proves permanent field/expression paths; actual complete migration imported/executed by MigrationExecutor proves guard/roundtrip. No automatic full numeric guard reserialization claim.",
+  "source_sha256": {
+    "document_models.py": "998442d3d5980704fbf8311d3201a622be67d8462ff31c8071fdde4156bd1fd4",
+    "models.py": "565f3291d344eed1ea169c392258784a47fd49bcf2d82de782756ed1300f18b3",
+    "0009_document_metadata_rate_window.py": "17af4689c6be8c57cf47542b688e4dca2f23217cd5d77398470b729dad4410b3"
+  },
+  "review": "Fresh independent bounded spec/security review: no Important/Critical; PG test fixture and rollout design separately accepted.",
+  "deployed": false,
+  "ci_for_new_source": "not yet published/verified"
+}
