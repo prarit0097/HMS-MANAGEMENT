@@ -26,7 +26,7 @@ Coordinator-supplied starting context: HEAD1edab14, application source66bfa, res
 
 | File | Allowed responsibility |
 |---|---|
-| `backend/apps/core/document_models.py` | Add `DocumentMetadataMinuteAligned` and `DocumentMetadataRateWindow`; preserve existing three models and helpers |
+| `backend/apps/core/document_models.py` | Add `DocumentMetadataActorField`, `DocumentMetadataMinuteAligned` and `DocumentMetadataRateWindow`; preserve existing three models and helpers |
 | `backend/apps/core/models.py` | Append `DocumentMetadataRateWindow` to the existing `.document_models` import only |
 | `backend/apps/core/migrations/0009_document_metadata_rate_window.py` | Create model/CHECKs; final forward no-op with historical reverse guard |
 | `backend/tests/test_document_metadata_rate_window.py` | New isolated schema/compiler/serialization/migration tests |
@@ -41,7 +41,7 @@ Pending coordinator freeze, exact model is `apps.core.document_models.DocumentMe
 
 | Field | Definition/invariant |
 |---|---|
-| `actor` | `OneToOneField(settings.AUTH_USER_MODEL, primary_key=True, on_delete=models.PROTECT, related_name='+')`; sole PK; no generated id, default, nullable actor or reverse accessor |
+| `actor` | `DocumentMetadataActorField(settings.AUTH_USER_MODEL, primary_key=True, on_delete=models.PROTECT, related_name='+')`, a OneToOneField subclass with the narrow SQLite non-rowid type rule below; sole PK; no generated id, default, nullable actor or reverse accessor |
 | `window_started_at` | `DateTimeField()`; required/non-null, no Python/database default or automatic clock; stores finite exact UTC-minute instant |
 | `admitted_count` | `PositiveSmallIntegerField()`; required/non-null, no Python/database default; explicit inclusive1..60 CHECK |
 
@@ -136,3 +136,11 @@ This author's actions were local source/document reads and creation of this docu
 ## Coordinator freeze and review —26 October2026
 
 Freeze ONLY B2a-S exact file/interface/schema/test boundary above; parent B2a authority/admission/business/HTTP remain DRAFT/unimplemented. Independent scenario/threat reviewer accepted boundaries and required the existing0008 refusal-test true-leaf finally fix; included. Initial SQLite probe failed its raw count1 fixture because a raw aware datetime bypassed Django's canonical UTC adapter. Corrected only valid datetime fixture preparation; invalid strings remain direct SQL. Coordinator re-executed SQLite25cases plus duplicate/replay and actual TLS PostgreSQL17.11 two connection timezones25cases each plus duplicate/replay. Imported prototype MigrationWriter serialization/generated DDL/forward/reverse/replay/parameter repetition all passed; temporary resources removed and live preview active. See [feasibility](../operations/document-rate-schema-feasibility-2026-10-26.json). This closes BOTH SQLite and PostgreSQL design feasibility, not production stable-path/model acceptance. Real permanent import, model/migration tests and full regressions remain RED/GREEN/post-code gates. Existing clean shared feature checkout is retained under owner-authorised shared-checkout coordination; no additional worktree or duplicated implementation.
+
+## Pre-GREEN amendment — required actor must never auto-allocate
+
+Before any production code, coordinator reproduced SQLite `INTEGER NOT NULL PRIMARY KEY REFERENCES actor(id)` accepting explicit NULL and allocating existing actor1. Ordinary OneToOneField to User AutoField emits that rowid-alias type. Keep the NULL/omitted-actor tests; do not weaken the required identity contract. Independent pinned-Django source review approved this narrow correction, then real ignored SQLite and PostgreSQL probes passed.
+
+Add permanent `apps.core.document_models.DocumentMetadataActorField(models.OneToOneField)`. Override ONLY `db_type(self, connection)`: obtain parent result; if vendor is sqlite and parent is a string whose lowercase is integer, return bigint; otherwise return parent unchanged. No custom constructor/deconstruct, conversion, internal-type spoof, defaults or trigger. This retains SQLite integer affinity and FK/PK identity, while bigint NOT NULL PRIMARY KEY is not the auto-generating rowid alias. PG and noninteger parent types stay unchanged. Keep the import path for migration0009 lifetime alongside the minute expression.
+
+Tests additionally pin custom class/path, generated SQLite bigint type/required actor NULL+omitted rejection with existing actor1, explicit positive insert/update, PG parent-type equality, unchanged noninteger/None parent results, permanent field deconstruct/full MigrationWriter fresh-process replay. Header timestamps use include_header=False so replay tests do not race clock minute boundaries. Revised isolated design proof: SQLite25/PG25UTC+25IST plus7required-column/actor cases each, ORM ProtectedError, duplicate/replay/cleanup all passed; production import/model/migration remain RED-first acceptance. This amendment changes no parent admission/API/grants/service scope.

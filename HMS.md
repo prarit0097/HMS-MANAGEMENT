@@ -1,7 +1,11 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.28.0 | Updated: 26 October 2026, Asia/Calcutta
+Document version: 1.28.1 | Updated: 26 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
+## Required actor pre-GREEN correction —26 October2026
+
+Tests-only literal RED39 failures3.63s verifies absent model/expression/0009; existing foundation79passed9.62s after true-leaf finally amendment. Production remained untouched. Isolated SQLite revealed ordinary integer PK silently auto-allocates missing actor, violating identity binding. Independent review and actual SQLite/PG revised probes approved permanent OneToOne subclass SQLitebigint-only type correction;25SQLite/25UTC+25ISTPG plus7required-column/actor cases, ProtectedError/replay/cleanup passed. Frozen plan amended before GREEN; NULL/omitted tests retained, PG type unchanged, no broader API/auth scope. Production stable-path acceptance remains to be implemented/tested.
+
 ## Owner resume and B2a-S schema freeze —26 October2026,09:06:11IST
 
 Owner requested continue at2026-10-26T03:36:11Z; authenticated primary100%/weekly45%remaining, active/no cooldown/reset credit. Historical stops retained. Exact1edab14 CI40239798825 completedSUCCESS (run status verified; no new decoded count claim). Current deployed app522f00d/source66bfa remains unchanged; do not repeat rollout. Three independent roles handled schema plan, isolated prototype and scenario/threat review.
@@ -881,3 +885,7 @@ Owner-authorised latest-code rollout522f00d switched03:42:49IST;195source files 
 ### CHG-0053 —26 October2026 — Freeze dormant rate-window schema after feasibility
 
 Ownerresumed09:06:11IST primary100weekly45/no cooldown/reset. NarrowB2a-S plan independently reviewed; actual imported-prototype SQLite25/PG25+25 timezone cases/replay/DDL passed, no liveDB change. Required historicalmigration fixture fix planned. Production model/expression/0009 still absent pending literalRED. Parentadmission/services/API remainunimplemented. Completed code must pass review/actualPG/CI/push and separate verified preview rollout.
+
+### CHG-0054 —26 October2026 — Correct SQLite required-actor design before production
+
+LiteralRED39 absent-feature failures and foundation79GREEN recorded. Actual SQLite rowid auto-allocation defect reproduced before code; schema amended to permanent OneToOne subclass SQLitebigint type only after independent review/probe SQLite+PG replay/requiredactor7casesGREEN. No production code yet; no weakened validation or new capability. Productionimplementation follows explicit coordinator GREEN approval.

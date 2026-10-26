@@ -1,5 +1,9 @@
 # SDD ledger — plan: plan.md
 
+## Required actor pre-GREEN correction —26 October2026
+
+Tests-only literal RED39 failures3.63s verifies absent model/expression/0009; existing foundation79passed9.62s after true-leaf finally amendment. Production remained untouched. Isolated SQLite revealed ordinary integer PK silently auto-allocates missing actor, violating identity binding. Independent review and actual SQLite/PG revised probes approved permanent OneToOne subclass SQLitebigint-only type correction;25SQLite/25UTC+25ISTPG plus7required-column/actor cases, ProtectedError/replay/cleanup passed. Frozen plan amended before GREEN; NULL/omitted tests retained, PG type unchanged, no broader API/auth scope. Production stable-path acceptance remains to be implemented/tested.
+
 ## Owner resume and B2a-S schema freeze —26 October2026,09:06:11IST
 
 Owner requested continue at2026-10-26T03:36:11Z; authenticated primary100%/weekly45%remaining, active/no cooldown/reset credit. Historical stops retained. Exact1edab14 CI40239798825 completedSUCCESS (run status verified; no new decoded count claim). Current deployed app522f00d/source66bfa remains unchanged; do not repeat rollout. Three independent roles handled schema plan, isolated prototype and scenario/threat review.

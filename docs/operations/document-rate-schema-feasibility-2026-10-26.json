@@ -45,5 +45,57 @@
   "initial_sqlite_failure": "Raw fixture datetime bypassed Django SQLite canonical UTC adapter; count1 incorrectly rejected; fixture-only preparation fixed, malformed strings remained direct SQL.",
   "live_database_changed": false,
   "temporary_container_and_network_removed": true,
-  "live_hms_active_after_cleanup": true
+  "live_hms_active_after_cleanup": true,
+  "actor_required_amendment": {
+    "baseline_red": "ordinary SQLite integer PK accepted rawNULL as existing actor1",
+    "sqlite": {
+      "generated_ddl_checked": true,
+      "kind": "isolated_design_probe",
+      "migration_forward_reverse_replay": true,
+      "orm_protect_exception_verified": true,
+      "probe_tables_removed": true,
+      "production_migration_path_verified": false,
+      "required_column_and_actor_cases_passed": 7,
+      "required_columns_and_actor_integrity": true,
+      "results": [
+        {
+          "cases_passed": 25,
+          "connection_timezone": "UTC"
+        }
+      ],
+      "service_implemented": false,
+      "sqlite_timezone_limit": "UTC storage; no SQL session timezone",
+      "stable_module_serialization": true,
+      "value_params_repeated": 2,
+      "vendor": "sqlite"
+    },
+    "postgresql": {
+      "generated_ddl_checked": true,
+      "kind": "isolated_design_probe",
+      "migration_forward_reverse_replay": true,
+      "orm_protect_exception_verified": true,
+      "probe_tables_removed": true,
+      "production_migration_path_verified": false,
+      "required_column_and_actor_cases_passed": 7,
+      "required_columns_and_actor_integrity": true,
+      "results": [
+        {
+          "cases_passed": 25,
+          "connection_timezone": "UTC"
+        },
+        {
+          "cases_passed": 25,
+          "connection_timezone": "Asia/Kolkata"
+        }
+      ],
+      "service_implemented": false,
+      "sqlite_timezone_limit": null,
+      "stable_module_serialization": true,
+      "value_params_repeated": 3,
+      "vendor": "postgresql"
+    },
+    "prototype_sha256": "11d7755a92655964682ef6f7d37dffde6127fbfcb7446e5e60da4e9c4015255f",
+    "types_sha256": "f778a3c3974d5176ce41e8e4af28c5feb187e2ca6030a1f850a534faf8f4fe36",
+    "production_implemented": false
+  }
 }
