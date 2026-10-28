@@ -1,8 +1,12 @@
 # Hostinger HMS preview
 
-Status: latest implemented source deployed26October2026 at03:42:49IST, release522f00d; original preview established23October. No hospital production cutover. URL: https://hms.praritsidana.com . Owner authorised this environment and expressly waived the active usage cooldown for deployment only.
+Status: latest implemented source deployed28October2026, release3dd803f/core0009; original preview established23October. No hospital production cutover. URL: https://hms.praritsidana.com . Owner authorised this environment. The28October continuation lifts the prior manualhold with authenticated usage available; no cooldown waiver or reset credit was needed. The23October deployment-only waiver is historical.
 
-## Current verified rollout —26 October2026
+## Current verified rollout —28 October2026
+
+Dormant0009/source3dd803f is deployed at `/opt/hms/releases/preview-20261026-3dd803f`, reusing unchanged venv/static/security configuration. See [current redacted evidence](rate-schema-preview-evidence-2026-10-28.json). All202sourcefiles/two workers/live MFA-CSRF-session/read/logout/static/private routes and exact34-table post-backup restore/key decryption verified. Networkrevision6/noPending and empty dormant table; no document admission/API/grant enabled. Final socket0660/parent0750, other48configs/18containerIDs/HBA preserved. Application rollback may select rehearsed prior source retaining0009; do not reverse or blindly restore older history. Live browser/staff/import remain open.
+
+## Historical rollout —26 October2026
 
 Latest implemented source is live: release522f00d184165249b522c0c3a89bb782458e45e6/appsource66bfa, switched03:42:49IST. See [redacted deployment evidence](preview-update-evidence-2026-10-26.json) and [reviewed plan](../implementation/preview-update-2026-10-26-plan.md). Live HTTPS/API/session/CSRF/MFA/network/asset/backup checks passed; actual livebrowser/staff and owner authenticator import remain open. Login now requires the enrolled owner's authenticator/recovery proof; private access material is mode0600 on the VPS and in an ignored owner handoff, never Git. Do not run the original password-only verify_preview.py unchanged after enrollment.
 

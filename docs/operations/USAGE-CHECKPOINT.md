@@ -1,9 +1,9 @@
 # Usage-aware HMS continuation
 
-State: PAUSED_BY_OWNER
+State: ACTIVE
 checkpoint_at_utc: 2026-10-26T04:10:34Z
-resume_not_before_utc: none (manual owner hold; explicit resume required)
-owner_resume_at_utc: 2026-10-26T03:36:11Z
+resume_not_before_utc: none (explicit owner resume)
+owner_resume_at_utc: 2026-10-28T04:54:49Z
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330 (threshold rule; current owner wake is03:30 local)
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
@@ -13,6 +13,22 @@ owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
 Owner requested continue at2026-10-26T03:36:11Z; authenticated primary100%/weekly45%remaining, active/no cooldown/reset credit. Historical stops retained. Exact1edab14 CI40239798825 completedSUCCESS (run status verified; no new decoded count claim). Current deployed app522f00d/source66bfa remains unchanged; do not repeat rollout. Three independent roles handled schema plan, isolated prototype and scenario/threat review.
 
 Frozen narrow document-rate-schema-plan.md adds only dormant actor-window model/permanent minute expression/0009/discovery plus tests and required historical0008 refusal-test leaf restoration. No runtime grants/settings/admission/API/UI changes. Actual isolated SQLite25 and PostgreSQL25cases in each UTC/AsiaKolkata connection timezone passed plus importable prototype serialization/DDL/replay/duplicate checks; isolated resources cleaned/live active. Initial SQLite fixture-format failure corrected without weakening SQL. Real production import/model/migration evidence must follow literal RED before code; parentB2a remains DRAFT. See document-rate-schema-feasibility-2026-10-26.json. Standing push->testedpreviewdeploy->liveverify->MD rule applies to the completed code change.
+
+## Dormant rate schema deployed —28 October2026
+
+Restricted synthetic preview now runs application source3dd803f844b47aaa67fbd0cdc6be22185bba344c at /opt/hms/releases/preview-20261026-3dd803f with core0009. Maintenance ran 2026-10-28T04:57:58.145169+00:00 to 2026-10-28T04:58:43.251315+00:00. All202committed candidate files/archive digest were verified before and after switch; two candidate workers and old-worker absence checked. Existing venv/static/env/keys/roles/Basic/network/proxy remained unchanged. This supersedes the dated26October pending-rollout record; original pause/history stays preserved.
+
+Fresh three-role review and decoded exactCI40267300944 bound3dd803f:1320PGpass/5SQLite-onlyskips/168subtests43.76s/check0/nodrift;132frontend/typecheck/build;19root/15edge/contracts/Compose/docs. This is newly inspected CI evidence, not a new local full-app suite. Fresh isolated restored0008→0009 and quiesced live migration each preserved all33preexisting tables/rows; only expected migration1/contenttype1/permissioncatalog4 additions, no user grants. Actual new table has3columns/5constraints/zero rows. Isolated old-source realpassword/TOTP/session/network/history/reception/logout closes the earlier probe-only rollback evidence gap; rollback retains0009 and never automatically reverses/restores older DB history.
+
+Live HTTPS checks passed Basic/session separation, real password challenge/TOTP, pending-session denial, secure cookies, CSRF denial with valid authorised network command, private-route404 despite spoofed headers, protected shell/static HEAD/range/wildcard-no304/hash, scoped reception reads/bed101+/foreign-branch403/logout. No policy apply/confirm/revert, reenrollment, recovery-code consumption or role change occurred; final revision6/noPending,120beds/0patients/10recovery hashes retained. Expected authentication/session/last-login/audit changes are separated from migration preservation. Post-change dump restored into receipt-owned TLS PG17.11 with exact row-hash equality across all34tables,0009/emptyrate/password/recovery/operator/policy and actual enrolled-secret decryption. Helper resources/ports cleaned, live app NOCREATEDB/nonsuper and backup timer enabled.
+
+48other Nginx config hashes/18existing containerIDs/sharedHBA preserved. Windows separately verified maintenance503, reopened Basic401/shell200/no304/private404, public443 reachable and backend/DB/helper ports unreachable; five existing public sites returned200 (reachability only). Socket preflight0666root:root under unchanged protected0750root:www-data parent follows the approved effective-principal recreation model; final0660root:www-data and www-data success/nonmember denial verified. One preservation assertion initially counted enabled-site symlink maintenance bytes as unrelated drift: kept503 closed, proved exact alias/expected bytes, repeated readiness/preservation then reopened. Windows inline probe quoting failed initially; corrected script passed while closed. No schema/source/security fix or database retry/reverse was needed.
+
+See [redacted live evidence](rate-schema-preview-evidence-2026-10-28.json) and [bounded rollout plan](../implementation/rate-schema-preview-rollout-plan.md). The dormant schema adds no documentAPI/grant/admission/UI capability;50catalogued/46implemented/4planned operations unchanged. Actual live browser/keyboard/staff walkthrough and owner authenticator import remain OPEN; full clinical/finance/MCP/dataops/ingestion/real-data release unfinished. Next: reconcile parentB2a authority/admission contract with deployed schema, fresh scenario/security/test review, then freeze before RED/code. Documentation publication does not restart unchanged verified app.
+
+## Owner resume —28 October 2026,10:24:49IST
+
+Owner explicitly requested `continue` at2026-10-28T04:54:49Z. Authenticated primary99%/weekly90%remaining lifts26October04:10:34UTC manualhold. No active cooldown waived or reset credit consumed; history retained. Same heartbeat ACTIVE. First task is pending staged3dd803f/core0009 reviewed rollout, preserving522f00d until gates pass; parentB2a remainsDRAFT. Three disjoint read-only specialists review source/CI/security/acceptance; coordinator alone Git/VPS. Future fresh<=10% retains330minute stop rule.
 
 ## Owner pause —26 October2026,09:40:34IST
 

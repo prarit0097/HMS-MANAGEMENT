@@ -1,0 +1,139 @@
+{
+  "status": "deployed restricted synthetic preview; not hospital real-data release",
+  "application_source_sha": "3dd803f844b47aaa67fbd0cdc6be22185bba344c",
+  "deployed_release_sha": "3dd803f844b47aaa67fbd0cdc6be22185bba344c",
+  "release_path": "/opt/hms/releases/preview-20261026-3dd803f",
+  "maintenance_started_utc": "2026-10-28T04:57:58.145169+00:00",
+  "maintenance_ended_utc": "2026-10-28T04:58:43.251315+00:00",
+  "attested_at_utc": "2026-10-28T04:59:51.831826+00:00",
+  "candidate_files_verified": 202,
+  "source_archive_sha256": "427ec1392f1bbcc867aeb1e54445a5016cec50f052ec1d724b4e248bc2af3ce2",
+  "candidate_manifest_sha256": "44550c450fd71794dbf9d63b17c6c329bace4b45f6c8e7ec489f1bfca7dd1fe3",
+  "source_ci": {
+    "sha": "3dd803f844b47aaa67fbd0cdc6be22185bba344c",
+    "run": 40267300944,
+    "all3jobs": "success",
+    "postgres_passed": 1320,
+    "sqlite_only_skips": 5,
+    "subtests": 168,
+    "postgres_seconds": 43.76,
+    "frontend_passed": 132,
+    "root_tests": 19,
+    "edge_tests": 15
+  },
+  "migrate": {
+    "core0009": true,
+    "all33preexisting_tables_preserved": true,
+    "only_expected_catalog_additions": {
+      "django_migrations": 1,
+      "django_content_type": 1,
+      "auth_permission": 4
+    },
+    "empty_rate_table": true,
+    "security_keyring_password_recovery_policy_preserved": true,
+    "check_no_drift": true
+  },
+  "rollback_compatibility": {
+    "old_source_retaining0009": true,
+    "real_password_totp_challenge": true,
+    "scoped_reads_and_logout": true,
+    "isolated_only": true
+  },
+  "live_checks": {
+    "https_basic_mfa_session_csrf_reads_logout": true,
+    "retained_static_hash_head_range_wildcard": true,
+    "private_spoof_denial": true,
+    "policy_revision": 6,
+    "no_pending": true,
+    "no_policy_mutation": true,
+    "no_enrollment_or_recovery_consumption": true,
+    "browser_staff_import": "OPEN"
+  },
+  "post_backup_restore": {
+    "all34tables_exact_rowhash_match": true,
+    "core0009_empty_rate": true,
+    "actual_factor_decryption": true,
+    "password_recovery_operator_network_preserved": true,
+    "beds": 120,
+    "patients": 0,
+    "revision": 6,
+    "role_nocreatedb": true
+  },
+  "runtime": {
+    "workers": 2,
+    "parent": "0750 root:www-data",
+    "socket": "0660 root:www-data",
+    "preflight_socket_observed": "0666 root:root; parent0750 remained effective restriction; reasserted final0660 under approved principal model",
+    "venv": "/opt/hms/releases/venv-20261026 unchanged",
+    "static": "/opt/hms/static unchanged",
+    "new_rate_constraints": [
+      [
+        "core_documentmetadat_actor_id_03956d62_fk_auth_user",
+        "f"
+      ],
+      [
+        "core_documentmetadataratewindow_admitted_count_check",
+        "c"
+      ],
+      [
+        "core_documentmetadataratewindow_pkey",
+        "p"
+      ],
+      [
+        "doc_metadata_rate_count",
+        "c"
+      ],
+      [
+        "doc_metadata_rate_minute",
+        "c"
+      ]
+    ],
+    "backup_timer": "enabled",
+    "app_role_nocreatedb_nosuper": true,
+    "tls_isolation_helper_cleaned": true,
+    "shared_hba_sha256": "d2d4b94383868aefa5559e6061b3324d8766d4db8c007e46afe1fa1293789b70",
+    "secret_file_hashes_preserved": true,
+    "all_nginx_files_preserved": 50,
+    "other_nginx_files_preserved": 48,
+    "existing_container_ids_preserved": 18
+  },
+  "verification_stop": "Nginx sites-enabled symlink alias of temporary HMS maintenance content incorrectly treated as drift. Confirmed exact alias and expected maintenance bytes; no config baseline changed. Repeated readiness/preservation before opening.",
+  "expected_auth_deltas": "Live password challenge/TOTP consumption, last_login, security audit/throttle/session issuance/logout; migration preserved all existing rows before these probes. No recovery-code/MFA/policy/permission mutation.",
+  "open_gates": [
+    "Actual live authenticated browser/keyboard/staff walkthrough",
+    "Owner authenticator import confirmation",
+    "ParentB2a admission/services/API implementation",
+    "Remaining full HMS and real-data release gates"
+  ],
+  "external_windows": {
+    "external_windows_https": true,
+    "hms_static200_even_wildcard_never304": true,
+    "basic_required401": true,
+    "external_private_routes404": true,
+    "untrusted_forwarded_and_probe_headers_cannot_expose_private_route": true,
+    "other_public_sites_current_status": {
+      "pdf.praritsidana.com": 200,
+      "postzyo.com": 200,
+      "riimshospitals.com": 200,
+      "rezoom.praritsidana.com": 200,
+      "nirogidhara.com": 200
+    },
+    "note": "current external reachability, not baseline response-body equality or live restricted-IP proof"
+  },
+  "external_ports": {
+    "external_windows_tcp_reachability": {
+      "443": true,
+      "8185": false,
+      "5548": false,
+      "18185": false,
+      "18186": false,
+      "15549": false
+    },
+    "note": "Point-in-time connection attempts; not a live outage/fault matrix"
+  },
+  "reviews": [
+    "Fresh independent source/CI review: bounded production delta, exact successful CI logs",
+    "Fresh rollout security review: no Critical/Important design blocker; approved protected-parent socket recreation model",
+    "Acceptance review found prior-source authenticated-read gap; completed isolated real password/TOTP/network/reception/logout before maintenance"
+  ]
+}

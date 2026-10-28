@@ -1,6 +1,6 @@
 # Dormant document rate schema preview rollout design
 
-**Status: COORDINATOR APPROVED FOR GATED EXECUTION / NOT YET DEPLOYED.** Coordinator review and exact candidate evidence are required before execution. This document does not establish implementation, test success, publication or deployment. Coordinator alone commits/pushes and changes the VPS; specialists may review disjoint evidence. No additional team is authorised by this document.
+**Status: EXECUTED28OCTOBER2026 / SOURCE3dd803f CORE0009 DEPLOYED AND LIVE VERIFIED.** Coordinator review and exact candidate evidence are required before execution. This document does not establish implementation, test success, publication or deployment. Coordinator alone commits/pushes and changes the VPS; specialists may review disjoint evidence. No additional team is authorised by this document.
 
 **Purpose:** satisfy the owner's completed-code sequence: verified Git push, reviewed/tested update of the existing restricted HMS preview, live verification, then accurate MD deployment records. Deploy only the frozen B2a-S dormant schema subset and its tests/fixture restoration fix. Parent B2a admission/services and document APIs remain unimplemented.
 
@@ -109,3 +109,7 @@ This author inspected repository plans and recorded operations evidence and wrot
 ## Coordinator review disposition
 
 Independent source reviewer accepted bounded deployment design and test-only timezone correction; root actual fullPG1320/168subtests passed with5explicitSQLite-onlyskips andone documented maintenance warning, check0/nodrift. Exact sourceCI, fresh existing-preview baseline/restore and final backup remain mandatory before live migration. Source/control/config/static scope stays frozen; no initial bootstrap or policy mutation.
+
+## Execution disposition —28 October2026
+
+Runtime gates1–5 and the recovery/evidence portion of6 completed with [redacted evidence](../operations/rate-schema-preview-evidence-2026-10-28.json) and current HMS/plan/ledger. Documentation checks have passed locally; normal commit/push/remote-SHA verification completes Gate6 publication. The design checkboxes above are retained as the original pre-execution checklist; this dated evidence disposition records execution. ExactCI1320PG/5skips/168subtests, source202files, current baseline/keys/config, fresh isolated migration plus real prior-source authenticated read, quiesced finalbackup/live0009/switch/twoworkers, publicAPI/MFA/CSRF/static/read/logout and postbackup exact34-table restore passed. No policy mutation or prior bootstrap. Initial alias-preservation check stopped reopening while503; corrected exactsymlink/expectedmaintenance assertion and repeated readiness before opening. Socket reassertion follows earlier approved principal model. Browser/staff/phone import and parentB2a remain open; no hospital release approval.
