@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use installed `executing-plans` or coordinator-selected `subagent-driven-development` task-by-task, with RED-first and verification/review skills. Coordinator alone freezes, assigns, commits/pushes and deploys shared-checkout work.
 
-**Status:** 28 October 2026, **B2a-A IMPLEMENTED / SOURCE VERIFIED / PREVIEW ROLLOUT PENDING** after coordinator reconciliation and independent scenario/security review. Later B2a-L durable admission remains DRAFT. This design claims no implementation, test or deployment result.
+**Status:** 28 October 2026, **B2a-A IMPLEMENTED / SOURCE VERIFIED / PREVIEW DEPLOYED AND LIVE VERIFIED** after coordinator reconciliation and independent scenario/security review. Later B2a-L durable admission remains DRAFT. This design claims no implementation, test or deployment result.
 
 **Goal:** Supply a narrowly scoped, read-only session/context/global-action authority boundary and immutable final network/time evaluation for future document services.
 
@@ -145,3 +145,7 @@ Coordinator pre-RED ownership amendment: isolate actual-PG authority races in te
 ## Source execution disposition —28 October2026
 
 Frozen source unit implemented after original RED; independent expanded coverage and real lazy-subclass RED→GREEN included. [Measured source evidence](../operations/document-authority-source-evidence-2026-10-28.json): final actualPG1445/5SQLite-skips/168subtests86.14s/check0/nodrift, portable117/8PGskips, fresh source/security approval. The original design checklist is retained historically; exactCI/push/reviewedpreview/live/MD remain completion gates. No limiter/flag/business/HTTP/UI or new schema.
+
+## Runtime execution disposition —28 October2026
+
+Exactdfaf3e0 CI40650311525SUCCESS, reviewed211file/twoworker/source-only preview rollout completed. [Live evidence](../operations/document-authority-preview-evidence-2026-10-28.json) closes this narrow helper/grant deployment gate; noDDL/all34tables retained and postbackup restored/keys/security verified. Remaining admission/business/HTTP/browser/staff/phoneimport and fullrelease remain open. Publication checks/remoteSHA for this documentation record follow normal Gate6 rules; no unchangedapprestart.

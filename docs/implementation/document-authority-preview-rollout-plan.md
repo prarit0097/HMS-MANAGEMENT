@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: coordinator uses `executing-plans` for gated operational execution; coordinator-selected specialists review disjoint evidence. Coordinator alone commits/pushes and mutates the VPS. This document authorises no additional team.
 
-**Status:** 28 October 2026, **COORDINATOR APPROVED FOR GATED EXECUTION — exact publication/CI and restore/runtime gates pending.** Unchecked steps are requirements, never evidence of execution. This amendment does not deploy code or attest current live state.
+**Status:** 28 October 2026, **EXECUTED — dfaf3e0/core0009 DEPLOYED AND LIVE VERIFIED; documentation publication pending.** Unchecked steps are requirements, never evidence of execution. This amendment does not deploy code or attest current live state.
 
 **Goal:** deploy only the frozen B2a-A read-only authority foundation and two reception permission strings to the existing restricted synthetic preview, preserving all live data and security state.
 
@@ -74,3 +74,7 @@ Specialist read repository instructions/plans and recorded operations evidence, 
 ## Coordinator review —28 October2026
 
 Root approves this source-only amendment after finalactualPG1445/5skips/168subtests/check/nodrift and independent source/security review. Fresh read-only inventory confirms core0009/emptyplan, current9recoveryrows afterowneractivity (not resetto10), existingkey/password/operator/TLS/NOCREATEDB and noPending/revision6. Preserve current baseline; exactCI/artifact/freshbackup/restore and live gates remain mandatory. No application switch occurred atthis review.
+
+## Execution disposition —28 October2026
+
+[Runtime evidence](../operations/document-authority-preview-evidence-2026-10-28.json) records exactCI/archive211files/34tablepreservation/twoworkers/MFA-CSRF-CurrentUser/read/logout/static/private routes/postbackuprestore/key/otherapp preservation and cleanup. No migrate/DDL. Original checklist retained as dated design; source/live gates complete, finalrecord commit/push/remote verification completes publication. Current9recoverycode baseline preserved afterowneractivity; no reenrollment/recovery/policy mutation. Browser/staff/import and lateradmission/services/HTTP remain open.

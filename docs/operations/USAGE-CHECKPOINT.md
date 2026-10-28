@@ -5,8 +5,20 @@ checkpoint_at_utc: 2026-10-28T05:10:38Z
 resume_not_before_utc: none (explicit owner resume waives ONLY10:40:38UTC)
 owner_resume_at_utc: 2026-10-28T07:17:44Z
 automation_id: continue-hms-after-usage-cooldown
-automation_interval_minutes: 330 (fresh stop; earliest28October16:10:38IST)
+automation_interval_minutes: 330 (future threshold rule; prior16:10:38IST deadline explicitly waived07:17:44UTC)
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## Read-only document authority deployed —28 October2026
+
+Restricted synthetic preview now runs source/releasedfaf3e0a508863293e4d7fa1aeae7642cf5526de at /opt/hms/releases/preview-20261028-dfaf3e0, retaining core0009. Source switch 2026-10-28T07:36:08.871713597Z; maintenance 2026-10-28T07:35:47.752088+00:00 to 2026-10-28T07:36:39.262785+00:00.211committed files/archive digest verified before/after switch; actualtwo candidateworkers/sourcecwd and oldworkerabsence verified. No migrate/DDL/build/bootstrap/reverse/reenrollment/policy mutation occurred. All34tables/rows/catalog were identical across the quiesced switch before expected auth probes; static/venv/env/keys/Basic/trustednetwork/proxy remained retained.
+
+Exact candidatepush/remote verified and GitHubCI40650311525 all3jobsSUCCESS with decoded checkoutSHA:1445PGpass/5SQLite-onlyskips/168subtests58.91s/check0/nodrift;132frontend/typecheck/build;19root/15edge/OpenAPI/Compose/docs. Coordinator separate actualTLS PG run1445/5skips/168subtests86.14s and fresh source/security review precede rollout. Candidate restore check/no-drift/empty migrationplan and real prior+candidate password/TOTP/session/scopedread/logout passed retaining0009. Candidate clone also exercised genuine existing-owner raw context/locked samples/pure selection and exact CurrentUser delta against prior source. Earlier schema rollout is not repeated.
+
+Live HTTPS passed Basic/session separation, MFAchallenge/TOTP/pendingdenial, securecookies, CSRF denial with otherwise-valid network command, exact receptiondocumentstrings and unchanged branchgrants, network/history/reception/bed101+/scope403/logout, protectedstatic HEAD/range/wildcard-no304/JS hash and private404 with spoofedheaders. Planned document paths remain404; grants expose ceilings, not HTTP readiness or clinicalsigning. Final revision6/noPending/rate0/120beds0patients and current9recovery-code rows preserved; nine is the legitimate post-owner-use baseline, never resettohistorical ten. No recovery code was consumed by rollout. Expected password/TOTP/session/last-login/audit deltas are distinct from switch preservation.
+
+Post-change dump/checksum/list restored into receipt-owned TLS PG with exact rowhash equality across all34tables, retained currentpolicy/operator/password/recovery state and actual keyring decryption. Helper/container/network cleaned/portsclosed; liveNOCREATEDB/nonsuper/TLS and backuptimer enabled.48other Nginx hashes/18container IDs/HBA/privatekey/config/static hashes unchanged. Parent0750root:www-data/no extraACL and finalsocket0660, actualwww-data access/nonmember denial verified. Windows independently provedmaintenance503, reopenedBasic401/shell200/private404/spoofdenial,443reachable and backend/DB/helperports unreachable; fiveexistingpublicsites200 is reachability only.
+
+See [live evidence](document-authority-preview-evidence-2026-10-28.json) and [source evidence](document-authority-source-evidence-2026-10-28.json). B2a-A is implemented/sourceverified/deployed for its narrow helper/grant scope. B2a-L durableadmission/defaultfalseflag, B2b audited businessservices, B3 fourmetadataHTTPoperations, useful ingestion/UI, clinical/finance/MCP/dataops and real-data release remainUNIMPLEMENTED/OPEN. Actual live browser/keyboard/staff walkthrough and owner phoneimport remainOPEN.50catalogued/46HTTPimplemented/4planned unchanged. Next freeze remaining admission/error/preflight/commit interfaces against verified helpers, then literalRED before code. Documentation-only records do not restart this app.
 
 ## Explicit owner resume —28 October2026,12:47:44IST
 

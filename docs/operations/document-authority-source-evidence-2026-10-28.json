@@ -1,5 +1,5 @@
 {
-  "status": "implemented and source-verified; exactCI/publication/preview rollout pending",
+  "status": "implemented/source verified; published exactCI and preview deployed/live verified",
   "production_sha256": {
     "backend/apps/core/document_authority.py": "9d3119befb5957a45feddabfe5f75c0a32d74d4e57af14fbe4b3cc58e54296db",
     "backend/apps/core/authorization.py": "d79b91d3124c30e9561ad073c6585ff3cc3c1c8b5e1b487b4a7ba39ce2764706"
@@ -44,9 +44,9 @@
   "race_evidence": "8 actual PG identity/first-profile/session-deletion/policy visibility cases passed in full run; observed actor blocking only where applicable; logout/policy commits do not acquire actor lock",
   "review": "fresh independent source/security review no additional Critical/Important findings; source hashes unchanged through review",
   "open": [
-    "exact pushed candidate CI",
-    "reviewed source-only preview update and live verification",
     "B2a-L admission/B2b services/B3 transport",
     "browser/staff/phone import/full release"
-  ]
+  ],
+  "source_sha": "dfaf3e0a508863293e4d7fa1aeae7642cf5526de",
+  "preview_evidence": "document-authority-preview-evidence-2026-10-28.json"
 }

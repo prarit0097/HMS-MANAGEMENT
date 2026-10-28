@@ -1,8 +1,12 @@
 # Hostinger HMS preview
 
-Status: latest implemented source deployed28October2026, release3dd803f/core0009; original preview established23October. No hospital production cutover. URL: https://hms.praritsidana.com . Owner authorised this environment. The28October continuation lifts the prior manualhold with authenticated usage available; no cooldown waiver or reset credit was needed. The23October deployment-only waiver is historical.
+Status: latest implemented source deployed28October2026, releasedfaf3e0/core0009; original preview established23October. No hospital production cutover. URL: https://hms.praritsidana.com . Owner authorised this environment. The28October04:54UTC continuation lifted the prior manualhold without a waiver; the later07:17:44UTC explicit ownerCONTINUE waived ONLY the10:40:38UTC cooldown deadline with authenticated99primary/100weekly remaining. No resetcredit consumed. The23October deployment-only waiver is historical.
 
-## Current verified rollout —28 October2026
+## Latest authority rollout —28 October2026
+
+Source dfaf3e0a508863293e4d7fa1aeae7642cf5526de is running at `/opt/hms/releases/preview-20261028-dfaf3e0`, unchanged core0009/venv/static/security. [Current evidence](document-authority-preview-evidence-2026-10-28.json) verifies211files/twoworkers/noDDL/exact34tablepreservation/liveMFA-CSRF-CurrentUser/read/logout/static/private routes and alltable postbackuprestore/key decryption. Reception advertises two document permissions; metadata HTTP/UI/limiter/business remains absent. Existing current9recovery-code rows retained, network6/noPending/rate0. Other48config hashes/18containers/HBA preserved. Old-source rollback retains0009/currentrows. Actual browser/staff/phoneimport remain open.
+
+## Historical rate-schema rollout —28 October2026 (superseded by authority rollout above)
 
 Dormant0009/source3dd803f is deployed at `/opt/hms/releases/preview-20261026-3dd803f`, reusing unchanged venv/static/security configuration. See [current redacted evidence](rate-schema-preview-evidence-2026-10-28.json). All202sourcefiles/two workers/live MFA-CSRF-session/read/logout/static/private routes and exact34-table post-backup restore/key decryption verified. Networkrevision6/noPending and empty dormant table; no document admission/API/grant enabled. Final socket0660/parent0750, other48configs/18containerIDs/HBA preserved. Application rollback may select rehearsed prior source retaining0009; do not reverse or blindly restore older history. Live browser/staff/import remain open.
 
@@ -26,7 +30,7 @@ This version contains login/MFA/account security, dashboard, patient registratio
 
 | Resource | Dedicated HMS value |
 |---|---|
-| Root/source | `/opt/hms`, `/opt/hms/releases/preview-20261026-522f00d`, `/opt/hms/current` symlink |
+| Root/source | `/opt/hms`, `/opt/hms/releases/preview-20261028-dfaf3e0`, `/opt/hms/current` symlink |
 | User/service | `hms-preview`, `hms-preview.service` |
 | Backend | Python3.12 virtualenv `/opt/hms/releases/venv-20261026`, Gunicorn26.2.0, two workers, loopback127.0.0.1:8185 |
 | Static app | `/opt/hms/static`, React production build; no Vite/runserver exposure |
