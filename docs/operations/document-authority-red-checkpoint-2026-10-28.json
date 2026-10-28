@@ -1,0 +1,43 @@
+{
+  "status": "TESTS ONLY RED checkpoint; authority production absent",
+  "observed_at_utc": "2026-10-28T05:10:38Z",
+  "frozen_design_sha": "f53b911c9421e2b1e9c6d4a28f4d88e6c04a182b",
+  "live_source_sha": "3dd803f844b47aaa67fbd0cdc6be22185bba344c",
+  "portable": {
+    "command": "backend/.venv/Scripts/python.exe -m pytest tests/test_document_metadata_authority.py -q (backend cwd)",
+    "failed": 60,
+    "seconds": 5.32,
+    "reason": "absent apps.core.document_authority; imports inside tests; no collection/setup failures",
+    "fixture_disposition": "Initial seeded-network-singleton duplicate fixture corrected to update_or_create before final RED"
+  },
+  "grants": {
+    "command": "backend/.venv/Scripts/python.exe -m pytest tests/test_document_metadata_grants.py -q (backend cwd)",
+    "failed": 3,
+    "passed": 9,
+    "seconds": 3.2,
+    "reason": "reception lacks two proposed document grants"
+  },
+  "postgres": {
+    "command": "isolated PG17.11 pytest --ds=rate_pg_settings --reuse-db tests/test_document_metadata_authority_pg.py -q --tb=short",
+    "failed": 4,
+    "seconds": 1.74,
+    "reason": "absent authority module before actual race execution",
+    "warning": "Django could not access postgres maintenance DB; fell back only to exact receipt-owned isolated app DB, no live DB/privilege/HBA change",
+    "portable_skipped": 4,
+    "portable_seconds": 3.74,
+    "owned_resources_cleaned": true,
+    "live_service_active_after_cleanup": true
+  },
+  "not_delivered": [
+    "document_authority.py",
+    "reception grant production change",
+    "limiter admission/flag/business services/HTTP/UI",
+    "actual PG race execution past missing imports",
+    "GREEN/source review/exact new codeCI/preview deployment"
+  ],
+  "test_files_sha256": {
+    "backend/tests/test_document_metadata_authority.py": "b54b2fad4135ec34a1066cdbb11962276c47e5403a07aa54000c28bea41ed2df",
+    "backend/tests/test_document_metadata_authority_pg.py": "5ef45378b92ff6e50053b7e7577568a77a6b4e15a95d5d3294f1f58a58f30100",
+    "backend/tests/test_document_metadata_grants.py": "719042cbd5bc88917e63a3486aab15209eef0d6a9530a3aafdea52f5f5a15ed8"
+  }
+}

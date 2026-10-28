@@ -1,7 +1,17 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.31.0 | Updated: 28 October 2026, Asia/Calcutta
+Document version: 1.32.0 | Updated: 28 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
+## Fresh usage stop and authority RED checkpoint —28 October2026
+
+Authenticated at2026-10-28T05:10:38Z: primary9%/weekly76%remaining. Fresh mandatory stop; no new implementation/review/assignment/deployment before2026-10-28T10:40:38Z (28October4:10:38PM IST), then only allapplicablewindows>10. Earlier explicit continue lifted the manualhold but predates this newstop. Noresetcredit; historicalpause/deadlines/resumes retained. Same heartbeat ACTIVE330minutes for best-effort continuation; all specialists finished, no owned worker/test process remains. Checkpoint publication only follows this stop.
+
+Firstpending work now has literal TESTS-ONLY RED: portableauthority60fail5.32s all absentmodule (inside test bodies, no collection/setup failures); grants3fail9pass3.20s missing exactlytwo reception strings; actualisolated TLS PG17.11 fourfail1.74s absentmodule before any raceexecution, one documented isolatedmaintenanceDBfallback warning. PortablePGmodule4explicitSQLite skips3.74s. Initial seedednetwork singleton testfixture duplicate was corrected before final portableRED. No document_authority.py, permission productionchange, flag, limiter/service/API/UI implementation was written. Test-only checkpoint is expected to fail CI until GREEN; do not call this completed source capability or deploy failing-test state as a new app. See [RED checkpoint](docs/operations/document-authority-red-checkpoint-2026-10-28.json). Frozenplan ownership now has three disjoint test modules.
+
+Live preview remains verified3dd803f/core0009 from this turn; rolloutad6abbd and authoritydesignf53b911 were pushed/remoteverified. ActualPG RED ran only in receipt-owned isolatedhelper and was cleaned (port15549closed); live service active, no live DB/source/config/migration/grant change from tests. Prior202sourcefiles/MFA-CSRF/read/logout/static/network/postbackup34tablerestore/keys/48otherconfigs18containersHBA evidence stands. Browser/staff/authenticatorimport remainOPEN; owner asked loginhelp and was directed privately to saved recovery/authenticator handoff, no secret published or code consumed by agent for that request.
+
+Resume: inspect latestcheckpoint/currentGitCI/frozen document-authority-plan.md and preservedtests/REDreceipts, then implement only frozen authority helper plus receptionstrings, run GREEN/actualPGraces/fullregression/freshreview/exactCI, verifiedpush and reviewedpreview/live/docs. Do not repeat B1/schema0009/bootstrap/rollout. ParentB2a-L/B2b/B3/fullHMS remainunfinished. Preserve secrets/Basic/network/otherVPSapps. No new work until deadline and authenticatedusage recovers.
+
 ## Freeze document authority foundation —28 October2026
 
 After completed3dd803f/core0009 rollout, coordinator reconciled parent metadata/admission/service plans and froze [B2a-A authority-only plan](docs/implementation/document-authority-plan.md) following fresh scenario/test and threat review. Scope: new read-only document_authority.py, two reception permission strings in authorization.py, genuine-session/currentgrant/immutable-network/pure-selection tests. No limiter/flag/business/schema/B1/HTTP/UI change. Existing owner-selected shared feature checkout retained; root alone Git/VPS.
@@ -945,3 +955,7 @@ Owner continue lifts manualpause with99primary/90weekly remaining, sameheartbeat
 ### CHG-0058 —28 October2026 — Freeze authority-only document foundation
 
 Parent schema work reconciled with deployed0009; B2a-A narrow read-only/session/grant/network plan independently reviewed and frozen, including absent-onlylegacyepoch and exactissued-objectproof. No production/tests delivered; RED and remaining source/runtime gates open. B2a-L/B2b/B3 remain planned.
+
+### CHG-0059 —28 October2026 — Preserve authority RED and fresh usage stop
+
+Tests-only60portableRED/3grantRED9pass/4actualisolatedPGRED beforemissingmodule; production authority/grants untouched. Source/table rollout remains3dd803f/core0009 verified. Fresh9primary76weekly stop05:10:38UTC resumesnotbefore10:40:38UTC plusallwindows>10; sameheartbeat/noreset, allspecialistsfinished. GREEN/actualraces/source/fullCI/preview gates unfinished.

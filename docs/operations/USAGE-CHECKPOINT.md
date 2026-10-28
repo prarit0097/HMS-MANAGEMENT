@@ -1,12 +1,22 @@
 # Usage-aware HMS continuation
 
-State: ACTIVE
-checkpoint_at_utc: 2026-10-26T04:10:34Z
-resume_not_before_utc: none (explicit owner resume)
+State: COOLDOWN
+checkpoint_at_utc: 2026-10-28T05:10:38Z
+resume_not_before_utc: 2026-10-28T10:40:38Z
 owner_resume_at_utc: 2026-10-28T04:54:49Z
 automation_id: continue-hms-after-usage-cooldown
-automation_interval_minutes: 330 (threshold rule; current owner wake is03:30 local)
+automation_interval_minutes: 330 (fresh stop; earliest28October16:10:38IST)
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## Fresh usage stop and authority RED checkpoint —28 October2026
+
+Authenticated at2026-10-28T05:10:38Z: primary9%/weekly76%remaining. Fresh mandatory stop; no new implementation/review/assignment/deployment before2026-10-28T10:40:38Z (28October4:10:38PM IST), then only allapplicablewindows>10. Earlier explicit continue lifted the manualhold but predates this newstop. Noresetcredit; historicalpause/deadlines/resumes retained. Same heartbeat ACTIVE330minutes for best-effort continuation; all specialists finished, no owned worker/test process remains. Checkpoint publication only follows this stop.
+
+Firstpending work now has literal TESTS-ONLY RED: portableauthority60fail5.32s all absentmodule (inside test bodies, no collection/setup failures); grants3fail9pass3.20s missing exactlytwo reception strings; actualisolated TLS PG17.11 fourfail1.74s absentmodule before any raceexecution, one documented isolatedmaintenanceDBfallback warning. PortablePGmodule4explicitSQLite skips3.74s. Initial seedednetwork singleton testfixture duplicate was corrected before final portableRED. No document_authority.py, permission productionchange, flag, limiter/service/API/UI implementation was written. Test-only checkpoint is expected to fail CI until GREEN; do not call this completed source capability or deploy failing-test state as a new app. See [RED checkpoint](document-authority-red-checkpoint-2026-10-28.json). Frozenplan ownership now has three disjoint test modules.
+
+Live preview remains verified3dd803f/core0009 from this turn; rolloutad6abbd and authoritydesignf53b911 were pushed/remoteverified. ActualPG RED ran only in receipt-owned isolatedhelper and was cleaned (port15549closed); live service active, no live DB/source/config/migration/grant change from tests. Prior202sourcefiles/MFA-CSRF/read/logout/static/network/postbackup34tablerestore/keys/48otherconfigs18containersHBA evidence stands. Browser/staff/authenticatorimport remainOPEN; owner asked loginhelp and was directed privately to saved recovery/authenticator handoff, no secret published or code consumed by agent for that request.
+
+Resume: inspect latestcheckpoint/currentGitCI/frozen document-authority-plan.md and preservedtests/REDreceipts, then implement only frozen authority helper plus receptionstrings, run GREEN/actualPGraces/fullregression/freshreview/exactCI, verifiedpush and reviewedpreview/live/docs. Do not repeat B1/schema0009/bootstrap/rollout. ParentB2a-L/B2b/B3/fullHMS remainunfinished. Preserve secrets/Basic/network/otherVPSapps. No new work until deadline and authenticatedusage recovers.
 
 ## Owner resume and B2a-S schema freeze —26 October2026,09:06:11IST
 

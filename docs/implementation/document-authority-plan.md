@@ -27,7 +27,9 @@
 |---|---|
 | `backend/apps/core/document_authority.py` | NEW fixed errors, private mint, read-only session/global checks, detached samples, pure final selection |
 | `backend/apps/core/authorization.py` | Add only `documents.registration.read` and `documents.registration.write` to `ROLE_PERMISSIONS['reception']` |
-| `backend/tests/test_document_metadata_authority.py` | NEW genuine-session, permission, representation, immutability, network/time and isolated transaction/race tests |
+| `backend/tests/test_document_metadata_authority.py` | NEW genuine-session, permission, representation, immutability and network/time tests |
+| `backend/tests/test_document_metadata_authority_pg.py` | NEW disjoint actual-PG authority identity/first-profile lock and session/network visibility tests; no limiter tests |
+| `backend/tests/test_document_metadata_grants.py` | NEW disjoint exact CurrentUser/reception-only grant ceiling tests |
 | HMS.md, plan.md, ledger and source/live evidence | Coordinator publication only; not implementer ownership |
 
 No `document_access.py`, settings, models, prior tests or network/identity/auth modules change. If existing behavior blocks a requirement, report it for a separately reviewed scope amendment rather than expanding this file list.
@@ -137,3 +139,5 @@ The proposed subset covers authority/session/global grant/environment/IP mint, m
 Independent acceptance review found no Critical/Important blocker subject to strict missing-versus-null epoch distinction, adopted above. Tests separately exercise signing fallback/authhash fallback, absentcache/unresolvedlazy/subclass refusal before overrides, no model/session writes or forbidden queries, zero-I/O selection and both exactdeadline directions. Five-second monotonic/limiter/flag/business/HTTP work stays outside this slice. Shared feature checkout is the owner-selected workspace; coordinator alone commits/pushes/VPS. Independent security review found replacement-clone proof ambiguity; per-issued-object weakref binding and explicit replace/copy negatives close it before freeze. Coordinator freezes this narrow plan; RED must run before production code.
 
 Coordinator ruling: process-private sentinel alone cannot prove issuance after dataclasses.replace; exact per-object proof binding is required for contexts and both samples. This protects ordinary internal misuse, not trusted Python deliberately manufacturing private proof internals. Production remains pending; parent admission/service races and staff release are not delivered by this freeze.
+
+Coordinator pre-RED ownership amendment: isolate actual-PG authority races in test_document_metadata_authority_pg.py so portable tests, PG tests and implementation review can work on disjoint paths. Both test modules import absent production functions inside tests for literal executable RED before production edits. This test-only decomposition does not widen production scope.
