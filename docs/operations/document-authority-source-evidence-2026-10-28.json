@@ -1,0 +1,52 @@
+{
+  "status": "implemented and source-verified; exactCI/publication/preview rollout pending",
+  "production_sha256": {
+    "backend/apps/core/document_authority.py": "9d3119befb5957a45feddabfe5f75c0a32d74d4e57af14fbe4b3cc58e54296db",
+    "backend/apps/core/authorization.py": "d79b91d3124c30e9561ad073c6585ff3cc3c1c8b5e1b487b4a7ba39ce2764706"
+  },
+  "red": {
+    "original_portable_and_grants": "63failed9passed6.12s reconfirmed before implementation",
+    "lazy_subclass": "1failed7.61s before minimal isinstance correction",
+    "pg_prior_checkpoint": "4absent-module failures, not actual completed race evidence"
+  },
+  "green": {
+    "portable": "117passed8PG-onlyskips14.42s final implementer command",
+    "independent_expanded_tests": "117passed8PG-onlyskips17.97s",
+    "independent_security_subset": "15passed90deselected6.40s",
+    "full_actual_pg17_11": {
+      "passed": 1445,
+      "sqlite_only_skipped": 5,
+      "subtests": 168,
+      "seconds": 86.14,
+      "check": 0,
+      "migration_drift": false,
+      "warning": "isolated maintenance-db connection unavailable; fallback only to exact receipt-owned isolated app database",
+      "helper_cleaned": true,
+      "live_service_active": true
+    },
+    "prior_full_sqlite": "1396passed41skipped168subtests182.58s; started before lazy-subclass correction and final test expansion; not a final full-SQLite claim",
+    "root_tests": "19passed30.616s",
+    "documentation_mapping_links": "passed"
+  },
+  "scope": [
+    "new read-only document_authority.py",
+    "two reception CurrentUser document permission strings",
+    "expanded portable/PG authority tests"
+  ],
+  "unchanged": [
+    "B1",
+    "schema/models/migrations",
+    "feature setting",
+    "limiter admission",
+    "patient/document/audit services",
+    "HTTP/OpenAPI/page-action/UI/static/dependencies/infrastructure"
+  ],
+  "race_evidence": "8 actual PG identity/first-profile/session-deletion/policy visibility cases passed in full run; observed actor blocking only where applicable; logout/policy commits do not acquire actor lock",
+  "review": "fresh independent source/security review no additional Critical/Important findings; source hashes unchanged through review",
+  "open": [
+    "exact pushed candidate CI",
+    "reviewed source-only preview update and live verification",
+    "B2a-L admission/B2b services/B3 transport",
+    "browser/staff/phone import/full release"
+  ]
+}

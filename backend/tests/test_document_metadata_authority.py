@@ -20,6 +20,7 @@ from django.test import RequestFactory
 from django.test.utils import CaptureQueriesContext
 from django.utils import timezone
 from django.utils.functional import SimpleLazyObject
+from django.utils.functional import empty
 
 from apps.core.models import Branch, IdentitySecurity, Membership, Organisation
 from apps.core.network_models import NetworkPolicyState
@@ -71,7 +72,8 @@ def read_guard(monkeypatch, *, network=False):
             assert not sql.lstrip().startswith(('insert ', 'update ', 'delete ')), sql
             assert 'for update' not in sql and 'for no key update' not in sql, sql
             for table in ('core_patient', 'documentuploadintent', 'documentmutationreceipt',
-                          'documentevent', 'documentmetadataratewindow', 'core_auditevent'):
+                          'documentevent', 'documentmetadataratewindow', 'core_auditevent',
+                          'core_documentintentreceipt', 'core_documentaccessevent'):
                 assert table not in sql, sql
             if not network:
                 assert 'core_network' not in sql, sql
@@ -181,6 +183,17 @@ def test_resolved_lazy_actor_is_accepted(signed):
     actor._wrapped = signed.user
     signed.request.user = actor
     assert api.capture_document_context(signed.request, 'intent.list').actor_id == signed.user.pk
+
+
+def test_unresolved_lazy_actor_subclass_never_evaluates(signed, monkeypatch):
+    api = authority()
+    class LazyActor(SimpleLazyObject):
+        pass
+    actor = LazyActor(forbidden)
+    signed.request.user = actor
+    with read_guard(monkeypatch), error(api, 'not_authenticated'):
+        api.capture_document_context(signed.request, 'intent.list')
+    assert actor._wrapped is empty
 
 
 @pytest.mark.parametrize('setting,value', [
@@ -348,14 +361,18 @@ def test_selection_expiry_equalities_and_invalid_time(signed, instant, code):
 
 
 @pytest.mark.parametrize('offset,code', [(-1, 'network_denied'), (0, None), (1, None)])
-def test_selection_rollback_equalities_ignore_preread_effective_policy(signed, monkeypatch, offset, code):
+@pytest.mark.parametrize('inverse', [False, True])
+def test_selection_rollback_equalities_ignore_preread_effective_policy(signed, monkeypatch, offset, code, inverse):
     api = authority()
     context, auth, _ = samples(api, signed)
     now = timezone.now()
     rollback = now + timedelta(seconds=5)
     denied = {'allowlist_only': False, 'allowlist': [], 'blocklist': ['198.51.100.24/32']}
-    graph = NetworkSnapshot(2, uuid4(), copy.deepcopy(ALLOW), denied, uuid4(), 'expired_unreconciled',
-                            denied, now-timedelta(seconds=295), rollback, 2)
+    confirmed, candidate = (denied, copy.deepcopy(ALLOW)) if inverse else (copy.deepcopy(ALLOW), denied)
+    if inverse:
+        code = None if offset < 0 else 'network_denied'
+    graph = NetworkSnapshot(2, uuid4(), confirmed, candidate, uuid4(), 'expired_unreconciled',
+                            candidate, now-timedelta(seconds=295), rollback, 2)
     monkeypatch.setattr(api, 'load_network_snapshot', lambda when: graph)
     network = api.sample_document_network(context, now)
     denied['blocklist'].clear()  # No retained mutable loader graph.
@@ -406,3 +423,110 @@ def test_fixed_error_constructor_refuses_arbitrary_detail():
         with pytest.raises((ValueError, TypeError)) as caught:
             api.DocumentServiceError(*args)
         assert 'raw-secret' not in str(caught.value)
+
+
+@pytest.mark.parametrize('operation', OPS)
+@pytest.mark.parametrize('role', ['doctor', 'nurse', 'master_admin'])
+def test_authority_rejects_nonreception_roles(signed, monkeypatch, operation, role):
+    api = authority()
+    Membership.objects.filter(user=signed.user).update(role=role)
+    with read_guard(monkeypatch), error(api, 'permission_denied'):
+        api.capture_document_context(signed.request, operation)
+
+
+@pytest.mark.parametrize('operation', OPS)
+def test_authority_mixed_roles_scope_and_revocation(signed, monkeypatch, operation):
+    api = authority()
+    branch_a = Branch.objects.create(organisation=signed.branch.organisation, name='Clinical', code='CLIN')
+    Membership.objects.create(user=signed.user, branch=branch_a, role='doctor')
+    context = api.capture_document_context(signed.request, operation)
+    with read_guard(monkeypatch), transaction.atomic():
+        sample = api.sample_document_authority(context, operation)
+    assert sample.eligible_branches == frozenset({signed.branch.pk})
+    Membership.objects.filter(user=signed.user, role='reception').update(is_active=False)
+    with read_guard(monkeypatch), transaction.atomic(), error(api, 'permission_denied'):
+        api.sample_document_authority(context, operation)
+
+
+@pytest.mark.parametrize('operation', OPS)
+@pytest.mark.parametrize('same_branch', [False, True])
+def test_authority_intersects_each_required_permission_branch(signed, monkeypatch, operation, same_branch):
+    api = authority()
+    from apps.core.authorization import ROLE_PERMISSIONS
+    other = signed.branch if same_branch else Branch.objects.create(
+        organisation=signed.branch.organisation, name='Other desk', code='OTHER')
+    # Neither role alone has the complete conjunction; a global union is unsafe.
+    monkeypatch.setitem(ROLE_PERMISSIONS, 'reception', {'patients.read', 'patients.write'})
+    monkeypatch.setitem(ROLE_PERMISSIONS, 'doctor', {'documents.registration.read', 'documents.registration.write'})
+    Membership.objects.create(user=signed.user, branch=other, role='doctor')
+    if not same_branch:
+        with read_guard(monkeypatch), error(api, 'permission_denied'):
+            api.capture_document_context(signed.request, operation)
+    else:
+        with read_guard(monkeypatch):
+            context = api.capture_document_context(signed.request, operation)
+            with transaction.atomic():
+                sample = api.sample_document_authority(context, operation)
+        assert sample.eligible_branches == frozenset({signed.branch.pk})
+
+
+@pytest.mark.parametrize('operation', OPS)
+@pytest.mark.parametrize('missing', ['patients.write', 'documents.registration.write'])
+def test_write_permissions_must_share_the_read_branch(signed, monkeypatch, operation, missing):
+    api = authority()
+    from apps.core.authorization import ROLE_PERMISSIONS
+    required = {'patients.read', 'documents.registration.read', 'patients.write', 'documents.registration.write'}
+    monkeypatch.setitem(ROLE_PERMISSIONS, 'reception', required - {missing})
+    monkeypatch.setitem(ROLE_PERMISSIONS, 'doctor', {missing})
+    other = Branch.objects.create(organisation=signed.branch.organisation, name='Write desk', code='WRITE')
+    Membership.objects.create(user=signed.user, branch=other, role='doctor')
+    if operation in ('intent.create', 'intent.withdraw'):
+        with read_guard(monkeypatch), error(api, 'permission_denied'):
+            api.capture_document_context(signed.request, operation)
+    else:
+        with read_guard(monkeypatch):
+            context = api.capture_document_context(signed.request, operation)
+            with transaction.atomic():
+                sample = api.sample_document_authority(context, operation)
+        assert sample.eligible_branches == frozenset({signed.branch.pk})
+
+
+@pytest.mark.parametrize('sampler', ['authority', 'network'])
+@pytest.mark.parametrize('clone', ['copy', 'replace', 'constructor'])
+def test_each_sampler_rejects_unissued_context(signed, sampler, clone):
+    api = authority()
+    context = api.capture_document_context(signed.request, 'intent.list')
+    forged = (copy.copy(context) if clone == 'copy' else replace(context) if clone == 'replace'
+              else type(context)(**{f.name: getattr(context, f.name) for f in fields(context)}))
+    with transaction.atomic():
+        with connection.execute_wrapper(lambda *args: forbidden()), error(api, 'document_metadata_unavailable'):
+            if sampler == 'authority':
+                api.sample_document_authority(forged, 'intent.list')
+            else:
+                api.sample_document_network(forged, timezone.now())
+
+
+@pytest.mark.parametrize('case', ['allowed', 'denied', 'corrupt'])
+def test_network_sampling_is_read_only_even_on_denial(signed, monkeypatch, case):
+    api = authority()
+    context = api.capture_document_context(signed.request, 'intent.list')
+    if case == 'corrupt':
+        NetworkPolicyState.objects.update(confirmed_policy_digest='0' * 64)
+    elif case == 'denied':
+        denied = {'allowlist_only': False, 'allowlist': [], 'blocklist': ['198.51.100.24/32']}
+        NetworkPolicyState.objects.update(confirmed_policy=denied, confirmed_policy_digest=policy_digest(denied))
+    before = list(NetworkPolicyState.objects.values())
+    with read_guard(monkeypatch, network=True):
+        if case == 'corrupt':
+            with error(api, 'document_metadata_unavailable'):
+                api.sample_document_network(context, timezone.now())
+        else:
+            network = api.sample_document_network(context, timezone.now())
+            with transaction.atomic():
+                auth = api.sample_document_authority(context, 'intent.list')
+            if case == 'denied':
+                with error(api, 'network_denied'):
+                    api.validate_document_selection(context, auth, network, max(auth.sampled_at, network.sampled_at))
+            else:
+                api.validate_document_selection(context, auth, network, max(auth.sampled_at, network.sampled_at))
+    assert list(NetworkPolicyState.objects.values()) == before

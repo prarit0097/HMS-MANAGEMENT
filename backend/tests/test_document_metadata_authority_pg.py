@@ -12,11 +12,15 @@ import pytest
 from django.contrib.auth import get_user_model, login
 from django.contrib.auth.models import AnonymousUser
 from django.contrib.sessions.backends.db import SessionStore
+from django.contrib.sessions.models import Session
 from django.db import close_old_connections, connection, transaction
 from django.test import RequestFactory
 from django.test.utils import CaptureQueriesContext
+from django.utils import timezone
 
 from apps.core.models import Branch, IdentitySecurity, Membership, Organisation
+from apps.core.network_models import NetworkPolicyState
+from apps.security.network_policy import policy_digest
 
 
 pytestmark = pytest.mark.django_db(transaction=True)
@@ -179,3 +183,70 @@ def test_epoch_revocation_waits_for_prior_authority_sample(authority_actor):
 
 def test_missing_profile_sample_does_not_create_and_first_writer_waits(authority_actor):
     _identity_order(authority_actor, create=True, writer_first=False)
+
+
+@pytest.mark.parametrize('change', ['logout', 'policy'])
+@pytest.mark.parametrize('commit_first', [False, True])
+def test_independent_commits_respect_materialised_visibility(authority_actor, change, commit_first):
+    from apps.core.document_authority import (
+        capture_document_context, sample_document_authority, sample_document_network,
+        validate_document_selection, DocumentServiceError,
+    )
+    user, branch, request = authority_actor
+    context = capture_document_context(request, 'intent.list')
+    ready, release, committed = Event(), Event(), Event()
+    pids = {}
+    key = request.session.session_key
+    deny = {'allowlist_only': False, 'allowlist': [], 'blocklist': ['127.0.0.1/32']}
+
+    def independent_writer():
+        close_old_connections()
+        try:
+            pids['writer'] = _pid()
+            ready.set()
+            assert release.wait(15), 'Independent writer not released'
+            with transaction.atomic():
+                if change == 'logout':
+                    assert Session.objects.filter(session_key=key).delete()[0] == 1
+                else:
+                    assert NetworkPolicyState.objects.filter(pk=1).update(
+                        confirmed_policy=deny, confirmed_policy_digest=policy_digest(deny), revision=2) == 1
+            committed.set()
+        finally:
+            connection.close()
+
+    with ThreadPoolExecutor(max_workers=1) as pool:
+        worker = pool.submit(independent_writer)
+        try:
+            assert ready.wait(10), 'Independent writer did not connect'
+            assert pids['writer'] != _pid()
+            if commit_first:
+                release.set()
+                assert committed.wait(10), 'Independent commit not observed'
+                worker.result(10)
+            with transaction.atomic():
+                _lock_actor_then_existing_identity(user.pk)
+                if commit_first and change == 'logout':
+                    with pytest.raises(DocumentServiceError) as denied:
+                        sample_document_authority(context, 'intent.list')
+                    assert (denied.value.code, denied.value.status) == ('not_authenticated', 401)
+                    return
+                auth = sample_document_authority(context, 'intent.list')
+                network = sample_document_network(context, timezone.now())
+                if not commit_first:
+                    # Ordinary logout/policy changes do not acquire the actor lock.
+                    # Commit while that lock is still held to prove this independence.
+                    release.set()
+                    assert committed.wait(10), 'Writer unexpectedly blocked behind actor lock'
+                    worker.result(10)
+                selected = max(auth.sampled_at, network.sampled_at, timezone.now())
+                if commit_first and change == 'policy':
+                    with pytest.raises(DocumentServiceError) as denied:
+                        validate_document_selection(context, auth, network, selected)
+                    assert (denied.value.code, denied.value.status) == ('network_denied', 403)
+                else:
+                    validate_document_selection(context, auth, network, selected)
+                    assert auth.eligible_branches == frozenset({branch.pk})
+        finally:
+            release.set()
+            worker.result(20)

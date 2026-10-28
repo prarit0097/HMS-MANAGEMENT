@@ -1,0 +1,76 @@
+# Document authority preview rollout implementation plan
+
+> **For agentic workers:** REQUIRED SUB-SKILL: coordinator uses `executing-plans` for gated operational execution; coordinator-selected specialists review disjoint evidence. Coordinator alone commits/pushes and mutates the VPS. This document authorises no additional team.
+
+**Status:** 28 October 2026, **COORDINATOR APPROVED FOR GATED EXECUTION — exact publication/CI and restore/runtime gates pending.** Unchecked steps are requirements, never evidence of execution. This amendment does not deploy code or attest current live state.
+
+**Goal:** deploy only the frozen B2a-A read-only authority foundation and two reception permission strings to the existing restricted synthetic preview, preserving all live data and security state.
+
+**Architecture:** reuse the established short HMS-only maintenance/source-switch procedure, immutable existing venv and real static directory. There is no DDL, migration application, frontend replacement or infrastructure/security reconfiguration. Retain the existing core0009 database for both candidate and prior-source rollback.
+
+**Tech stack:** existing Django5.2.18/Gunicorn26.2.0, PostgreSQL17.11 TLS, Nginx/UDS and built React; no new dependencies.
+
+**Spec:** [frozen authority plan](document-authority-plan.md), [executed bounded rollout](rate-schema-preview-rollout-plan.md), [28 October live receipt](../operations/rate-schema-preview-evidence-2026-10-28.json), [prior runtime/socket design](preview-update-2026-10-26-plan.md), [HMS](../../HMS.md), [project plan](../../plan.md), [ledger](ledger.md), latest checkpoint and owner instructions.
+
+## Scope and inherited gates
+
+This is an operational amendment to the referenced rollout, not a repetition of its completed schema/bootstrap work. The sole production delta is new `backend/apps/core/document_authority.py` and exactly `documents.registration.read` / `documents.registration.write` in `ROLE_PERMISSIONS['reception']` in `backend/apps/core/authorization.py`; the three frozen authority/grant test modules and truthful records accompany it. No schema/model/B1/setting/limiter/service/HTTP/OpenAPI/page/UI/storage/clinical-signing capability changes. Four metadata operations remain planned;46 existing HTTP operations remain implemented.
+
+Recorded baseline: source/release `3dd803f844b47aaa67fbd0cdc6be22185bba344c`, `/opt/hms/releases/preview-20261026-3dd803f`, core0009,202 manifest files, `/opt/hms/releases/venv-20261026`, `/opt/hms/static`, two workers. Recorded revision6/no pending,120beds/0patients and48 other Nginx files/18 containers are dated evidence to reconcile, not values to impose. Current owner activity may have changed sessions, MFA challenge state, recovery-code use, audit, data or network state. Do not assume ten unused recovery codes, zero patients, unchanged policy revision or unchanged membership. Never restore historical values to make a check pass.
+
+Preserve app.env/keyring/Basic credentials, actual owner/operator/membership/security state, approved environment policy, trusted proxies, network overlay, service unit, real static bytes, backup timer, TLS/HBA/roles and other apps. No bootstrap, seed, schema reversal/replay, reenrollment, recovery-code consumption, policy mutation or credential rotation. Shared `www-data` trust boundary remains the reviewed model, not independent per-app OS isolation.
+
+## Review focus
+
+1. Wrong source or a latent migration turns a source-only update into a different release: pin exact pushed/CI/artifact identities and require an empty migration plan before switch.
+2. Owner activity invalidates historical row counts/security assumptions: reconcile fresh private receipts and preserve every row before smoke-test deltas.
+3. Mixed worker generations obscure running code: require both worker identities and source hashes, plus absence of old workers, before reopening.
+4. Nginx maintenance aliases/socket recreation can produce false readiness or unsafe rights: retain protected parent, recognise only the exact HMS symlink alias, then restore exact bytes and final0660.
+5. Permission strings may be mistaken for document readiness: verify scoped CurrentUser deltas and unchanged endpoint absence without creating users/grants or invoking a new metadata path.
+
+## Task 1 — freeze the exact reviewed release and fresh baseline
+
+- [ ] Coordinator verifies authenticated usage/checkpoint allows work and capacity for bounded maintenance/closeout; a fresh<=10% invokes the standing stop rule. No conflicting deployer or duplicate team.
+- [ ] Close frozen authority RED→GREEN, actual isolated PostgreSQL identity/session/network visibility races, fresh source/security review and material findings, full required regressions/check/no-drift/docs/OpenAPI checks. Record exact commands, counts, skips and limitations. No historical counts substituted for candidate results.
+- [ ] Verify normal push/remote full SHA equality and successful exact candidate CI/jobs. Record code-change SHA separately from later documentation-only record SHA. Produce an immutable committed archive and complete per-file manifest/digests for that exact candidate; derive the file count rather than assuming202. Review diff against baseline: only frozen source/tests/records; unchanged dependencies/frontend/static/infra/historical migrations. Any unexplained delta blocks this amendment.
+- [ ] Fresh read-only attest actual current symlink/full source, both workers, core0009/complete migration graph, role/TLS, venv/static/config/env/key custody, service/socket/listeners, policy/pending/effective fingerprint and identity/operator state. Require candidate `migrate --plan` empty and `check`/no-drift clean with the verified preview configuration; **do not run `migrate` as a deployment step**. An unexpected leaf/DDL/config/dependency change requires separately reviewed scope.
+- [ ] Reconcile legitimate drift against the28October receipt privately: row-count/hash receipts for every table, password/recovery hashes and used/unused counts, MFA key identifiers/decryption capability, membership/owner/operator/version and policy/pending state. Record current facts without secret output. Unexpected activity or pending policy uncertainty blocks maintenance until understood; no automatic reset/recovery.
+- [ ] Open a unique root-only HMS receipt with verified target paths, old/new source/archive/manifests, existing static/venv/config/keys, fresh other-app configuration hashes/container IDs/HBA/reachability, backup identities, bounded commands/deadlines and rollback path. Reconcile inventory drift; preserve other apps and never clean an unverified path.
+
+**Pass:** exact reviewed published candidate, successful exactCI, empty migration plan and reconciled recoverable current baseline. No current live attestation is claimed by this draft.
+
+## Task 2 — restore rehearsal and quiesced source switch
+
+Reuse the established backup/isolated TLS restore lifecycle, private key custody and source staging controls from Gates2–4 of the executed bounded rollout; replace its0008→0009 actions with these source-only checks.
+
+- [ ] Create/checksum/list a fresh dedicated backup and restore only to a unique receipt-owned isolated database/helper. Verify all34 baseline tables (or reconciled actual inventory) by exact deterministic all-row receipts, core0009, current security/network/password/recovery state and actual enrolled-factor decryption with retained keys. Do not print secrets or consume recovery codes. Keep populated restore comparisons separate from disposable test DBs.
+- [ ] Against that restored database, verify exact candidate check/no-drift/empty migration plan, unchanged data/security graph and guarded existing auth/read/logout behavior. Rehearse prior source `3dd803f` (or freshly reconciled actual prior release) against the same retained0009 schema with real password/TOTP/scoped-read/logout smoke semantics. Capture expected authentication deltas separately; this is rollback compatibility, not a schema replay. No schema reverse/forward or artificial rate rows.
+- [ ] Stage a collision-checked immutable root-owned candidate release from the committed archive; verify every file/hash and retained complete static manifest, existing venv and config hashes. Keep old release, matching keys/environment and recovery receipts available. No install/build/collectstatic or current-release overwrite.
+- [ ] Immediately before switch, recheck usage/source/CI/baseline/resources. Close only HMS with established maintenance mechanism; verify public shell/assets/API remain closed. Recognise `sites-enabled` only when it is the exact verified alias of the intentionally changed HMS maintenance file; do not exclude unrelated files or bless arbitrary drift. Syntax-test/gracefully reload only as required by that mechanism.
+- [ ] Stop only `hms-preview`; prove both old workers and other HMS writers/jobs absent. Take fresh **quiesced** final backup/checksum/list and all-table row hashes/security receipts. Reconcile changes since rehearsal. Reconfirm core0009 and empty migration plan; apply no DDL or data mutation. Atomically switch `/opt/hms/current`, start the existing service, and verify two healthy candidate workers, actual source paths/manifest hashes, old-worker absence and existing listeners within receipt bounds.
+- [ ] While closed, verify API/private probe/static readiness and unchanged runtime/config/env/venv/static/network. Socket recreation may show0666root:root under approved root:www-data0750 parent; the parent must remain non-world-traversable at all times. Reassert final root:www-data0660, prove actual `www-data` access/nonmember denial, and record both observations. Do not widen parent rights or restart global Nginx to obtain readiness.
+- [ ] Compare **all pre-existing rows** with the final quiesced baseline before auth probes; no catalog/session/audit changes are expected from this source-only switch itself. Restore exact HMS maintenance target/alias bytes, validate preservation/readiness again, then reopen and record UTC window/source/process identities. A successful service start alone is insufficient.
+
+**Pass:** exact candidate/two workers/core0009, zero migration/data/security changes from switch, retained protected runtime and preserved other applications.
+
+## Task 3 — live acceptance, recovery proof and truthful publication
+
+- [ ] Reuse Gate5's bounded Basic/MFA/session/CSRF/network/static/private-spoof checks: wrong/no Basic denial; Basic alone insufficient; genuine enrolled password+TOTP, pending challenge denial, secure cookies/session/me; meaningful missing-CSRF denial; existing scoped reads/network history/bed101+ and scope denial; logout/session invalidation. Use existing authorised synthetic context privately. No policy apply/keep/revert, recovery consumption or enrollment. Separate expected challenge/session/last_login/security-audit deltas from preservation checks.
+- [ ] Compare CurrentUser `permissions` and `branch_permissions` to the exact candidate role calculation and same-branch membership baseline: reception gains exactly the two document strings; other role grant sets stay unchanged, including master-only no automatic document/clinical grant. Do not create a reception user/membership merely for smoke proof. If no existing authorised reception session is available, record that live limitation and exact isolated/CI grant evidence; do not claim a live reception result. No new CurrentUser field/readiness claim, metadata route, limiter or patient-document action becomes active; verify unchanged route inventory and safe existing-contract absence without a metadata write.
+- [ ] Re-attest no unexplained policy/pending/operator/grant/credential drift and unchanged document/rate tables (empty rate table only if freshly true at baseline); unchanged complete static bytes/HEAD/range/wildcard behavior and external private404/blocked backend+DB+helper listeners. Compare other-app hashes/container IDs/HBA/reachability to fresh baseline. Reachability is not body equality or live outage testing.
+- [ ] Create/checksum/list post-change backup; restore into a new exact receipt-owned isolated TLS target and prove all-table row-hash equality to the post-backup source snapshot, core0009, current policy/password/recovery/operator state and actual retained-key factor decryption. Record expected auth deltas. Verify timer enabled/app role NOCREATEDB/NOSUPER; clean only owned helper resources and prove no stray listeners or live disturbance.
+- [ ] Save redacted operations evidence: source/remote/exactCI/artifact/manifests/runtime identities, empty migration plan/no DDL, before-switch all-row preservation, expected auth deltas, security/static/socket/alias checks, rollback rehearsal, backup restore/key proof, other-app preservation and open checks. Coordinator updates HMS.md/plan.md/ledger with implemented/verified/deployed distinctions, runs required record checks, commits/pushes normally and verifies remote full SHA. Documentation-only final records do not restart unchanged app.
+
+**Pass:** actual bounded live behavior and recovery verified with honest limitations. Browser/keyboard/staff walkthrough, owner authenticator import, B2a-L/B2b/B3 and full real-data release remain OPEN unless independently completed with new evidence.
+
+## Failure and rollback amendment
+
+Before maintenance failure leaves recorded3dd803f unchanged. Once closed, uncertain data/source/worker/security state keeps HMS closed with private recovery receipt. Prefer bounded reviewed forward repair; rollback switches only to the rehearsed prior application source while **retaining core0009 and all current rows**, then repeats source/two-worker/security/static/read/logout/preservation gates before reopening. Capture post-attempt backup/evidence first; old code must not execute migration commands against unfamiliar history. Never reverse0009/0008, delete rate rows, restore an old database over newer activity, weaken MFA/Basic/network or overwrite credentials. Database restore is exceptional separately reviewed recovery with accepted-write disposition, never automatic app rollback. A source fix requires its own review/tests/push/exactCI/candidate rollout. Usage stops follow the owner's existing checkpoint/heartbeat rule with a safely verified reopen or explicit closed recovery state.
+
+## Draft disposition
+
+Specialist read repository instructions/plans and recorded operations evidence, and authored only this file. No Git/VPS action, production edit, test execution, authenticated usage check or fresh live attestation was performed. Coordinator must review/freeze against final GREEN/source evidence before execution; all gates remain unchecked.
+
+## Coordinator review —28 October2026
+
+Root approves this source-only amendment after finalactualPG1445/5skips/168subtests/check/nodrift and independent source/security review. Fresh read-only inventory confirms core0009/emptyplan, current9recoveryrows afterowneractivity (not resetto10), existingkey/password/operator/TLS/NOCREATEDB and noPending/revision6. Preserve current baseline; exactCI/artifact/freshbackup/restore and live gates remain mandatory. No application switch occurred atthis review.

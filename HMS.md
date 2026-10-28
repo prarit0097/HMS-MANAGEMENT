@@ -1,7 +1,21 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.32.0 | Updated: 28 October 2026, Asia/Calcutta
+Document version: 1.33.0 | Updated: 28 October 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
+## Read-only document authority source verified —28 October2026
+
+Implemented frozen B2a-A in new document_authority.py plus exactlytwo reception permission strings. Genuine configured DBsessions/defaultModelBackend are sampled read-only with current/fallback signed data+authhashes, activeactor/currentepoch/global same-branch conjunction, already-resolved actor/livecache and mintbinding. No auth.get_user/SessionStore.load/save/cycle/flush or read-side profile creation. Missing-onlylegacyepoch accepted onlycurrent0; explicitnull/bool/negative/string reject. Per-issued-object weakref proof rejects copy/replace/directly constructed context/samples. Policy descriptors are detached immutable tuples with sensitive repr suppression; final selection is pure (no clock/request/DB), selecting exact pending deadline and strict session expiry. Caller-owned transaction/actor NO KEY→existingIdentity lock precondition is explicit; helpers acquire no locks. Reception CurrentUser advertises onlythetwo planned grantstrings, without document readiness/clinical authority.
+
+Literal RED reconfirmed63fail9pass6.12s before production. Independent review expanded missing permission/revocation/sampler-forgery/network-read-only/visibility tests and reproduced unresolvedSimpleLazyObject subclass evaluation:1RED7.61s, then minimal isinstance check GREEN. Final portable117pass8PGskips14.42s; independent117/8skips17.97s and freshsecurity15pass/90deselected6.40s. Root exactfinalsource actual isolated TLS PG17.11 full1445pass/5SQLite-onlyskips/168subtests86.14s/check0/nodrift, including8real identity/firstprofile/session/policy order cases. One known isolatedmaintenanceDB warning falls back onlyto receipt-owned appDB; no liveprivilege/HBA change. Helper/container/network/listener cleaned, liveactive. PriorfullSQLite1396/41skips/168subtests182.58s predates finalfix/testexpansion; finalPG+targeted evidence is authoritative. Root19tests30.616s/docs/API-map/links/whitespace passed. See [source evidence](docs/operations/document-authority-source-evidence-2026-10-28.json).
+
+No schema/B1/flag/limiter admission/patient/document/receipt/audit service/HTTP/UI/storage/dependency/infra change.50catalogued46HTTPimplemented4metadataAPIsplanned unchanged. ParentB2a-L/B2b/B3 remainsDRAFT/unimplemented; helper samples alone neverauthorise patient disclosure. Source review is bounded; it does not attest live/browser/staff/recovery. CURRENT LIVE REMAINS3dd803f/core0009 until exactpush/CI and [reviewed source-only rollout](docs/implementation/document-authority-preview-rollout-plan.md), backup/restore/live checks complete. Fresh inventory found9recovery-code rows after owneractivity (previous10 historical),120beds0patients/network6nopending/rate0/TLS/NOCREATEDB/nonsuper, actualretained-key decryption/password/operator passed; preserve currentstate, neverresettohistorical counts. No new app deployed by source tests.
+
+## Explicit owner resume —28 October2026,12:47:44IST
+
+Owner explicitly requested `CONTINUE` after the saved cooldown notice. Authenticated primary99%/weekly100%remaining at2026-10-28T07:17:44Z. This later owner instruction waives ONLY the current10:40:38UTC earliest-resume deadline from05:10:38UTC stop; original stop/deadline/history retained. Recovery alone did not waive it; explicit owner resume supplies authority. No reset credit consumed. Same heartbeat ACTIVE; future fresh<=10% still requires330minutes. No duplicate team; all previous specialists completed.
+
+Resume frozen B2a-A from literalRED checkpoint83f4e5b, not repeated schema/bootstrap/rollout. Live recorded3dd803f/core0009 remains separate from tests-only branch. Next authority module/two reception grants -> GREEN/actualPG/freshreview/fullregressions/verifiedpush/exactCI/reviewedpreview/live/MD. ParentB2a-L/B2b/B3 remain unfinished; preserve otherapps/keys/Basic/network and openbrowser/staff/import gates.
+
 ## Fresh usage stop and authority RED checkpoint —28 October2026
 
 Authenticated at2026-10-28T05:10:38Z: primary9%/weekly76%remaining. Fresh mandatory stop; no new implementation/review/assignment/deployment before2026-10-28T10:40:38Z (28October4:10:38PM IST), then only allapplicablewindows>10. Earlier explicit continue lifted the manualhold but predates this newstop. Noresetcredit; historicalpause/deadlines/resumes retained. Same heartbeat ACTIVE330minutes for best-effort continuation; all specialists finished, no owned worker/test process remains. Checkpoint publication only follows this stop.
@@ -959,3 +973,7 @@ Parent schema work reconciled with deployed0009; B2a-A narrow read-only/session/
 ### CHG-0059 —28 October2026 — Preserve authority RED and fresh usage stop
 
 Tests-only60portableRED/3grantRED9pass/4actualisolatedPGRED beforemissingmodule; production authority/grants untouched. Source/table rollout remains3dd803f/core0009 verified. Fresh9primary76weekly stop05:10:38UTC resumesnotbefore10:40:38UTC plusallwindows>10; sameheartbeat/noreset, allspecialistsfinished. GREEN/actualraces/source/fullCI/preview gates unfinished.
+
+### CHG-0060 —28 October2026 — Implement read-only document authority
+
+Specificownerresume07:17:44waivesonlyold10:40deadlinewith99primary100weekly/noreset; B2a-A read-onlysession/grant/network helpers andtwo receptionstrings implemented afterRED and freshreview. FinalactualPG1445/5skips/168subtests/check/nodrift; noAPI/admission/schema/UI. ExactpushCI/reviewedpreview/live/MD pending atsourcepublication, live3dd/core0009unchanged.

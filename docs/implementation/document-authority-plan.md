@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use installed `executing-plans` or coordinator-selected `subagent-driven-development` task-by-task, with RED-first and verification/review skills. Coordinator alone freezes, assigns, commits/pushes and deploys shared-checkout work.
 
-**Status:** 28 October 2026, **FROZEN B2a-A AUTHORITY-ONLY DESIGN / IMPLEMENTATION PENDING** after coordinator reconciliation and independent scenario/security review. Later B2a-L durable admission remains DRAFT. This design claims no implementation, test or deployment result.
+**Status:** 28 October 2026, **B2a-A IMPLEMENTED / SOURCE VERIFIED / PREVIEW ROLLOUT PENDING** after coordinator reconciliation and independent scenario/security review. Later B2a-L durable admission remains DRAFT. This design claims no implementation, test or deployment result.
 
 **Goal:** Supply a narrowly scoped, read-only session/context/global-action authority boundary and immutable final network/time evaluation for future document services.
 
@@ -141,3 +141,7 @@ Independent acceptance review found no Critical/Important blocker subject to str
 Coordinator ruling: process-private sentinel alone cannot prove issuance after dataclasses.replace; exact per-object proof binding is required for contexts and both samples. This protects ordinary internal misuse, not trusted Python deliberately manufacturing private proof internals. Production remains pending; parent admission/service races and staff release are not delivered by this freeze.
 
 Coordinator pre-RED ownership amendment: isolate actual-PG authority races in test_document_metadata_authority_pg.py so portable tests, PG tests and implementation review can work on disjoint paths. Both test modules import absent production functions inside tests for literal executable RED before production edits. This test-only decomposition does not widen production scope.
+
+## Source execution disposition —28 October2026
+
+Frozen source unit implemented after original RED; independent expanded coverage and real lazy-subclass RED→GREEN included. [Measured source evidence](../operations/document-authority-source-evidence-2026-10-28.json): final actualPG1445/5SQLite-skips/168subtests86.14s/check0/nodrift, portable117/8PGskips, fresh source/security approval. The original design checklist is retained historically; exactCI/push/reviewedpreview/live/MD remain completion gates. No limiter/flag/business/HTTP/UI or new schema.

@@ -1,12 +1,18 @@
 # Usage-aware HMS continuation
 
-State: COOLDOWN
+State: ACTIVE
 checkpoint_at_utc: 2026-10-28T05:10:38Z
-resume_not_before_utc: 2026-10-28T10:40:38Z
-owner_resume_at_utc: 2026-10-28T04:54:49Z
+resume_not_before_utc: none (explicit owner resume waives ONLY10:40:38UTC)
+owner_resume_at_utc: 2026-10-28T07:17:44Z
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330 (fresh stop; earliest28October16:10:38IST)
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## Explicit owner resume —28 October2026,12:47:44IST
+
+Owner explicitly requested `CONTINUE` after the saved cooldown notice. Authenticated primary99%/weekly100%remaining at2026-10-28T07:17:44Z. This later owner instruction waives ONLY the current10:40:38UTC earliest-resume deadline from05:10:38UTC stop; original stop/deadline/history retained. Recovery alone did not waive it; explicit owner resume supplies authority. No reset credit consumed. Same heartbeat ACTIVE; future fresh<=10% still requires330minutes. No duplicate team; all previous specialists completed.
+
+Resume frozen B2a-A from literalRED checkpoint83f4e5b, not repeated schema/bootstrap/rollout. Live recorded3dd803f/core0009 remains separate from tests-only branch. Next authority module/two reception grants -> GREEN/actualPG/freshreview/fullregressions/verifiedpush/exactCI/reviewedpreview/live/MD. ParentB2a-L/B2b/B3 remain unfinished; preserve otherapps/keys/Basic/network and openbrowser/staff/import gates.
 
 ## Fresh usage stop and authority RED checkpoint —28 October2026
 
