@@ -1,5 +1,11 @@
 # SDD ledger — plan: plan.md
 
+## Freeze durable document admission —28 October2026
+
+After authoritydfaf3e0/core0009 liveverification and record6f51ba8 push/remoteverification, coordinator froze [B2a-L admission plan](document-admission-plan.md) after independent scenario/test and security review. Next files: document_access.py; narrowlyscoped authoritypreflight/error extensions; defaultFalse settings boolean; three disjoint newtestmodules. No schema/B1/role/business/HTTP/UI work. DefaultDB/no routers/PG17, rawargpublicfactory, immutableprivateprep, originalbudget, actorNOKEY/identity/rate locks, knowncommit-only proof and sampledfinalselection are pinned.
+
+Rulings: freshunlocked preflight keeps SAMEcontext and returns only detachedobservation, not lock/patient/admission proof. Validation precedes flag/network (afterauth/global). ValidFalse observed at anyofthreeentry/precommit/postcommit samples yields retained503 afterknownincrementcommit; saturatedFalse429 onlyafterfinalauthoritypass. Explicit body/exit/ack markers prevent assuming rollback from DatabaseError; uncertainrollback/COMMIT discardsconnection/noresult/noautorefud/retry. Isolatedconstraint-wait and lost-ack simulations must be labelled; realtransaction5s timeout is distinguished from statement3s timeout. All executableRED/GREEN/actualPG/review/push/preview/live/docs gates remain OPEN. Currentpreviewdfaf unchanged by planning.
+
 ## Read-only document authority deployed —28 October2026
 
 Restricted synthetic preview now runs source/releasedfaf3e0a508863293e4d7fa1aeae7642cf5526de at /opt/hms/releases/preview-20261028-dfaf3e0, retaining core0009. Source switch 2026-10-28T07:36:08.871713597Z; maintenance 2026-10-28T07:35:47.752088+00:00 to 2026-10-28T07:36:39.262785+00:00.211committed files/archive digest verified before/after switch; actualtwo candidateworkers/sourcecwd and oldworkerabsence verified. No migrate/DDL/build/bootstrap/reverse/reenrollment/policy mutation occurred. All34tables/rows/catalog were identical across the quiesced switch before expected auth probes; static/venv/env/keys/Basic/trustednetwork/proxy remained retained.
