@@ -1,0 +1,45 @@
+{
+  "status": "WIP portable foundation; durable admission absent; NOT source-complete or deployed",
+  "stop_at_utc": "2026-10-28T08:05:33Z",
+  "resume_not_before_utc": "2026-10-28T13:35:33Z",
+  "primary_remaining": 10,
+  "weekly_remaining": 86,
+  "live_source_sha": "dfaf3e0a508863293e4d7fa1aeae7642cf5526de",
+  "frozen_admission_plan_sha": "d035b0e4c17821bd92081b823db872675eaaab35",
+  "initial_red": {
+    "portable": "31failed5passed6PGskips12.77s",
+    "actual_isolated_pg": "57failed5passed1SQLite-onlyskip10.14s; missing features before actual race/timeout execution; known isolated maintenance fallback warning",
+    "concurrency_portable": "13explicitPGskips6.71s",
+    "timeouts_portable": "8explicitPGskips5.43s",
+    "helper_cleaned_live_active": true
+  },
+  "partial_green": {
+    "focused_foundation": "31passed11deselected11.41s",
+    "authority_grant_B1_regressions": "735passed15.29s",
+    "check": 0,
+    "migration_drift": false,
+    "remaining_suite": "5failed31passed6PGskips11.69s; four missing public admit, one router fixture import defect",
+    "repeated_after_failed_fix_attempt": "Read saved admission-foundation-remaining-red-fixed.txt; attempted correction used wrong cwd and did not apply; filename does not prove correction"
+  },
+  "implemented_wip": [
+    "private frozen command preparation only",
+    "eight fixed error tuples and original-context unlocked preflight",
+    "default-false environment setting"
+  ],
+  "not_implemented": [
+    "admit_document_command",
+    "durable limiter writer/commit/error handling",
+    "DocumentAdmission token/known-commit issuance",
+    "actual GREEN admission races/timeouts/unknown ack",
+    "complete source review/full actualPG/exactCI/preview rollout"
+  ],
+  "known_fixture_correction": "test_document_metadata_admission.py unsupported router uses nonexistent synthetic.unsupported.Router, imported by Django setting machinery before service; replace with concrete inert unsupported router object after resume, without weakening no-connection guard",
+  "file_sha256": {
+    "backend/apps/core/document_authority.py": "ef3f2c42ec29b6a3fb42000aa1b5748004f7550c0fdb23545147f4c4ab203175",
+    "backend/apps/core/document_access.py": "ce021b78dfddaeb275a65e64bc3f395a17ce56bb0ecc4b895d0f37b66ac82054",
+    "backend/hms/settings.py": "446e2b1815cf5d278e0e7d16e0adee175f57eac51a7b36cdc4259b4bbe4ea26a",
+    "backend/tests/test_document_metadata_admission.py": "17008c9d4118929a8498518272d8a5d39fec966df92b9cfd1546988abd931d79",
+    "backend/tests/test_document_metadata_concurrency.py": "40ca3274f1fce3b0fd2bead3e6054a28a9a213cf51b5325f2e2c3a8fafaf8cc4",
+    "backend/tests/test_document_metadata_timeouts.py": "d794467b8c1f258bdb0c6772bf0000e5d6daf011cfaed883ef0e916d5ce633eb"
+  }
+}

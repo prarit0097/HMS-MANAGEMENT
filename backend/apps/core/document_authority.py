@@ -35,6 +35,10 @@ _ERRORS = {
     'permission_denied': (403, 'You do not have access to this action.'),
     'network_denied': (403, 'Access is not available from this network. Contact your administrator.'),
     'document_metadata_unavailable': (503, 'Document details are unavailable. Try again later.'),
+    'validation_error': (400, 'Check the highlighted details.'),
+    'not_found': (404, 'This record is unavailable.'),
+    'request_too_large': (413, 'This request is too large.'),
+    'rate_limited': (429, 'Too many requests. Try again shortly.'),
 }
 _OPERATIONS = ('intent.list', 'intent.detail', 'intent.create', 'intent.withdraw')
 _BACKEND = 'django.contrib.auth.backends.ModelBackend'
@@ -46,9 +50,10 @@ class DocumentServiceError(Exception):
     def __init__(self, code: str, status: int, message: str, retry_after: int | None = None):
         if (type(code) is not str or code not in _ERRORS or type(status) is not int
                 or type(message) is not str or (status, message) != _ERRORS[code]
-                or retry_after is not None):
+                or (code == 'rate_limited' and (type(retry_after) is not int or not 1 <= retry_after <= 60))
+                or (code != 'rate_limited' and retry_after is not None)):
             raise ValueError('Invalid document service error')
-        self.code, self.status, self.message, self.retry_after = code, status, message, None
+        self.code, self.status, self.message, self.retry_after = code, status, message, retry_after
         super().__init__(message)
 
 
@@ -247,6 +252,27 @@ def capture_document_context(request: HttpRequest, operation: str) -> DocumentCo
         _fail('network_denied')
     return _issue(DocumentContext, actor, epoch, operation, digest, remote, forwarded,
                   ip, environment.digest, started, monotonic, request)
+
+
+def preflight_document_authority(context: DocumentContext, operation: str) -> DocumentAuthoritySample:
+    """Observe original-context authority without acquiring phase ownership."""
+    _context(context, operation)
+    if connection.in_atomic_block or not connection.get_autocommit():
+        _fail()
+    now = timezone.now()
+    if not _aware(now) or now < context.operation_started_at:
+        _fail()
+    try:
+        actor, epoch, _, expires = _authentication(context._request, now, context)
+        branches = _branches(actor, operation)
+    except DatabaseError:
+        _fail()
+    sampled = timezone.now()
+    if not _aware(sampled) or sampled < context.operation_started_at:
+        _fail()
+    if sampled >= expires:
+        _fail('not_authenticated')
+    return _issue(DocumentAuthoritySample, actor, epoch, operation, expires, branches, sampled, context)
 
 
 def sample_document_authority(context: DocumentContext, operation: str) -> DocumentAuthoritySample:

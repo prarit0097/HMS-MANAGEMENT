@@ -1,12 +1,22 @@
 # Usage-aware HMS continuation
 
-State: ACTIVE
-checkpoint_at_utc: 2026-10-28T05:10:38Z
-resume_not_before_utc: none (explicit owner resume waives ONLY10:40:38UTC)
+State: COOLDOWN
+checkpoint_at_utc: 2026-10-28T08:05:33Z
+resume_not_before_utc: 2026-10-28T13:35:33Z
 owner_resume_at_utc: 2026-10-28T07:17:44Z
 automation_id: continue-hms-after-usage-cooldown
-automation_interval_minutes: 330 (future threshold rule; prior16:10:38IST deadline explicitly waived07:17:44UTC)
+automation_interval_minutes: 330 (fresh08:05:33UTC stop; earliest28October19:05:33IST)
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## Fresh usage stop and partial admission checkpoint —28 October2026
+
+Authenticated at2026-10-28T08:05:33Z: primary10%/weekly86%remaining. Fresh mandatory stop, no new implementation/review/assignment/deployment before2026-10-28T13:35:33Z (28October7:05:33PM IST), thenonlyallwindows>10. Earlier07:17:44explicitownerresume waivedONLYold10:40deadline and predates this stop. Originalhistorypreserved/noresetcredit; sameheartbeatACTIVE330minutes best-effort. Allspecialistsfinished; ownedtestprocessescompleted. Onlycheckpointverification/publication followsstop.
+
+Completed earlierthisresume: authorityB2a-A dfaf3e0/core0009 implemented/verified/deployed with exactCI40650311525SUCCESS1445PG/5SQLite-skips/168subtests,211file/twoworker/noDDL/34tablepreservation/liveMFA-CSRF-CurrentUser/read/logout/static/private/metadata404/postrestore/key/other48configs18containers/HBA evidence. Deploymentrecord6f51ba8 and frozenadmissionpland035b0e pushed/remoteverified. Live remainsdfaf; no repeatbootstrap/schema/authority rollout.
+
+NextB2a-L has TESTSONLY initialRED: portable31fail5pass6PGskips12.77s; actualisolatedPG57fail5pass1SQLite-onlyskip10.14s missingfeatures, not race/timeoutacceptance; concurrency13PGskips6.71s/timeouts8PGskips5.43s locally. KnownisolatedmaintenanceDBfallback warning, helper/container/network/15549 cleaned/liveactive. Bounded WIPportablefoundation thenimplemented: private immutable commandprep, exact8error table/read-onlyoriginalcontextpreflight, defaultFalse setting. No publicadmit, limiter/commit/token/business/HTTP writer or fake stub was added. Focus31GREEN/11deselected11.41s, existingauthority/grant/B1regressions735pass15.29s/check0/nodrift. WholeadmissionstillRED5fail31pass6skips11.69s: fourmissingpublicadmit plus one routerfixtureimportbug maskedbyinitialmissingmodule. Rootattemptedfixturefixfromwrongcwd didNOTapply; routerstillusesnonexistent synthetic.unsupported.Router. Correcttoaconcreteinertunsupportedrouter afterresume, thenverifyguardwithoutimportfailure. Laterrepeatlogfilename contains 'fixed' but is not evidenceoffix; rawresultretained. See [WIP checkpoint](document-admission-checkpoint-2026-10-28.json).
+
+This is incompleteWIP, NOT a completedadmissioncapability or releasecandidate. CIisexpectedREDuntilremainingwriter/testsareGREEN; doNOTdeploythischeckpoint orrestartunchangedverifiedpreview. Firstresume: fixrouterfixture, inspectpreservedpartialsource/tests/frozenplan and currentGitCI, thenimplement durableadmit/limiter/knowncommitproof underexactcontract; actualPGcounts/races/LOCALtimeouts/labelledunknownack, freshreview/fullregression/push/exactCI/reviewedpreview/live/MD follow. DoNOTrepeatalreadyGREENportablefoundation or completedB1/schema/A. ParentB2b/B3/ingestion/UI/fullHMS and browser/staff/ownerphoneimport remainOPEN. Preserveprivatehandoff/Basic/network/keys/otherapps.
 
 ## Read-only document authority deployed —28 October2026
 
