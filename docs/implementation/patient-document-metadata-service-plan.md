@@ -4,7 +4,7 @@
 
 **Status:** 25 October 2026, **DRAFT / DESIGN ONLY / NOT EXECUTION-FROZEN**. B1 is complete at source66bfa10160eae5342b0b64a601ad05b992d40753 with independently verified CI; do not repeat it. This document records proposals, not measured PostgreSQL or delivered service behavior.
 
-**Goal:** Provide four independently testable, currently authorised, committed-audit metadata services with shared durable admission. No HTTP route, file ingestion, UI or deployment.
+**Goal:** Provide four independently testable, currently authorised, committed-audit metadata services with shared durable admission. No HTTP route, file ingestion, UI or feature activation. Completed code requires reviewed restricted-preview deployment/live verification under the standing owner rule.
 
 **Spec:** [metadata contract](patient-document-metadata-contract.md), [transaction feasibility](patient-document-metadata-transaction-review.md), [lock design](patient-document-metadata-lock-design.md), [B1 helper plan](patient-document-metadata-execution-plan.md), HMS.md/plan.md/ledger. Existing pinned PostgreSQL17/Django5.2.18/psycopg3.2.12; no dependency installation.
 
@@ -22,8 +22,7 @@ One assigned implementer owns the following only after review/freeze; coordinato
 
 - Create backend/apps/core/document_authority.py: minted request context, fixed service errors, fresh locked identity/session/grant checks, final network snapshot evaluator; no HTTP responses.
 - Create backend/apps/core/document_access.py: four outermost two-phase business services, limiter admission, quotas, state/replay/audit/projection, detached bounded result encoding.
-- Modify backend/apps/core/document_models.py: only DocumentMetadataRateWindow addition. Existing model imports through models.py discovery must be checked; do not create another app.
-- Create backend/apps/core/migrations/0009_document_metadata_rate_window.py dependent on0008 and auth dependency as needed; recheck actual leaf before freeze. No edits to prior migrations.
+- Consume completed deployed DocumentMetadataRateWindow/discovery/0009 at3dd803f unchanged; no model or migration edit belongs to remaining B2 authority/admission/services.
 - Modify backend/apps/core/authorization.py: reception-only document grants; backend/hms/settings.py: default-disabled metadata boolean. No other role/global behavior changes.
 - Create backend/tests/test_document_metadata_services.py, test_document_metadata_rate_window.py, test_document_metadata_concurrency.py, test_document_metadata_timeouts.py. Existing historical migration fixture teardown is changed only if needed to restore actual graph leaves, preserving its historical test boundary.
 - Coordinator owns HMS.md, plan.md, ledger, catalogue wording/status and this plan. No route/API/frontend/HTTP tests count as implemented B2 work. B1 document_contracts.py is consumed unchanged; any defect goes back through reproducing RED and coordinator-owned scope amendment.
@@ -49,11 +48,9 @@ DocumentServiceResult is frozen `{status: int, body: bytes}`; body is final UTF8
 
 Inputs use B1 canonical_uuid/parse_list_query/parse_create/parse_withdraw/command_fingerprint. Validate global action authority before detailed errors; exact scope is rechecked in business phase before replay disclosure. Invalid transport/CSRF belongs B3 and never reaches this API. Pure scalar validation/valid-command key checks precede allowance consumption; body bytes are already bounded supplied values, not stream reads. No arbitrary SQL/shell/URL tool, scanner/provider call or storage interface exists.
 
-## One additive limiter model/migration
+## Completed limiter schema consumed unchanged
 
-DocumentMetadataRateWindow: actor OneToOne primary-key User PROTECT, window_started_at required aware timestamp with no clock default, admitted_count PositiveSmallInteger CHECK1..60. Only PK/unique actor index. Require minute alignment at both service and database level: a serializable Boolean expression with PostgreSQL `field = DATE_TRUNC('minute', field, 'UTC')` and SQLite `field = django_datetime_trunc('minute', field, 'UTC', 'UTC')`. The former two-argument timezone-naive TruncMinute equality is rejected. Raw PostgreSQL timezone evidence and the isolated SQLite ORM prototype are recorded separately; actual production expression/migration roundtrip and PostgreSQL ORM schema tests remain freeze gates. If that portable expression does not enforce exact alignment, stop and amend the schema rather than dropping the promise. Do not invent provider/type changes. No patient/document/IP/body/denial-reason column, per-request row or limiter event log.
-
-Migration last-forward/first-reverse historical-model+alias guard refuses removal if any limiter row exists; no deletion/purge escape. Forward leaves existing synthetic records untouched. Test empty reverse/back/forward, nonempty refusal beforeDDL, CHECK/PK/FK/PROTECT, and migration-fixture actual leaf restoration. Existing0008 guards remain unchanged. State is reused per actor and retained; no retention approval is implied.
+Source3dd803f/core0009 is now deployed with production-path finite/timezone/required-actor/replay/reverse-guard acceptance and actual live preservation/restore evidence. See [frozen schema](document-rate-schema-plan.md) and [deployed schema evidence](../operations/rate-schema-preview-evidence-2026-10-28.json). No model/discovery/migration/historical-fixture work remains in new B2 assignments. Parent service/admission acceptance remains open.
 
 ## Exact two-phase algorithm and time semantics
 
@@ -127,3 +124,7 @@ All checkboxes are planned. This design review executed source/document reads on
 Accepted the saved independent session/error/disabled/minute rulings above; B1 is complete. This parent remains DRAFT: B2a exact admission contract and its independent review must close before production RED/code; B2b/B2c and B3 are not implemented. Read-only review additionally found lazy request.user evaluation can itself mutate sessions, so unresolved authentication must reject without evaluating that lazy object. The [isolated SQLite ORM feasibility](../operations/metadata-minute-orm-feasibility-2026-10-26.json) executed four CHECK cases and MigrationWriter serialization only; no production expression/migration or PostgreSQL ORM acceptance is inferred.
 
 Schema review adds a finite/fail-closed ruling: PostgreSQL predicate must require `isfinite(field)` and minute equality, with `IS TRUE`; SQLite equality must also use `IS TRUE`, rejecting malformed stored text rather than accepting SQL UNKNOWN. The strengthened ignored SQLite prototype actually reproduced bare-equality accepting `not-a-date`; the guarded expression rejected five malformed raw inputs and passed four aligned/precision cases. PostgreSQL `isfinite` integration and permanent import-path migration serialization/replay remain unrun gates. Prototype `__main__.ExactMinute` serialization is a smoke check only. Reversal is supported only with writers quiesced, not a concurrent live rollback guarantee.
+
+## Active remaining slices —28 October2026
+
+[B2a-A authority-only plan](document-authority-plan.md) owns read-only session/currentgrant/context/network-selection helpers and reception grant strings; it adds no limiter/flag/business/HTTP behavior. B2a-L later owns durable admission/defaultfalse setting and actual firstrow/count/identity/staff/timeout gates. Before429, saturated admission must run the same final authority/expiry/network/budget pass as tentative increments. Postcommit flag false/malformed retains allowance then503. Parent plans remain DRAFT until their remaining exact interfaces/tests freeze. Completed0009 is not repeated. Earlier unsupported schema/prototype/unspecified logout statements above are superseded by deployed schema evidence and the exact sampled-session/network semantics in the admission contract.

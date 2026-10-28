@@ -10,6 +10,14 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
+## Freeze document authority foundation —28 October2026
+
+After completed3dd803f/core0009 rollout, coordinator reconciled parent metadata/admission/service plans and froze [B2a-A authority-only plan](docs/implementation/document-authority-plan.md) following fresh scenario/test and threat review. Scope: new read-only document_authority.py, two reception permission strings in authorization.py, genuine-session/currentgrant/immutable-network/pure-selection tests. No limiter/flag/business/schema/B1/HTTP/UI change. Existing owner-selected shared feature checkout retained; root alone Git/VPS.
+
+Decisions: genuine exact DBSessionStore/defaultModelBackend only; no auth.get_user or SessionStore.load/writes; already-resolved actor plus existing live session cache, absentcache401; missing-only legacy epoch versus explicitnull401; current/fallback signed-session and auth hashes checked read-only. Per-issued-object weakref proof rejects copy/replace contexts and samples; immutable policy tuples/repr suppression; pure selected_at check performs no clock/request/DB I/O. Sampler verifies transaction presence but caller lock ownership remains a trusted precondition, not a fabricated proof. ParentB2a-L remainsDRAFT with provisional saturated decision followed by final authority pass and postcommit false/malformedflag retaining allowance503.
+
+This is design freeze only. LiteralRED, implementation/GREEN, actualPG/source review/fullregression and mandatorypush/preview/live/docs gates remain OPEN. Current preview stays3dd803f/core0009. No implementation or new runtime result claimed.
+
 ## Dormant rate schema deployed —28 October2026
 
 Restricted synthetic preview now runs application source3dd803f844b47aaa67fbd0cdc6be22185bba344c at /opt/hms/releases/preview-20261026-3dd803f with core0009. Maintenance ran 2026-10-28T04:57:58.145169+00:00 to 2026-10-28T04:58:43.251315+00:00. All202committed candidate files/archive digest were verified before and after switch; two candidate workers and old-worker absence checked. Existing venv/static/env/keys/roles/Basic/network/proxy remained unchanged. This supersedes the dated26October pending-rollout record; original pause/history stays preserved.
