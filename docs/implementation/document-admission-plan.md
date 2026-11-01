@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: use installed executing-plans or coordinator-selected subagent-driven-development, RED-first and verification/review skills. Coordinator alone freezes, assigns, commits/pushes and deploys.
 
-**Status:** 28 October 2026, **B2a-L IMPLEMENTED / SOURCE VERIFIED / PREVIEW GATES PENDING** after independent scenario/test and security review plus coordinator reconciliation. This freeze adds no implementation, executable test result or deployment.
+**Status:** 28 October 2026, **B2a-L IMPLEMENTED / SOURCE VERIFIED / PREVIEW DEPLOYED AND LIVE VERIFIED** after independent scenario/test and security review plus coordinator reconciliation. This freeze adds no implementation, executable test result or deployment.
 
 **Goal:** Prepare exact B1 commands and commit one bounded actor allowance before returning an internal admission for future metadata services.
 
@@ -120,3 +120,7 @@ Assignments afterfreeze are tests-only until literalRED receipts exist: admissio
 ## Source execution disposition —1 November2026
 
 [Measured final source evidence](../operations/document-admission-source-evidence-2026-11-01.json): routerfixture fixed; real writer/proof implemented afterRED; root silentrollback1RED→minimalguard→fullactualPG1530/6SQLite-skips/168subtests105.29s/check0/nodrift. Originalmatrix gaps now covered by expanded actualPGflag/budget/revocation/deferredwait/ack cases. Syntheticwait/clock and lost-ack injections are labelled, no outage/SLA fiction. Sourcehash04cae8ba; sourcepublication/exactCI and reviewedpreview/live gates remain pending atthis record. No schema/B1/business/HTTP/UI change.
+
+## Runtime execution disposition —1 November 2026
+
+[Actual preview evidence](../operations/document-admission-preview-evidence-2026-11-01.json) closes the narrow source/CI/clone/runtime/backup gates:220 canonical committed files, two workers, default False, isolated count1→503 and prior-app retained-row compatibility, zero-row switch across34 tables, live no-admission/rate preservation and exact postbackup restore/key verification. Final independent post-fix review approved with no Critical/Important findings. No migration/DDL/config change. Original checklist is dated design, not the execution receipt. B2b/B3/ingestion/UI/browser/staff/phone/full release remain open. Final documentation commit/push/remote verification completes publication.

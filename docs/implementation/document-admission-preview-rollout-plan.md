@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: coordinator uses `executing-plans` for bounded operational execution. Coordinator-selected specialists may review disjoint evidence; coordinator alone changes Git/VPS. This document creates no additional team.
 
-**Status:** 30 October 2026, **COORDINATOR APPROVED FOR GATED EXECUTION — exact publication/CI and actual clone/runtime gates pending.** No checkbox is execution evidence. The28October partial-admission checkpoint is not a deployment candidate.
+**Status:** 30 October 2026, **EXECUTED —833ffc67/core0009 deployed and live verified; documentation publication follows.** No checkbox is execution evidence. The28October partial-admission checkpoint is not a deployment candidate.
 
 **Goal:** update the existing restricted synthetic preview with frozen B2a-L internal durable admission, retaining disabled configuration and all live data/security state.
 
@@ -71,3 +71,7 @@ This specialist authored only this DRAFT from repository records and supplied re
 ## Coordinator freeze —1 November2026
 
 Bounded source-only amendment approved after finalsource1530PG/6skips/168subtests/check/nodrift and source/security review plus materialTDDfix. Candidate must effectively configureFalse under retained env; no migrate/DDL or silentconfigoverride. Actual disabledcount1→503 and priorappwithnonemptyrate proof remain isolated requirements, never live servicecalls. Preserve freshstate/keys/network/otherapps and all inheritedrollback/backup/live gates. No preview switch occurred atthis freeze.
+
+## Runtime execution disposition —1 November 2026
+
+[Actual preview evidence](../operations/document-admission-preview-evidence-2026-11-01.json) closes the narrow source/CI/clone/runtime/backup gates:220 canonical committed files, two workers, default False, isolated count1→503 and prior-app retained-row compatibility, zero-row switch across34 tables, live no-admission/rate preservation and exact postbackup restore/key verification. Final independent post-fix review approved with no Critical/Important findings. No migration/DDL/config change. Original checklist is dated design, not the execution receipt. B2b/B3/ingestion/UI/browser/staff/phone/full release remain open. Final documentation commit/push/remote verification completes publication.

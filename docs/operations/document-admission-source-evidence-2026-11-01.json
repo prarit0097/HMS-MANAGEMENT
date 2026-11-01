@@ -1,5 +1,5 @@
 {
-  "status": "B2a-L implemented and final source-verified; publication CI and preview gates pending",
+  "status": "implemented/source verified; exact CI and restricted preview deployed/live verified",
   "verified_date": "2026-11-01",
   "production_sha256": {
     "backend/apps/core/document_access.py": "04cae8ba3003b08d9369d40de8d079339590907b6fb783b8ead90a9ad7efde2d",
@@ -42,9 +42,32 @@
   ],
   "independent_review": "bounded source/security review before rollback-only correction found no other Critical/Important defect; acceptance gaps filled by real PG tests. Root-found material defect fixed by literal RED and final full-suite GREEN, no invented post-fix re-review.",
   "open": [
-    "exact pushed source CI",
-    "reviewed preview clone disabled-retention/prior-app nonempty-rate proof",
-    "live preservation/backup restore and final records",
-    "B2b audited business services/B3 HTTP/ingestion/UI/full release"
-  ]
+    "B2b audited business services",
+    "B3 metadata HTTP",
+    "ingestion/UI",
+    "browser/keyboard/staff acceptance",
+    "owner phone authenticator import",
+    "full hospital release"
+  ],
+  "source_sha": "833ffc67b1d2f0cc0ffcd1b228d2afa33023154c",
+  "preview_evidence": "document-admission-preview-evidence-2026-11-01.json",
+  "source_ci": {
+    "sha": "833ffc67b1d2f0cc0ffcd1b228d2afa33023154c",
+    "run": 41307928230,
+    "all3jobs": "success",
+    "checkout_sha_decoded": true,
+    "postgres_passed": 1530,
+    "sqlite_only_skipped": 6,
+    "subtests": 168,
+    "seconds": 79.55,
+    "isolated_prepublication_seconds": 105.29,
+    "frontend_passed": 132,
+    "root_tests": 19,
+    "edge_tests": 15
+  },
+  "final_independent_review": {
+    "status": "bounded approval; no Critical/Important findings",
+    "production_sha256": "04cae8ba3003b08d9369d40de8d079339590907b6fb783b8ead90a9ad7efde2d",
+    "scope": "Post-fix Atomic rollback-only/closed guard, known-commit and uncertain-exit semantics, final regression coverage; read-only review, no tests rerun."
+  }
 }

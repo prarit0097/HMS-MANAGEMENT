@@ -1,6 +1,10 @@
 # Hostinger HMS preview
 
-Status: latest implemented source deployed28October2026, releasedfaf3e0/core0009; original preview established23October. No hospital production cutover. URL: https://hms.praritsidana.com . Owner authorised this environment. The28October04:54UTC continuation lifted the prior manualhold without a waiver; the later07:17:44UTC explicit ownerCONTINUE waived ONLY the10:40:38UTC cooldown deadline with authenticated99primary/100weekly remaining. No resetcredit consumed. The23October deployment-only waiver is historical.
+Status: latest implemented source deployed1November2026, release833ffc67/core0009; original preview established23October. No hospital production cutover. URL: https://hms.praritsidana.com . Owner authorised this environment. The28October04:54UTC continuation lifted the prior manualhold without a waiver; the later07:17:44UTC explicit ownerCONTINUE waived ONLY the10:40:38UTC cooldown deadline with authenticated99primary/100weekly remaining. No resetcredit consumed. The23October deployment-only waiver is historical.
+
+## Latest durable admission rollout —1 November 2026
+
+Application833ffc67b1d2f0cc0ffcd1b228d2afa33023154c runs at `/opt/hms/releases/preview-20261101-833ffc6`, core0009 and actual flag False. [Current evidence](document-admission-preview-evidence-2026-11-01.json) records exact CI/220 canonical files/two workers/no DDL/34-table preservation, isolated disabled retention and prior-app compatibility, live security/read/logout/rate preservation and postbackup restore/key checks. No live service invocation or recovery/policy mutation. Fresh48 other configurations/18 containers/HBA/env/static preserved. B2b/B3/UI/browser/staff/owner-phone import/full release remain open; no unchanged app restart for documentation updates.
 
 ## Latest authority rollout —28 October2026
 
