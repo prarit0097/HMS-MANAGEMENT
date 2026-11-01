@@ -1,12 +1,16 @@
 # Usage-aware HMS continuation
 
-State: COOLDOWN
+State: ACTIVE
 checkpoint_at_utc: 2026-10-28T08:05:33Z
-resume_not_before_utc: 2026-10-28T13:35:33Z
-owner_resume_at_utc: 2026-10-28T07:17:44Z
+resume_not_before_utc: none (saved deadline elapsed before owner resume)
+owner_resume_at_utc: 2026-10-30T11:41:32Z
 automation_id: continue-hms-after-usage-cooldown
-automation_interval_minutes: 330 (fresh08:05:33UTC stop; earliest28October19:05:33IST)
+automation_interval_minutes: 330 (future threshold rule; prior28October deadline elapsed)
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## Owner resume —30 October2026,17:11:32IST
+
+Owner explicitly requested CONTINUE. Authenticated primary98%/weekly81%remaining at2026-10-30T11:41:32Z; saved28October13:35:33UTC deadline elapsed. No cooldown waiver/resetcredit required; originalstop/history preserved, sameheartbeatACTIVE. Previous specialists finished before newdisjoint assignments. Resume pendingB2a-L fromaa69a69WIP; fixconcrete routertestfixture thencomplete durableadmit/proof underfrozenplan. Portablefoundation is notrepeated. Recordedpreviewdfaf3e0/core0009 stays separate; completed schema/authority/bootstrap/rollout are not newassignments. Futurefresh<=10 still mandates330minutes.
 
 ## Fresh usage stop and partial admission checkpoint —28 October2026
 

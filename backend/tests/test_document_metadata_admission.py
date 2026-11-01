@@ -251,7 +251,7 @@ def test_public_admission_rejects_unsupported_database_configuration_before_conn
     if configuration == 'extra_alias':
         monkeypatch.setattr(settings, 'DATABASES', {**settings.DATABASES, 'unsupported': {'ENGINE': 'django.db.backends.sqlite3', 'NAME': ':memory:'}})
     else:
-        monkeypatch.setattr(settings, 'DATABASE_ROUTERS', ['synthetic.unsupported.Router'])
+        monkeypatch.setattr(settings, 'DATABASE_ROUTERS', [object()])  # Unsupported concrete router; avoid an import error masking the guard.
     monkeypatch.setattr(connection, 'ensure_connection', forbidden)
     with connection.execute_wrapper(forbidden), error('document_metadata_unavailable'):
         api.admit_document_command(context, PATIENT)

@@ -1,7 +1,19 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.36.0 | Updated: 28 October 2026, Asia/Calcutta
+Document version: 1.37.0 | Updated: 1 November 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
+## Durable admission source verified —1 November2026
+
+Frozen B2a-L is implemented in document_access.py using prior portable preparation/error/preflight/defaultFalse foundation. The single rawarg factory rechecks original session/global authority, validates B1 scalars before flag/network, owns default-only PostgreSQL17 outerdurable phase with LOCAL2s/3s/5s controls, UserNOKEY→existingIdentity→rate locks and fixedUTCminute60. It forces constraints before final fresh authority/network/expiry/budget/typedflag checks, including saturated decisions, and writes nothing afterward. Knowncommit alone can mint immutable exact-object proof. ValidFalse seen atentry/precommit/postcommit retains the committed increment then503; saturatedFalse429 requires the same finalauthority pass. Unknown COMMIT/rollback closes the suspect connection with no result/refund/retry. No patient/document/receipt/event query, business success, HTTP or disclosure authority is provided.
+
+Routerfixture badimport was corrected afterresume; freshportableRED5missingpublicfactory/31pass/6skip8.00s preceded writer. Initial actualPG74pass/1skip39.12s passed. Independent review then expanded missing flag/budget and in-flight identity/grant/constraint/ack acceptance. Root reproduced a real Django silentrollback bug: normal atomic exit could mint without COMMIT, literalPG1RED1.75s; pre-exit rollback-only/closed guard now refuses503. Finalcorrectedsource actualisolatedTLS PG17.11 full1530pass/6SQLite-onlyskips/168subtests105.29s/check0/nodrift includes all finalcases. Timeoutsubset12pass19.95s proves realservercontrols, synthetic-labelled deferred-trigger wait with actual savednetwork graph and injected wallclock crossing, and separately labelled realcommit/rollback plus lost-ack exceptions. Finalportable153pass/6PGskips18.04s. One known isolatedmaintenanceDBfallback and two intentionalDATABASESfixture warnings documented; no live DB/HBA/role touched. Helper/container/network/15549 cleaned, priorpreviewactive.
+
+See [source evidence](docs/operations/document-admission-source-evidence-2026-11-01.json). Source review was bounded before the root-found correction; reproducingRED/finalfullGREEN verifies its fix, not an invented post-fixapproval. Schema/core0009, B1, grants, HTTP/OpenAPI/page-map/UI/dependencies/infra unchanged.46HTTPimplemented/fourmetadataoperationsplanned remain. Currentrecordedpreview remainsdfaf3e0/core0009: new admission code is NOTYETDEPLOYED at sourcepublication. Next exactpush/CI then [reviewed source-only admission rollout](docs/implementation/document-admission-preview-rollout-plan.md), isolated defaultFalse-retainedcount503/prior-app nonempty-rate proof, live no-invocation/rate preservation and postrestore/key gates. B2b/B3/ingestion/UI/browser/staff/phoneimport/fullreal-data release remainOPEN.
+
+## Owner resume —30 October2026,17:11:32IST
+
+Owner explicitly requested CONTINUE. Authenticated primary98%/weekly81%remaining at2026-10-30T11:41:32Z; saved28October13:35:33UTC deadline elapsed. No cooldown waiver/resetcredit required; originalstop/history preserved, sameheartbeatACTIVE. Previous specialists finished before newdisjoint assignments. Resume pendingB2a-L fromaa69a69WIP; fixconcrete routertestfixture thencomplete durableadmit/proof underfrozenplan. Portablefoundation is notrepeated. Recordedpreviewdfaf3e0/core0009 stays separate; completed schema/authority/bootstrap/rollout are not newassignments. Futurefresh<=10 still mandates330minutes.
+
 ## Fresh usage stop and partial admission checkpoint —28 October2026
 
 Authenticated at2026-10-28T08:05:33Z: primary10%/weekly86%remaining. Fresh mandatory stop, no new implementation/review/assignment/deployment before2026-10-28T13:35:33Z (28October7:05:33PM IST), thenonlyallwindows>10. Earlier07:17:44explicitownerresume waivedONLYold10:40deadline and predates this stop. Originalhistorypreserved/noresetcredit; sameheartbeatACTIVE330minutes best-effort. Allspecialistsfinished; ownedtestprocessescompleted. Onlycheckpointverification/publication followsstop.
@@ -1017,3 +1029,7 @@ B2a-L exactpreflight/error/parsedinput/count/flag/budget/commit design independe
 ### CHG-0063 —28 October2026 — Preserve partial admission and fresh cooldown
 
 Authoritydfafdeployed; admissioninitialRED and portablefoundationWIP retained with31focused/735regressions/check/nodrift, no publicadmit/durablewriter/token. Knownrouterfixturefixpending; fulladmissionREDexplicit. Fresh10primary86weekly stop08:05:33UTC; earliest13:35:33UTC plusallwindows>10, sameheartbeat/noreset. No WIPdeployment; completegatesafterresume.
+
+### CHG-0064 —1 November2026 — Complete durable admission source
+
+Ownerresume30October afterelapseddeadline; interruptedverificationaudited1November87primary66weekly/noreset/newdeadline. B2a-L sourceimplemented; silentrollback1RED→guard→final1530PG/6skips/168subtests/check/nodrift, no business/HTTP/schema. ExactsourcepushCI and reviewedpreview/live/MD next; priorlivedfaf unchanged atsourcepublication.

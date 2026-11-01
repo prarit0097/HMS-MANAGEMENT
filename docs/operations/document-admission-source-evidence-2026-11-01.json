@@ -1,0 +1,50 @@
+{
+  "status": "B2a-L implemented and final source-verified; publication CI and preview gates pending",
+  "verified_date": "2026-11-01",
+  "production_sha256": {
+    "backend/apps/core/document_access.py": "04cae8ba3003b08d9369d40de8d079339590907b6fb783b8ead90a9ad7efde2d",
+    "backend/apps/core/document_authority.py": "ef3f2c42ec29b6a3fb42000aa1b5748004f7550c0fdb23545147f4c4ab203175",
+    "backend/hms/settings.py": "446e2b1815cf5d278e0e7d16e0adee175f57eac51a7b36cdc4259b4bbe4ea26a"
+  },
+  "precode_evidence": "28October initialportable31RED/5pass/6skip and isolatedPG57RED/5pass/1skip; prior portable foundation31GREEN/735regressions. Routerfixture corrected30October; fresh5missing-public-factory RED31pass6skip8.00s before writer.",
+  "verification": {
+    "first_actual_pg": "74passed1SQLite-onlyskip39.12s before final acceptance expansion and rollback-only correction",
+    "rollback_only_regression": "actualPG1failed1.75s on5739a55a: normal atomic exit minted admission despite rollback; minimal pre-exit needs_rollback/closed_in_transaction guard added before body_completed",
+    "timeout_actual_pg": "12passed19.95s on corrected04cae8ba; synthetic deferred-trigger waits/clock crossing and simulated commit/rollback lost acknowledgements labelled",
+    "final_actual_pg17_11": {
+      "passed": 1530,
+      "sqlite_only_skipped": 6,
+      "subtests": 168,
+      "seconds": 105.29,
+      "check": 0,
+      "migration_drift": false,
+      "helper_cleaned_live_active": true,
+      "warnings": [
+        "isolated postgres-maintenance DB unavailable; exact receipt-owned isolated app DB fallback only",
+        "two intentional Django DATABASES override fixture warnings"
+      ]
+    },
+    "portable": "153passed6PG-onlyskips18.04s on final production bytes",
+    "expanded_concurrency_collection": "32explicitPGskips6.84s; actual cases subsequently passed in finalfullPG"
+  },
+  "semantics": [
+    "one rawarg admission factory, no patient/document/receipt/event/business lookup",
+    "original context/preflight and five-second cooperative budget; default-only/no-router/PG17/ambient guards",
+    "User NO KEY UPDATE then existingIdentity then rate locks; fixedUTCminute60, conservative crossing and final authority before429",
+    "LOCAL lock2s/statement3s/transaction5s and forced constraints before final reads/no subsequent writes",
+    "knowncommit-only immutable issued proof; observedFalse at any ofentry/precommit/postcommit retains count then503; saturationFalse429 after finalpass",
+    "uncertain commit or rollback closes suspect connection/no token/refund/retry; no COMMIT/HTTP deadline claim"
+  ],
+  "unchanged": [
+    "schema/migrations/B1/reception role grants",
+    "business services/quotas/disclosure audit",
+    "HTTP/OpenAPI/page-action/UI/storage/dependencies/infra"
+  ],
+  "independent_review": "bounded source/security review before rollback-only correction found no other Critical/Important defect; acceptance gaps filled by real PG tests. Root-found material defect fixed by literal RED and final full-suite GREEN, no invented post-fix re-review.",
+  "open": [
+    "exact pushed source CI",
+    "reviewed preview clone disabled-retention/prior-app nonempty-rate proof",
+    "live preservation/backup restore and final records",
+    "B2b audited business services/B3 HTTP/ingestion/UI/full release"
+  ]
+}

@@ -6,6 +6,7 @@ real commit followed by a simulated client exception, not a real network fault.
 """
 from concurrent.futures import ThreadPoolExecutor
 from contextlib import contextmanager
+from datetime import timedelta
 from importlib import import_module
 from threading import Event
 from time import monotonic
@@ -15,12 +16,13 @@ from uuid import uuid4
 import pytest
 from django.contrib.auth import get_user_model, login
 from django.contrib.sessions.backends.db import SessionStore
+from django.contrib.sessions.models import Session
 from django.db import OperationalError, close_old_connections, connection, transaction
 from django.test import RequestFactory
 from django.utils import timezone
 
 from apps.core.models import Branch, DocumentMetadataRateWindow, Membership, Organisation
-from apps.core.network_models import NetworkPolicyState
+from apps.core.network_models import NetworkPolicyChange, NetworkPolicyPreview, NetworkPolicyState
 from apps.security.network_policy import policy_digest
 
 
@@ -332,3 +334,197 @@ def test_labelled_real_commit_then_simulated_lost_ack_discards_connection_withou
     admission = api.admit_document_command(fresh_context, actor.patient)
     assert admission._context is fresh_context
     assert _count_elsewhere(actor.user.pk) == 2  # A later explicit attempt consumes again.
+
+
+@contextmanager
+def _isolated_deferred_advisory_trigger(advisory_key):
+    """Synthetic isolated-test wait, NOT a production actor-FK wait.
+
+    A deferred rate-row trigger waits for a separately held advisory lock when
+    production executes SET CONSTRAINTS. No production schema is changed.
+    """
+    name = 'synthetic_doc_wait_' + uuid4().hex
+    quoted = connection.ops.quote_name(name)
+    table = connection.ops.quote_name(DocumentMetadataRateWindow._meta.db_table)
+    assert type(advisory_key) is int and 0 < advisory_key < 2**63
+    with connection.cursor() as cursor:
+        cursor.execute(f'CREATE FUNCTION {quoted}() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN PERFORM pg_advisory_xact_lock({advisory_key}); RETURN NEW; END $$')
+        cursor.execute(f'CREATE CONSTRAINT TRIGGER {quoted} AFTER INSERT OR UPDATE ON {table} DEFERRABLE INITIALLY DEFERRED FOR EACH ROW EXECUTE FUNCTION {quoted}()')
+    try:
+        yield
+    finally:
+        with connection.cursor() as cursor:
+            cursor.execute(f'DROP TRIGGER IF EXISTS {quoted} ON {table}')
+            cursor.execute(f'DROP FUNCTION IF EXISTS {quoted}()')
+
+
+def _saved_pending_allow_until(context, actor, boundary):
+    """Persist a genuine reciprocal graph; real loader validation/SELECT stays on."""
+    owner = Membership.objects.select_related('branch__organisation').get(user=actor.user).branch.organisation
+    allow = {'allowlist_only': False, 'allowlist': [], 'blocklist': []}
+    deny = {'allowlist_only': False, 'allowlist': [], 'blocklist': ['127.0.0.1/32']}
+    activated = boundary - timedelta(seconds=300)
+    bindings = dict(owner=owner, actor=actor.user, session_digest=context.session_digest,
+                    epoch=0, operator_version=1, verified_ip=context.verified_ip,
+                    environment_digest=context.environment_digest, base_revision=1)
+    preview = NetworkPolicyPreview.objects.create(
+        **bindings, policy=allow, policy_digest=policy_digest(allow), request_digest='c' * 64,
+        reason='Synthetic deferred-wait test only', normalisations=[],
+        created_at=activated - timedelta(seconds=1), expires_at=activated + timedelta(seconds=299),
+        request_key=uuid4())
+    change = NetworkPolicyChange.objects.create(
+        **bindings, preview=preview, candidate_policy=allow, candidate_policy_digest=policy_digest(allow),
+        fallback_policy=deny, fallback_policy_digest=policy_digest(deny), activation_revision=2,
+        activated_at=activated, rollback_at=boundary, reason='Synthetic deferred-wait test only')
+    NetworkPolicyPreview.objects.filter(pk=preview.pk).update(result_change=change)
+    NetworkPolicyState.objects.filter(pk=1).update(
+        bound_owner=owner, revision=2, confirmed_policy=deny, confirmed_policy_digest=policy_digest(deny),
+        pending_change=change)
+    return change
+
+
+@pytest.mark.parametrize('crossing,code', [('session_expiry', 'not_authenticated'),
+                                         ('network_rollback', 'network_denied')])
+def test_labelled_deferred_trigger_real_wait_resamples_expiry_or_saved_network_graph(
+        actor, monkeypatch, crossing, code):
+    api = import_module('apps.core.document_access')
+    from apps.core.document_authority import DocumentServiceError
+    clock = [timezone.now()]
+    boundary = clock[0] + timedelta(seconds=1)
+    monkeypatch.setattr(timezone, 'now', lambda: clock[0])
+    context = _context(actor)
+    if crossing == 'session_expiry':
+        Session.objects.filter(session_key=actor.request.session.session_key).update(expire_date=boundary)
+    else:
+        _saved_pending_allow_until(context, actor, boundary)
+    before_policy = list(NetworkPolicyState.objects.values())
+    key, waiter = uuid4().int % (2**62) + 1, _pid()
+    ready, stop, observed = Event(), Event(), Event()
+    sql_seen = []
+
+    def blocker():
+        close_old_connections()
+        try:
+            with connection.cursor() as cursor:
+                cursor.execute('SELECT pg_advisory_lock(%s)', [key])
+            holder = _pid()
+            ready.set()
+            try:
+                deadline = monotonic() + 4
+                while not stop.is_set() and monotonic() < deadline:
+                    with connection.cursor() as cursor:
+                        cursor.execute('SELECT %s = ANY(pg_blocking_pids(%s))', [holder, waiter])
+                        if cursor.fetchone()[0]:
+                            # Controlled wall-clock crossing only AFTER PostgreSQL
+                            # proves the constraint statement is really waiting.
+                            clock[0] = boundary
+                            observed.set()
+                            return
+                    stop.wait(.01)
+            finally:
+                with connection.cursor() as cursor:
+                    cursor.execute('SELECT pg_advisory_unlock(%s)', [key])
+        finally:
+            connection.close()
+
+    def record(execute, sql, params, many, execution_context):
+        sql_seen.append(sql.upper())
+        return execute(sql, params, many, execution_context)
+
+    with _isolated_deferred_advisory_trigger(key), ThreadPoolExecutor(max_workers=1) as pool:
+        worker = pool.submit(blocker)
+        try:
+            assert ready.wait(3), 'Synthetic advisory blocker did not acquire its lock'
+            with connection.execute_wrapper(record), pytest.raises(DocumentServiceError) as denied:
+                api.admit_document_command(context, actor.patient)
+            assert (denied.value.code, denied.value.status) == (code, 401 if crossing == 'session_expiry' else 403)
+            assert observed.is_set(), 'No actual PG constraint-statement wait was observed'
+        finally:
+            stop.set()
+            worker.result(6)
+    constraint = next(i for i, sql in enumerate(sql_seen) if 'SET CONSTRAINTS ALL IMMEDIATE' in sql)
+    assert any('DJANGO_SESSION' in sql for sql in sql_seen[constraint + 1:])
+    if crossing == 'network_rollback':
+        assert any('CORE_NETWORKPOLICYSTATE' in sql for sql in sql_seen[constraint + 1:])
+    assert not any(sql.lstrip().startswith(('INSERT ', 'UPDATE ', 'DELETE ')) for sql in sql_seen[constraint + 1:])
+    assert _count_elsewhere(actor.user.pk) is None
+    assert list(NetworkPolicyState.objects.values()) == before_policy
+
+
+def test_labelled_real_rollback_then_lost_ack_discards_connection_and_allows_fresh_attempt(actor, monkeypatch):
+    api = import_module('apps.core.document_access')
+    from apps.core.document_authority import DocumentServiceError
+    context, old_pid = _context(actor), _pid()
+    driver = connection.connection
+    original_rollback, original_close = connection.rollback, connection.close
+    rollbacks, closes, writes = [], [], []
+
+    def rolled_back_but_ack_lost():
+        original_rollback()  # Actual rollback; acknowledgement exception is simulated.
+        rollbacks.append(True)
+        raise OperationalError('Synthetic rolled-back-but-lost acknowledgement')
+
+    def record_close():
+        closes.append(connection.connection)
+        return original_close()
+
+    def fail_after_rate_write(execute, sql, params, many, execution_context):
+        result = execute(sql, params, many, execution_context)
+        if sql.lstrip().upper().startswith('INSERT INTO "CORE_DOCUMENTMETADATARATEWINDOW"'):
+            writes.append(True)
+            raise DocumentServiceError('document_metadata_unavailable', 503,
+                                       'Document details are unavailable. Try again later.')
+        return result
+
+    with monkeypatch.context() as patch:
+        patch.setattr(connection, 'rollback', rolled_back_but_ack_lost)
+        patch.setattr(connection, 'close', record_close)
+        with connection.execute_wrapper(fail_after_rate_write), _unavailable():
+            api.admit_document_command(context, actor.patient)
+        assert writes == [True] and rollbacks == [True], 'Uncertain rollback must not retry admission'
+        assert driver in closes and driver.closed
+        assert _count_elsewhere(actor.user.pk) is None  # Independent observation, not an uncertainty refund claim.
+    assert _pid() != old_pid
+    fresh = _context(actor)
+    result = api.admit_document_command(fresh, actor.patient)
+    assert result._context is fresh and _count_elsewhere(actor.user.pk) == 1
+
+
+def test_normal_atomic_exit_after_final_read_rollback_only_cannot_mint_admission(actor, monkeypatch):
+    """Actual Django rollback-only exit, with no fake COMMIT acknowledgement.
+
+    A final real network SELECT is allowed to complete, then a transaction-local
+    rollback marker simulates an enclosing dependency marking the owned phase.
+    atomic may return normally after ROLLBACK; normal exit is not commit proof.
+    """
+    api = import_module('apps.core.document_access')
+    context = _context(actor)
+    constraints, marked, commits, rollbacks = [], [], [], []
+    original_commit, original_rollback = connection.commit, connection.rollback
+
+    def record_commit():
+        original_commit()
+        commits.append(True)
+
+    def record_rollback():
+        original_rollback()
+        rollbacks.append(True)
+
+    def mark_after_final_real_network_read(execute, sql, params, many, execution_context):
+        result = execute(sql, params, many, execution_context)
+        upper = sql.upper().lstrip()
+        if upper.startswith('SET CONSTRAINTS ALL IMMEDIATE'):
+            constraints.append(True)
+        elif (constraints and not marked and upper.startswith('SELECT')
+              and 'CORE_NETWORKPOLICYSTATE' in upper):
+            transaction.set_rollback(True, using='default')
+            marked.append(True)
+        return result
+
+    monkeypatch.setattr(connection, 'commit', record_commit)
+    monkeypatch.setattr(connection, 'rollback', record_rollback)
+    with connection.execute_wrapper(mark_after_final_real_network_read), _unavailable():
+        api.admit_document_command(context, actor.patient)
+    assert constraints == [True] and marked == [True]
+    assert commits == [] and rollbacks == [True]
+    assert _count_elsewhere(actor.user.pk) is None

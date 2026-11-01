@@ -142,9 +142,10 @@ def test_sixty_real_calls_across_operations_then_61st_and_issued_proof(actor, cl
         if first is None:
             first, first_context = result, context
     assert _committed_count(actor.user.pk) == 60
-    with pytest.raises(DocumentServiceError) as denied:
+    with CaptureQueriesContext(connection) as saturated_queries, pytest.raises(DocumentServiceError) as denied:
         _call(api, actor)
     assert (denied.value.code, denied.value.status, denied.value.retry_after) == ('rate_limited', 429, 30)
+    _assert_no_rate_writes(saturated_queries)
     assert _committed_count(actor.user.pk) == 60
     with pytest.raises(FrozenInstanceError):
         first.patient_id = DOCUMENT
@@ -198,7 +199,7 @@ def test_final_minute_crossing_keeps_sampled_charge_or_saturation(actor, clock, 
             clock[0] = row.window_started_at + timedelta(minutes=1)
             crossed.append(True)
         return result
-    with connection.execute_wrapper(cross_after_constraints):
+    with connection.execute_wrapper(cross_after_constraints), CaptureQueriesContext(connection) as queries:
         if saturated:
             with pytest.raises(DocumentServiceError) as denied:
                 _call(api, actor)
@@ -207,6 +208,8 @@ def test_final_minute_crossing_keeps_sampled_charge_or_saturation(actor, clock, 
             result = _call(api, actor)
             assert result.admitted_at == clock[0]
     assert crossed == [True]
+    if saturated:
+        _assert_no_rate_writes(queries)
     row.refresh_from_db()
     assert row.admitted_count == 60
     assert row.window_started_at == clock[0] - timedelta(minutes=1)
@@ -356,3 +359,250 @@ def test_different_actors_have_independent_allowances(actor, clock):
     _call(api, other)
     assert _committed_count(actor.user.pk) == 60
     assert _committed_count(user.pk) == 1
+
+
+def _assert_no_rate_writes(queries):
+    for item in queries:
+        sql = item['sql'].lstrip().upper()
+        assert not (sql.startswith(('INSERT ', 'UPDATE ', 'DELETE '))
+                    and 'DOCUMENTMETADATARATEWINDOW' in sql), sql
+
+
+@pytest.mark.parametrize('transition,retained', [
+    ('entry_false_later_true', True),
+    ('precommit_false_post_true', True),
+    ('postcommit_false', True),
+    ('postcommit_malformed', True),
+    ('precommit_malformed', False),
+    ('entry_malformed', False),
+])
+def test_three_flag_observations_never_mint_after_disabled_or_malformed_value(
+        actor, clock, settings, monkeypatch, transition, retained):
+    api = import_module('apps.core.document_access')
+    context = capture_document_context(actor.request, 'intent.list')
+    settings.HMS_DOCUMENT_METADATA_ENABLED = (False if transition == 'entry_false_later_true'
+                                             else 0 if transition == 'entry_malformed' else True)
+    constraints, commits = [], []
+    original_commit = connection.commit
+
+    def after_constraints(execute, sql, params, many, execution_context):
+        result = execute(sql, params, many, execution_context)
+        if sql.strip().upper().startswith('SET CONSTRAINTS ALL IMMEDIATE'):
+            constraints.append(True)
+            if transition == 'entry_false_later_true':
+                settings.HMS_DOCUMENT_METADATA_ENABLED = True
+            elif transition == 'precommit_false_post_true':
+                settings.HMS_DOCUMENT_METADATA_ENABLED = False
+            elif transition == 'precommit_malformed':
+                settings.HMS_DOCUMENT_METADATA_ENABLED = 'false'
+        return result
+
+    def acknowledged_commit():
+        original_commit()  # Genuine commit, no simulated acknowledgement failure.
+        commits.append(True)
+        if transition == 'precommit_false_post_true':
+            settings.HMS_DOCUMENT_METADATA_ENABLED = True
+        elif transition == 'postcommit_false':
+            settings.HMS_DOCUMENT_METADATA_ENABLED = False
+        elif transition == 'postcommit_malformed':
+            settings.HMS_DOCUMENT_METADATA_ENABLED = 0
+
+    monkeypatch.setattr(connection, 'commit', acknowledged_commit)
+    with connection.execute_wrapper(after_constraints), pytest.raises(DocumentServiceError) as denied:
+        _call(api, actor, context=context)
+    assert (denied.value.code, denied.value.status) == ('document_metadata_unavailable', 503)
+    assert commits == ([True] if retained else [])
+    assert constraints == ([] if transition == 'entry_malformed' else [True])
+    if retained:
+        assert _committed_count(actor.user.pk) == 1
+    else:
+        assert not DocumentMetadataRateWindow.objects.filter(actor=actor.user).exists()
+
+
+@pytest.mark.parametrize('elapsed', [5.0, -0.001, float('nan'), float('inf')],
+                         ids=['exact_five_seconds', 'backward', 'nan', 'infinite'])
+def test_original_cooperative_budget_rejects_before_phase_without_allowance(actor, clock, monkeypatch, elapsed):
+    api = import_module('apps.core.document_access')
+    context = capture_document_context(actor.request, 'intent.list')
+    # Patch only the frozen admission clock seam. Authority capture and real
+    # Event/worker deadline clocks remain untouched; the context is not reminted.
+    monkeypatch.setattr(api, 'monotonic', lambda: context.monotonic_started_at + elapsed)
+    with CaptureQueriesContext(connection) as queries, pytest.raises(DocumentServiceError) as denied:
+        _call(api, actor, context=context)
+    assert (denied.value.code, denied.value.status) == ('document_metadata_unavailable', 503)
+    assert not DocumentMetadataRateWindow.objects.filter(actor=actor.user).exists()
+    assert not any('DOCUMENTMETADATARATEWINDOW' in item['sql'].upper() for item in queries)
+
+
+@pytest.mark.parametrize('stage,retained', [('final_before_commit', False), ('after_acknowledged_commit', True)])
+def test_original_budget_exact_boundary_rolls_back_or_retains_known_commit(
+        actor, clock, monkeypatch, stage, retained):
+    api = import_module('apps.core.document_access')
+    context = capture_document_context(actor.request, 'intent.list')
+    elapsed = [0.1]
+    monkeypatch.setattr(api, 'monotonic', lambda: context.monotonic_started_at + elapsed[0])
+    constraints, commits = [], []
+    original_commit = connection.commit
+
+    def after_constraints(execute, sql, params, many, execution_context):
+        result = execute(sql, params, many, execution_context)
+        if sql.strip().upper().startswith('SET CONSTRAINTS ALL IMMEDIATE'):
+            constraints.append(True)
+            if stage == 'final_before_commit':
+                elapsed[0] = 5.0
+        return result
+
+    def acknowledged_commit():
+        original_commit()
+        commits.append(True)
+        if stage == 'after_acknowledged_commit':
+            elapsed[0] = 5.0
+
+    monkeypatch.setattr(connection, 'commit', acknowledged_commit)
+    with connection.execute_wrapper(after_constraints), pytest.raises(DocumentServiceError) as denied:
+        _call(api, actor, context=context)
+    assert (denied.value.code, denied.value.status) == ('document_metadata_unavailable', 503)
+    assert constraints == [True]
+    assert commits == ([True] if retained else [])
+    if retained:
+        assert _committed_count(actor.user.pk) == 1
+    else:
+        assert not DocumentMetadataRateWindow.objects.filter(actor=actor.user).exists()
+
+
+@pytest.mark.parametrize('change', ['epoch', 'first_profile', 'deactivation'])
+@pytest.mark.parametrize('writer_first', [False, True])
+def test_admission_and_identity_revocation_follow_observed_actor_lock_order(actor, clock, change, writer_first):
+    api = import_module('apps.core.document_access')
+    if change == 'epoch':
+        IdentitySecurity.objects.create(user=actor.user, auth_epoch=0)
+    # Preserve the original real session and epoch before either transaction.
+    context = capture_document_context(actor.request, 'intent.list')
+    held, attempting, release = Event(), Event(), Event()
+    pids = {}
+
+    def revoke():
+        def run():
+            pids['writer'] = _pid()
+            with transaction.atomic():
+                if not writer_first:
+                    attempting.set()
+                user = get_user_model().objects.select_for_update(no_key=True, of=('self',)).get(pk=actor.user.pk)
+                state = IdentitySecurity.objects.select_for_update(of=('self',)).filter(user=user).first()
+                if change == 'first_profile':
+                    assert state is None
+                    IdentitySecurity.objects.create(user=user, auth_epoch=1)
+                elif change == 'epoch':
+                    assert state is not None and state.auth_epoch == 0
+                    state.auth_epoch = 1
+                    state.save(update_fields=['auth_epoch'])
+                else:
+                    user.is_active = False
+                    user.save(update_fields=['is_active'])
+                if writer_first:
+                    held.set()
+                    assert release.wait(5), 'Revocation holder was not released'
+            return 'revoked'
+        return _independent(run)
+
+    def admit():
+        def run():
+            pids['admission'] = _pid()
+            def observe_stage(execute, sql, params, many, execution_context):
+                upper = sql.upper()
+                if writer_first and 'AUTH_USER' in upper and 'FOR NO KEY UPDATE' in upper:
+                    # Preflight has already read the old committed authority.
+                    attempting.set()
+                result = execute(sql, params, many, execution_context)
+                if not writer_first and upper.strip().startswith('SET CONSTRAINTS ALL IMMEDIATE'):
+                    held.set()
+                    assert release.wait(5), 'Admission holder was not released'
+                return result
+            with connection.execute_wrapper(observe_stage):
+                if writer_first:
+                    with pytest.raises(DocumentServiceError) as denied:
+                        _call(api, actor, context=context)
+                    assert (denied.value.code, denied.value.status) == ('not_authenticated', 401)
+                    return 'denied'
+                admission = _call(api, actor, context=context)
+                assert admission._context is context
+                api._validate_document_admission(admission, context, 'intent.list')
+                return 'admitted'
+        return _independent(run)
+
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        first = pool.submit(revoke if writer_first else admit)
+        try:
+            assert held.wait(3), 'First transaction did not reach its actor-locked stage'
+            if not writer_first and change == 'first_profile':
+                assert not IdentitySecurity.objects.filter(user=actor.user).exists()
+            second = pool.submit(admit if writer_first else revoke)
+            assert attempting.wait(2), 'Second transaction did not attempt the actor lock'
+            assert len({pids['writer'], pids['admission'], _pid()}) == 3
+            _observe_wait(pids['admission' if writer_first else 'writer'],
+                          pids['writer' if writer_first else 'admission'])
+        finally:
+            release.set()
+        assert set((first.result(10), second.result(10))) == {'revoked', 'denied' if writer_first else 'admitted'}
+    if writer_first:
+        assert not DocumentMetadataRateWindow.objects.filter(actor=actor.user).exists()
+    else:
+        assert _committed_count(actor.user.pk) == 1
+        # An already committed admission may precede revocation. A subsequent
+        # attempt with the same original context must not consume another count.
+        with pytest.raises(DocumentServiceError) as denied:
+            _call(api, actor, context=context)
+        assert (denied.value.code, denied.value.status) == ('not_authenticated', 401)
+        assert _committed_count(actor.user.pk) == 1
+    if change in ('epoch', 'first_profile'):
+        assert IdentitySecurity.objects.get(user=actor.user).auth_epoch == 1
+        assert IdentitySecurity.objects.filter(user=actor.user).count() == 1
+
+
+def test_org_gated_grant_removal_commits_while_admission_waits_for_actor(actor, clock):
+    api = import_module('apps.core.document_access')
+    context = capture_document_context(actor.request, 'intent.list')
+    held, attempting, release = Event(), Event(), Event()
+    pids = {}
+
+    def hold_actor():
+        def run():
+            pids['holder'] = _pid()
+            with transaction.atomic():
+                get_user_model().objects.select_for_update(no_key=True, of=('self',)).get(pk=actor.user.pk)
+                held.set()
+                assert release.wait(5), 'Actor holder was not released'
+        return _independent(run)
+
+    def admit():
+        def run():
+            pids['admission'] = _pid()
+            def before_actor(execute, sql, params, many, execution_context):
+                if 'AUTH_USER' in sql.upper() and 'FOR NO KEY UPDATE' in sql.upper():
+                    attempting.set()
+                return execute(sql, params, many, execution_context)
+            with connection.execute_wrapper(before_actor), pytest.raises(DocumentServiceError) as denied:
+                _call(api, actor, context=context)
+            assert (denied.value.code, denied.value.status) == ('permission_denied', 403)
+        return _independent(run)
+
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        holder = pool.submit(hold_actor)
+        try:
+            assert held.wait(3)
+            admission = pool.submit(admit)
+            assert attempting.wait(2)
+            assert len({pids['holder'], pids['admission'], _pid()}) == 3
+            _observe_wait(pids['admission'], pids['holder'])
+            # Follow the supported organisation gate for membership changes.
+            # No Membership lock is invented in the admission transaction.
+            with transaction.atomic():
+                Organisation.objects.select_for_update(no_key=True, of=('self',)).get(pk=actor.branch.organisation_id)
+                assert Membership.objects.filter(user=actor.user, role='reception').update(is_active=False) == 1
+            assert not Membership.objects.filter(user=actor.user, is_active=True).exists()
+        finally:
+            # Grant removal has committed before the blocked admission resumes.
+            release.set()
+        holder.result(10)
+        admission.result(10)
+    assert not DocumentMetadataRateWindow.objects.filter(actor=actor.user).exists()
