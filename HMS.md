@@ -1,7 +1,23 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.40.0 | Updated: 2 November 2026, Asia/Calcutta
+Document version: 1.42.0 | Updated: 2 November 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
+## Fresh usage stop and business-service WIP —2 November2026
+
+Authenticated at2026-11-02T04:20:43Z: primary10%/weekly44%remaining. Mandatory stop: no new implementation/review/assignment/deployment before2026-11-02T09:50:43Z (2November3:20:43PM IST), then only if all applicable windows>10. Owner NOW CONTINUE predates this fresh stop; no waiver/reset credits. Historical stops/resumes remain preserved. Active implementation agent interrupted; other specialists finished, no running team to duplicate. Existing heartbeat is updated for best-effort continuation under the deadline; no cloud/PC-availability guarantee.
+
+Before stop: B2b frozen5293141/CI41386382492success,144literal precodeREDcases; actualisolatedTLS PG17.11 RED2133fail/10pass/1skip12.08s/noerrors. Initial new business engine plus exact three409/generic429extension passed portable187/30PGskips8.47s/check0/nodrift. Initial actual-service150-case run148pass/1fail/1skip40.69s. The failure was an invalid zero-rollback expectation after actualCOMMIT+simulatedlostACK: DjangoAtomic attempts an idle rollback that cannot undo the commit. Fixture corrected to one framework attempt while retaining independent persisted-state/driverdiscard/retry assertions; actual rerun pending. This is not full acceptance.
+
+Independent source review found two Important defects: withdrawal creator403 ordering versus receipt409 and foreign-patient intent locking without a patient predicate. Four new actualPG regressions reproducedRED2.27s before fixes. Minimal edits are present at interruption, but coveringGREEN/re-review is NOT performed. Static test review also added6genuine interphase identity races and pre-first-business-User LOCAL control inspection; minute-boundary clocks fixed without replacing real monotonic/server timers. Current suite154cases. Two actual quota/keysetEXPLAINtests passed with31060syntheticrows, but raw record_property plans must be retained on rerun using JUnit before query acceptance.
+
+[Recoverable WIP receipt](docs/operations/document-business-checkpoint-2026-11-02.json) pins source hashes/results/gaps. First resume: verify the4review regressions on current edits, scopedre-review, actual154business/race/fault/query suite with savedplans, fullactualbackend/check/nodrift and finalsource review. Then exact completed-sourcepush/CI/reviewedpreview/live/restore/MD gates. This checkpoint is NOT a release candidate or completed code change; do NOT deploy it. No duplicate B1/B2a/schema/bootstrap/admission work. Recorded live stays833ffc67/core0009/flagFalse, with no live business/admission/activation/migration/policy mutation; helper/container/network15549 cleaned and service active after completed runs. B3HTTP/ingestion/UI/browser/staff/phone/fullrelease remain open.
+
+## B2b executable RED verified —2 November2026
+
+Five business test files now precede production:70rules/services,50actual-service races,24fault/encoder/query cases. Portable rules/services36expectedFAIL/10pass/24PGskips2.92s; race50PGskips3.27s and fault24PGskips2.48s establish collection only. Existingadmission36pass6skip4.44s after the sole obsolete generic constructor-negative parameter61→3601, with phaseA emissions unchanged. RootactualisolatedTLS PG17.11 RED2:133expectedFAIL/10pass/1SQLite-onlyskip/0errors/1knownmaintenance-fallbackwarning12.08s.127 failures are absent businessmodule, six are the narrow safe-error extension. EarlierRED1 had two queryfixture setup imports and was corrected/rerun before code. See [literal RED evidence](docs/operations/document-business-red-evidence-2026-11-02.json).
+
+GREEN implementation is assigned only new document_services.py and three409/generic429constructor amendments in document_authority.py; no completed code/actual-service acceptance is claimed. Actual race/fault/EXPLAIN scenarios remain unverified until they execute against production behavior, followed by full regressions/source review/exactCI/reviewedpreview/live/MD gates. The guarded helper/container/network was cleaned,15549closed and existing preview service active. Recorded live source833ffc67/core0009/flagFalse unchanged; no live admission/business/activation/deployment. Four metadata HTTP operations stay planned.
+
 ## B2b business contract frozen —2 November 2026
 
 Owner requested CONTINUE after five-agent MD reconciliation d4ec830/CI41384525175success. Completed B1/B2a-S/A/L are consumed unchanged. Three disjoint read-only contract, transaction/security and scenario/test reviews approved the [new B2b plan](docs/implementation/document-business-plan.md) after coordinator rulings; no Critical/Important design blocker. This freeze is not implementation or runtime acceptance.
@@ -1091,3 +1107,11 @@ Owner requested existing MD files updated with a five-agent team. Root coordinat
 ### CHG-0067 —2 November2026 — Freeze audited metadata business services
 
 Owner CONTINUE; three independent design/security/test reviews and coordinator rulings froze B2b four-service plan. No production code/runtime/HTTP change; literal RED and actual PostgreSQL acceptance next. Source833ffc67 remains recorded preview with flagFalse.
+
+### CHG-0068 —2 November2026 — Record business-service executable RED
+
+144business/race/fault/query cases precede production; actualisolatedPG RED2133expectedFAIL/10pass/1skip/noerrors12.08s aftersetupimportfix. Green work in progress, not service/HTTP/deployment acceptance. Retain source833ffc67 restrictedpreview/defaultFalse.
+
+### CHG-0069 —2 November2026 — Usage stop with recoverable business WIP
+
+Freshprimary10weekly44stop04:20:43UTC; no newworkbefore09:50:43UTC/allwindows>10. InitialactualPG148pass1fixturefail; two sourceImportant findings4RED reproduced, minimalfixespresent/unverified. Interruptedagent, helperscleaned/liveunchanged833ffc67. PreserveWIPsource/tests/receipts; no deployment or releaseclaim/resetcredit.

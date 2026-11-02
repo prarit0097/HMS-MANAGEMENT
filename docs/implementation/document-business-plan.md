@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: coordinator-selected subagent-driven-development or executing-plans, TDD, systematic debugging, review and verification. Root alone assigns, freezes, commits/pushes and changes VPS. Shared-checkout ownership is explicit; no duplicate team.
 
-**Status:** 2 November 2026, FROZEN B2b DESIGN after three independent contract/transaction/scenario-test reviews and coordinator reconciliation. No RED, implementation or B2b runtime result yet.
+**Status:** 2 November 2026, FROZEN B2b DESIGN after three independent contract/transaction/scenario-test reviews and coordinator reconciliation. USAGE-STOPPED: partial implementation/initial actualPG148pass1fixturefail;2Important corrections present but unverified after4RED. No B2b acceptance/deployment.
 
 **Goal:** Implement four independently testable, audited metadata business services using completed B2a admission; no HTTP, UI, ingestion, storage or activation.
 
@@ -45,6 +45,8 @@ Private pure helpers frozen for independent portable testing:
 - _capabilities(can_write: bool) -> dict, exact existing closed capability schema; upload/download false, upload_categories=[], allowed_media_types image/jpeg,image/png, max_size_bytes10485760/max_filename_characters120.
 - _project_intent(record: dict, patient_id: str, branch_id: str, actor_id: int, can_write: bool, selected_at: datetime) -> dict. record is a fully materialised dictionary with exact keys id,created_by_id,declared_filename,declared_media_type,declared_size_bytes,status,version,created_at,expires_at, not a model/queryset. Exact Intent schema; no digest/reason/actor identity/storage/patient demographics. UTC timestamp formatting uses exactly six fractional digits. Pending projects expired at selected_at>=expires_at; withdrawn remains withdrawn. can_withdraw requires write conjunction, creator, stored pending, strict expiry and version<2147483647.
 - _quota_retry(active_expiries: list, organisation_created: list, now: datetime) -> int|None. Inputs are bounded SQL-filtered/order-selected snapshots, maximum20 and1000 respectively. At threshold return max limiting wait, ceil/clamp1..3600; otherwise None. No query in this helper.
+
+- _encode_document_body(payload: dict) -> bytes: compact UTF8 ensure_ascii=True/separators comma-colon/allow_nan=False; exact262144byte bound, serialisation/oversize fixed503. This private pure seam permits artificial exact-size tests and labelled post-encoding budget interception without widening accepted metadata.
 
 These helper outputs have no authority by themselves; public calls derive all booleans/scalars from current locked scope.
 
@@ -96,9 +98,9 @@ Before marking body_completed, reject connection.needs_rollback/closed_in_transa
 
 ### Task1 — literal RED for service interfaces, errors and pure rules
 
-- [ ] Write constructor tests for three409 tuples/retry3600 and rejection, pure capability/projection/expiry/version/quota decisions, forged/wrong-op/ambient/defaultDB service boundaries.
-- [ ] Write PostgreSQL genuine-session service success/audit/scope/receipt/replay/state/cursor/quota and retained-admission failures before production code. Imports inside tests produce missing-service RED, not collection errors.
-- [ ] Root runs portable RED and actual isolated PostgreSQL RED; record exact failures before implementation. No SQLite service-success fallback.
+- [x] Write constructor tests for three409 tuples/retry3600 and rejection, pure capability/projection/expiry/version/quota decisions, forged/wrong-op/ambient/defaultDB service boundaries.
+- [x] Write PostgreSQL genuine-session service success/audit/scope/receipt/replay/state/cursor/quota and retained-admission failures before production code. Imports inside tests produce missing-service RED, not collection errors.
+- [x] Root runs portable RED and actual isolated PostgreSQL RED; record exact failures before implementation. No SQLite service-success fallback.
 
 ### Task2 — minimal coherent engine
 
@@ -125,3 +127,15 @@ B2b code is not B2 acceptance until Task3 passes;4 metadata HTTP operations stay
 ## Coordinator freeze record —2 November2026
 
 Three independent bounded reviews approved this exact reconciled design with no Critical/Important blocker. Routine pins adopted: fixed wrapper operation, preserved pretransition withdrawal state/version, exact pure-record keys, and race/fault RED before production. These are design approvals only. Owner CONTINUE authorises execution within existing scope; no new product/activation decision, dependencies or runtime change. Root alone publishes/deploys. Actual B2b/B2c tests, source review, CI and reviewed preview rollout remain open.
+
+## Pre-code encoder seam precision —2 November2026
+
+Coordinator added the private pure encoder signature above before production, solely to make exact size/post-encoding budget behavior executable without a fake service or unpinned monkeypatch target. Artificial dictionary boundary tests do not broaden the closed public response schema. Initial actualPG RED1 had128fail/10pass/1skip/2setup errors15.58s because query fixture imported the absent module at setup; fix to runtime import before data factory then repeat RED before code. This is not service/fault/query acceptance.
+
+## Executable RED disposition —2 November2026
+
+[RecordedRED2](../operations/document-business-red-evidence-2026-11-02.json):133expectedFAIL/10pass/1SQLite-onlyskip/noerrors12.08s. Moduleabsent andsafeconstructorred beforecode; rawfixture errorswerecorrectedfirst. Thisdoesnot tick actualGREEN/race/fault/EXPLAINacceptance. Rootpublished tests-onlycheckpoint separatelyfrom subsequentlyassignedproductionWIP; no completed change/deploymentclaim.
+
+## Incomplete checkpoint —2 November2026
+
+[WIP receipt](../operations/document-business-checkpoint-2026-11-02.json) records the fresh10percent stop/deadline, initialtargeted148PGpass/1fixturefail and4source-reviewREDs with unverifiedfixes. No implementation/review/actualfullsuite/CI/rolloutcheckbox isclosedbythischeckpoint. Startafterdeadline/allwindows>10with4regressionGREEN, scopedreview, correctedlostACK/full154suite+JUnitplans andfullregressions. Do notdeployWIP.

@@ -1,0 +1,83 @@
+{
+  "status": "B2b TESTS ONLY literal RED verified; production GREEN work in progress, not accepted or deployed",
+  "recorded_at_utc": "2026-11-02T04:12:56Z",
+  "frozen_plan": "../implementation/document-business-plan.md",
+  "baseline_source": "833ffc67b1d2f0cc0ffcd1b228d2afa33023154c",
+  "design_publication_sha": "529314101bf62d65e4fe39a3e2f6b4d1a5b1310b",
+  "design_ci": {
+    "run": 41386382492,
+    "status": "success"
+  },
+  "test_sha256_at_actual_red": {
+    "backend/tests/test_document_metadata_business_pg.py": "3f86e694467faba9bad6e29a7af013cd3b03de799b6593f6490ebe0706896f40",
+    "backend/tests/test_document_metadata_business_queries.py": "3b4dbf9b7203357bfaf2ae11f3bd97f6322fbfb272118af81ae794d6c854ef26",
+    "backend/tests/test_document_metadata_business_rules.py": "a2e379cc946348e823a0e01829ab8edcacc2cd3fbb87057604bfae4dc656e143",
+    "backend/tests/test_document_metadata_business_timeouts.py": "5171126f6287d906c5bb6ad2da47956a1b9c0cf7f761af04e0d5030a5a6b8ecb",
+    "backend/tests/test_document_metadata_services.py": "3ac9fe210af87a2072b5d7de5d90a189b202463ecc3760da44b9db8312731090"
+  },
+  "production_at_red": {
+    "document_services.py": "absent",
+    "document_authority_sha256": "ef3f2c42ec29b6a3fb42000aa1b5748004f7550c0fdb23545147f4c4ab203175",
+    "document_access_sha256": "04cae8ba3003b08d9369d40de8d079339590907b6fb783b8ead90a9ad7efde2d"
+  },
+  "portable": {
+    "rules_services": {
+      "expected_failed": 36,
+      "passed": 10,
+      "actual_pg_only_skipped": 24,
+      "seconds": 2.92
+    },
+    "races": {
+      "actual_pg_only_skipped": 50,
+      "seconds": 3.27
+    },
+    "faults_queries_final": {
+      "actual_pg_only_skipped": 24,
+      "seconds": 2.48
+    },
+    "existing_admission_after_only_obsolete_parameter_change": {
+      "passed": 36,
+      "pg_only_skipped": 6,
+      "seconds": 4.44,
+      "warnings": "two intentional DATABASES fixture overrides"
+    }
+  },
+  "actual_isolated_tls_pg17_11_red1": {
+    "failed": 128,
+    "passed": 10,
+    "sqlite_only_skip": 1,
+    "setup_errors": 2,
+    "seconds": 15.58,
+    "disposition": "Invalid query setup import fixed before production; not accepted as clean RED."
+  },
+  "actual_isolated_tls_pg17_11_red2": {
+    "failed": 133,
+    "passed": 10,
+    "sqlite_only_skipped": 1,
+    "errors": 0,
+    "warnings": 1,
+    "seconds": 12.08,
+    "failure_causes": {
+      "absent_business_module": 127,
+      "missing_three409_and_extended429_constructor": 6
+    },
+    "warning": "isolated maintenance-postgres connection unavailable; receipt-owned isolated app database only fallback",
+    "helper_container_network_removed": true,
+    "helper15549_closed": true,
+    "recorded_live_preview_service_active": true
+  },
+  "changes_before_green": [
+    "five new business test files",
+    "one obsolete invalid constructor parameter61 replaced by3601; phaseA actual emission tests unchanged",
+    "narrow private encoder signature frozen before implementation"
+  ],
+  "open": [
+    "production GREEN",
+    "real service race/fault/query execution after implementation",
+    "independent source/security review",
+    "full source regression/check/no drift",
+    "exact source push/CI",
+    "reviewed preview rollout/live preservation/restore",
+    "B3 HTTP/ingestion/UI/full release"
+  ]
+}

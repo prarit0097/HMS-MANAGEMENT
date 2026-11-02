@@ -1,16 +1,27 @@
 # Usage-aware HMS continuation
 
-State: ACTIVE
-checkpoint_at_utc: 2026-10-28T08:05:33Z
-resume_not_before_utc: none (saved deadline elapsed before owner resume)
-owner_resume_at_utc: 2026-10-30T11:41:32Z
+State: COOLDOWN
+checkpoint_at_utc: 2026-11-02T04:20:43Z
+resume_not_before_utc: 2026-11-02T09:50:43Z
+owner_resume_at_utc: 2026-11-02 (explicit NOW CONTINUE; predates fresh stop)
 automation_id: continue-hms-after-usage-cooldown
-automation_interval_minutes: 330 (future threshold rule; prior28October deadline elapsed)
+automation_interval_minutes: 330 (fresh2November stop; prior28October history retained)
+automation_runtime_status_at_2026_11_02T04_20Z: ACTIVE (same heartbeat updated under standing cooldown rule after explicit owner NOW CONTINUE)
 automation_runtime_status_at_2026_11_01T12_54Z: PAUSED (existing persisted status preserved)
-latest_authenticated_usage_at_utc: 2026-11-02T03:41:34Z
-latest_authenticated_remaining: primary82percent weekly55percent
+latest_authenticated_usage_at_utc: 2026-11-02T04:20:43Z
+latest_authenticated_remaining: primary10percent weekly44percent
 latest_verified_application_source: 833ffc67b1d2f0cc0ffcd1b228d2afa33023154c
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## Fresh usage stop and business-service WIP —2 November2026
+
+Authenticated at2026-11-02T04:20:43Z: primary10%/weekly44%remaining. Mandatory stop: no new implementation/review/assignment/deployment before2026-11-02T09:50:43Z (2November3:20:43PM IST), then only if all applicable windows>10. Owner NOW CONTINUE predates this fresh stop; no waiver/reset credits. Historical stops/resumes remain preserved. Active implementation agent interrupted; other specialists finished, no running team to duplicate. Existing heartbeat is updated for best-effort continuation under the deadline; no cloud/PC-availability guarantee.
+
+Before stop: B2b frozen5293141/CI41386382492success,144literal precodeREDcases; actualisolatedTLS PG17.11 RED2133fail/10pass/1skip12.08s/noerrors. Initial new business engine plus exact three409/generic429extension passed portable187/30PGskips8.47s/check0/nodrift. Initial actual-service150-case run148pass/1fail/1skip40.69s. The failure was an invalid zero-rollback expectation after actualCOMMIT+simulatedlostACK: DjangoAtomic attempts an idle rollback that cannot undo the commit. Fixture corrected to one framework attempt while retaining independent persisted-state/driverdiscard/retry assertions; actual rerun pending. This is not full acceptance.
+
+Independent source review found two Important defects: withdrawal creator403 ordering versus receipt409 and foreign-patient intent locking without a patient predicate. Four new actualPG regressions reproducedRED2.27s before fixes. Minimal edits are present at interruption, but coveringGREEN/re-review is NOT performed. Static test review also added6genuine interphase identity races and pre-first-business-User LOCAL control inspection; minute-boundary clocks fixed without replacing real monotonic/server timers. Current suite154cases. Two actual quota/keysetEXPLAINtests passed with31060syntheticrows, but raw record_property plans must be retained on rerun using JUnit before query acceptance.
+
+[Recoverable WIP receipt](document-business-checkpoint-2026-11-02.json) pins source hashes/results/gaps. First resume: verify the4review regressions on current edits, scopedre-review, actual154business/race/fault/query suite with savedplans, fullactualbackend/check/nodrift and finalsource review. Then exact completed-sourcepush/CI/reviewedpreview/live/restore/MD gates. This checkpoint is NOT a release candidate or completed code change; do NOT deploy it. No duplicate B1/B2a/schema/bootstrap/admission work. Recorded live stays833ffc67/core0009/flagFalse, with no live business/admission/activation/migration/policy mutation; helper/container/network15549 cleaned and service active after completed runs. B3HTTP/ingestion/UI/browser/staff/phone/fullrelease remain open.
 
 ## Owner-requested MD reconciliation —2 November 2026
 

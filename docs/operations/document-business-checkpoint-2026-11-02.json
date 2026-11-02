@@ -1,0 +1,70 @@
+{
+  "status": "INCOMPLETE WIP; mandatory fresh usage stop; NOT a release candidate or deployed business capability",
+  "checkpoint_at_utc": "2026-11-02T04:20:43+00:00",
+  "resume_not_before_utc": "2026-11-02T09:50:43+00:00",
+  "authenticated_remaining": {
+    "primary_percent": 10,
+    "weekly_percent": 44
+  },
+  "reset_credit_consumed": false,
+  "recorded_live": {
+    "source_sha": "833ffc67b1d2f0cc0ffcd1b228d2afa33023154c",
+    "schema": "core0009",
+    "metadata_enabled": false,
+    "new_deployment": false
+  },
+  "source_sha256_at_checkpoint": {
+    "backend/apps/core/document_services.py": "df5f96d8aa187f57552c890ad2247cddbfbaadf410a491642faee1465722054a",
+    "backend/apps/core/document_authority.py": "f4de2e75bb32be7df310f3e48ad563b44dfb36d2ed78fdc4d62499df1ff97226",
+    "backend/apps/core/document_access.py": "04cae8ba3003b08d9369d40de8d079339590907b6fb783b8ead90a9ad7efde2d"
+  },
+  "completed_before_stop": [
+    "three independent B2b design reviews and coordinator freeze5293141/CI41386382492success",
+    "actualisolatedPG RED2 beforecode133fail10pass1skip12.08s/noerrors",
+    "initial implementation+safe409/retry3600 amendment",
+    "portable187pass30PGskip8.47s/check0/no drift before review fixes",
+    "actualisolatedTLS PG17.11 initialservice148pass1fail1skip40.69s",
+    "static testreview added interphaseidentity6cases and pre-User LOCAL control check",
+    "source review found2Important issues; actual4regressionsRED2.27s; minimalfix present unverified when interrupted"
+  ],
+  "initial_actual_pg_green_attempt": {
+    "passed": 148,
+    "failed": 1,
+    "sqlite_only_skip": 1,
+    "warnings": 3,
+    "seconds": 40.69,
+    "failure": "lostACK COMMIT test incorrectly required zero rollback calls; DjangoAtomic attempts idle rollback after error, cannot undo real commit",
+    "fixture_correction": "assert one framework rollback attempt for either outcome; independent committed-vs-rolledback state/driver discard/noautoRetry/explicitreconciliation checks retained; actual rerun pending"
+  },
+  "review_findings": [
+    {
+      "severity": "Important",
+      "finding": "withdrawal creator403 must precede receipt fingerprint409",
+      "reproducing_actual_pg_red": true,
+      "fix_state": "source edit present; no covering GREEN/re-review yet"
+    },
+    {
+      "severity": "Important",
+      "finding": "intent locking must include patient predicate before acquiring foreign row lock",
+      "reproducing_actual_pg_red": true,
+      "fix_state": "source edit present; no covering GREEN/re-review yet"
+    }
+  ],
+  "review_regressions": {
+    "failed": 4,
+    "deselected": 34,
+    "seconds": 2.27,
+    "actual_pg": true,
+    "warning": "isolated maintenance DB fallback only"
+  },
+  "query_evidence": "Two actual EXPLAIN tests passed in initial targeted run on31060 syntheticrows, but raw record_property plans were not persisted without JUnit; rerun with --junitxml and retain properties before closing query gate. LIMIT is not scan bound or capacity proof.",
+  "cleanup": "Both isolated test runs and reviewRED removed receipt-owned helper/container/network, closed15549 and verified existing hms-preview service active. No live admission/business/flag/policy/migration change. All specialists completed/interrupted at threshold.",
+  "next": [
+    "first verify4regressionGREEN on checkpointfix; source scopedre-review",
+    "actualfull154-case business/race/fault/query run with JUnit plans; correctedlostACKtest",
+    "complete remaining failures and newREDfixes asneeded; actualfullbackend/check/no drift",
+    "final source/spec/security review; exactpushCI",
+    "reviewedsource-onlypreviewrollout/livepreservation+backuprestore; finalMDrecords",
+    "B3HTTP/ingestionUI/fullrelease separatelyopen"
+  ]
+}

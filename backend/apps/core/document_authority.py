@@ -39,6 +39,9 @@ _ERRORS = {
     'not_found': (404, 'This record is unavailable.'),
     'request_too_large': (413, 'This request is too large.'),
     'rate_limited': (429, 'Too many requests. Try again shortly.'),
+    'idempotency_conflict': (409, 'This request could not be repeated. Refresh before continuing.'),
+    'version_conflict': (409, 'The record changed. Refresh before continuing.'),
+    'intent_state_conflict': (409, 'This request can no longer be withdrawn.'),
 }
 _OPERATIONS = ('intent.list', 'intent.detail', 'intent.create', 'intent.withdraw')
 _BACKEND = 'django.contrib.auth.backends.ModelBackend'
@@ -50,7 +53,7 @@ class DocumentServiceError(Exception):
     def __init__(self, code: str, status: int, message: str, retry_after: int | None = None):
         if (type(code) is not str or code not in _ERRORS or type(status) is not int
                 or type(message) is not str or (status, message) != _ERRORS[code]
-                or (code == 'rate_limited' and (type(retry_after) is not int or not 1 <= retry_after <= 60))
+                or (code == 'rate_limited' and (type(retry_after) is not int or not 1 <= retry_after <= 3600))
                 or (code != 'rate_limited' and retry_after is not None)):
             raise ValueError('Invalid document service error')
         self.code, self.status, self.message, self.retry_after = code, status, message, retry_after

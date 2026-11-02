@@ -170,7 +170,7 @@ def test_rate_limited_exact_retry_bounds_are_accepted(retry):
     assert (value.code, value.status, value.message, value.retry_after) == ('rate_limited', *ERRORS['rate_limited'], retry)
 
 
-@pytest.mark.parametrize('retry', [None, True, 0, 61])
+@pytest.mark.parametrize('retry', [None, True, 0, 3601])
 def test_rate_limited_retry_must_be_actual_integer_in_range(retry):
     with pytest.raises(ValueError):
         authority.DocumentServiceError('rate_limited', *ERRORS['rate_limited'], retry)
