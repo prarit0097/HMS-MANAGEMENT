@@ -12,7 +12,7 @@ python -m venv .venv
 .venv/Scripts/python -m pytest
 ```
 
-The development database is SQLite and contains synthetic data only. `HMS_ENV=production` requires explicit secret key, allowed hosts and PostgreSQL host/name/user/password. This scaffolding has no production deployment, MFA, remote OAuth, backup/restore, clinical-signing or financial capability. Do not use real records. PostgreSQL concurrency testing and independent production security review remain release gates.
+The development database is SQLite and contains synthetic data only. `HMS_ENV=production` requires explicit secret key, allowed hosts and PostgreSQL host/name/user/password. Bounded identity/MFA/recovery-code, staff/resources/history/network and reception services are implemented; the recorded restricted preview runs833ffc67/core0009. Document schema/helpers/admission are implemented with the flag False, without metadata business/HTTP/file capability. Operator database+key restore drills are recorded, while full dataops, human recovery, clinical-signing, finance, remote OAuth/MCP and real-data release remain gated. See [current inventory](../HMS.md#consolidated-current-status-2-november-2026) and [preview evidence](../docs/operations/document-admission-preview-evidence-2026-11-01.json).
 
 All browser mutation calls use Django sessions and CSRF (`GET /api/v1/auth/csrf/`, then `X-CSRFToken` header). No Django admin mutation routes are installed. `master_admin` alone has configuration inventory access; assign an operational role separately to access patient data.
 

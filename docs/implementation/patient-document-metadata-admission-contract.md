@@ -1,5 +1,9 @@
 # Patient document metadata B2a admission contract
 
+## Current disposition —2 November 2026
+
+The dated parent design below is historical planning, not a new execution freeze. Narrow B1 helpers and B2a-S schema, B2a-A authority and B2a-L durable admission are now implemented/source verified and included in recorded833ffc67/core0009 with the feature False. Their executed contracts ([schema](document-rate-schema-plan.md), [authority](document-authority-plan.md), [admission](document-admission-plan.md)) supersede conflicting parent-stage sequencing or claims that all DB-backed helpers are unimplemented. Parent B2 business/disclosure services remain DRAFT; B2b requires fresh design/review/freeze before RED/code. Four metadata HTTP operations, document UI, ingestion/storage/scanner/download remain unimplemented. This update changes no API or runtime behavior.
+
 26 October 2026. **DRAFT / DESIGN ONLY / NOT EXECUTION-FROZEN.** Independent review, coordinator reconciliation and the schema gate below must finish before RED/code. This document defines read-only authenticated context and separately committed actor admission, consuming the completed deployed schema. The next narrow authority-only slice is [B2a-A](document-authority-plan.md); parent admission stays DRAFT. B1 at `66bfa10160eae5342b0b64a601ad05b992d40753` is complete and consumed unchanged. No implementation/test/deployment result is claimed here.
 
 Read with [parent contract](patient-document-metadata-contract.md), [service plan](patient-document-metadata-service-plan.md), [service review](patient-document-metadata-service-review.md), [feasibility evidence](../operations/metadata-feasibility-2026-10-25.json), HMS.md, plan.md and ledger. Coordinator must propagate accepted amendments: reception grants move from proposed B3 to B2a; valid disabled attempts retain admission; global no-action403 precedes target lookup. Older contradictory prose is not execution authority.

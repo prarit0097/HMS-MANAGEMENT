@@ -1,6 +1,6 @@
 # Identity security operations — source design and release gates
 
-This runbook accompanies [the identity security contract](../implementation/identity-security-contract.md). Bounded source is verified with259actualPostgreSQL/25subtests and64frontend tests, final freshness/negative/race coverage and bounded source review; these instructions do not claim deployment or account enrollment. Update26October2026: restricted preview522f00d now deploys identity controls; actual owner API enrollment/fresh password+TOTP challenge, pending-session denial, secure logout and post-change backup/key decryption were verified. Livebrowser/staff/authenticator import remain open; see Hostinger rollout evidence. Original source counts below are historical. Do not add real hospital data until full release gates pass.
+This runbook accompanies [the identity security contract](../implementation/identity-security-contract.md). The original259PostgreSQL/25subtests and64frontend results describe its bounded source slice. Identity controls were deployed26October and remain included in recorded833ffc67/core0009, verified1November: enrolled-owner password/TOTP challenge, pending-session denial, secure session/CSRF/logout and actual database+retained-key restoration passed. See [latest preview evidence](document-admission-preview-evidence-2026-11-01.json). This2November MD review adds no runtime test. Browser/keyboard/staff, owner phone authenticator import, reviewed human recovery and full hospital release remain open; do not enter real data.
 
 ## Dedicated encryption material
 
@@ -30,12 +30,14 @@ Account/challenge/shared trusted-IP limits protect second-factor attempts across
 
 Session epochs invalidate prior sessions/challenges after sensitive changes. Locked security/platform writes serialize with revocation; ordinary requests already in flight may finish. This is not universal instantaneous cancellation. TOTP is susceptible to phishing; WebAuthn/federated identity, reviewed human recovery, immutable read auditing, notification delivery and real staff acceptance are separate release gates. No breach-proof or full production-readiness assurance is made.
 
-## Verification before a future deployment
+## Completed restricted-preview verification and remaining release gates
 
-- [x] Source candidate dependencies installed in separate validation venv; OpenAPI/check/migration drift validated. This does not provision live keys/runtime.
-- [x] ActualPG259tests/25subtests and frontend64/typecheck/build; factor/code one-winner, challenge/profile and revoke/write/confirmation races passed in isolated candidate. Future deployment revalidation still required.
-- [ ] Provision a private dedicated keyring and prove correct-key/wrong-key/retained-key recovery in staging without exposing material.
-- [ ] Confirm HTTPS/cookies/CSRF/trusted-IP policy and shared limits on actual deployment paths; complete authenticated browser/staff walkthroughs.
-- [ ] Test isolated encrypted database/key restoration, document human recovery and incident ownership, approve migration/rollback and deployment separately.
+- [x] Bounded source negative/lifecycle/race tests and dependency/schema/drift checks recorded; latest full source CI1530PG/6SQLite-onlyskips/168subtests and132frontend passed.
+- [x] Dedicated private preview keyring provisioned; genuine enrolled-owner password/TOTP/session checks and actual retained-key factor decryption after isolated restore verified in the latest receipt.
+- [x] Actual HTTPS/cookies/CSRF/trusted-network enforcement, shared identity attempt controls and logout checked on the restricted preview.
+- [x] Operator database+key restore and source-only rollback compatibility rehearsed; separate keys retained privately. No claim of encrypted off-host backup follows.
+- [ ] Actual live browser/keyboard/staff walkthrough and owner phone authenticator import.
+- [ ] Reviewed human recovery/incident ownership, key rotation/loss drill and encrypted off-host disaster recovery.
+- [ ] Comprehensive read/immutable audit, broader independent security/load/usability review and hospital cutover approval.
 
-These unchecked deployment gates cannot be inferred from source tests or a GitHub push. Update this runbook with actual evidence when performed.
+Completed items are backed by dated runtime/source receipts, not inferred from GitHub push. Future deployments must recheck current configuration, keys and state; do not replay enrollment or consume recovery codes merely to reproduce an old receipt.

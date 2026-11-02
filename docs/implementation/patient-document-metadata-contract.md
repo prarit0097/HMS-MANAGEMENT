@@ -1,5 +1,9 @@
 # Patient document metadata — next bounded contract
 
+## Current disposition —2 November 2026
+
+The dated parent design below is historical planning, not a new execution freeze. Narrow B1 helpers and B2a-S schema, B2a-A authority and B2a-L durable admission are now implemented/source verified and included in recorded833ffc67/core0009 with the feature False. Their executed contracts ([schema](document-rate-schema-plan.md), [authority](document-authority-plan.md), [admission](document-admission-plan.md)) supersede conflicting parent-stage sequencing or claims that all DB-backed helpers are unimplemented. Parent B2 business/disclosure services remain DRAFT; B2b requires fresh design/review/freeze before RED/code. Four metadata HTTP operations, document UI, ingestion/storage/scanner/download remain unimplemented. This update changes no API or runtime behavior.
+
 25 October 2026. **FROZEN B1 pure-helper design after fresh independent review. HTTP/DB/UI remain planned/unimplemented; B2/B3 execution gates remain.** Applies after the dormant foundation at source `5aee4d29939161e09f53e862f407325daad02589`. Reported foundation evidence is 658 actual PostgreSQL tests/168 subtests in47.16s; this document adds no test result. Read with [foundation](patient-document-foundation-contract.md), [lock proposal](patient-document-metadata-lock-design.md), [architecture](patient-documents-design.md), [UI proposal](patient-documents-ui-plan.md), [security proposal](patient-documents-security-review.md), [independent review](patient-documents-independent-review.md), [HMS](../../HMS.md), [plan](../../plan.md) and [ledger](ledger.md). This draft supersedes conflicting earlier metadata proposals only if frozen. Catalogue0.7.0 describes50 operations:46implemented+4planned. B1 adds zero HTTP operations, grants, UI, storage or deployment.
 
 ## Boundary and engineering rulings

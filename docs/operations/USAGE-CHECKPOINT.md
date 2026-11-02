@@ -7,10 +7,18 @@ owner_resume_at_utc: 2026-10-30T11:41:32Z
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330 (future threshold rule; prior28October deadline elapsed)
 automation_runtime_status_at_2026_11_01T12_54Z: PAUSED (existing persisted status preserved)
-latest_authenticated_usage_at_utc: 2026-11-01T12:54:16Z
-latest_authenticated_remaining: primary80percent weekly62percent
+latest_authenticated_usage_at_utc: 2026-11-02T03:41:34Z
+latest_authenticated_remaining: primary82percent weekly55percent
 latest_verified_application_source: 833ffc67b1d2f0cc0ffcd1b228d2afa33023154c
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## Owner-requested MD reconciliation —2 November 2026
+
+Owner requested all work-to-date reflected in existing MD files, confirmed MD rather than a new KD file, and authorised a five-agent team. Root coordinated four distinct read-only reviewers in batches within four active slots. No application implementation, new B2b design, runtime operation or deployment is part of this update. Authenticated start usage100primary/58weekly remaining; final bounded check82primary/55weekly, no reset credits consumed or new cooldown. Saved28October deadline remains historical/elapsed; no deadline was waived or reset by this documentation work.
+
+Recorded app remains833ffc67/core0009/defaultFalse from1November evidence; audited publication baselineae09652/CI41308824615success. No fresh live assertion is made2November. Persisted heartbeat was checked PAUSED and preserved; development authorisation and scheduler state remain distinct. Future fresh remaining<=10percent still triggers mandatory stop/checkpoint/330minutes and same-heartbeat update.
+
+Completed documentation scope: current feature/task/evidence/deployment map, stale initial-preview/MFA/network/runtime-path corrections, explicit historical checkpoints and next B2b/full-release gates. New checks and publication are tracked in the ledger after execution; existing source/runtime receipts are not newly rerun tests.
 
 ## Durable admission preview deployed —1 November 2026
 

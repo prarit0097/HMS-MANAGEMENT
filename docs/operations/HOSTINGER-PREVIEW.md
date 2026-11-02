@@ -2,13 +2,17 @@
 
 Status: latest implemented source deployed1November2026, release833ffc67/core0009; original preview established23October. No hospital production cutover. URL: https://hms.praritsidana.com . Owner authorised this environment. The28October04:54UTC continuation lifted the prior manualhold without a waiver; the later07:17:44UTC explicit ownerCONTINUE waived ONLY the10:40:38UTC cooldown deadline with authenticated99primary/100weekly remaining. No resetcredit consumed. The23October deployment-only waiver is historical.
 
+## Documentation reconciliation —2 November 2026
+
+The current runtime table below reflects the latest recorded1November deployment, not a fresh runtime attestation today. Historical rollout sections preserve prior source/schema/counts. This documentation-only update does not restart the app, change keys/policy, consume recovery codes or perform new live smoke checks. The latest full source CI1530PG/6skips/168subtests/132frontend and restore/security evidence supersede the initial48PG/11frontend snapshot.
+
 ## Latest durable admission rollout —1 November 2026
 
 Application833ffc67b1d2f0cc0ffcd1b228d2afa33023154c runs at `/opt/hms/releases/preview-20261101-833ffc6`, core0009 and actual flag False. [Current evidence](document-admission-preview-evidence-2026-11-01.json) records exact CI/220 canonical files/two workers/no DDL/34-table preservation, isolated disabled retention and prior-app compatibility, live security/read/logout/rate preservation and postbackup restore/key checks. No live service invocation or recovery/policy mutation. Fresh48 other configurations/18 containers/HBA/env/static preserved. B2b/B3/UI/browser/staff/owner-phone import/full release remain open; no unchanged app restart for documentation updates.
 
-## Latest authority rollout —28 October2026
+## Historical authority rollout —28 October2026
 
-Source dfaf3e0a508863293e4d7fa1aeae7642cf5526de is running at `/opt/hms/releases/preview-20261028-dfaf3e0`, unchanged core0009/venv/static/security. [Current evidence](document-authority-preview-evidence-2026-10-28.json) verifies211files/twoworkers/noDDL/exact34tablepreservation/liveMFA-CSRF-CurrentUser/read/logout/static/private routes and alltable postbackuprestore/key decryption. Reception advertises two document permissions; metadata HTTP/UI/limiter/business remains absent. Existing current9recovery-code rows retained, network6/noPending/rate0. Other48config hashes/18containers/HBA preserved. Old-source rollback retains0009/currentrows. Actual browser/staff/phoneimport remain open.
+At that rollout, source dfaf3e0a508863293e4d7fa1aeae7642cf5526de ran at `/opt/hms/releases/preview-20261028-dfaf3e0`, unchanged core0009/venv/static/security. [Current evidence](document-authority-preview-evidence-2026-10-28.json) verifies211files/twoworkers/noDDL/exact34tablepreservation/liveMFA-CSRF-CurrentUser/read/logout/static/private routes and alltable postbackuprestore/key decryption. Reception advertises two document permissions; metadata HTTP/UI/limiter/business remains absent. Existing current9recovery-code rows retained, network6/noPending/rate0. Other48config hashes/18containers/HBA preserved. Old-source rollback retains0009/currentrows. Actual browser/staff/phoneimport remain open.
 
 ## Historical rate-schema rollout —28 October2026 (superseded by authority rollout above)
 
@@ -18,7 +22,7 @@ Dormant0009/source3dd803f is deployed at `/opt/hms/releases/preview-20261026-3dd
 
 Latest implemented source is live: release522f00d184165249b522c0c3a89bb782458e45e6/appsource66bfa, switched03:42:49IST. See [redacted deployment evidence](preview-update-evidence-2026-10-26.json) and [reviewed plan](../implementation/preview-update-2026-10-26-plan.md). Live HTTPS/API/session/CSRF/MFA/network/asset/backup checks passed; actual livebrowser/staff and owner authenticator import remain open. Login now requires the enrolled owner's authenticator/recovery proof; private access material is mode0600 on the VPS and in an ignored owner handoff, never Git. Do not run the original password-only verify_preview.py unchanged after enrollment.
 
-Current source/venv are /opt/hms/releases/preview-20261026-522f00d and /opt/hms/releases/venv-20261026; current symlink and canonical real static root point at this release/build. Backend loopback8185/DB5548 remain private. Root-owned /opt/hms/run0750 with www-data group and socket0660 carries the UDS-only static backend; public shell/assets require Basic AND network auth_request, conditional headers cannot produce304. Shared www-data is an explicit existing OS trust boundary, not per-app UID isolation. TLS app-role is NOCREATEDB. Migration core0008 includes dormant documents only; four metadata APIs remain planned.
+At the26October checkpoint, source/venv were /opt/hms/releases/preview-20261026-522f00d and /opt/hms/releases/venv-20261026; then-current symlink and canonical real static root pointed at that release/build. Backend loopback8185/DB5548 remain private. Root-owned /opt/hms/run0750 with www-data group and socket0660 carries the UDS-only static backend; public shell/assets require Basic AND network auth_request, conditional headers cannot produce304. Shared www-data is an explicit existing OS trust boundary, not per-app UID isolation. TLS app-role is NOCREATEDB. Migration core0008 includes dormant documents only; four metadata APIs remain planned.
 
 Existing preview organisation/master were retained; separate network operator and keyring/owner/probe configuration provisioned through audited commands. Environment policy remains the original authenticated-preview ceiling; no visitor IP is automatically added. Equivalent policy confirm/revert acceptance leaves revision6/no pending. Owner can choose IP restrictions through the deployed MFA-protected Network access flow. Read-time rollback is independent of a scheduler; no privileged periodic worker added.
 
@@ -34,7 +38,7 @@ This version contains login/MFA/account security, dashboard, patient registratio
 
 | Resource | Dedicated HMS value |
 |---|---|
-| Root/source | `/opt/hms`, `/opt/hms/releases/preview-20261028-dfaf3e0`, `/opt/hms/current` symlink |
+| Root/source | `/opt/hms`, `/opt/hms/releases/preview-20261101-833ffc6`, `/opt/hms/current` symlink |
 | User/service | `hms-preview`, `hms-preview.service` |
 | Backend | Python3.12 virtualenv `/opt/hms/releases/venv-20261026`, Gunicorn26.2.0, two workers, loopback127.0.0.1:8185 |
 | Static app | `/opt/hms/static`, React production build; no Vite/runserver exposure |
@@ -50,7 +54,7 @@ The VPS OS, Docker engine and Nginx remain shared host dependencies. This is pro
 
 Nginx replaces X-Forwarded-For/Proto, clears alternative forwarded headers and inbound Authorization before proxying. Gunicorn trusts only loopback to establish HTTPS `wsgi.url_scheme`; Django does not globally trust arbitrary forwarded scheme headers. App trust for client-IP policy is loopback-only. Unique shared Nginx login rate zone uses actual peer IP. IP mode initially permits authenticated users from any network; configurable environment allow/block lists exist, MFA-protected network management is now deployed as recorded above; initial network mode remains the approved restricted-preview policy, not hospital release approval.
 
-## Verified evidence
+## Historical initial-install verification —23 October 2026
 
 - Backend on actual TLS PostgreSQL:48passed,25subtests, zero skipped/warnings on final run. Concurrent two-patient/same-bed allocation passes. Temporary app CREATEDB privilege revoked; isolated test database removed. First run warned about maintenance database access; explicit empty postgres maintenance database connection resolved teardown warning, then full suite reran clean.
 - Remote frontend:11tests and production typecheck/build passed; regression selects a bed past100 via paged choices. Each picker page25; backend remains allocation authority. No API/schema migration change for this fix.
@@ -75,8 +79,8 @@ systemctl start hms-preview-backup.service
 python3 /opt/hms/current/infra/hostinger/verify_preview.py
 ```
 
-The smoke script intentionally consumes login rate budget. Do not repeatedly run it during an owner login. It reads private credentials locally and prints only assertions. Owner MFA is now enrolled and verified; the original smoke script needs the MFA-aware coordinator harness. Administrative credential rotation must update app and edge deliberately, with no shared/default password in source.
+The original password-only smoke command above is historical initial-install evidence; do not run it against the currently enrolled owner. The MFA-aware coordinator acceptance harness is required. Any smoke script intentionally consumes login rate budget. Do not repeatedly run it during an owner login. It reads private credentials locally and prints only assertions. Owner MFA is now enrolled and verified; the original smoke script needs the MFA-aware coordinator harness. Administrative credential rotation must update app and edge deliberately, with no shared/default password in source.
 
 Rollback to unavailable preview without affecting other sites: stop only hms-preview.service, unlink only `/etc/nginx/sites-enabled/hms-preview`, run `nginx -t`, then reload nginx if valid. Preserve all `/opt/hms` data/secrets/releases/backups. Do not run Docker prune, stop the global proxy, or delete database volumes. Certificate/backup timers are dedicated; disable only their HMS-specific schedule if preview is retired.
 
-Remaining gates: authenticated live browser/staff walkthrough, broader independent security review, MFA, sensitive-read audit/monitoring, distributed application abuse controls beyond the shared edge, clinical/financial workflows, idempotency and exclusive allocation rules, encrypted off-host backups and full recovery drills, load testing and hospital cutover approval. General development cooldown deadline remains governed by USAGE-CHECKPOINT.md after the authorised deployment exception completes.
+Remaining gates: authenticated live browser/keyboard/staff walkthrough, owner phone authenticator import, full independent release review, human recovery, comprehensive sensitive-read/immutable audit/monitoring, clinical/financial and full accommodation/transfer/exclusivity workflows, encrypted off-host recovery, mixed-load testing and hospital cutover approval. Bounded MFA, retry keys, shared identity attempt budgets, initial allocation races and operator backup/key restore have already been implemented/verified; these do not close the broader gates. The document feature remains False with business/HTTP/UI still open. Usage and scheduler state are governed by USAGE-CHECKPOINT.md.

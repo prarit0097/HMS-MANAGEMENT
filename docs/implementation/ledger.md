@@ -1,5 +1,13 @@
 # SDD ledger — plan: plan.md
 
+## Documentation reconciliation —2 November 2026
+
+Owner explicitly requested all work-to-date reflected in existing MD files and confirmed MD rather than a new KD file. Five distinct agents participated: coordinator plus feature, evidence, operations and final-consistency reviewers, in two batches within four active slots. Reviewers are read-only; root alone edits/publishes. This is documentation only, no new implementation/review assignment for business code, live probe or deployment.
+
+Reconciled current inventory/task map across HMS.md/plan.md, root/backend/frontend/API READMEs, operational runbooks and parent-contract dispositions. Current recorded app833ffc67/core0009/defaultFalse and audited documentation baselineae09652 are separate. SourceCI41307928230 and baseline recordCI41308824615 passed all three jobs. Historical tests/deployments/stops remain dated; stale generic initial-preview/MFA/network/runtime-path claims were corrected. Documents expose no metadata HTTP/business/file capability. Next code work stays B2b fresh design gates; human/browser/staff/phone/full-release gates stay open.
+
+Executed for this MD change: dependency-free project documentation/link/page-action API-contract checks passed; git diff --check passed; scope assertion confirmed exactly13 existing MD files and no production/API/schema/JSON changes. Four independent specialist audits completed; final reviewer found no Critical/Important issue and three minor wording corrections were applied. No backend/frontend suite or live acceptance was rerun for documentation. Staged private-credential comparison passed; post-commit synchronisation/remote checks follow normal publication gates; Git identifies this documentation-only record independently of deployed source833ffc67.
+
 ## Durable admission preview deployed —1 November 2026
 
 The restricted synthetic preview now runs application source `833ffc67b1d2f0cc0ffcd1b228d2afa33023154c` at `/opt/hms/releases/preview-20261101-833ffc6`, retaining core0009. The document metadata flag is an actual boolean False under the retained environment (key absent, default False). No migration, DDL, build, dependency install, policy change, reenrollment or live admission invocation occurred. This closes the narrow B2a-L implementation, source verification and preview deployment gates; audited business services and metadata HTTP remain planned.
@@ -14,7 +22,7 @@ The post-change backup checksum/list and fresh TLS restore passed exact row-hash
 
 See [preview evidence](../operations/document-admission-preview-evidence-2026-11-01.json) and [source evidence](../operations/document-admission-source-evidence-2026-11-01.json). B2b business/disclosure audit, B3 metadata HTTP, ingestion/UI and full hospital release remain OPEN. Browser/keyboard/staff walkthrough and owner phone authenticator import remain OPEN.46 HTTP operations implemented/four metadata operations planned are unchanged. Next work is fresh B2b design/contract and scenario, threat and test gates before RED/code. This documentation publication does not restart the verified application.
 
-## Durable admission source verified —1 November2026
+## Historical source-publication snapshot —1 November2026 (superseded by deployment above)
 
 Ruling: Django normal atomic exit can acknowledge rollback, so a pre-exit rollback-only/closed guard is part of successful-body proof. LiteralPG regression reproduced token issuance without committed count; minimal guard plus final1530PG GREEN verifies correction. Cost if wrong: an internal admission could escape without its required allowance, so this is a release gate.
 

@@ -1,12 +1,12 @@
 # Hospital staff workspace
 
-Phase A is a local development slice. It is not approved for production or real patient data.
+The frontend serves the bounded synthetic staff workspace in local development and the recorded restricted preview. It is not approved for real hospital data.
 
 ## Pre-code review
 
 The frozen `/api/v1/` contract in `../docs/implementation/phase-a-contract.md` governs this frontend. Every list, count, detail and mutation comes from the API. Session cookies remain browser-managed; mutations use the current CSRF cookie after bootstrap and after token rotation. No clinical records, credentials or tokens are persisted in browser storage.
 
-Pages: sign in; branch-scoped dashboard; patient search, registration and demographics; appointment scheduling and versioned status; bed board and admission; permissioned nonclinical master summary. Primary actions are role-gated conveniences; backend permissions remain authoritative. Unsupported clinical, financial, backup and MFA operations are labelled unavailable.
+Pages: sign-in/MFA challenge, Account security, branch-scoped dashboard, patient registration/search/demographics, appointments/check-in, bed board/initial admission, branch/bed and staff administration, scoped administration/self-security history, Network access and nonclinical master summary. API-backed selected-branch controls are implemented; backend permissions remain authoritative. Clinical/finance/dataops/document metadata UI remains unavailable. Browser/keyboard/staff and owner phone-import acceptance are still open; component tests do not close those gates. See [current inventory](../HMS.md#consolidated-current-status-2-november-2026).
 
 Failure review: anonymous bootstrap returns login; denied requests retain a clear access message; connection failures offer retry; no patient results use an empty state; loading disables duplicate form submit; rejected forms retain values and field errors; branch switches remount scoped views; stale appointment/bed updates report backend conflict and require reload. Search is bounded and paginated. Status labels accompany colour; occupied/reserved beds are green and available beds red as specified by the owner.
 

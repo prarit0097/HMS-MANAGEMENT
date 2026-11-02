@@ -10,6 +10,35 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
+## Current task completion map —2 November 2026
+
+Owner requested an existing-MD-only consolidation with five agents (coordinator plus four independent reviewers, in batches within the active-slot limit). No new application work or runtime change is included. [HMS current inventory](HMS.md#consolidated-current-status-2-november-2026) lists all delivered capabilities and limits; dated checkpoints below remain historical evidence.
+
+| Task | Current disposition | Remaining work |
+|---|---|---|
+| 00 Documentation | Baseline complete; current consolidation under verification/publication | Keep records synchronised for each change |
+| 01 Foundation/tooling | Implemented and verified; included in restricted preview | Future dependency changes and release gates remain separate |
+| 02 Identity/access/MFA/audit | Bounded staff, session/MFA/recovery-code and history APIs/UI implemented, verified and preview deployed | Human recovery, comprehensive read/immutable audit, full role/field matrix and staff acceptance |
+| 03 Network policy/edge | A–D and bounded preview StageE implemented/verified/deployed | Browser/keyboard/staff, broader recovery and future file/MCP enforcement |
+| 04 Reception/documents | Reception/retry/check-in delivered; dormant schema/B1/B2a-S/A/L delivered | B2b audited business services, B3 four metadata HTTP operations, safe ingestion/storage/scanner/UI, broader queue/merge/payer scope |
+| 05 Clinical approval/events | Planned; check-in encounter record is only a primitive | Full clinical drafts/signing/orders/event lifecycle |
+| 06 Therapy | Planned | Courses, resources, execution and source-linked charges |
+| 07 Admissions/transfers | Bed inventory and initial atomic allocation primitive delivered | Full stay, transfer, reservation, exclusivity and accommodation lifecycle |
+| 08 Nursing/discharge preparation | Planned | Reviewed nursing and discharge workflows |
+| 09 Stock/procurement | Planned | Custody, ledger, batches, expiry and procurement |
+| 10 Dispensing/returns | Planned | Source-linked supply/return and charge reconciliation |
+| 11 Finance | Planned | Tariffs/packages/bills/payments/refunds/accounting controls |
+| 12 Coverage/discharge | Planned | Payer cases, settlements and safe operational clearance |
+| 13 Full/module data recovery product | Planned; operator database+key restore drills verified separately | Privileged jobs/manifests/module dependency and restore workflow, encrypted off-host recovery |
+| 14 Import/export | Planned | Staging, validation, permissions, bounded export and migration |
+| 15 Remote MCP | Planned | Scoped auth/transport/tools and real compatible-client tests |
+| 16 Reporting/integration | Planned; research/definitions and deferred boundaries documented | Validated metrics/projections; actual call-center integration deferred |
+| 17 Hardening/rollout | Restricted synthetic preview infrastructure and bounded security/restore gates verified | Mixed-load/capacity, full recovery/security/usability and authorised real-data cutover |
+
+Latest application source/recorded preview `833ffc67b1d2f0cc0ffcd1b228d2afa33023154c`, core0009; latest audited documentation baseline `ae09652ac66dba4d981961687d52861910f1bca7`. Exact source CI41307928230 and documentation CI41308824615 passed all three jobs. Source totals1530PG/6SQLite-onlyskips/168subtests;132frontend/typecheck/build;19root/15edge/schema/Compose/docs. No suites or live probes are newly rerun by this consolidation. [Latest preview evidence](docs/operations/document-admission-preview-evidence-2026-11-01.json) records the actual1November runtime verification. Metadata flag stays False;46implemented HTTP/fourplanned unchanged.
+
+First unfinished development: B2b design and contract freeze, fresh scenario/permission/threat/test review, then executable RED/code. Do not repeat B1, B2a-S/A/L, bootstrap or completed rollout. Document business/disclosure success is not granted by the internal admission proof. Full hospital release and live browser/staff/owner-phone acceptance remain unchecked.
+
 ## Durable admission preview deployed —1 November 2026
 
 The restricted synthetic preview now runs application source `833ffc67b1d2f0cc0ffcd1b228d2afa33023154c` at `/opt/hms/releases/preview-20261101-833ffc6`, retaining core0009. The document metadata flag is an actual boolean False under the retained environment (key absent, default False). No migration, DDL, build, dependency install, policy change, reenrollment or live admission invocation occurred. This closes the narrow B2a-L implementation, source verification and preview deployment gates; audited business services and metadata HTTP remain planned.
@@ -24,7 +53,7 @@ The post-change backup checksum/list and fresh TLS restore passed exact row-hash
 
 See [preview evidence](docs/operations/document-admission-preview-evidence-2026-11-01.json) and [source evidence](docs/operations/document-admission-source-evidence-2026-11-01.json). B2b business/disclosure audit, B3 metadata HTTP, ingestion/UI and full hospital release remain OPEN. Browser/keyboard/staff walkthrough and owner phone authenticator import remain OPEN.46 HTTP operations implemented/four metadata operations planned are unchanged. Next work is fresh B2b design/contract and scenario, threat and test gates before RED/code. This documentation publication does not restart the verified application.
 
-## Durable admission source verified —1 November2026
+## Historical source-publication snapshot —1 November2026 (superseded by deployment above)
 
 Frozen B2a-L is implemented in document_access.py using prior portable preparation/error/preflight/defaultFalse foundation. The single rawarg factory rechecks original session/global authority, validates B1 scalars before flag/network, owns default-only PostgreSQL17 outerdurable phase with LOCAL2s/3s/5s controls, UserNOKEY→existingIdentity→rate locks and fixedUTCminute60. It forces constraints before final fresh authority/network/expiry/budget/typedflag checks, including saturated decisions, and writes nothing afterward. Knowncommit alone can mint immutable exact-object proof. ValidFalse seen atentry/precommit/postcommit retains the committed increment then503; saturatedFalse429 requires the same finalauthority pass. Unknown COMMIT/rollback closes the suspect connection with no result/refund/retry. No patient/document/receipt/event query, business success, HTTP or disclosure authority is provided.
 
@@ -232,7 +261,7 @@ All specialists finished; no active work to redispatch. Foundation plan publicat
 
 Checkpoint publication is documentation-only; verify its remote SHA and exact CI separately. Same native heartbeat is rescheduled330minutes later, best effort requiring PC/Codex/repository/credentials. No implementation during cooldown; no duplicate automation or new deadlines on unchanged low readings.
 
-**Status:** Version1.38.0 ACTIVE. B2a-L implemented/source verified/preview deployed833ffc67/core0009 after exact CI1530PG/6skips/168subtests and live/restore verification; feature remains False. Next B2b fresh design/contract gates. B3/browser/staff/import/full release OPEN. Historical cooldown record: Historical owner-resume record: Owner explicitly requested continue after recovery, verified2026-10-24T16:43:13UTC (10:13:13PM IST), primary97%/weekly39%remaining. This waives ONLY the saved17:05:08UTC deadline from the fresh11:35:08UTC primary9%/weekly41% stop. Recovery alone did not waive it:16:40heartbeat performed checkpoint recovery only. Originalstop/deadline/history preserved in docs and ignored guard archive; no reset credits. Guardcontinue, same native heartbeat to be updated. Futurefresh<=10% still requires new actualUTC+330minutes.
+**Status:** Version1.39.0 ACTIVE for this owner-requested documentation reconciliation. B2a-L implemented/source verified/preview deployed833ffc67/core0009 after exact CI1530PG/6skips/168subtests and live/restore verification; feature remains False. Next B2b fresh design/contract gates. B3/browser/staff/import/full release OPEN. Historical cooldown record: Historical owner-resume record: Owner explicitly requested continue after recovery, verified2026-10-24T16:43:13UTC (10:13:13PM IST), primary97%/weekly39%remaining. This waives ONLY the saved17:05:08UTC deadline from the fresh11:35:08UTC primary9%/weekly41% stop. Recovery alone did not waive it:16:40heartbeat performed checkpoint recovery only. Originalstop/deadline/history preserved in docs and ignored guard archive; no reset credits. Guardcontinue, same native heartbeat to be updated. Futurefresh<=10% still requires new actualUTC+330minutes.
 
 Exact source44a7dcd2d5064e42c922a0315e49b5f115127504 pushed/remote SHA verified. GitHubCI40114749901 completed all3jobs success; decoded579 PostgreSQL tests/168subtests46.14s/check0/no migration drift,132tracked frontend tests/typecheck/build24modules153ms,19root/15edge/OpenAPI/Compose/docs. Earlierfc2ec628 CI40113062043 independently decoded577PG/168subtests45.70s,132frontend/build159ms,19root/schema/docs; it predates final depth fix. These are CI/source evidence, not deployment.
 
@@ -707,7 +736,7 @@ Restore preview compares schema/app versions, checksums, organisation/branch IDs
 
 Tasks are proposed delivery boundaries. Each task owns the listed files/tests and the service contracts in section 8. Feature creation waits for the project gate; future task details must be completed/reviewed before their implementation. Examples below name exact regression assertions, not fabricated test results.
 
-### Task 00 — Documentation baseline and publication (current task)
+### Task 00 — Documentation baseline and publication
 
 Files: create `HMS.md`, `plan.md`, `AGENTS.md`, `.gitignore`; retain `docs/research/*.md`.
 Produces: documented scope, workflow and reviewable design inventory; no product runtime.
@@ -720,18 +749,18 @@ Produces: documented scope, workflow and reviewable design inventory; no product
 
 ### Task 01 — Foundation, tooling and documentation gate
 
-Files: `backend/pyproject.toml`, `backend/config/{settings,urls,asgi}.py`, `backend/apps/platform/contracts.py`, `frontend/{package.json,tsconfig.json,vite.config.ts}`, `frontend/src/app/`, `docs/api/openapi-v1.yaml`, `.github/workflows/checks.yml`, `scripts/check_project_docs.py`, `backend/tests/test_configuration.py`.
-Consumes: approved stack/version/deployment choices; produces runnable synthetic-only local environment and shared types.
+Implemented paths: `backend/hms/`, `backend/apps/core/`, `backend/apps/security/`, `frontend/src/`, `docs/api/`, `.github/workflows/checks.yml`, `scripts/check_project_docs.py`. The original per-domain package map remains a future architecture proposal, not the actual foundation layout.
 
-- [ ] Freeze versions/tool commands and environment contract; validate plan/threat/test fixtures before coding.
-- [ ] Write tests `test_production_rejects_debug_or_missing_secret`, `test_docs_required_for_project_change`, `test_openapi_contract_valid`, `test_page_actions_have_api_operation_mapping`; verify expected failures.
-- [ ] Implement minimal settings/schema/types/shell and CI documentation-change check; no real data.
-- [ ] Run backend configuration/type/frontend build and documentation-gate tests; review generated files for secrets.
-- [ ] Update HMS.md/plan.md; commit `build: establish verified HMS foundation`; push/verify.
+- [x] Runnable synthetic-only Django/React foundation, pinned manifests, explicit production configuration validation and session/CSRF API client.
+- [x] Versioned OpenAPI/page-action map, documentation-change/link/coverage gates, CI and safe credential-ignore boundaries.
+- [x] Backend/frontend/contract/doc verification and restricted-preview runtime exercised; latest exact evidence is linked in the current map above.
+- [x] Foundation publication and normal remote-SHA verification recorded in Git/ledger. Future changes require their own evidence.
+
+These are bounded implementation dispositions, not claims that every original illustrative test name or future package path exists. Full product security/usability/capacity remains Task17.
 
 ### Task 02 — Organisation, branches, identity, permissions, MFA and audit
 
-Partial source evidence: staff-access-contract.md delivered4APIs, core0004active memberships/revision, scoped password-safe UI and current branch controls. ActualPG213passed/25subtests and frontend49passed/build; fresh review consistency findings fixed. MFA/session/recovery/read audit and full Task02remain unchecked. Actual paths backend/apps/core/staff_access.py, authorization.py, core migration0004, frontend/src/StaffAdministration.tsx; future package split remains deliberate.
+Delivered scope: scoped staff/branch grants, organisation suspension/versioning, current selected-branch permissions, password/session/CSRF, nine self-security APIs/TOTP/recovery-code/session revocation, privileged fresh-MFA and bounded administration/self activity UI are implemented and included in the recorded833ffc67 preview. Original staff213PG/49frontend and identity259PG/64frontend are dated slice evidence; latest full suite is1530PG/132frontend. Human recovery, full clinical role/field scope and comprehensive read/immutable audit remain open, so Task02 is partial. Actual core/identity/staff paths supersede the proposed package paths below.
 
 Files: `backend/apps/platform/{models,contracts,authorization,api}.py`, `backend/apps/security/{models,sessions,audit}.py`, `frontend/src/features/{auth,admin}/`, `backend/apps/platform/tests/test_access.py`, `backend/apps/security/tests/test_sessions.py`.
 Consumes: AccessContext and reviewed identity provider/session strategy; produces `authorize()` and server-derived context for every later task. Pages S01–S08, M01–M05, M08/M20/M21.
@@ -744,7 +773,7 @@ Consumes: AccessContext and reviewed identity provider/session strategy; produce
 
 ### Task 03 — IP policy and cloud-edge trust boundary
 
-Execution contract: [frozen network-access contract](docs/implementation/network-access-contract.md) supersedes the [original proposal](docs/implementation/network-access-design.md). StageA originally froze7 network operations/OpenAPI0.6.0; now46catalogued/source-implemented with bounded synthetic acceptance, page actions, closed schemas/limits, owner+separateOSoperator+unconditionalMFA, post-wait effective policy/authority, immutable linked snapshots/fixed rollback, private history/OOB recovery and actual fullportal edge acceptance. No live provisioning or runtime management delivered.
+Execution contract: [frozen network-access contract](docs/implementation/network-access-contract.md) supersedes the [original proposal](docs/implementation/network-access-design.md). StageA originally froze7 network operations/OpenAPI0.6.0; current OpenAPI0.7.0 catalogues50operations/46implemented HTTP and4planned metadata operations with bounded synthetic acceptance, page actions, closed schemas/limits, owner+separateOSoperator+unconditionalMFA, post-wait effective policy/authority, immutable linked snapshots/fixed rollback, private history/OOB recovery and actual fullportal edge acceptance. Bounded preview provisioning, runtime management and live API/security checks were verified26October and retained in the1November833ffc67 rollout; full hospital release remains separate.
 
 - [x] StageA exact scenario/permission/threat/test design and independent bounded pre-code security/edge review; corrected probe middleware/HTTPS/cookie semantics, corrupt snapshot links, owner errors, effective summary and API IDs. Root schema/map/link verification before code; full security/production approval not inferred.
 - [x] StageB1 RED-first `apps/security/network_policy.py` canonical_policy/policy_digest/validate_saved_policy; `core/network_models.py`, model discovery and migration0007 with singleton/unique/revision/time constraints. Individual saved-policy validation only. Test migration/constraints on actual PostgreSQL. No runtime wiring, advertised capability or new route in this bounded foundation. Exactfieldmap in docs/implementation/network-foundation-schema.md; parser17RED and modeldiscoveryRED,33targetedschema/39parser+resolver/168subtests, finalactualPG351/168subtests19.98s/check/nodrift and boundedfreshreview approved after reversebool/intregressionfix.
@@ -755,9 +784,10 @@ Execution contract: [frozen network-access contract](docs/implementation/network
 - [x] StageC API client Network access UI and named page-action tests/representative synthetic walkthroughs.
 - [x] StageD [isolated validation plan](docs/implementation/network-edge-validation-plan.md) reviewed and frozen before source: exact disposable DB, private input, loopback paths/ports, fault restoration and coordinator-only VPS lifecycle. Runtime checks below completed within the bounded synthetic source contract; production remains StageE.
 - [x] StageD isolated actual Nginx module/config/HTTP tests across BasicANDnetwork, HTML/assets/SPA/API/HEAD/range/conditional/private probe/forged headers/DBfailure/rollback/HTTPS/direct-origin; templates alone are insufficient.
-- [ ] StageE separately authorised reviewed rollout/migration/bootstrap/recovery and live verification; preserve other VPS apps and initial preview until then.
+- [x] StageE bounded owner-authorised restricted-preview rollout/provisioning/live API/security/backup-key restoration, verified26October and retained in1November833ffc67; other VPS apps preserved.
+- [ ] StageE full hospital recovery/security/usability/cutover approval, actual live browser/keyboard/staff and future file/MCP paths.
 
-Partial evidence23October2026: pure resolver/evaluator complete and independently rerun22 tests/25 subtests passed. Request middleware and preview edge/network integration are verified; policy-management UI and timed rollback/recovery remain open; do not mark Task03 fully complete.
+Historical partial evidence23October2026 (superseded by bounded preview acceptance above): pure resolver/evaluator complete and independently rerun22 tests/25 subtests passed. Request middleware and preview edge/network integration are verified; policy-management UI and timed rollback/recovery remain open; do not mark Task03 fully complete.
 
 Files: `backend/apps/security/{ip_policy,policy_changes,middleware}.py`, `backend/apps/security/tests/test_ip_policy.py`, `frontend/src/features/admin/ip-policy/`, proposed `infra/edge/` config.
 Consumes: Task 02; produces section 8 IP evaluation/preview functions. Pages M06/M07 and access-denied behaviour.
@@ -770,7 +800,7 @@ Consumes: Task 02; produces section 8 IP evaluation/preview functions. Pages M06
 
 ### Task 04 — Patients, protected files, appointments and queues
 
-Dormant schema foundation is source-verified. Next bounded source unit: [metadata B1 pure-helper plan](docs/implementation/patient-document-metadata-execution-plan.md); no HTTP/file capability delivered. B2/B3 execution/release gates remain open.
+Delivered scope: registration/search/demographic correction, appointment scheduling/versioned status/check-in, retry keys and initial bed allocation are implemented. Document core0008/core0009, B1 helpers and B2a-S/A/L are implemented/source verified/recorded preview deployed; the flag remains False and no metadata HTTP/file capability exists. The next bounded unit is B2b audited business/disclosure services under fresh design gates, then B3 APIs and later ingestion/UI. Full Task04 remains partial; no merge, payer or full queue/file product is claimed.
 
 Files: `backend/apps/patients/{models,contracts,services,selectors,documents,api}.py`, `backend/apps/reception/{models,contracts,services,api}.py`, initial `backend/apps/coverage/{models,contracts,selectors}.py`, their `tests/`, `frontend/src/features/{patients,reception}/`, shared payer-strip component, `e2e/reception.spec.ts`.
 Consumes: access/IP/audit; produces register/search/book/check-in and initial `get_coverage_summary()` contracts for downstream portals; Task 12 extends case management. Pages R01–R06/R12.
@@ -1023,7 +1053,7 @@ Source-pinned [comparison and evidence](docs/research/2026-10-24-icthospital-com
 - [x] Fresh review and RED->GREEN fixes for2Importantmalformed-input500cases; Minorname limits aligned; integrated tests/OpenAPI/docs/whitespace passed and living docs updated. PublicationSHA at handoff. Existing deployed preview47b3618 unchanged by source delivery.
 
 
-### Hostinger preview — current23October2026
+### Historical initial Hostinger preview —23October2026
 
 - [x] Dedicated deployment plan/threat review before runtime changes; owner cooldown override explicitly limited to deployment.
 - [x] First100-bed selector RED->GREEN regression;25/page choices, clear stale selection, retry; frontend11passed and build on VPS.
@@ -1122,3 +1152,7 @@ Checkpoint coordinator repeat: frontend63passed/1failed (resource-administration
 - 1.12.1 —24October2026: Owner explicitly continued at2026-10-24T05:10:42UTC (10:40:42AM IST). Authenticated primary100%/weekly69%remaining; saved05:04:44UTC deadline already elapsed, so no cooldown waiver or reset credit was needed. Prior stop/scheduling history preserved; guardcontinue, same heartbeat updated. Exact a412637sourceCI40040673163success observed. Resume remaining networkB2 API/authority/transactions/OOB and StageC client under frozencontract; B1/B2a/ICTHospital/initialdeployment are completed and not repeated. No new runtime feature or live deployment delivered by this resume record.
 
 - 1.14.0 —24October2026: freeze full remainingnetworkB2 API/authority/transactions/OOB/middleware plan with securityprecisions and observedREDs; backend andStageCclient inprogress, no liveguard/deployment.
+
+### Documentation consolidation —2 November 2026
+
+Current task/capability/evidence map reconciled by five-agent review; generic stale inventories corrected, historical source checkpoints preserved. No code/API/schema/runtime change or new live verification. Current documentation/link/contract checks and Git publication recorded separately in the ledger.
