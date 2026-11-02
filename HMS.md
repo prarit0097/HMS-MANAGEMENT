@@ -1,7 +1,15 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.39.0 | Updated: 2 November 2026, Asia/Calcutta
+Document version: 1.40.0 | Updated: 2 November 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
+## B2b business contract frozen —2 November 2026
+
+Owner requested CONTINUE after five-agent MD reconciliation d4ec830/CI41384525175success. Completed B1/B2a-S/A/L are consumed unchanged. Three disjoint read-only contract, transaction/security and scenario/test reviews approved the [new B2b plan](docs/implementation/document-business-plan.md) after coordinator rulings; no Critical/Important design blocker. This freeze is not implementation or runtime acceptance.
+
+Four raw-input services in new document_services.py will call admission once and privately own the second durable transaction, current exact-branch authority, quotas/replay, mandatory disclosure audit and known-commit detached JSON. Only the shared safe error vocabulary/range is amended: three existing-contract409 tuples and generic retry1..3600, while actor limiter actual emission stays1..60. Read authority does not imply write capabilities; final exact-branch write conjunction is materialised separately. Fingerprint mismatch409 precedes matching-receipt linkage corruption503. Original budget/lock order/final constraints and sampled session/network guarantees remain; postcommit flag/budget withholding retains actual effects. No single-use proof or5second COMMIT/HTTP promise.
+
+Task1/3 actual executable RED tests precede production. No service success/race/fault/query-plan result exists yet; prior1530PG/132frontend are foundation evidence only. Current recorded preview833ffc67/core0009/flagFalse is unchanged. No model/migration/dependency/settings/grants/HTTP/OpenAPI/frontend/activation change is planned. B2b/B2c source tests/review/CI/reviewed preview/live/records remain pending; four metadata HTTP operations and ingestion/UI/full release remain open.
+
 ## Consolidated current status —2 November 2026
 
 This is the current inventory of work completed to date. Dated progress/checkpoint sections below preserve what was true at that time; they do not override this inventory or the latest execution evidence. This update audits existing source and recorded evidence only: it adds no application capability, deployment, live probe or hospital-release approval.
@@ -37,7 +45,7 @@ The [latest preview receipt](docs/operations/document-admission-preview-evidence
 
 Only an isolated restore exercised disabled admission: count1 committed then503/no token, followed by prior-app compatibility with that nonempty rate row retained. No admission was invoked on live; recorded live rate rows stayed zero. [Source evidence](docs/operations/document-admission-source-evidence-2026-11-01.json) distinguishes literal RED/GREEN, final independent post-fix approval, labelled synthetic waits/clock crossing and lost-ack injections. It establishes no five-second COMMIT/HTTP SLA or complete live outage matrix.
 
-Next development is B2b fresh design/contract/scenario/permission/threat/test gates, then RED/code/review/verification. B3 metadata HTTP, ingestion/UI, clinical/therapy/nursing/pharmacy/finance/insurance/reporting, scoped dataops/MCP and full hospital release remain planned. Existing database backup drills do not complete the full/module backup product. Research/licence comparison is documented in the [consolidated baseline](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md) and [ICTHospital comparison](docs/research/2026-10-24-icthospital-comparison.md); candidate ideas and future call-center work are not delivered features.
+B2b design/contract and scenario/permission/threat/test gates are now frozen in the new business plan; next execute literal RED before code/review/verification. B3 metadata HTTP, ingestion/UI, clinical/therapy/nursing/pharmacy/finance/insurance/reporting, scoped dataops/MCP and full hospital release remain planned. Existing database backup drills do not complete the full/module backup product. Research/licence comparison is documented in the [consolidated baseline](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md) and [ICTHospital comparison](docs/research/2026-10-24-icthospital-comparison.md); candidate ideas and future call-center work are not delivered features.
 
 ## Durable admission preview deployed —1 November 2026
 
@@ -1079,3 +1087,7 @@ Source833ffc67/core0009 deployed after exact CI41307928230 and final independent
 ### CHG-0066 —2 November 2026 — Consolidate all work and repair stale current documentation
 
 Owner requested existing MD files updated with a five-agent team. Root coordinated four independent specialists in batches within the four-active-agent limit. Current capability/task/evidence/deployment inventory now distinguishes delivered restricted-preview foundations from disabled documents and planned modules. Corrected stale initial-preview/MFA/network/CI/runtime-path claims; preserved dated checkpoint and change history. Documentation-only review: no runtime/config/application change or fresh live claim. Verification/publication evidence follows in ledger and handoff.
+
+### CHG-0067 —2 November2026 — Freeze audited metadata business services
+
+Owner CONTINUE; three independent design/security/test reviews and coordinator rulings froze B2b four-service plan. No production code/runtime/HTTP change; literal RED and actual PostgreSQL acceptance next. Source833ffc67 remains recorded preview with flagFalse.

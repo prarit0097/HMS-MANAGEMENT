@@ -1,5 +1,9 @@
 # Patient document metadata — next bounded contract
 
+## Remaining-service execution authority —2 November2026
+
+[The frozen B2b business plan](document-business-plan.md) now owns the remaining four-service file/interface/lock/error/acceptance sequence. Completed B1/B2a-S/A/L are consumed, never reassigned by historical parent prose. The child freezes service design only; no B2b implementation, test, HTTP/UI or runtime activation result is inferred. Parent broader B2/B3 acceptance remains open.
+
 ## Current disposition —2 November 2026
 
 The dated parent design below is historical planning, not a new execution freeze. Narrow B1 helpers and B2a-S schema, B2a-A authority and B2a-L durable admission are now implemented/source verified and included in recorded833ffc67/core0009 with the feature False. Their executed contracts ([schema](document-rate-schema-plan.md), [authority](document-authority-plan.md), [admission](document-admission-plan.md)) supersede conflicting parent-stage sequencing or claims that all DB-backed helpers are unimplemented. Parent B2 business/disclosure services remain DRAFT; B2b requires fresh design/review/freeze before RED/code. Four metadata HTTP operations, document UI, ingestion/storage/scanner/download remain unimplemented. This update changes no API or runtime behavior.

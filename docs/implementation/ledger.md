@@ -1,5 +1,13 @@
 # SDD ledger — plan: plan.md
 
+## B2b business contract frozen —2 November 2026
+
+Owner requested CONTINUE after five-agent MD reconciliation d4ec830/CI41384525175success. Completed B1/B2a-S/A/L are consumed unchanged. Three disjoint read-only contract, transaction/security and scenario/test reviews approved the [new B2b plan](document-business-plan.md) after coordinator rulings; no Critical/Important design blocker. This freeze is not implementation or runtime acceptance.
+
+Four raw-input services in new document_services.py will call admission once and privately own the second durable transaction, current exact-branch authority, quotas/replay, mandatory disclosure audit and known-commit detached JSON. Only the shared safe error vocabulary/range is amended: three existing-contract409 tuples and generic retry1..3600, while actor limiter actual emission stays1..60. Read authority does not imply write capabilities; final exact-branch write conjunction is materialised separately. Fingerprint mismatch409 precedes matching-receipt linkage corruption503. Original budget/lock order/final constraints and sampled session/network guarantees remain; postcommit flag/budget withholding retains actual effects. No single-use proof or5second COMMIT/HTTP promise.
+
+Task1/3 actual executable RED tests precede production. No service success/race/fault/query-plan result exists yet; prior1530PG/132frontend are foundation evidence only. Current recorded preview833ffc67/core0009/flagFalse is unchanged. No model/migration/dependency/settings/grants/HTTP/OpenAPI/frontend/activation change is planned. B2b/B2c source tests/review/CI/reviewed preview/live/records remain pending; four metadata HTTP operations and ingestion/UI/full release remain open.
+
 ## Documentation reconciliation —2 November 2026
 
 Owner explicitly requested all work-to-date reflected in existing MD files and confirmed MD rather than a new KD file. Five distinct agents participated: coordinator plus feature, evidence, operations and final-consistency reviewers, in two batches within four active slots. Reviewers are read-only; root alone edits/publishes. This is documentation only, no new implementation/review assignment for business code, live probe or deployment.

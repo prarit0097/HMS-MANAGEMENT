@@ -1,5 +1,9 @@
 # Patient document metadata B2 durable services implementation plan
 
+## Remaining-service execution authority —2 November2026
+
+[The frozen B2b business plan](document-business-plan.md) now owns the remaining four-service file/interface/lock/error/acceptance sequence. Completed B1/B2a-S/A/L are consumed, never reassigned by historical parent prose. The child freezes service design only; no B2b implementation, test, HTTP/UI or runtime activation result is inferred. Parent broader B2/B3 acceptance remains open.
+
 > **For agentic workers:** Use the installed writing-plans/executing-plans, RED-first and review workflows. Coordinator alone freezes assignments and commits/pushes shared-checkout changes.
 
 **Status:** 25 October 2026, **DRAFT / DESIGN ONLY / NOT EXECUTION-FROZEN**. B1 is complete at source66bfa10160eae5342b0b64a601ad05b992d40753 with independently verified CI; do not repeat it. This document records proposals, not measured PostgreSQL or delivered service behavior.
