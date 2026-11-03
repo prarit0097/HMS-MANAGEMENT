@@ -1,0 +1,17 @@
+{
+  "django_version": "5.2.18",
+  "delivered_bytes_behind_stream": 4097,
+  "read_request_bound": 4097,
+  "visible_read_bytes": {
+    "missing": 0,
+    "short": 8,
+    "correct": 4097
+  },
+  "meaning": "Actual WSGIRequest construction proves LimitedStream hides missing/short length bytes. This is a local framework design probe, not real Nginx/Gunicorn HTTP framing acceptance.",
+  "status": "Design feasibility only; no metadata HTTP implementation or Nginx/Gunicorn protocol acceptance",
+  "sources": [
+    "https://raw.githubusercontent.com/django/django/stable/5.2.x/django/core/handlers/wsgi.py",
+    "https://raw.githubusercontent.com/benoitc/gunicorn/26.2.0/gunicorn/http/wsgi.py",
+    "https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_request_buffering"
+  ]
+}

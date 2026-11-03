@@ -1,7 +1,17 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.44.0 | Updated: 3 November 2026, Asia/Calcutta
+Document version: 1.45.0 | Updated: 3 November 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
+## Freeze metadata HTTP transport contract —3 November2026
+
+Next B3 is frozen in [the HTTP plan](docs/implementation/document-http-plan.md) after three independent contract/security/test reviews, scoped parser/precedence/schema review and concrete ingress-design review. The plan consumes completed internal services; it adds no source route, API success, UI, runtime change or deployment. Prior documentation6f8f9d9 exactCI41603878866 SUCCESS was verified by run head/status (logs not decoded). Live260eeb9/core0009/False remains unchanged by this documentation work. Authenticated start54%primary/33%weekly, later31%/29%; no cooldown/resetcredit.
+
+OpenAPI/page map0.7.1 retain50catalogued/46HTTPimplemented/fourplanned. Corrected stale internal-service descriptions, disabled allowance semantics and separate anonymous403 schema; ended-session401 unchanged. Exact scoped interfaces:document-local opaque zero-read parser with ordinary realCSRF, fixed negotiation/error/headers, one context/service call, direct committed bytes, explicit unsupported-method ceilings and bounded framing safety before authentication. Five-second budget begins context capture after transport/authentication, not entireHTTP. No new grants/schema/service behavior.
+
+Actual local Django5.2.18 WSGIRequest probe verified4097 underlying bytes become visible0/missinglength,8/declared8,4097/correctlength. [Saved design evidence](docs/operations/document-http-framing-feasibility-2026-11-03.json) distinguishes this from actual protocol acceptance. Required Content-Length, chunked-not-guaranteed and valid-first-frame limitations are explicit; no impossible hidden-byte/rollback guarantee. Concrete isolated harness source/runtime/ports/process/cleanup/HTTP1.1+normalHTTP2 matrix is frozen; actual runtime acceptance remains a strict release gate.
+
+No executableRED or production adapter/route was written yet. Local JSON/semantic schema mapping/link checks precede commit; full OpenAPI validator CI and later literal RED must pass before production code. Test ownership/fixtures/actualPG/realCSRF/rawframing acceptance are pinned. No documentation-only app restart. Next validate this contract CI then implement frozen test files and observe literal RED, followed by minimal adapters/harness, fresh review, actualPG/edge/sourceCI and reviewed preview rollout. Browser/staff/phone/ingestionUI/fullrelease stayOPEN.
+
 ## Audited metadata business services preview deployed —3 November2026
 
 Restricted synthetic preview now runs `260eeb9a6ed3b1af8824ef821cfc23205bde4d2b` at `/opt/hms/releases/preview-20261103-260eeb9`, core0009 and actual boolean False (environment key absent/defaultFalse). Exact remote SHA and GitHubCI [41602149023](https://github.com/prarit0097/HMS-MANAGEMENT/actions/runs/41602149023) head identity/all three jobs SUCCESS were verified; CI logs were not decoded, so test counts below are separate coordinator results. Final actual isolatedTLS PG17.11:1683pass/7SQLite-onlyskips/168subtests181.11s/check0/no drift; business153pass/1skip59s, four review regressions4pass3.63s, root19/edge15. Four measured query plans are retained. Fresh bounded source/test reviews and corrected concrete ops review found no remaining Critical/Important defect.
@@ -59,7 +69,7 @@ This is the current inventory of work completed to date. Dated progress/checkpoi
 | Documentation baseline audited | `ae09652ac66dba4d981961687d52861910f1bca7`; documentation-only CI41308824615 passed all three jobs |
 | Source CI | [41602149023](https://github.com/prarit0097/HMS-MANAGEMENT/actions/runs/41602149023): exact260eeb9 head and all3jobs SUCCESS; logs not decoded. Separate root1683PG/7skips/168subtests plus19root/15edge; no new frontend acceptance claimed |
 | Independent actual database verification | Isolated TLS PostgreSQL17.11:1683 passed/7 SQLite-only skips/168 subtests,181.11s; check0/no migration drift |
-| API contract | OpenAPI0.7.0:50 catalogued operations,46 implemented HTTP operations and4 planned document metadata operations |
+| API contract | OpenAPI0.7.1:50 catalogued operations,46 implemented HTTP operations and4 planned document metadata operations |
 | Document activation | Actual recorded metadata flag False; no metadata HTTP, storage, download or document UI capability |
 
 ### Completed capabilities and their boundaries
@@ -1143,3 +1153,7 @@ Resume after elapsed cooldown; prior4REDs nowGREEN and fresh review clear. Fulla
 ### CHG-0071 —3 November2026 — Deploy audited metadata service source
 
 Exact260eeb9/CI41602149023/233canonicalfiles deployedcore0009/False after corrected reviewed helpers/two separate cloned rehearsals. Live no-invocation/fourmetadata-table preservation,34table switch+restore/key,auth-field deltas/security/static/otherapps verified. B3/ingestion/UI/fullrelease open. Finalrecord publication follows verified sourcepush; docs do not restart runtime.
+
+### CHG-0072 —3 November2026 — Freeze document HTTP transport design
+
+Frozen B3plan/OpenAPI0.7.1 keepfourHTTPplanned. Three design/scenario/threat reviews plus scoped parser/schema/ingress reviews; actualWSGIprobe pinshidden-length limitation. No code/routes/UI/runtime changes. FullschemaCI then literalRED/code/actualPG+protocol/review/rollout remain required; live260eeb9 unchanged.

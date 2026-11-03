@@ -1,6 +1,6 @@
 {
-  "version": "0.7.0",
-  "scope": "Page-action capability mapping; API existence is distinct from an implemented staff control. Version0.7 catalogues50 operations:46 source-implemented and4 PLANNED registration document metadata operations. Planned contracts are not implementation, verification, runtime enablement or deployment. B1 is pure helpers only; B2 HTTP/services/roles/DB/limiter require separate runtime gates. R04 document UI is deferred until working ingestion. Production deployment and hospital release remain separate.",
+  "version": "0.7.1",
+  "scope": "Page-action capability mapping; API existence is distinct from an implemented staff control. Version0.7.1 catalogues50 operations:46 source-implemented HTTP operations and4 PLANNED registration document metadata HTTP operations. B1 helpers, B2a schema/authority/reception grants/durable admission and B2b/B2c audited internal services are implemented, source verified and restricted-preview deployed with the metadata flag False. Internal completion does not implement or activate HTTP. B3 transport remains a reconciliation DRAFT with concrete ingress design/review and final freeze open; no HTTP RED, implementation or framing acceptance is claimed. R04 document UI remains deferred until working ingestion and separate UI freeze. Production deployment and full hospital release remain separate.",
   "actions": [
     {
       "id": "system.health",
@@ -348,7 +348,7 @@
       "acceptance_status": "not-implemented-not-verified-not-deployed",
       "ui_status": "deferred-ui",
       "implemented_control": false,
-      "description": "API-only future capability mapping. No R04 entry, fetch, count, detail/withdraw control or file chooser until separately frozen working ingestion/UI. B1 pure helpers introduce no routes/grants/DB; runtime flag defaults false and permission strings never imply availability."
+      "description": "API-only future HTTP capability mapping. B1 helpers, B2a schema/authority/reception grants/durable admission and B2b/B2c internal services are implemented, source verified and restricted-preview deployed with metadata flag False. HTTP remains planned: B3 transport design is frozen; full schema CI, executable RED/code and actual ingress acceptance remain open; no framing acceptance. Valid disabled service calls retain one committed actor allowance then503 without business/object access; malformed configuration consumes none. No R04 entry, fetch, count, detail/withdraw control or file chooser until separately frozen working ingestion/UI. Permission strings never imply availability. See docs/implementation/document-http-plan.md and operation descriptions for bounded pre-auth400/413, zero-read opaque parser/real CSRF, post-auth context budget and unsupported-method authority ceilings."
     },
     {
       "id": "R04.createPatientDocumentIntent",
@@ -360,7 +360,7 @@
       "acceptance_status": "not-implemented-not-verified-not-deployed",
       "ui_status": "deferred-ui",
       "implemented_control": false,
-      "description": "API-only future capability mapping. No R04 entry, fetch, count, detail/withdraw control or file chooser until separately frozen working ingestion/UI. B1 pure helpers introduce no routes/grants/DB; runtime flag defaults false and permission strings never imply availability."
+      "description": "API-only future HTTP capability mapping. B1 helpers, B2a schema/authority/reception grants/durable admission and B2b/B2c internal services are implemented, source verified and restricted-preview deployed with metadata flag False. HTTP remains planned: B3 transport design is frozen; full schema CI, executable RED/code and actual ingress acceptance remain open; no framing acceptance. Valid disabled service calls retain one committed actor allowance then503 without business/object access; malformed configuration consumes none. No R04 entry, fetch, count, detail/withdraw control or file chooser until separately frozen working ingestion/UI. Permission strings never imply availability. See docs/implementation/document-http-plan.md and operation descriptions for bounded pre-auth400/413, zero-read opaque parser/real CSRF, post-auth context budget and unsupported-method authority ceilings."
     },
     {
       "id": "R04.getPatientDocumentIntent",
@@ -372,7 +372,7 @@
       "acceptance_status": "not-implemented-not-verified-not-deployed",
       "ui_status": "deferred-ui",
       "implemented_control": false,
-      "description": "API-only future capability mapping. No R04 entry, fetch, count, detail/withdraw control or file chooser until separately frozen working ingestion/UI. B1 pure helpers introduce no routes/grants/DB; runtime flag defaults false and permission strings never imply availability."
+      "description": "API-only future HTTP capability mapping. B1 helpers, B2a schema/authority/reception grants/durable admission and B2b/B2c internal services are implemented, source verified and restricted-preview deployed with metadata flag False. HTTP remains planned: B3 transport design is frozen; full schema CI, executable RED/code and actual ingress acceptance remain open; no framing acceptance. Valid disabled service calls retain one committed actor allowance then503 without business/object access; malformed configuration consumes none. No R04 entry, fetch, count, detail/withdraw control or file chooser until separately frozen working ingestion/UI. Permission strings never imply availability. See docs/implementation/document-http-plan.md and operation descriptions for bounded pre-auth400/413, zero-read opaque parser/real CSRF, post-auth context budget and unsupported-method authority ceilings."
     },
     {
       "id": "R04.withdrawPatientDocumentIntent",
@@ -384,7 +384,7 @@
       "acceptance_status": "not-implemented-not-verified-not-deployed",
       "ui_status": "deferred-ui",
       "implemented_control": false,
-      "description": "API-only future capability mapping. No R04 entry, fetch, count, detail/withdraw control or file chooser until separately frozen working ingestion/UI. B1 pure helpers introduce no routes/grants/DB; runtime flag defaults false and permission strings never imply availability."
+      "description": "API-only future HTTP capability mapping. B1 helpers, B2a schema/authority/reception grants/durable admission and B2b/B2c internal services are implemented, source verified and restricted-preview deployed with metadata flag False. HTTP remains planned: B3 transport design is frozen; full schema CI, executable RED/code and actual ingress acceptance remain open; no framing acceptance. Valid disabled service calls retain one committed actor allowance then503 without business/object access; malformed configuration consumes none. No R04 entry, fetch, count, detail/withdraw control or file chooser until separately frozen working ingestion/UI. Permission strings never imply availability. See docs/implementation/document-http-plan.md and operation descriptions for bounded pre-auth400/413, zero-read opaque parser/real CSRF, post-auth context budget and unsupported-method authority ceilings."
     }
   ],
   "deferred_actions": [
