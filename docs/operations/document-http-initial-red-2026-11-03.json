@@ -1,0 +1,51 @@
+{
+  "status": "Initial B3 TESTS-ONLY literal RED; not full transport matrix or implementation",
+  "date": "2026-11-03",
+  "frozen_plan_sha": "64e52342cd06749bab9c99971e66278672da399e",
+  "plan_ci": {
+    "run": 41607310566,
+    "all3jobs": "success",
+    "scope": "Includes full OpenAPI validator/contracts; logs not decoded"
+  },
+  "portable": {
+    "failed": 32,
+    "passed": 1,
+    "pg_only_skipped": 6,
+    "seconds": 5.12
+  },
+  "actual_tls_postgres17_11": {
+    "failed": 38,
+    "passed": 1,
+    "errors": 0,
+    "total": 39,
+    "seconds": 8.16,
+    "warning": "Known maintenance postgres unavailable; exact isolated app DB fallback only",
+    "failure_classification": "All38 are assertion404vs201/403/405/503 at absent routes; genuine password login/CSRF/session fixture prerequisites passed, no collection/setup errors"
+  },
+  "test_sha256": {
+    "backend/tests/document_http_fixtures.py": "3ed9ef37969a1eb688b716e8d049a7cf845b16cd9f9359e0134c6220078a16b3",
+    "backend/tests/test_document_metadata_http_contract.py": "c8fd12c077783d212e7443a90fd7f8afe62fda459e44d4442e2c45749aa674da",
+    "backend/tests/test_document_metadata_http_pg.py": "776fc8ff37e4b1f7c038c6a675b2106d7271e10b5cbb3cd6a31fdde09765b258"
+  },
+  "runtime_log": "/opt/hms/validation/http-20261103-red1/http-red.log",
+  "cleanup": "Owned helper/container/network removed,15549closed, existing live service active. No live source/schema/flag/admission/business/policy change.",
+  "not_implemented": [
+    "document_api.py",
+    "three route registrations",
+    "opaque parser/typed CSRF/error/headers/bytes handoff",
+    "isolated framing runner and safety tests"
+  ],
+  "remaining_before_production": [
+    "Complete frozen query/header/media/opaque-parser/read-readline/JSON/realCSRF/fault cases and framing-runner safety RED; current initial39cases are not full matrix.",
+    "Review shared fixtures/first test batch; remove minute-boundary fragility from cumulative lifecycle allowance assertion with meaningful per-call observation before GREEN.",
+    "Then minimal adapters/harness; targeted/fullactualPG/security/protocol/exactCI/reviewedpreview/live/restore gates."
+  ],
+  "recorded_live": "260eeb9/core0009/False unchanged",
+  "checkpoint_at_utc": "2026-11-03T09:03:44Z",
+  "resume_not_before_utc": "2026-11-03T14:33:44Z",
+  "authenticated_remaining": {
+    "primary": 9,
+    "weekly": 26
+  },
+  "reset_credit_consumed": false
+}

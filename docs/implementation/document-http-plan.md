@@ -103,7 +103,7 @@ Every LOCAL success/error/initial/405 response: Cache-Control no-store, merged V
 ### Task1 — complete contract and framing design gate
 
 - [x] Root reconciles independent review rulings, actual local WSGI probe and exact ingress harness/config/path/process/resource/cleanup ownership above before final freeze.
-- [ ] Amend parent/OpenAPI/page map to completed internal-service status, four HTTP operations STILL planned, separate anonymous403 schema, framing/auth/method/clock rules. Local JSON/semantic/map/link checks precede publication; full OpenAPI validator CI must pass before production code. No false source/runtime status.
+- [x] Amend parent/OpenAPI/page map to completed internal-service status, four HTTP operations STILL planned, separate anonymous403 schema, framing/auth/method/clock rules. Local JSON/semantic/map/link checks precede publication; full OpenAPI validator CI must pass before production code. No false source/runtime status.
 - [x] Fresh scoped contract/security review closed the reported framing/precedence/schema design issues; concrete ingress design received read-only material review. Root records final choices including protocol limits; no runtime acceptance inferred.
 
 ### Task2 — literal executable RED before production
@@ -130,3 +130,7 @@ Every LOCAL success/error/initial/405 response: Cache-Control no-store, merged V
 ## Draft disposition
 
 This root freeze reconciles existing owner-authorised four-operation scope. Three initial reviews plus scoped parser/authority/schema and concrete ingress reviews resolved the reported design gaps. The added HTTP2 normal-client gate and precise short-entity limitation are coordinator choices; failure blocks release rather than weakening transport. No production/test module, route, service, runtime or deployment was changed by this plan. Contract CI/executable RED and all runtime gates still precede their corresponding code/release claims. Do not repeat completed foundation/business slices.
+
+## Initial executable RED disposition —3 November2026
+
+Plan64e5234 exactCI41607310566all3success includesfullOpenAPIvalidator; schema/map/linkchecksclosed. [Initial39case receipt](../operations/document-http-initial-red-2026-11-03.json):32portableFAIL/1pass/6PGskip and38actualPGFAIL/1pass/0errors8.16s, allabsentroutes. Task2fullmatrix/fixture-review/rawCSRF/harnesssafety tests remainincomplete. Lifecyclecumulativeallowance requires per-call/minute-boundary precision before GREEN. No production source/route/harness is implemented; do not treat thischeckpoint as deployable or source-complete.

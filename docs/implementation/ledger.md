@@ -1,5 +1,19 @@
 # SDD ledger — plan: plan.md
 
+## Fresh usage stop with initial HTTP RED checkpoint —3 November2026
+
+Authenticated remaining9%primary/26%weekly at2026-11-03T09:03:44UTC triggers a NEW mandatory stop; no implementation/review/assignment/deployment before2026-11-03T14:33:44UTC (3November8:03:44PM IST), then only all available applicable windows>10. Earlier scheduled continuation followed an elapsed2November deadline and predates this fresh stop. Preserve historical stops/resumes; no reset credit or waiver. All specialists finished; no duplicate team or owned test process remains.
+
+Frozen B3plan64e5234/OpenAPI0.7.1 exactCI41607310566 allthreeSUCCESS includes fullschema validation. Initial tests-only portable32RED/1pass/6skip5.12s and actualTLS PG38RED/1pass/0errors8.16s all fail absent-route404 (not collection/setup errors). Owned DB/container/network cleaned/15549closed/live active. No document_api.py/route/parser/framingrunner implementation exists. Complete remaining frozen test matrix/fixture review and minute-boundary-safe allowance assertions before corresponding production code. This incomplete tests-only checkpoint is expected CIRED and MUST NOT be deployed as a finished change.
+
+Live remains verified260eeb9/core0009/False from earlier3November rollout; no live writer/flag/policy/schema change during this turn. First resume: read currentcheckpoint/GitCI/frozen HTTPplan and initialRED receipt, continue remaining raw-CSRF/query/media/header/byte/fault/harnesssafety REDs, then minimal adapters/harness/fullactualPG/protocol/review/exactCI/reviewedpreview/live/MD. No repeatB1/B2a/B2b/bootstrap/schema/rollout. Same existing heartbeat rescheduled330minutes; best effort PC/Codex/repository/credentials availability.
+
+## Initial metadata HTTP executable RED —3 November2026
+
+Frozen plan64e5234 passed exactCI41607310566 allthreejobsSUCCESS, including fullOpenAPI validator/contracts (logs not decoded). Initial tests-only batch adds shared real DBSession/CSRF synthetic fixture, unsupported-method/action/anonymous/CSRF rejection cases and six actualPG disabled/lifecycle/real-password-login cases. Portable32FAIL/1pass/6PGskips5.12s; actual isolatedTLS PG17.11:38FAIL/1pass/0errors/39cases8.16s. JUnit review confirms everyfailure is absent-route404 versus201/403/405/503, not collection/setup/dependency errors. One content-subpath ordinary404 case passes. Known isolatedmaintenanceDBfallback warning only; helper/container/network removed/15549closed/live active.
+
+See [initial RED receipt](../operations/document-http-initial-red-2026-11-03.json). No document_api.py, routes, parser, framing runner or production change exists. This is not the full frozen matrix: query/media/header/raw-stream/opaque-parser/JSON/realCSRF/fault/harness safety tests still precede corresponding code. Shared fixture/test review remains; cumulative lifecycle allowance needs meaningful per-call/minute-boundary handling before GREEN. Do not claim API acceptance from expected failures or deploy this tests-only checkpoint. Live260eeb9/core0009/False unchanged; no repeat completedbusiness/bootstrap/schema/rollout.
+
 ## Freeze metadata HTTP transport contract —3 November2026
 
 Next B3 is frozen in [the HTTP plan](document-http-plan.md) after three independent contract/security/test reviews, scoped parser/precedence/schema review and concrete ingress-design review. The plan consumes completed internal services; it adds no source route, API success, UI, runtime change or deployment. Prior documentation6f8f9d9 exactCI41603878866 SUCCESS was verified by run head/status (logs not decoded). Live260eeb9/core0009/False remains unchanged by this documentation work. Authenticated start54%primary/33%weekly, later31%/29%; no cooldown/resetcredit.

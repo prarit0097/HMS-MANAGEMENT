@@ -1,17 +1,31 @@
 # Usage-aware HMS continuation
 
-State: ACTIVE
-checkpoint_at_utc: 2026-11-02T04:20:43Z
-resume_not_before_utc: none (2November deadline elapsed; historical stop retained)
+State: COOLDOWN
+checkpoint_at_utc: 2026-11-03T09:03:44Z
+resume_not_before_utc: 2026-11-03T14:33:44Z
 owner_resume_at_utc: 2026-11-02 (explicit NOW CONTINUE; predates fresh stop)
 automation_id: continue-hms-after-usage-cooldown
-automation_interval_minutes: 330 (fresh2November stop; prior28October history retained)
+automation_interval_minutes: 330 (fresh3November stop; all prior history retained)
 automation_runtime_status_at_2026_11_02T04_20Z: ACTIVE (same heartbeat updated under standing cooldown rule after explicit owner NOW CONTINUE)
 automation_runtime_status_at_2026_11_01T12_54Z: PAUSED (existing persisted status preserved)
-latest_authenticated_usage_at_utc: 2026-11-03 (postrollout bounded check)
-latest_authenticated_remaining: primary63percent weekly34percent
+latest_authenticated_usage_at_utc: 2026-11-03T09:03:44Z
+latest_authenticated_remaining: primary9percent weekly26percent
 latest_verified_application_source: 260eeb9a6ed3b1af8824ef821cfc23205bde4d2b
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## Fresh usage stop with initial HTTP RED checkpoint —3 November2026
+
+Authenticated remaining9%primary/26%weekly at2026-11-03T09:03:44UTC triggers a NEW mandatory stop; no implementation/review/assignment/deployment before2026-11-03T14:33:44UTC (3November8:03:44PM IST), then only all available applicable windows>10. Earlier scheduled continuation followed an elapsed2November deadline and predates this fresh stop. Preserve historical stops/resumes; no reset credit or waiver. All specialists finished; no duplicate team or owned test process remains.
+
+Frozen B3plan64e5234/OpenAPI0.7.1 exactCI41607310566 allthreeSUCCESS includes fullschema validation. Initial tests-only portable32RED/1pass/6skip5.12s and actualTLS PG38RED/1pass/0errors8.16s all fail absent-route404 (not collection/setup errors). Owned DB/container/network cleaned/15549closed/live active. No document_api.py/route/parser/framingrunner implementation exists. Complete remaining frozen test matrix/fixture review and minute-boundary-safe allowance assertions before corresponding production code. This incomplete tests-only checkpoint is expected CIRED and MUST NOT be deployed as a finished change.
+
+Live remains verified260eeb9/core0009/False from earlier3November rollout; no live writer/flag/policy/schema change during this turn. First resume: read currentcheckpoint/GitCI/frozen HTTPplan and initialRED receipt, continue remaining raw-CSRF/query/media/header/byte/fault/harnesssafety REDs, then minimal adapters/harness/fullactualPG/protocol/review/exactCI/reviewedpreview/live/MD. No repeatB1/B2a/B2b/bootstrap/schema/rollout. Same existing heartbeat rescheduled330minutes; best effort PC/Codex/repository/credentials availability.
+
+## Initial metadata HTTP executable RED —3 November2026
+
+Frozen plan64e5234 passed exactCI41607310566 allthreejobsSUCCESS, including fullOpenAPI validator/contracts (logs not decoded). Initial tests-only batch adds shared real DBSession/CSRF synthetic fixture, unsupported-method/action/anonymous/CSRF rejection cases and six actualPG disabled/lifecycle/real-password-login cases. Portable32FAIL/1pass/6PGskips5.12s; actual isolatedTLS PG17.11:38FAIL/1pass/0errors/39cases8.16s. JUnit review confirms everyfailure is absent-route404 versus201/403/405/503, not collection/setup/dependency errors. One content-subpath ordinary404 case passes. Known isolatedmaintenanceDBfallback warning only; helper/container/network removed/15549closed/live active.
+
+See [initial RED receipt](document-http-initial-red-2026-11-03.json). No document_api.py, routes, parser, framing runner or production change exists. This is not the full frozen matrix: query/media/header/raw-stream/opaque-parser/JSON/realCSRF/fault/harness safety tests still precede corresponding code. Shared fixture/test review remains; cumulative lifecycle allowance needs meaningful per-call/minute-boundary handling before GREEN. Do not claim API acceptance from expected failures or deploy this tests-only checkpoint. Live260eeb9/core0009/False unchanged; no repeat completedbusiness/bootstrap/schema/rollout.
 
 ## Freeze metadata HTTP transport contract —3 November2026
 
