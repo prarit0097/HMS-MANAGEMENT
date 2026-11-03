@@ -8,10 +8,24 @@ automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330 (fresh2November stop; prior28October history retained)
 automation_runtime_status_at_2026_11_02T04_20Z: ACTIVE (same heartbeat updated under standing cooldown rule after explicit owner NOW CONTINUE)
 automation_runtime_status_at_2026_11_01T12_54Z: PAUSED (existing persisted status preserved)
-latest_authenticated_usage_at_utc: 2026-11-02T04:20:43Z
-latest_authenticated_remaining: primary85percent weekly37percent (3November bounded check)
-latest_verified_application_source: 833ffc67b1d2f0cc0ffcd1b228d2afa33023154c
+latest_authenticated_usage_at_utc: 2026-11-03 (postrollout bounded check)
+latest_authenticated_remaining: primary63percent weekly34percent
+latest_verified_application_source: 260eeb9a6ed3b1af8824ef821cfc23205bde4d2b
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## Audited metadata business services preview deployed —3 November2026
+
+Restricted synthetic preview now runs `260eeb9a6ed3b1af8824ef821cfc23205bde4d2b` at `/opt/hms/releases/preview-20261103-260eeb9`, core0009 and actual boolean False (environment key absent/defaultFalse). Exact remote SHA and GitHubCI [41602149023](https://github.com/prarit0097/HMS-MANAGEMENT/actions/runs/41602149023) head identity/all three jobs SUCCESS were verified; CI logs were not decoded, so test counts below are separate coordinator results. Final actual isolatedTLS PG17.11:1683pass/7SQLite-onlyskips/168subtests181.11s/check0/no drift; business153pass/1skip59s, four review regressions4pass3.63s, root19/edge15. Four measured query plans are retained. Fresh bounded source/test reviews and corrected concrete ops review found no remaining Critical/Important defect.
+
+233 canonical committed files and exact archive/initial extracted file sets verified. Runtime source-set checks exclude inherited frontend/dist and generated interpreter __pycache__ only. No migration/DDL/install/build/bootstrap/policy/grant/key/MFA-reenrollment change. Prior833 source remains the rehearsed rollback app retaining0009/all current rows. A database identity preflight initially rejected PostgreSQL inet text `/32`; diagnosis proved address formatting, exact normalized address/Docker-IP verification then passed. Failed preflights cleaned resources and never switched live.
+
+Two separate fresh restores preserved all34 tables and decrypted the actual retained factor key. Disabled public-wrapper proof committed one allowance then503 with no business query/result; all existing rate rows and other tables preserved. Separate enabled synthetic clone exercised list/create/detail/withdraw plus keyed replays:one intent/two receipts/seven required events, per-call admission and event operation/count/digest/linkage, closed detached projections, withdrawal attribution/receipt binding and unrelated row preservation. Flag returnedFalse, then exact prior833 passed realpassword/TOTP/session/scopedreads/logout with all four nonempty metadata tables retained, including afterlogout. These are isolated proofs, not live feature activation.
+
+HMS-only maintenance08:23:58.289311–08:24:22.326508UTC; source switched08:24:09.174629457UTC. Two candidate workers/source paths and oldworker absence verified. All34 tables/rows/catalog identical across the quiesced switch. Live Basic/MFA/session/CSRF/securityheaders/scopedreads/network/history/bed101+/foreignbranch/logout/statichash/HEAD/range/wildcard-no304/private-spoof checks passed. Planned metadata routes still404. NO live admission/business invocation; rate/intents/receipts/events unchanged. Expected auth changes were checked by row/field:owner last_login/TOTP controls only, other user/security fields and oldsessions/challenges/audits preserved, newchallenge/audit owner-only, at most one network budget delta. Actual credentials/key/policy/operator/recovery state preserved.
+
+Postchange backup/checksum/list restored into a fresh receipt-owned TLS PG target:exact34-table row hashes/key/password/recovery/operator/network matched. Helper/container/network cleaned/listeners closed; app remainsTLS/NOCREATEDB/NOSUPER and backup timer enabled.48 other Nginx hashes/18 container IDs/HBA/env/keys/static/venv preserved. Protected socket parent0750root:www-data/final0660/no extraACL, actualwww-data access/nonmember denial passed. Independent Windows confirmed maintenance503/reopenedBasic401/shell200/private404, origin/helperports unreachable and five other sites200 (reachability only).
+
+See [deployment evidence](document-business-preview-evidence-2026-11-03.json) and [source evidence](document-business-source-evidence-2026-11-03.json). Narrow B2b/B2c internal services are implemented/sourceverified/previewdeployed; feature remains disabled. Four metadata HTTP operations/B3 transport, useful ingestion/UI, browser/keyboard/staff/owner-phone import, clinical/finance/MCP/dataops/full hospital release remain OPEN. Next freeze B3 page/action/API/permission/failure contract with scenario/threat/test reviews before executableRED/code. No completed foundation/bootstrap/schema/admission/business rollout repetition. This final documentation-only record does not restart the app.
 
 ## Audited metadata business services source verified —3 November2026
 

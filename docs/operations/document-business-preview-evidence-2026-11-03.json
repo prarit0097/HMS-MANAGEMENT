@@ -1,0 +1,178 @@
+{
+  "status": "deployed restricted synthetic preview; not full hospital release",
+  "application_source_sha": "260eeb9a6ed3b1af8824ef821cfc23205bde4d2b",
+  "deployed_release_sha": "260eeb9a6ed3b1af8824ef821cfc23205bde4d2b",
+  "release_path": "/opt/hms/releases/preview-20261103-260eeb9",
+  "baseline_source_sha": "833ffc67b1d2f0cc0ffcd1b228d2afa33023154c",
+  "source_switched_at_utc": "2026-11-03T08:24:09.174629457Z",
+  "maintenance_started_utc": "2026-11-03T08:23:58.289311+00:00",
+  "maintenance_ended_utc": "2026-11-03T08:24:22.326508+00:00",
+  "attested_at_utc": "2026-11-03T08:25:19.679701+00:00",
+  "archive_sha256": "fa6a5b85cb3a755a27f93a29642080899989c4ed5568d1d964ec9e1d316773e3",
+  "source_files_verified": 233,
+  "source_ci": {
+    "sha": "260eeb9a6ed3b1af8824ef821cfc23205bde4d2b",
+    "run": 41602149023,
+    "all3jobs": "success",
+    "verification": "Exact GitHub run head_sha/status and three job conclusions verified; logs not decoded",
+    "root_actual_postgres_passed": 1683,
+    "root_sqlite_only_skipped": 7,
+    "root_subtests": 168,
+    "root_actual_seconds": 181.11
+  },
+  "isolated_disabled_retention": {
+    "effective_flag_false": true,
+    "valid_disabled_returns503_no_token": true,
+    "count1_independent_connection": true,
+    "all_other_tables_unchanged": true,
+    "no_patient_document_receipt_event_audit_query": true
+  },
+  "live_no_invocation_rate_preservation": {
+    "no_live_admission_invocation": true,
+    "exact_rate_rows_unchanged": true,
+    "exact_intent_receipt_event_rows_unchanged": true,
+    "no_live_business_invocation": true,
+    "metadata_enabled": false
+  },
+  "clone_rehearsal": {
+    "all_tables_preserved": 34,
+    "empty_migration_plan_no_ddl": true,
+    "core0009_empty_plan": true,
+    "beds": 120,
+    "patients": 0,
+    "network_revision": 6,
+    "no_pending": true,
+    "recovery_code_rows": 9,
+    "rate_rows": 0,
+    "actual_key_decryption": true,
+    "password_valid": true,
+    "operator_active": true,
+    "app_tls_nocreatedb_nonsuper": true,
+    "metadata_enabled": false,
+    "flag_provenance": "absent environment key/defaultFalse"
+  },
+  "prior_source_auth": {
+    "password_totp_session_reads_logout": true,
+    "core0009_retained": true,
+    "disabled_admission_retention_or_prior_nonempty_rate_compatibility": true
+  },
+  "isolated_enabled_business": {
+    "isolated_only": true,
+    "four_wrappers_and_keyed_replays": true,
+    "intents": 1,
+    "receipts": 2,
+    "required_events": 7,
+    "detached_bytes": true,
+    "unrelated_rows_preserved": true,
+    "effective_false_restored": true,
+    "per_call_admission_event_digest_linkage_and_closed_projection_verified": true,
+    "withdrawal_attribution_receipt_binding_and_unrelated_rows_verified": true
+  },
+  "candidate_auth": {
+    "password_totp_session_reads_logout": true,
+    "core0009_retained": true,
+    "disabled_admission_retention_or_prior_nonempty_rate_compatibility": true
+  },
+  "source_switch_preservation": {
+    "all_tables_exact_rows_preserved": 34,
+    "no_ddl": true,
+    "core0009_empty_plan": true,
+    "beds": 120,
+    "patients": 0,
+    "network_revision": 6,
+    "no_pending": true,
+    "recovery_code_rows": 9,
+    "rate_rows": 0,
+    "actual_key_decryption": true,
+    "password_valid": true,
+    "operator_active": true,
+    "app_tls_nocreatedb_nonsuper": true,
+    "metadata_enabled": false,
+    "flag_provenance": "absent environment key/defaultFalse"
+  },
+  "live_checks": {
+    "https_basic_mfa_session_csrf_reads_logout": true,
+    "retained_static_hash_head_range_wildcard": true,
+    "private_spoof_denial": true,
+    "policy_revision": 6,
+    "no_pending": true,
+    "no_policy_mutation": true,
+    "no_enrollment_or_recovery_consumption": true,
+    "CurrentUser_scoped_document_strings": true,
+    "browser_staff_import": "OPEN"
+  },
+  "postchange_restore": {
+    "all_tables_exact_rowhash_match": 34,
+    "core0009_empty_plan": true,
+    "beds": 120,
+    "patients": 0,
+    "network_revision": 6,
+    "no_pending": true,
+    "recovery_code_rows": 9,
+    "rate_rows": 0,
+    "actual_key_decryption": true,
+    "password_valid": true,
+    "operator_active": true,
+    "app_tls_nocreatedb_nonsuper": true,
+    "metadata_enabled": false,
+    "flag_provenance": "absent environment key/defaultFalse"
+  },
+  "preservation": {
+    "all_nginx_hashes": 50,
+    "other_nginx_hashes": 48,
+    "existing_container_ids": 18,
+    "all_private_config_key_hashes": true,
+    "all_static_hashes": true,
+    "hba_sha256": "b4a6dc70d99ae202e10943a2ced997988f5a1f7ad8a11c0874d415559c171161",
+    "workers": 2,
+    "old_workers_gone": true,
+    "final_socket": "0660 root:www-data",
+    "parent": "0750 root:www-data; no extra POSIX ACL",
+    "retained_venv": "/opt/hms/releases/venv-20261026",
+    "helper_cleaned_ports_closed": true,
+    "no_migrate_no_ddl": true
+  },
+  "expected_auth_deltas": "Fresh password/TOTP challenge consumption, last_login, sessions/logout and security audit/throttle state; all existing rows were preserved across the source switch before these probes. No recovery, enrollment, policy, membership or data mutation was performed.",
+  "open": [
+    "B3 metadata HTTP",
+    "live browser/keyboard/staff walkthrough",
+    "owner phone authenticator import",
+    "remaining full HMS real-data release gates"
+  ],
+  "live_auth_delta_verification": {
+    "owner_last_login_and_factor_controls_only": true,
+    "all_other_auth_users_and_security_fields_preserved": true,
+    "existing_sessions_challenges_audits_preserved": true,
+    "new_challenges_audits_owner_only": true,
+    "at_most_one_network_budget_delta": true
+  },
+  "canonical_manifest_policy": "Exact Git archive members and initial extracted file set; runtime source set excludes inherited frontend/dist and interpreter __pycache__ only.",
+  "rehearsal_preflight_correction": "PostgreSQL inet text included /32; exact address normalised with ip_interface and matched receipt-owned Docker IP. Two failed preflight attempts cleaned before successful isolated rehearsals; no live switch until success.",
+  "external_windows": {
+    "external_windows_https": true,
+    "hms_static200_even_wildcard_never304": true,
+    "basic_required401": true,
+    "external_private_routes404": true,
+    "untrusted_forwarded_and_probe_headers_cannot_expose_private_route": true,
+    "other_public_sites_current_status": {
+      "pdf.praritsidana.com": 200,
+      "postzyo.com": 200,
+      "riimshospitals.com": 200,
+      "rezoom.praritsidana.com": 200,
+      "nirogidhara.com": 200
+    },
+    "note": "current external reachability, not baseline response-body equality or live restricted-IP proof"
+  },
+  "external_ports": {
+    "external_windows_tcp_reachability": {
+      "443": true,
+      "8185": false,
+      "5548": false,
+      "18185": false,
+      "18186": false,
+      "15549": false
+    },
+    "note": "Point-in-time connection attempts; not a live outage/fault matrix"
+  },
+  "review": "Fresh source/spec/security and static test review clear; concrete ops review findings fixed and scoped re-reviewed before runtime execution. No Critical/Important issue remained in bounded reviews."
+}

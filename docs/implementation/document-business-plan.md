@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: coordinator-selected subagent-driven-development or executing-plans, TDD, systematic debugging, review and verification. Root alone assigns, freezes, commits/pushes and changes VPS. Shared-checkout ownership is explicit; no duplicate team.
 
-**Status:** 2 November 2026, FROZEN B2b DESIGN after three independent contract/transaction/scenario-test reviews and coordinator reconciliation. Source verified3November:1683PG/7SQLite-skips/168subtests/check0/nodrift; exactCI/reviewedpreview still pending.
+**Status:** 2 November 2026, FROZEN B2b DESIGN after three independent contract/transaction/scenario-test reviews and coordinator reconciliation. Source verified3November:1683PG/7SQLite-skips/168subtests/check0/nodrift; exactCI41602149023 and reviewedpreview/live/postrestore passed3November; effectiveFalse retained.
 
 **Goal:** Implement four independently testable, audited metadata business services using completed B2a admission; no HTTP, UI, ingestion, storage or activation.
 
@@ -113,14 +113,14 @@ Write/run these actual-service race/fault REDs before the corresponding producti
 
 - [x] Distinct-connection both-order staff replacement/suspension/identity epoch+deactivation/first-profile races, actual same-key command/withdraw/list-replay state races, final patient/org quota-slot contention and Patient PATCH/bed allocation lock order. Observe pg_blocking_pids, bounded no40P01 and committed rows/events.
 - [x] Actual2s/3s/5s controls/reset, intent/receipt/event/deferred constraint rollback, final exact expiry/session/network waits and original-budget exhaustion; separately labelled true commit/rollback then simulated lost ACK, normal rollback-only exit, fresh connection/keyed reconciliation.
-- [ ] PG17 EXPLAIN(ANALYZE,BUFFERS) on isolated synthetic3orgs/60patients-per-org/at least30000 retained intents including large expired history; bounded active20/org1000/keyset101 queries each under statement3s. Save dataset/plan/rows/buffers/timing, not a capacity claim. Timeout503 verified. No speculative index/denormalised ledger; observed failure requires reviewed schema amendment.
+- [x] PG17 EXPLAIN(ANALYZE,BUFFERS) on isolated synthetic3orgs/60patients-per-org/at least30000 retained intents including large expired history; bounded active20/org1000/keyset101 queries each under statement3s. Save dataset/plan/rows/buffers/timing, not a capacity claim. Timeout503 verified. No speculative index/denormalised ledger; observed failure requires reviewed schema amendment.
 - [x] Full actual isolatedPG regressions/check/no drift, portable rules/boundaries and required contract/docs/root checks; no new frontend change implies no new UI acceptance.
 
 ### Task4 — publication and gated preview rollout
 
-- [ ] Update HMS/plan/ledger same change with actual RED/GREEN/review/results and open distinctions; push normally/verify full remote SHA and exact successful CI.
-- [ ] Freeze/review source-only preview procedure using actual source delta and retainedFalse environment; rehearse keys/backup/prior compatibility isolated. Never invoke live business/admission or enable flag for smoke. No schema/dependency/UI changes expected, but verify actual delta.
-- [ ] Reviewed preview rollout/live existing behavior/rate+business preservation and postbackup restore; preserve other apps/security/owner state. Then documentation record push/remote verification. If usage<=10stop/checkpoint330minutes; no partial WIP deployment or false completed change.
+- [x] Update HMS/plan/ledger same change with actual RED/GREEN/review/results and open distinctions; push normally/verify full remote SHA and exact successful CI.
+- [x] Freeze/review source-only preview procedure using actual source delta and retainedFalse environment; rehearse keys/backup/prior compatibility isolated. Never invoke live business/admission or enable flag for smoke. No schema/dependency/UI changes expected, but verify actual delta.
+- [x] Reviewed preview rollout/live existing behavior/rate+business preservation and postbackup restore; preserve other apps/security/owner state. Final documentation record commit/push/remote verification follows during coordinator closeout, separate from this completed runtime gate. If usage<=10stop/checkpoint330minutes; no partial WIP deployment or false completed change.
 
 B2b code is not B2 acceptance until Task3 passes;4 metadata HTTP operations stay planned through B2. B3 transport/CSRF/no-store/API acceptance, ingestion/UI, browser/staff/owner-phone/full hospital release remain separate.
 
@@ -143,3 +143,7 @@ Coordinator added the private pure encoder signature above before production, so
 ## Source verification disposition —3 November2026
 
 [Measured evidence](../operations/document-business-source-evidence-2026-11-03.json):4review regressionsGREEN,153business/1SQLite-onlyskip,1683fullPG/7skips/168subtests/check0/nodrift. Fresh source/test review found no new Critical/Important issue. All four actual query properties retained/inspected, no capacity guarantee. ExactpublicationCI and reviewedpreview/live/restore records remain pending; no HTTP/activation/release completion inferred.
+
+## Executed preview disposition —3 November2026
+
+[Actual evidence](../operations/document-business-preview-evidence-2026-11-03.json) closes narrow internalservice source/CI/preview/live/restore gates:260eeb9/core0009/False/233files/2workers. Prior833 compatibility retains nonempty business/rate tables in isolated copy; live never invokes services. B3 HTTP/activation/ingestion/UI/staff/fullrelease are not completed by these boxes. Finaldocrecord publication remoteSHA is verified in coordinator closeout.

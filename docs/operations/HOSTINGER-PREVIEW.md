@@ -1,10 +1,14 @@
 # Hostinger HMS preview
 
-Status: latest implemented source deployed1November2026, release833ffc67/core0009; original preview established23October. No hospital production cutover. URL: https://hms.praritsidana.com . Owner authorised this environment. The28October04:54UTC continuation lifted the prior manualhold without a waiver; the later07:17:44UTC explicit ownerCONTINUE waived ONLY the10:40:38UTC cooldown deadline with authenticated99primary/100weekly remaining. No resetcredit consumed. The23October deployment-only waiver is historical.
+Status: latest implemented source deployed3November2026, release260eeb9/core0009/flagFalse; original preview established23October. No hospital production cutover. URL: https://hms.praritsidana.com . Owner authorised this environment. The28October04:54UTC continuation lifted the prior manualhold without a waiver; the later07:17:44UTC explicit ownerCONTINUE waived ONLY the10:40:38UTC cooldown deadline with authenticated99primary/100weekly remaining. No resetcredit consumed. The23October deployment-only waiver is historical.
+
+## Current audited business-service rollout —3 November2026
+
+Application260eeb9/core0009/False now runs at `/opt/hms/releases/preview-20261103-260eeb9`. [Measured evidence](document-business-preview-evidence-2026-11-03.json):233canonicalfiles/two workers/noDDL/34table zero-row switch and exactpostrestore/key, two isolated cloned proofs/prior833compatibility, live no-admission/business invocation and unchanged fourmetadata tables, boundedauthfield deltas, preserved48otherconfigs18containers/HBA/env/keys/static. SourceCI41602149023 all3jobsSUCCESS; separate root1683PG/7skips/168subtests. Four metadata HTTPoperations/UI/browser/staff/phone/fullrelease stayopen. Dated sections below are historical; docs-only updates do not restart this app.
 
 ## Documentation reconciliation —2 November 2026
 
-The current runtime table below reflects the latest recorded1November deployment, not a fresh runtime attestation today. Historical rollout sections preserve prior source/schema/counts. This documentation-only update does not restart the app, change keys/policy, consume recovery codes or perform new live smoke checks. The latest full source CI1530PG/6skips/168subtests/132frontend and restore/security evidence supersede the initial48PG/11frontend snapshot.
+Historical2November reconciliation reflected the then-latest1November deployment; the current runtime table is now updated by the3November measured rollout above. Historical rollout sections preserve prior source/schema/counts. This documentation-only update does not restart the app, change keys/policy, consume recovery codes or perform new live smoke checks. At that historical reconciliation, source CI1530PG/6skips/168subtests/132frontend superseded the initial48PG/11frontend snapshot. Current3November evidence and separate root1683PG verification are recorded above.
 
 ## Latest durable admission rollout —1 November 2026
 
@@ -38,7 +42,7 @@ This version contains login/MFA/account security, dashboard, patient registratio
 
 | Resource | Dedicated HMS value |
 |---|---|
-| Root/source | `/opt/hms`, `/opt/hms/releases/preview-20261101-833ffc6`, `/opt/hms/current` symlink |
+| Root/source | `/opt/hms`, `/opt/hms/releases/preview-20261103-260eeb9`, `/opt/hms/current` symlink |
 | User/service | `hms-preview`, `hms-preview.service` |
 | Backend | Python3.12 virtualenv `/opt/hms/releases/venv-20261026`, Gunicorn26.2.0, two workers, loopback127.0.0.1:8185 |
 | Static app | `/opt/hms/static`, React production build; no Vite/runserver exposure |
