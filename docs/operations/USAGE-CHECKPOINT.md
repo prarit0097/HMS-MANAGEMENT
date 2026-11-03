@@ -1,17 +1,25 @@
 # Usage-aware HMS continuation
 
-State: COOLDOWN
+State: ACTIVE
 checkpoint_at_utc: 2026-11-02T04:20:43Z
-resume_not_before_utc: 2026-11-02T09:50:43Z
+resume_not_before_utc: none (2November deadline elapsed; historical stop retained)
 owner_resume_at_utc: 2026-11-02 (explicit NOW CONTINUE; predates fresh stop)
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330 (fresh2November stop; prior28October history retained)
 automation_runtime_status_at_2026_11_02T04_20Z: ACTIVE (same heartbeat updated under standing cooldown rule after explicit owner NOW CONTINUE)
 automation_runtime_status_at_2026_11_01T12_54Z: PAUSED (existing persisted status preserved)
 latest_authenticated_usage_at_utc: 2026-11-02T04:20:43Z
-latest_authenticated_remaining: primary10percent weekly44percent
+latest_authenticated_remaining: primary85percent weekly37percent (3November bounded check)
 latest_verified_application_source: 833ffc67b1d2f0cc0ffcd1b228d2afa33023154c
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## Audited metadata business services source verified —3 November2026
+
+Scheduled continuation authenticated primary98%/weekly39% remaining after the saved2November09:50:43UTC cooldown elapsed; subsequent85%/37%, no waiver/reset credits. Fresh review verified the prior creator403-before-receipt409 and patient-scoped intent-lock fixes with no new Critical/Important finding. Actual four regression tests now4pass3.63s. The corrected lost-ack test and full154-case business suite passed153/1SQLite-onlyskip59.00s, including real races/LOCAL controls/constraint/final-selection and labelled acknowledgement fault cases. Root final isolated TLS PostgreSQL17.11 backend:1683pass/7SQLite-onlyskips/168subtests181.11s, check0/no migration drift. Helper/container/network removed/15549closed/live service active. Root19tests21.965s and15edge-source tests0.180s passed.
+
+Implemented narrow B2b: four raw-input services, current exact-branch authority, serialized quota/idempotent receipt/state logic, mandatory disclosure events and bounded detached JSON after known phase-B commit; three fixed409 errors and generic429retry ceiling3600. Admission/B1/schema/settings/grants/HTTP/OpenAPI/frontend runtime remain unchanged. Four JUnit EXPLAIN properties were retained and inspected on31060synthetic rows; timings active20=0.080ms, rolling1000=0.918ms, firstkeyset=0.093ms,nextkeyset=0.087ms. These measurements are not capacity promises. Known isolated maintenance fallback/intentional settings warnings and xunit2 property warnings are recorded; properties actually exist.
+
+See [source evidence](document-business-source-evidence-2026-11-03.json) and [query plans](document-business-query-plans-2026-11-03.json). This supersedes the old WIP verification status, not historical RED/stop evidence. Exact completed-source push/CI and [reviewed source-only preview rollout](../implementation/document-business-preview-rollout-plan.md) remain pending. Recorded live833ffc67/core0009/effectiveFalse is still separate; no new code deployment, live business/admission invocation or activation occurred. B3 four HTTP operations/ingestion/UI/browser/staff/phone/full release remain open.
 
 ## Fresh usage stop and business-service WIP —2 November2026
 

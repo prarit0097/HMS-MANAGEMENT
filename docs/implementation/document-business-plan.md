@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: coordinator-selected subagent-driven-development or executing-plans, TDD, systematic debugging, review and verification. Root alone assigns, freezes, commits/pushes and changes VPS. Shared-checkout ownership is explicit; no duplicate team.
 
-**Status:** 2 November 2026, FROZEN B2b DESIGN after three independent contract/transaction/scenario-test reviews and coordinator reconciliation. USAGE-STOPPED: partial implementation/initial actualPG148pass1fixturefail;2Important corrections present but unverified after4RED. No B2b acceptance/deployment.
+**Status:** 2 November 2026, FROZEN B2b DESIGN after three independent contract/transaction/scenario-test reviews and coordinator reconciliation. Source verified3November:1683PG/7SQLite-skips/168subtests/check0/nodrift; exactCI/reviewedpreview still pending.
 
 **Goal:** Implement four independently testable, audited metadata business services using completed B2a admission; no HTTP, UI, ingestion, storage or activation.
 
@@ -104,17 +104,17 @@ Before marking body_completed, reject connection.needs_rollback/closed_in_transa
 
 ### Task2 — minimal coherent engine
 
-- [ ] Implement the four wrappers/private phaseB engine and pure helpers plus exact error amendment. Consume completed B1/B2a unchanged. Run targeted GREEN/check/no drift.
-- [ ] Independent source/scenario/security review; material findings get reproducing RED before fixes.
+- [x] Implement the four wrappers/private phaseB engine and pure helpers plus exact error amendment. Consume completed B1/B2a unchanged. Run targeted GREEN/check/no drift.
+- [x] Independent source/scenario/security review; material findings get reproducing RED before fixes.
 
 ### Task3 — actual service acceptance (B2c gate)
 
 Write/run these actual-service race/fault REDs before the corresponding production behavior; this is not test backfilling after GREEN.
 
-- [ ] Distinct-connection both-order staff replacement/suspension/identity epoch+deactivation/first-profile races, actual same-key command/withdraw/list-replay state races, final patient/org quota-slot contention and Patient PATCH/bed allocation lock order. Observe pg_blocking_pids, bounded no40P01 and committed rows/events.
-- [ ] Actual2s/3s/5s controls/reset, intent/receipt/event/deferred constraint rollback, final exact expiry/session/network waits and original-budget exhaustion; separately labelled true commit/rollback then simulated lost ACK, normal rollback-only exit, fresh connection/keyed reconciliation.
+- [x] Distinct-connection both-order staff replacement/suspension/identity epoch+deactivation/first-profile races, actual same-key command/withdraw/list-replay state races, final patient/org quota-slot contention and Patient PATCH/bed allocation lock order. Observe pg_blocking_pids, bounded no40P01 and committed rows/events.
+- [x] Actual2s/3s/5s controls/reset, intent/receipt/event/deferred constraint rollback, final exact expiry/session/network waits and original-budget exhaustion; separately labelled true commit/rollback then simulated lost ACK, normal rollback-only exit, fresh connection/keyed reconciliation.
 - [ ] PG17 EXPLAIN(ANALYZE,BUFFERS) on isolated synthetic3orgs/60patients-per-org/at least30000 retained intents including large expired history; bounded active20/org1000/keyset101 queries each under statement3s. Save dataset/plan/rows/buffers/timing, not a capacity claim. Timeout503 verified. No speculative index/denormalised ledger; observed failure requires reviewed schema amendment.
-- [ ] Full actual isolatedPG regressions/check/no drift, portable rules/boundaries and required contract/docs/root checks; no new frontend change implies no new UI acceptance.
+- [x] Full actual isolatedPG regressions/check/no drift, portable rules/boundaries and required contract/docs/root checks; no new frontend change implies no new UI acceptance.
 
 ### Task4 — publication and gated preview rollout
 
@@ -139,3 +139,7 @@ Coordinator added the private pure encoder signature above before production, so
 ## Incomplete checkpoint —2 November2026
 
 [WIP receipt](../operations/document-business-checkpoint-2026-11-02.json) records the fresh10percent stop/deadline, initialtargeted148PGpass/1fixturefail and4source-reviewREDs with unverifiedfixes. No implementation/review/actualfullsuite/CI/rolloutcheckbox isclosedbythischeckpoint. Startafterdeadline/allwindows>10with4regressionGREEN, scopedreview, correctedlostACK/full154suite+JUnitplans andfullregressions. Do notdeployWIP.
+
+## Source verification disposition —3 November2026
+
+[Measured evidence](../operations/document-business-source-evidence-2026-11-03.json):4review regressionsGREEN,153business/1SQLite-onlyskip,1683fullPG/7skips/168subtests/check0/nodrift. Fresh source/test review found no new Critical/Important issue. All four actual query properties retained/inspected, no capacity guarantee. ExactpublicationCI and reviewedpreview/live/restore records remain pending; no HTTP/activation/release completion inferred.

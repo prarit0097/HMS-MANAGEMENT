@@ -1,0 +1,62 @@
+{
+  "status": "B2b/B2c narrow internal service source verified; exact publication CI and preview rollout pending",
+  "date": "2026-11-03",
+  "production_sha256": {
+    "backend/apps/core/document_services.py": "df5f96d8aa187f57552c890ad2247cddbfbaadf410a491642faee1465722054a",
+    "backend/apps/core/document_authority.py": "f4de2e75bb32be7df310f3e48ad563b44dfb36d2ed78fdc4d62499df1ff97226",
+    "backend/apps/core/document_access.py": "04cae8ba3003b08d9369d40de8d079339590907b6fb783b8ead90a9ad7efde2d"
+  },
+  "resume": "Authenticated primary98/weekly39 remaining after saved2November09:50:43UTC deadline elapsed; no waiver/reset credit. Subsequent85/37.",
+  "red": "Original133expected failures10pass1skip actualPG before implementation; prior4security regressions RED2.27s before minimalfixes.",
+  "verification": {
+    "four_review_regressions": {
+      "passed": 4,
+      "deselected": 34,
+      "seconds": 3.63
+    },
+    "business_actual_pg": {
+      "passed": 153,
+      "sqlite_only_skipped": 1,
+      "seconds": 59.0
+    },
+    "full_actual_pg": {
+      "passed": 1683,
+      "sqlite_only_skipped": 7,
+      "subtests": 168,
+      "seconds": 181.11,
+      "check": 0,
+      "migration_drift": false
+    },
+    "root_tests": {
+      "passed": 19,
+      "seconds": 21.965
+    },
+    "edge_source_tests": {
+      "passed": 15,
+      "seconds": 0.18
+    },
+    "query_plans": "document-business-query-plans-2026-11-03.json",
+    "warnings": [
+      "isolated maintenance postgres unavailable; only receipt-owned app DB fallback",
+      "four intentional DATABASES override warnings",
+      "two xunit2 record_property warnings; all four properties verified retained"
+    ]
+  },
+  "independent_review": "Fresh read-only source/spec/security and static test review: no new Critical/Important defect; prior creator403 ordering and scoped intent-lock predicates verified.",
+  "cleanup": "Receipt-owned ephemeral PG/container/network removed,15549closed, live service active at end. No live admission/business/flag/policy/schema change.",
+  "scope": [
+    "four raw-input wrappers consume one fresh admission each",
+    "second durable transaction current scope, quotas/replay, required disclosure audit",
+    "detached bounded JSON only after known commit; uncertain acknowledgement failclosed",
+    "three safe409 errors and generic429constructor ceiling3600, actual actor limiter unchanged"
+  ],
+  "unchanged": [
+    "B1/admission/models/migrations/settings/grants/routes/OpenAPI/page-actions/frontend runtime/dependencies/infra"
+  ],
+  "open": [
+    "exact push/CI",
+    "reviewed source-only preview rollout and cloned business/rollback proofs",
+    "live preservation/postbackup restore and MD record",
+    "B3 HTTP/ingestion/UI/browser/staff/phone/full hospital release"
+  ]
+}
