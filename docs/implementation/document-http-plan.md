@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: coordinator uses subagent-driven-development or executing-plans, test-driven-development, review and verification task by task. Root alone Git/VPS. Disjoint tests may run in batches within available slots; no duplicate team.
 
-**Status:** 3 November2026, FROZEN B3 implementation contract after three independent contract/security/test reviews, scoped parser/precedence/schema review and concrete ingress-design review. Root chose the bounded rules below. Full schema CI, executable RED, implementation and actual runtime acceptance remain pending; no HTTP capability is delivered by this freeze.
+**Status:** 3 November2026, FROZEN B3 implementation contract after three independent contract/security/test reviews, scoped parser/precedence/schema review and concrete ingress-design review. Root chose the bounded rules below. ContractCI/executableRED completed;4November adapter/framingWIP is usage-stopped after weekly10. FinalcorrectedPG/fullbackend/source/runtime acceptance remain pending; no released HTTP capability is delivered by this checkpoint.
 
 **Goal:** Expose the four already-catalogued registration metadata operations through strict authorised HTTP adapters over completed B1/B2a/B2b, without UI, bytes, storage or activation.
 
@@ -134,3 +134,19 @@ This root freeze reconciles existing owner-authorised four-operation scope. Thre
 ## Initial executable RED disposition —3 November2026
 
 Plan64e5234 exactCI41607310566all3success includesfullOpenAPIvalidator; schema/map/linkchecksclosed. [Initial39case receipt](../operations/document-http-initial-red-2026-11-03.json):32portableFAIL/1pass/6PGskip and38actualPGFAIL/1pass/0errors8.16s, allabsentroutes. Task2fullmatrix/fixture-review/rawCSRF/harnesssafety tests remainincomplete. Lifecyclecumulativeallowance requires per-call/minute-boundary precision before GREEN. No production source/route/harness is implemented; do not treat thischeckpoint as deployable or source-complete.
+
+## Pre-production test seams —4 November2026
+
+Adapter module binds capture_document_context plus the four frozen public service function names for independent HTTP transport spies. Spies must wrap genuine capture/session authority, never inject invented contexts; injected service result/error cases are explicitly adapter-only, not business acceptance. Complete these tests and literal RED before production. Scheduledresume95primary20weekly afterelapseddeadline, noreset.
+
+Pinned additional seams before production: `DocumentOpaqueParser`, `DocumentSessionAuthentication`; `DocumentTransportError(code,status,message)` has validated fixed tuple and `.code/.status/.message` attributes (invalid tuple raises ValueError). Supported GET capture inspects/cache-replays only at most1 byte even if declared length is large; actual nonempty-body rejection follows context in the supported handler. POST/non-GET resource limits keep their explicit pre-auth safety exception.
+
+Framing runner exports pure `validate_config(config)` (reuse existing exact helper validation), `render_document_nginx(root)` and `framing_observation(environ)` plus literal PREFIX/SOURCE. Pure renderer refuses live/old paths and uses fixed isolated ports/2s timeout. Observation returns a bounded dictionary of fixed scenario/framing classifications with zero input read/readline, never arbitrary header/cookie/body data. Eight source/config/render/privacy tests produced literal absent-runner RED before code; these are initial safety coverage, not complete lifecycle/protocol acceptance.
+
+## Expanded pre-code RED —4 November2026
+
+Three disjoint test owners expanded contract162→168cases, real-CSRF114cases and actualPG47cases, total329. Static review corrected28 malformed-JSON cases to actualPG-only because unchanged admission dependency guard precedes B1 parsing on SQLite; no duplicate adapter JSON parser. Added genuine capture spies for all unsupported-method route operations, scoped fixture/minute-boundary per-call observation and old-source-path renderer guard. Final portable215FAIL/1pass/113PGskips9.59s; final isolatedTLS PG17.11 328FAIL/1pass40.04s, helper/container/network cleaned/15549closed/live active. Framing8literalFAIL0.009s absent runner. Initial raw parser/query/error/service handoff and HTTP business fault coverage is now executable before production; actual runtime/process/protocol acceptance remains open. No production module/route/runner existed when these RED results were observed.
+
+## Weekly-stop implementation disposition —4 November2026
+
+[ExactWIPreceipt](../operations/document-http-checkpoint-2026-11-04.json) pins source/testhashes, precode328PGRED/1pass, initial329PGGREEN and two post-review fixes with224portableGREEN113skip. Final337PG/fullbackend and actualframingprocess/protocol gates remainunrun. Framingownerinterruptedatweekly10stop04:39:52UTC; earliestresume10:09:52UTC/allwindows>10. DoNOTdeployWIPor infer APIimplementationstatus from passing portable subsets. Root owns finalreview/protocol/sourceCI/rollout.

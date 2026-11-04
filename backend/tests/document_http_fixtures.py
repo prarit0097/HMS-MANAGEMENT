@@ -1,11 +1,14 @@
 """Synthetic genuine-session setup; supplies no document authority shortcuts."""
 from types import SimpleNamespace
 import json
+from contextlib import contextmanager
+from datetime import timezone as datetime_timezone
 from uuid import uuid4
 
 import pytest
 from django.contrib.auth import get_user_model
 from django.core.cache import cache
+from django.utils import timezone
 from rest_framework.test import APIClient
 
 from apps.core.models import Branch, Membership, Organisation, Patient
@@ -51,15 +54,33 @@ def route(workspace, shape):
     return detail if shape == 'detail' else detail + 'withdraw/'
 
 
-def request(workspace, method, shape='collection', *, data=None, key=None, csrf=True):
+def request(workspace, method, shape='collection', *, data=None, key=None, csrf=True, query=''):
     headers = {'HTTP_IDEMPOTENCY_KEY': key or str(uuid4())}
     if csrf:
         headers['HTTP_X_CSRFTOKEN'] = workspace.client.cookies['csrftoken'].value
     body = data if data is not None else (WITHDRAW_BODY if shape == 'withdraw' else CREATE_BODY)
     if method not in ('POST', 'PUT', 'PATCH', 'DELETE'):
         body = b''
-    return workspace.client.generic(method, route(workspace, shape), data=body,
+    return workspace.client.generic(method, route(workspace, shape) + query, data=body,
         content_type='application/json', **headers)
+
+
+@contextmanager
+def one_allowance(workspace):
+    """Observe real persisted admission, including a UTC minute reset per call.
+
+    No authority/rate decision or clock is replaced. Callers separately check
+    response and business/audit effects; a reset must still persist exactly one.
+    """
+    from apps.core.models import DocumentMetadataRateWindow
+    rows = DocumentMetadataRateWindow.objects.filter(actor=workspace.user)
+    before = rows.values_list('window_started_at', 'admitted_count').first()
+    started = timezone.now().astimezone(datetime_timezone.utc).replace(second=0, microsecond=0)
+    yield
+    finished = timezone.now().astimezone(datetime_timezone.utc).replace(second=0, microsecond=0)
+    window, count = rows.values_list('window_started_at', 'admitted_count').get()
+    assert started <= window <= finished
+    assert count == (before[1] + 1 if before and before[0] == window else 1)
 
 
 def metadata_counts():

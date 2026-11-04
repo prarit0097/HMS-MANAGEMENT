@@ -1,0 +1,81 @@
+{
+  "status": "INCOMPLETE B3 WIP checkpoint; mandatory weekly usage stop; NOT deployable or final source acceptance",
+  "checkpoint_at_utc": "2026-11-04T04:39:52Z",
+  "resume_not_before_utc": "2026-11-04T10:09:52Z",
+  "authenticated_remaining": {
+    "primary": 36,
+    "weekly": 10
+  },
+  "reset_credit_consumed": false,
+  "frozen_plan": "64e52342cd06749bab9c99971e66278672da399e / OpenAPI0.7.1",
+  "production_and_test_sha256": {
+    "backend/apps/core/document_api.py": "b2c2a1c682a822ebbe14a9c89cbb4b0e50c3a4e4314acf94d9c8b6dca5162f82",
+    "backend/hms/urls.py": "7b7ab1a29acf4a426ca1898a5d126299b3fe35dcf983e9831e05ab8af148f62f",
+    "backend/tests/document_http_fixtures.py": "df1efa2dcc16a901b34088484809091f483cf29b002e3e26764dfd43103e5815",
+    "backend/tests/test_document_metadata_http_contract.py": "5154fa09ea9941bfa1fdf43312a998d50e7a5a5e015035641cd1d15f65270dcf",
+    "backend/tests/test_document_metadata_http_csrf.py": "ca47033c8cbc908add57dd8a996e1edf6c46264acfd88040cbd35bf49ab19688",
+    "backend/tests/test_document_metadata_http_pg.py": "844be848342aba76a00fea1ef19f347c98bc5ce27d9a8bbd55b8bc8bad4c4ee9",
+    "infra/edge/tests/validate_document_framing.py": "45411580b6dfce032a5780cd415d8567ba4f773595546f2b737d31fe96cd83f5",
+    "infra/edge/tests/test_document_framing_source.py": "95398253aab83ee899fa33e8b873c9bc0dd32b1eff5fe5426219d92403ddf421"
+  },
+  "precode_red": {
+    "portable_final": "215FAIL/1pass/113PGskips9.59s",
+    "actual_tls_pg17_11": "328FAIL/1pass/0errors40.04s; no production module/routes existed at measurement",
+    "actual_failure_classifications": {
+      "absent_route404": 198,
+      "absent_route_html": 6,
+      "missing_module": 66,
+      "multipart_parser_tripwire_before_adapter": 4,
+      "missing_allowance_due_absent_api": 21,
+      "old_window_not_reset_due_absent_api": 1,
+      "explicit_absent_adapter_assertion": 32
+    },
+    "framing_safety": "8literalFAIL0.009s absent runner"
+  },
+  "precode_test_review": "Static review corrected malformed-JSON transport tests to actualPG-only because existing dependency guard precedes B1 parsing; added unsupported-method genuine-operation capture spies, per-call minute-safe allowance observation and old-source renderer path guard. No fabricated authority/clock/rate decision.",
+  "implementation_wip": {
+    "adapter": "document_api.py +3strroutes only; bounded opaque parsing/realCSRF/context/exact servicebytes/localfixederrors andheaders",
+    "framing_runner": "new isolated validation source, never run on Linux/VPS; worker interrupted at usage threshold during self-review",
+    "unchanged": "B1/B2a/B2b/models/migrations/settings/grants/OpenAPIimplementation statuses/frontend/live runtime"
+  },
+  "actual_green_before_review_corrections": {
+    "targeted_http_pg_passed": 329,
+    "warnings": 1,
+    "seconds": 46.35,
+    "adapter_sha256": "74a921446226579c38a15bfa9b1723f60bcfb819709e3123ee2788cc92f766cf",
+    "candidate_path": "/opt/hms/validation/http-20261104-green1",
+    "cleanup": "Receipt-owned helper/container/network removed15549closed/live service active"
+  },
+  "review_findings": [
+    {
+      "finding": "early framing error omitted route-specific Allow",
+      "reproduced": "part of8portableRED3.14s",
+      "fix": "minimalfix present;8subsetGREEN2.84s, finalportable224pass113skip14.81s; actualPG afterfix NOT run"
+    },
+    {
+      "finding": "TooManyFieldsSent became dependency503 instead of input400",
+      "reproduced": "part of8portableRED3.14s",
+      "fix": "typedmapping only, no genericValueError weakening; finalportableGREEN as above"
+    }
+  ],
+  "latest_framing_unit_result": "Worker-reported8pureGREEN0.248s; root did not rerun after stop. Actual CLI/process/protocol acceptance unexecuted.",
+  "known_runner_review_items": [
+    "Worker says H2missingCL case rejects even when proxy might canonicalise valid4096; reconcile with frozen delivered-length rule before execution. Do not silently weaken ambiguities.",
+    "Source/candidate-manifest.json must be complete canonical relativepath->SHA256, root-owned0600; worker says runtime verifier excludes manifest only and disables bytecode. Review exact staged state/manifest before run.",
+    "Private fixed framing report path must not preexist; newSOURCE/runtime prefix contracts and owned process cleanup require independent review before Linux run."
+  ],
+  "cleanup_and_team": "All test processes finished; last actual PG helper removed and existing service active. Framing implementer interrupted immediately at weekly10; other specialists completed. No harness/edge process launched.",
+  "recorded_live": {
+    "source": "260eeb9a6ed3b1af8824ef821cfc23205bde4d2b",
+    "schema": "core0009",
+    "metadata_enabled": false,
+    "new_deployment": false
+  },
+  "next": [
+    "After deadline and allwindows>10, read currentGitCI/checkpoint and exactWIPsource; do not repeat completedfoundation/businessrollout.",
+    "First scoped post-fixreview and final337HTTP actualPG on currentadapter, then fullbackend/check/no drift. Prior329PG is pre-review-fix evidence only.",
+    "Independently review remaining framing source/knownH2fixture rule, then root-only isolatedactualHTTP1.1/H2 protocol/config/process/cleanup acceptance. No live configuration or policy changes to force tests.",
+    "Only after source/protocol/fullregression/review/exactpushCI gates, reconcile fourOpenAPIimplementation statuses and reviewedsource-onlypreviewrollout/livepreservation/postbackuprestore/MDrecords.",
+    "B3UI/ingestion/storage/scanner/browser/staff/phone/clinical/finance/MCP/dataops/fullhospitalrelease remain open."
+  ]
+}

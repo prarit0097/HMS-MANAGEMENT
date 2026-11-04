@@ -1,6 +1,7 @@
 from django.urls import path
 from apps.core import api
 from apps.core import resource_admin
+from apps.core.document_api import DocumentCollectionView, DocumentDetailView, DocumentWithdrawView
 urlpatterns = [path('api/v1/health/', api.health), path('api/v1/auth/csrf/', api.csrf), path('api/v1/auth/login/', api.Login.as_view()), path('api/v1/auth/logout/', api.Logout.as_view())]
 urlpatterns += [path('api/v1/auth/me/', api.me), path('api/v1/branches/', api.branches), path('api/v1/patients/', api.PatientList.as_view()), path('api/v1/patients/<uuid:pk>/', api.PatientDetail.as_view()), path('api/v1/appointments/', api.AppointmentList.as_view()), path('api/v1/appointments/<uuid:pk>/', api.AppointmentDetail.as_view()), path('api/v1/beds/', api.BedList.as_view()), path('api/v1/admissions/', api.AdmissionList.as_view()), path('api/v1/dashboard/', api.dashboard), path('api/v1/platform/summary/', api.platform_summary)]
 urlpatterns += [
@@ -37,4 +38,10 @@ urlpatterns += [
     path('api/v1/platform/network-policy/changes/<str:change_id>/revert/', NetworkView.as_view(action='revert')),
     path('api/v1/platform/network-policy/history/', NetworkView.as_view(action='history')),
     path('api/v1/network-policy/edge-probe/', EdgeProbe.as_view()),
+]
+
+urlpatterns += [
+    path('api/v1/patients/<str:patient_id>/documents/', DocumentCollectionView.as_view()),
+    path('api/v1/patients/<str:patient_id>/documents/<str:document_id>/', DocumentDetailView.as_view()),
+    path('api/v1/patients/<str:patient_id>/documents/<str:document_id>/withdraw/', DocumentWithdrawView.as_view()),
 ]

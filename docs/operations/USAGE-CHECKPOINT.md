@@ -1,17 +1,33 @@
 # Usage-aware HMS continuation
 
 State: COOLDOWN
-checkpoint_at_utc: 2026-11-03T09:03:44Z
-resume_not_before_utc: 2026-11-03T14:33:44Z
+checkpoint_at_utc: 2026-11-04T04:39:52Z
+resume_not_before_utc: 2026-11-04T10:09:52Z
 owner_resume_at_utc: 2026-11-02 (explicit NOW CONTINUE; predates fresh stop)
 automation_id: continue-hms-after-usage-cooldown
-automation_interval_minutes: 330 (fresh3November stop; all prior history retained)
+automation_interval_minutes: 330 (fresh4November weekly stop; all prior history retained)
 automation_runtime_status_at_2026_11_02T04_20Z: ACTIVE (same heartbeat updated under standing cooldown rule after explicit owner NOW CONTINUE)
 automation_runtime_status_at_2026_11_01T12_54Z: PAUSED (existing persisted status preserved)
-latest_authenticated_usage_at_utc: 2026-11-03T09:03:44Z
-latest_authenticated_remaining: primary9percent weekly26percent
+latest_authenticated_usage_at_utc: 2026-11-04T04:39:52Z
+latest_authenticated_remaining: primary36percent weekly10percent
 latest_verified_application_source: 260eeb9a6ed3b1af8824ef821cfc23205bde4d2b
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## Fresh weekly usage stop and HTTP implementation WIP —4 November2026
+
+Authenticated at2026-11-04T04:39:52UTC:36%primary/10%weekly remaining. NEW mandatory stop; no implementation/review/assignment/deployment before2026-11-04T10:09:52UTC (4November3:39:52PM IST), then only available all applicable windows>10. Earlier4November resume followed the elapsed3November deadline and predates this fresh stop; historical stops/resumes remain, no resetcredit/waiver. Framing engineer interrupted at threshold; other specialists finished, no running test team. Same heartbeat330minutes best effort, never extend this deadline from repeated low readings.
+
+Completed before stop: expanded329-case HTTP suite, genuine per-call/minute-safe allowance observer and frozen raw-CSRF/transport/scope/replay/audit/ACK coverage. Portable corrected precode215RED/1pass/113skip9.59s; actual isolatedTLS PG328RED/1pass/0errors40.04s before adapter production. Eight framing safety tests literalRED absent runner. Test review corrected28 JSON cases to PG-only and added genuine unsupported-method operation spies. Exact test failures/evidence are in the [recoverable WIP receipt](document-http-checkpoint-2026-11-04.json).
+
+WIP adapter/3routes then passed329actualPG46.35s (one known isolatedmaintenanceDBfallback warning), helper/container/network removed15549closed/live active. Independent source review found two contract issues: missingAllow on early framing error and TooManyFieldsSent503 instead of400; root reproduced8RED3.14s, minimal fixes passed8GREEN2.84s and finalportable224pass/113PGskip14.81s. Final337actualPG/fullbackend on these correctedbytes is NOT run. Framing runner source exists; worker reported8pureGREEN0.248s but Linux/protocol/process/cleanup acceptance and independent source review remainOPEN. KnownH2missingCL expectation must be reconciled with the frozen canonical-delivered-length rule before execution; do not weaken strict ambiguous-framing gates.
+
+This is incomplete, NOT a completed/deployable B3/API release. OpenAPI fourHTTP statuses stayplanned, although WIProutes nowexist. No live source/flag/admission/business/policy/schema change; recordedpreview260eeb9/core0009/False remains separate. No newframing process was launched; existing previewservice active. First resume: scopedpostfixreview/final337PG/fullbackend, independentframingreview/knownH2fixture and actualisolatedHTTP1.1/H2 evidence, then exactCI/reviewedHMSpreview/live/restore/MD. No repeatB1/B2a/B2b/bootstrap/schema/rollout. Fullingestion/UI/browser/staff/phone/hospitalrelease remainopen.
+
+## Scheduled HTTP test continuation —4 November2026
+
+At2026-11-04T04:24:32UTC authenticated remaining95%primary/20%weekly after the saved3November14:33:44UTC deadline elapsed. No waiver/resetcredit; historical stop retained. Latest checkpoint6d700db exactCI41608152189 FAILURE is expected for tests-only missing routes, not a verified source release. Clean checkout and no running team at entry. Resume frozenB3 remaining test matrix/fixture review before production; no repeat completed internalservices/rollout. Current live remains recorded260eeb9/core0009/False, not freshly reattested by this note.
+
+Three disjoint test owners cover existing contract file, new real-CSRF/raw body file, and shared fixture+actualPG file. Coordinator retains Git/VPS/records and remaining framing safety gates. No production adapter/route or live operation is authorised by a failing-test result alone. Subsequent usage boundaries still enforce anywindow<=10 stop/330minutes; weekly20% is a real budget constraint, not presumed100%.
 
 ## Fresh usage stop with initial HTTP RED checkpoint —3 November2026
 
