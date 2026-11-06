@@ -1,7 +1,19 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.48.0 | Updated: 4 November 2026, Asia/Calcutta
+Document version: 1.49.0 | Updated: 6 November 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
+## B3 source and actual ingress accepted —6 November2026
+
+Continuation after the elapsed4November cooldown authenticated94primary85weekly on5November; after host continuation6November14:07:26UTC authenticated94primary76weekly, no new cooldown/waiver/resetcredit. Historical stop retained. Corrected HTTP adapter source passed337actualTLS PG17.11 cases37.08s and full2020pass/7explicitSQLite-onlyskips/168subtests157.00s, Django check0/no drift; helper/container/network removed15549closed/live active. Independent adapter source review clear; focused39/76local checks overlap, not added to backend totals. Root19projecttests10.262s.
+
+Framing review reproduced six safety defects plus process-group closure, nested-result shape, child inherited signal mask and safePATH; literal RED/GREEN is saved in [validation](docs/operations/document-http-validation-2026-11-05.json). Root38pureedge2.005s/independent38pure3.315s. Corrected runner then passed98actualisolated Nginx1.24/Gunicorn26.2/TLS PG17.11 HTTP1.1/HTTP2 checks with47fixed observations and complete247file manifest783bcb1e4642879cc0c971a201fe8eae35ff49e9c42800f57b3f3455f5e2c061. [Actual ingress receipt](docs/operations/document-http-framing-evidence-2026-11-06.json) proves ordinary reception real session/CSRF/four-operation lifecycle, finite4096success/4097=>413, ambiguous headers400/no effects, malformed/incomplete denial and owned process/listener/runtime/DB cleanup. Chunked and missing-client-lengthH2 were delivered canonical4096 and201; valid first entity also201/may commit. These scoped observations are not hidden-byte rollback or complete protocol-security certification.
+
+OpenAPI/page map0.7.2 now50sourceimplementedHTTP/zero planned, separately synthetic-source-verified-not-deployed for four B3 operations, no R04 controls/ingestion/activation. New [source-only rollout amendment](docs/implementation/document-http-preview-rollout-plan.md) received independent ops review; concrete helpers/exact source pushCI/restored HTTP clones/prior260 compatibility/live preservation/postrestore remainOPEN. Current recorded restricted preview260eeb9/core0009/False remains unchanged; no live document/admission/business/flag/schema/policy operation. Every completed code still requires reviewed preview rollout; this source acceptance is not deployed/full HMS completion.
+
+## Scheduled B3 validation resumed —5 November2026
+
+At2026-11-05T07:41:04UTC scheduled continuation authenticated94%primary/85%weekly remaining after saved4November10:09:52UTC deadline elapsed. No waiver/resetcredit; original weekly stop/history retained. HEAD8baa374 exactCI41774931456 SUCCESS observed by run head/conclusion (job details and logs not yet checked). Clean checkout and no running team at entry. Resume post-fix adapter review/final337HTTP actualPG/fullbackend and independent framing safety review before any protocol execution. Current live remains recorded260eeb9/core0009/False; no rollout or live command invocation. FourHTTP statuses remainplanned until frozen acceptance gates close.
+
 ## Fresh weekly usage stop and HTTP implementation WIP —4 November2026
 
 Authenticated at2026-11-04T04:39:52UTC:36%primary/10%weekly remaining. NEW mandatory stop; no implementation/review/assignment/deployment before2026-11-04T10:09:52UTC (4November3:39:52PM IST), then only available all applicable windows>10. Earlier4November resume followed the elapsed3November deadline and predates this fresh stop; historical stops/resumes remain, no resetcredit/waiver. Framing engineer interrupted at threshold; other specialists finished, no running test team. Same heartbeat330minutes best effort, never extend this deadline from repeated low readings.
@@ -1197,3 +1209,7 @@ CHG-0073 closeout: fresh9percent stop2026-11-03T09:03:44Z, earliestresume14:33:4
 ### CHG-0074 —4 November2026 — Save HTTP adapter/framing WIP at weekly stop
 
 Elapsed-deadline resume95primary20weekly; precode328PGRED/1pass and8framingRED, adapter329PGGREEN before review, twofindings8RED->fix->224portableGREEN/113skip. FinalPG/fullbackend/framingactualacceptance pending. Weekly10stop04:39:52UTC/earliest10:09:52UTC; framingworkerinterrupted/source/tests/evidence saved. Live260eeb9unchanged; no WIP deployment or resetcredits.
+
+### CHG-0075 —6 November2026 — Accept B3 source and isolated ingress
+
+Corrected337HTTP/full2020PG/168subtests/check0/nodrift, fresh adapter review; framing safety RED/GREEN and98actualHTTP1.1/H2/cleanup checks accepted. OpenAPI/page map0.7.2 marks four APIs sourceimplemented, no UI/activation/deployment claim. Reviewed rollout amendment saved; exact finalCI/concrete helpers/clones/live/restore pending. Prior260preview unchanged, no resetcredit.

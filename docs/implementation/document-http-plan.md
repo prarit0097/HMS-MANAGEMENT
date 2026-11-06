@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: coordinator uses subagent-driven-development or executing-plans, test-driven-development, review and verification task by task. Root alone Git/VPS. Disjoint tests may run in batches within available slots; no duplicate team.
 
-**Status:** 3 November2026, FROZEN B3 implementation contract after three independent contract/security/test reviews, scoped parser/precedence/schema review and concrete ingress-design review. Root chose the bounded rules below. ContractCI/executableRED completed;4November adapter/framingWIP is usage-stopped after weekly10. FinalcorrectedPG/fullbackend/source/runtime acceptance remain pending; no released HTTP capability is delivered by this checkpoint.
+**Status:** 3 November2026, FROZEN B3 implementation contract after three independent contract/security/test reviews, scoped parser/precedence/schema review and concrete ingress-design review. Root chose the bounded rules below. ContractCI/executableRED, corrected337actualPG HTTP/full2020backend and98isolated actual ingress checks are accepted6November. Exact final publication/CI and reviewed preview rollout remain pending; no deployed or enabled HTTP capability is claimed.
 
 **Goal:** Expose the four already-catalogued registration metadata operations through strict authorised HTTP adapters over completed B1/B2a/B2b, without UI, bytes, storage or activation.
 
@@ -108,21 +108,21 @@ Every LOCAL success/error/initial/405 response: Cache-Control no-store, merged V
 
 ### Task2 — literal executable RED before production
 
-- [ ] Shared synthetic fixtures use genuine persisted DBSession via force_login plus auth_epoch and GET auth/csrf; APIClient(enforce_csrf_checks=True). Include one real password login path. No real data, platform-owner fixtures or production activation.
-- [ ] Disjoint HTTP contract tests: all shapes/methods/authority ceilings, canonical path/query/key, anonymous403/stale401, fixed Accept/format/Allow/header/no304/error mappings and exact service-byte handoff. Missing route fails assertions, not collection/setup.
-- [ ] Real-CSRF tests: cookie/header/Origin/body-token rejection, zero-read opaque parser, no multipart uploads, valid4095/4096/4097 payloads, raw duplicate/depth/UTF8/nonfinite and GET body, instrument read AND readline. Label framework-stream versus actual ingress evidence.
-- [ ] ActualPG HTTP tests: four-operation lifecycle/replay/current exact-branch scope/cursor/creator/version/quota representative; each valid success one allowance/event; defaultFalse valid503 retained allowance/no business access; malformed/CSRF/405 no allowance; genuine event-insert failure/labelled lost-ACK503 plus explicit keyed reconciliation. Consume existing full business races, do not duplicate them.
-- [ ] Root runs portable and actual isolatedPG RED and saves exact results before production. Freeze test seams; no stub success or SQLite business-success fallback.
+- [x] Shared synthetic fixtures use genuine persisted DBSession via force_login plus auth_epoch and GET auth/csrf; APIClient(enforce_csrf_checks=True). Include one real password login path. No real data, platform-owner fixtures or production activation.
+- [x] Disjoint HTTP contract tests: all shapes/methods/authority ceilings, canonical path/query/key, anonymous403/stale401, fixed Accept/format/Allow/header/no304/error mappings and exact service-byte handoff. Missing route fails assertions, not collection/setup.
+- [x] Real-CSRF tests: cookie/header/Origin/body-token rejection, zero-read opaque parser, no multipart uploads, valid4095/4096/4097 payloads, raw duplicate/depth/UTF8/nonfinite and GET body, instrument read AND readline. Label framework-stream versus actual ingress evidence.
+- [x] ActualPG HTTP tests: four-operation lifecycle/replay/current exact-branch scope/cursor/creator/version/quota representative; each valid success one allowance/event; defaultFalse valid503 retained allowance/no business access; malformed/CSRF/405 no allowance; genuine event-insert failure/labelled lost-ACK503 plus explicit keyed reconciliation. Consume existing full business races, do not duplicate them.
+- [x] Root runs portable and actual isolatedPG RED and saves exact results before production. Freeze test seams; no stub success or SQLite business-success fallback.
 
 ### Task3 — minimal adapters and source acceptance
 
-- [ ] Implement only document_api.py and three URL patterns. B1/B2a/B2b/middleware/other endpoints untouched; reproduced shared defects need their own scope amendment/RED.
-- [ ] Targeted portable/actualPG GREEN, independent source/spec/security review; each material defect gets reproducing RED then minimal correction.
-- [ ] Root full actualPG backend/check/no drift, contract/schema/map/docs/root checks; exact source manifests; representative unchanged endpoint regressions. Do not claim frontend/browser/staff acceptance from backend tests.
+- [x] Implement only document_api.py and three URL patterns. B1/B2a/B2b/middleware/other endpoints untouched; reproduced shared defects need their own scope amendment/RED.
+- [x] Targeted portable/actualPG GREEN, independent source/spec/security review; each material defect gets reproducing RED then minimal correction.
+- [x] Root full actualPG backend/check/no drift, contract/schema/map/docs/root checks; exact source manifests; representative unchanged endpoint regressions. Do not claim frontend/browser/staff acceptance from backend tests.
 
 ### Task4 — runtime/framing and publication
 
-- [ ] Actual isolated Nginx/Gunicorn framing acceptance under frozen harness passes on exact final source; retain raw protocol/status/allowance effects without credentials/payload logging. This remains a release gate, not a unit-test inference.
+- [x] Actual isolated Nginx/Gunicorn framing acceptance under frozen harness passes on exact final source; retain raw protocol/status/allowance effects without credentials/payload logging. This remains a release gate, not a unit-test inference.
 - [ ] Update OpenAPI/page map implemented status only for source-accepted operations, separately list runtime flagFalse and UI deferred. Source-verified normal push/remoteSHA and exact successful CI before immutable preview candidate.
 - [ ] Freeze reviewed HMS-only source rollout amendment: fresh backup/key/inventory/state, isolated disabled HTTP request allowance retention proof and prior260 source compatibility with all rows retained; no live admission/business invocation or flag enablement. Verify existing live behavior plus new safe route availability/failure boundaries without invoking live command paths. No DDL/bootstrap/policy/other-app change.
 - [ ] Reviewed rollout/live preservation/postbackup restore/key/cleanup, explicit source/deployed distinction and final HMS/plan/ledger/evidence push/remote verification. Code cannot be declared completed/deployed until these gates pass. Browser/staff/phone, useful ingestion/UI/full release stay open.
@@ -150,3 +150,7 @@ Three disjoint test owners expanded contract162→168cases, real-CSRF114cases an
 ## Weekly-stop implementation disposition —4 November2026
 
 [ExactWIPreceipt](../operations/document-http-checkpoint-2026-11-04.json) pins source/testhashes, precode328PGRED/1pass, initial329PGGREEN and two post-review fixes with224portableGREEN113skip. Final337PG/fullbackend and actualframingprocess/protocol gates remainunrun. Framingownerinterruptedatweekly10stop04:39:52UTC; earliestresume10:09:52UTC/allwindows>10. DoNOTdeployWIPor infer APIimplementationstatus from passing portable subsets. Root owns finalreview/protocol/sourceCI/rollout.
+
+## Accepted source/isolated ingress —6 November2026
+
+Corrected337HTTP and full2020PG/168subtests/check0/nodrift; independent adapter review clear. Safety defects reproduced/fixed/reviewed;98actual protocol/process/effect/cleanup checks passed. See [validation](../operations/document-http-validation-2026-11-05.json) and [actual ingress](../operations/document-http-framing-evidence-2026-11-06.json). OpenAPI0.7.2 source status is distinct from pending CI/preview rollout/defaultFalse/UI. No prior completed slice repeated.

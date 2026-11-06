@@ -1,0 +1,89 @@
+{
+  "status": "B3 source and actual isolated ingress verified6November; exact publication/CI/preview rollout remain OPEN",
+  "resume_at_utc": "2026-11-05T07:41:04Z",
+  "authenticated_remaining_at_resume": {
+    "primary": 94,
+    "weekly": 85
+  },
+  "prior_stop_preserved": "2026-11-04T04:39:52Z; earliest resume2026-11-04T10:09:52Z elapsed; no waiver/reset credit",
+  "checkpoint_ci": {
+    "head": "8baa374dbf6155883c09e3c1f0bbd5069b90d16e",
+    "run": 41774931456,
+    "all_three_jobs": "SUCCESS; exact head/run/job conclusions checked; logs not decoded"
+  },
+  "source_sha256": {
+    "backend/apps/core/document_api.py": "b2c2a1c682a822ebbe14a9c89cbb4b0e50c3a4e4314acf94d9c8b6dca5162f82",
+    "backend/hms/urls.py": "7b7ab1a29acf4a426ca1898a5d126299b3fe35dcf983e9831e05ab8af148f62f",
+    "backend/tests/document_http_fixtures.py": "df1efa2dcc16a901b34088484809091f483cf29b002e3e26764dfd43103e5815",
+    "backend/tests/test_document_metadata_http_contract.py": "5154fa09ea9941bfa1fdf43312a998d50e7a5a5e015035641cd1d15f65270dcf",
+    "backend/tests/test_document_metadata_http_csrf.py": "ca47033c8cbc908add57dd8a996e1edf6c46264acfd88040cbd35bf49ab19688",
+    "backend/tests/test_document_metadata_http_pg.py": "844be848342aba76a00fea1ef19f347c98bc5ce27d9a8bbd55b8bc8bad4c4ee9"
+  },
+  "root_actual_pg": {
+    "candidate": "/opt/hms/validation/http-20261105-final1",
+    "database": "receipt-owned disposable TLS PostgreSQL17.11; default-only settings; same pre-reviewed helper lifecycle",
+    "targeted_http": "337passed/1known maintenance DB fallback warning/37.08s",
+    "full_backend": "2020passed/7explicit SQLite-only skips/7warnings/168subtests/157.00s",
+    "checks": "Django check0; makemigrations --check --dry-run no changes",
+    "cleanup": "helper/container/network removed;15549closed; hms-preview active; independently checked again",
+    "artifacts": [
+      "http-red.xml",
+      "http-red.log",
+      "full-backend.xml",
+      "full-backend.log"
+    ]
+  },
+  "root_project_tests": "19passed10.262s",
+  "independent_adapter_review": {
+    "result": "No remaining Critical/Important finding in bounded adapter scope; prior Allow and TooManyFieldsSent corrections verified",
+    "actual_local_tests": [
+      "39pass251deselected3.85s",
+      "76pass214deselected4.42s; selections overlap"
+    ],
+    "limits": "Review did not assert PostgreSQL/protocol/browser/deployment acceptance"
+  },
+  "framing_review": {
+    "initial_pure": "8passed0.221s by independent reviewer",
+    "disposition": "All findings corrected with executable RED/GREEN; fresh independent review clear; no remaining Critical/Important in bounded scope",
+    "actual_red_green": [
+      "21tests17failing assertions0errors0.542s ->21GREEN0.949s",
+      "nested result lifecycle1RED0.108s ->22GREEN4.899s",
+      "child-mask/PATH2RED0.285s ->23framingGREEN",
+      "root38pure edgeGREEN2.005s; independent38GREEN3.315s"
+    ],
+    "resolved_findings": [
+      "inet server /32 address normalization",
+      "HTTP2 missing-length canonical delivered4096 rule",
+      "inherited child/curl/Gunicorn settings",
+      "interrupt-safe process/runtime ownership registration",
+      "validate every source directory and reject special files",
+      "strict finite4097 requires413",
+      "final process-group absence before runtime removal",
+      "nested closed document result ID",
+      "child inherited signal mask and safe Nginx PATH"
+    ]
+  },
+  "runtime": "Recorded live260eeb9/core0009/False unchanged; no live admission/business/flag/schema/policy call",
+  "open_gates": [
+    "exact final source publication/CI",
+    "reviewed concrete preview helpers/HTTP restored clone/prior compatibility",
+    "HMS-only preview rollout/live preservation/backup restore/key",
+    "browser/staff/phone/useful ingestion/remaining full HMS release"
+  ],
+  "tested_runner_sha256": {
+    "infra/edge/tests/validate_document_framing.py": "1a6a8380f865e4d8af1a788569c7cba7d39233e1530da98e1856e20b313b026f",
+    "infra/edge/tests/test_document_framing_source.py": "86574a5bbc6c4fd61c791c09f57c34f63307c93ea726e6c4fcf8b84becc54c54"
+  },
+  "actual_ingress": {
+    "evidence": "document-http-framing-evidence-2026-11-06.json",
+    "checks": 98,
+    "observations": 47,
+    "passed": true,
+    "manifest_sha256": "783bcb1e4642879cc0c971a201fe8eae35ff49e9c42800f57b3f3455f5e2c061",
+    "canonical_files": 247,
+    "scope": "Real ordinary reception password/session/CSRF, four HTTP operations, finite4096/4097, malformed H1 and negotiated H2, exact allowance/business/event effects",
+    "observed": "chunked4096 and H2 missing client length canonicalized to4096/201; finite4097 rejected413; ambiguous duplicateCL/TE+CL rejected400; incomplete bodies confirmed closed/no effects; valid first entity201 may commit",
+    "cleanup": "owned process groups/listeners/runtime removed; helper/container/network removed15549closed; live service active",
+    "limits": "isolated2s body timeout; no complete HTTP2/smuggling certification, hidden WSGI bytes inaccessible, not live activation"
+  }
+}

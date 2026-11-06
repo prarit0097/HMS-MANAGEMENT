@@ -1,6 +1,6 @@
 # Usage-aware HMS continuation
 
-State: COOLDOWN
+State: CONTINUE
 checkpoint_at_utc: 2026-11-04T04:39:52Z
 resume_not_before_utc: 2026-11-04T10:09:52Z
 owner_resume_at_utc: 2026-11-02 (explicit NOW CONTINUE; predates fresh stop)
@@ -8,10 +8,14 @@ automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330 (fresh4November weekly stop; all prior history retained)
 automation_runtime_status_at_2026_11_02T04_20Z: ACTIVE (same heartbeat updated under standing cooldown rule after explicit owner NOW CONTINUE)
 automation_runtime_status_at_2026_11_01T12_54Z: PAUSED (existing persisted status preserved)
-latest_authenticated_usage_at_utc: 2026-11-04T04:39:52Z
-latest_authenticated_remaining: primary36percent weekly10percent
+latest_authenticated_usage_at_utc: 2026-11-05T07:41:04Z
+latest_authenticated_remaining: primary94percent weekly85percent
 latest_verified_application_source: 260eeb9a6ed3b1af8824ef821cfc23205bde4d2b
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## Scheduled B3 validation resumed —5 November2026
+
+At2026-11-05T07:41:04UTC scheduled continuation authenticated94%primary/85%weekly remaining after saved4November10:09:52UTC deadline elapsed. No waiver/resetcredit; original weekly stop/history retained. HEAD8baa374 exactCI41774931456 SUCCESS observed by run head/conclusion (job details and logs not yet checked). Clean checkout and no running team at entry. Resume post-fix adapter review/final337HTTP actualPG/fullbackend and independent framing safety review before any protocol execution. Current live remains recorded260eeb9/core0009/False; no rollout or live command invocation. FourHTTP statuses remainplanned until frozen acceptance gates close.
 
 ## Fresh weekly usage stop and HTTP implementation WIP —4 November2026
 

@@ -6,14 +6,16 @@ No live credentials, request bodies or header values appear in its public report
 """
 import argparse
 import base64
+from contextlib import contextmanager
 from datetime import timezone
 import hashlib
 import http.client
 from http.cookies import SimpleCookie
 import importlib.metadata
+from ipaddress import ip_interface
 import json
 import os
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import re
 import secrets
 import shutil
@@ -41,6 +43,26 @@ SCENARIOS = frozenset({'login', 'csrf', 'list', 'detail', 'create4096', 'withdra
     'duplicate', 'conflicting', 'te-cl', 'bad-chunk', 'bad-terminal', 'conflicting-te',
     'chunk4096', 'chunk4097', 'valid-first', 'h2-list', 'h2-create4096',
     'h2-create4097', 'h2-missing', 'h2-mismatch'})
+
+
+def child_environment():
+    return {'PATH': '/usr/sbin:/usr/bin:/sbin:/bin', 'HOME': str(PREFIX), 'LANG': 'C.UTF-8'}
+
+
+@contextmanager
+def blocked_interrupts():
+    previous = signal.pthread_sigmask(signal.SIG_BLOCK, {signal.SIGINT, signal.SIGTERM})
+    try:
+        yield
+    finally:
+        signal.pthread_sigmask(signal.SIG_SETMASK, previous)
+
+
+def isolated_pg_identity(row, database, server_address):
+    name, user, address, port, pg, tls = row
+    return (name == database['NAME'] and user == database['USER'] and
+        ip_interface(address).ip == ip_interface(server_address).ip and
+        port == 5432 and pg >= 170000 and tls is True)
 
 
 def render_document_nginx(root):
@@ -99,10 +121,19 @@ def verify_source():
     manifest = json.loads(manifest_path.read_text())
     if not isinstance(manifest, dict) or not manifest:
         raise ValueError('Missing canonical source manifest')
+    if any(not isinstance(key, str) or not key or '\\' in key or
+           PurePosixPath(key).is_absolute() or '..' in PurePosixPath(key).parts or
+           PurePosixPath(key).as_posix() != key for key in manifest):
+        raise ValueError('Unsafe canonical manifest path')
     actual = set()
     for path in SOURCE.rglob('*'):
         if path.is_symlink():
             raise ValueError('Symlink in candidate source')
+        if path.is_dir():
+            safe_path(path, directory=True)
+            continue
+        if not path.is_file():
+            raise ValueError('Special file in candidate source')
         if path.is_file() and path != manifest_path:
             relative = path.relative_to(SOURCE).as_posix()
             actual.add(relative)
@@ -136,7 +167,7 @@ class Gate:
         self.observations = []
         self.versions = {}
         self.cookies = SimpleCookie()
-        self.env = {}
+        self.env = child_environment()
         self.cleanup_errors = []
 
     def check(self, name, condition, **metadata):
@@ -146,7 +177,7 @@ class Gate:
 
     def command(self, args, *, data=None, timeout=40):
         result = subprocess.run(args, input=data, stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE, env=self.env or os.environ, timeout=timeout)
+            stderr=subprocess.PIPE, env=self.env, timeout=timeout)
         if result.returncode:
             if self.owns_runtime:
                 with (PREFIX / 'command.log').open('ab') as output:
@@ -157,10 +188,19 @@ class Gate:
     def launch(self, args):
         handle = (PREFIX / 'process.log').open('ab')
         self.handles.append(handle)
-        process = subprocess.Popen(args, cwd=SOURCE / 'backend', env=self.env,
-            stdout=handle, stderr=handle, start_new_session=True)
-        self.processes.append(process)
+        # The child inherits the critical-section mask; clear it before same-PID exec.
+        child = 'import os,signal,sys; signal.pthread_sigmask(signal.SIG_UNBLOCK, {signal.SIGINT, signal.SIGTERM}); os.execvpe(sys.argv[1], sys.argv[1:], os.environ)'
+        with blocked_interrupts():
+            process = subprocess.Popen([sys.executable, '-c', child, *args], cwd=SOURCE / 'backend', env=self.env,
+                stdout=handle, stderr=handle, start_new_session=True)
+            self.processes.append(process)
         return process
+
+    def claim_runtime(self):
+        with blocked_interrupts():
+            PREFIX.mkdir(mode=0o700)
+            self.owns_runtime = True
+            self.runtime_inode = PREFIX.stat().st_ino
 
     def wait_port(self, port, process):
         deadline = time.monotonic() + 12
@@ -188,7 +228,7 @@ class Gate:
             actual = importlib.metadata.version(package)
             self.check('version ' + package, actual == version)
             self.versions[package] = actual
-        nginx = subprocess.run(['nginx', '-V'], capture_output=True, timeout=5)
+        nginx = subprocess.run(['nginx', '-V'], capture_output=True, env=self.env, timeout=5)
         version = (nginx.stdout + nginx.stderr).decode('ascii', 'replace')
         self.check('Nginx reviewed version/modules', nginx.returncode == 0 and
             'nginx/1.24.' in version and all(flag in version for flag in
@@ -216,21 +256,16 @@ class Gate:
                 cursor.execute('SELECT current_database(), current_user, inet_server_addr()::text, '
                     'inet_server_port(), current_setting(\'server_version_num\')::int, '
                     '(SELECT ssl FROM pg_stat_ssl WHERE pid=pg_backend_pid())')
-                name, user, address, port, pg, tls = cursor.fetchone()
-                self.check('actual isolated TLS PG identity', name == db['NAME'] and
-                    user == db['USER'] and address == server_address and port == 5432 and pg >= 170000 and tls)
+                identity = cursor.fetchone()
+                self.check('actual isolated TLS PG identity', isolated_pg_identity(identity, db, server_address))
                 cursor.execute("SELECT count(*) FROM pg_tables WHERE schemaname='public'")
                 self.check('disposable DB initially empty', cursor.fetchone() == (0,))
                 cursor.execute('SELECT rolsuper, rolcreatedb, rolcreaterole FROM pg_roles WHERE rolname=current_user')
                 self.check('disposable app role least privilege', cursor.fetchone() == (False, False, False))
-                self.versions['postgresql'] = pg
-        PREFIX.mkdir(mode=0o700)
-        self.owns_runtime = True
-        self.runtime_inode = PREFIX.stat().st_ino
+                self.versions['postgresql'] = identity[4]
+        self.claim_runtime()
         from cryptography.fernet import Fernet
         owner_id = uuid.uuid4()
-        self.env = {key: value for key, value in os.environ.items()
-                    if not key.startswith(('HMS_', 'DJANGO_', 'PYTHONPATH'))}
         self.env.update({'HMS_ENV': 'staging', 'HMS_SECRET_KEY': secrets.token_urlsafe(48),
             'HMS_DB_ENGINE': 'postgresql', 'HMS_ALLOWED_HOSTS': HOST,
             'HMS_TRUSTED_PROXIES': '127.0.0.1', 'HMS_NETWORK_PROBE_PEERS': '127.0.0.1',
@@ -376,10 +411,12 @@ def application(environ, start_response):
             status = int(match[1])
         return status, closed
 
-    def no_effect(self, path, scenario, framing, body, *, statuses=(400, 408, 413, 501), method='POST'):
+    def no_effect(self, path, scenario, framing, body, *, statuses=(400, 408, 413, 501),
+                  method='POST', allow_close=True):
         before = self.snapshot()
         status, closed = self.raw(path, scenario, framing, body, method=method)
-        self.check(scenario + ': explicit rejection or confirmed close', status in statuses or status is None and closed,
+        self.check(scenario + ': explicit rejection or confirmed close',
+                   status in statuses or allow_close and status is None and closed,
                    status=status, confirmed_close=closed)
         self.check(scenario + ': zero allowance/business/audit effects', self.snapshot() == before)
 
@@ -433,7 +470,7 @@ def application(environ, start_response):
         status, body = self.admitted('finite create4096', lambda: self.request(self.base,
             'create4096', 'POST', self.padded(create, 4096)), intents=1, receipts=1)
         self.check('create4096 succeeds', status == 201)
-        document = json.loads(body)['id']
+        document = json.loads(body)['document']['id']
         detail = self.base + document + '/'
         for scenario, path in [('list', self.base), ('detail', detail)]:
             status, _ = self.admitted(scenario, lambda p=path, s=scenario: self.request(p, s))
@@ -444,7 +481,8 @@ def application(environ, start_response):
         self.check('withdraw4096 succeeds', status == 200)
         self.stage = 'raw-http1-framing'
         for path, valid, over in [(self.base, create, 'create4097'), (withdraw_path, withdraw, 'withdraw4097')]:
-            self.no_effect(path, over, 'Content-Length: 4097\r\n', self.padded(valid, 4097), statuses=(413,))
+            self.no_effect(path, over, 'Content-Length: 4097\r\n', self.padded(valid, 4097),
+                           statuses=(413,), allow_close=False)
             self.no_effect(path, 'missing', '', b'')
             self.no_effect(path, 'short-json', 'Content-Length: 1\r\n', valid)
             self.no_effect(path, 'incomplete', f'Content-Length: {len(valid)+32}\r\n', valid, statuses=(400, 408))
@@ -454,7 +492,8 @@ def application(environ, start_response):
             self.no_effect(path, 'bad-chunk', 'Transfer-Encoding: chunked\r\n', b'Z\r\n{}\r\n0\r\n\r\n')
             self.no_effect(path, 'bad-terminal', 'Transfer-Encoding: chunked\r\n', b'2\r\n{}\r\nQ\r\n\r\n')
             self.no_effect(path, 'conflicting-te', 'Transfer-Encoding: chunked\r\nTransfer-Encoding: gzip\r\n', b'0\r\n\r\n')
-        self.no_effect(self.base, 'get-body', 'Content-Length: 1\r\n', b'x', statuses=(400,), method='GET')
+        self.no_effect(self.base, 'get-body', 'Content-Length: 1\r\n', b'x',
+                       statuses=(400,), method='GET', allow_close=False)
         self.chunked(create)
         # Valid first entity can commit; inaccessible trailing bytes are NOT a zero-effect assertion.
         before = self.snapshot()
@@ -513,13 +552,21 @@ def application(environ, start_response):
             config_path.write_text('\n'.join(config) + '\n')
             before = self.snapshot()
             rate_sample = self.rate_sample()
-            result = subprocess.run(['curl', '--config', str(config_path)], capture_output=True,
+            start = len(self.observation_rows())
+            result = subprocess.run(['curl', '-q', '--noproxy', '*', '--config', str(config_path)], capture_output=True,
                 env=self.env, timeout=10)
             output = result.stdout.decode('ascii', 'replace').strip().split()
             self.check(scenario + ': actual negotiated HTTP2', len(output) == 2 and output[0] == '2')
             status = int(output[1])
             after = self.snapshot()
-            if scenario in ('h2-list', 'h2-create4096'):
+            canonical_missing = False
+            if scenario == 'h2-missing':
+                observations = [row for row in self.observation_rows()[start:] if row['scenario'] == scenario]
+                self.check(scenario + ': one actual app observation', len(observations) == 1)
+                delivered = observations[0]['length']
+                self.check(scenario + ': canonical or absent length', delivered in (4096, 'absent'))
+                canonical_missing = delivered == 4096
+            if scenario in ('h2-list', 'h2-create4096') or canonical_missing:
                 self.check(scenario + ': success', result.returncode == 0 and status == (200 if not length else 201))
                 self.check(scenario + ': real durable effects', len(after[3]) == len(before[3]) + 1 and
                     len(after[1]) == len(before[1]) + bool(length) and
@@ -527,7 +574,8 @@ def application(environ, start_response):
                 self.one_allowance(scenario, rate_sample)
             else:
                 # curl errors alone do not establish server rejection. Require an explicit HTTP error.
-                self.check(scenario + ': explicit rejection', status in ((413,) if scenario == 'h2-create4097' else (400, 413)))
+                expected = (413,) if scenario == 'h2-create4097' else (400,) if scenario == 'h2-missing' else (400, 413)
+                self.check(scenario + ': explicit rejection', status in expected)
                 self.check(scenario + ': zero persisted effects', before == after)
 
     def cleanup(self):
@@ -552,6 +600,15 @@ def application(environ, start_response):
                     except ProcessLookupError:
                         pass
                 process.wait(timeout=4)
+                until = time.monotonic() + 4
+                while time.monotonic() < until:
+                    try:
+                        os.killpg(process.pid, 0)
+                    except ProcessLookupError:
+                        break
+                    time.sleep(.05)
+                else:
+                    raise RuntimeError('Owned process group survived cleanup')
             except Exception:
                 self.cleanup_errors.append('owned-process-cleanup')
         for handle in self.handles:
