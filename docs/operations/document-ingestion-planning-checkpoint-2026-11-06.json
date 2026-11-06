@@ -1,0 +1,45 @@
+{
+  "status": "Planning-only checkpoint at fresh mandatory usage stop; no ingestion implementation/activation",
+  "checkpoint_at_utc": "2026-11-06T14:48:06Z",
+  "resume_not_before_utc": "2026-11-06T20:18:06Z",
+  "authenticated_remaining": {
+    "primary": 8,
+    "weekly": 63
+  },
+  "draft": "docs/implementation/document-ingestion-design.md",
+  "draft_sha256": "14f694ac3931c13bfa3406d204ffd701d414342e0522dcd14b32cc87e7e12ecc",
+  "live_source": "bdbe8c65625c726a8af1cce3b83f0e7d86296c16",
+  "live": "Restricted synthetic preview/core0009/metadataFalse, verified6November rollout unchanged",
+  "latest_doc_publication": "4e031ca209aee9bde2f572586a544c22acb37ae3; remote verified; CI42236483685 SUCCESS observed by exact SHA run; job detail/log evidence not decoded here",
+  "specialists": "Both read-only ingestion contract/security and UX triage specialists completed before checkpoint; all other specialists finished",
+  "contract_triage_gaps": [
+    "Intent/content/work persistence and compatible retained rows",
+    "Precise lifecycle/30minute expiry/selection/version boundaries",
+    "Raw upload API/framing/bytes/reconciliation independent of4096JSON and5second metadata budget",
+    "Current authority before/after slow work; worker ceiling; quotas",
+    "Immutable storage generation/DB commit/outbox/orphan recovery",
+    "Bounded image validation/scanner readiness/signature freshness/generation binding",
+    "Durable worker leases/races/retry/crash/unknowncommit; no external IO underbusinesslocks",
+    "Ready-only authorised/audited-before-byte delivery and safe errors",
+    "Capability activation/UI/backup-key-object dependency and useful end-to-end acceptance"
+  ],
+  "ux_triage_gaps": [
+    "Entry/discovery/currentbranch readiness",
+    "Existing dialog versus routed patient workspace",
+    "No inheritedPDF/clinicalcategory/types",
+    "New lifecycle/status projection cannot be inferred frompending/expired/withdrawn",
+    "Same logical retry/reconciliation and lost in-memory key afterreload",
+    "Back/Close/Escape/contextchanges cannot promise request cancellation",
+    "Explicitrefresh versus measured boundedpolling contract",
+    "Freshdownload/withdrawal authority andnooperationalbypass"
+  ],
+  "existing_contract_corrections": "Old24October offset/count/PDF/clinical_reference/awaiting_upload/creator-label/detected-type suggestions remain historical proposals. Current keyset/no-count/registrationJPEGPNG/pending/expired/withdrawn and can_upload/can_downloadFalse remain authoritative.",
+  "actual_skill": "UIUXProMax query upload status retry forms --domain ux -n3: Submit Feedback, Contextual Live Badge Updates, Inline Validation; no invented result or UI implemented",
+  "sources_rechecked": [
+    "https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html",
+    "https://docs.clamav.net/manual/Usage/Scanning.html"
+  ],
+  "tests_this_planning_slice": "None; read-only source/proposal review and actual skill query/web research only. Earlier2039PG/132frontend/98ingress are completed B3 evidence, not ingestion tests.",
+  "next": "After deadline/allwindows>10 reconcile draft/independent findings, freeze exact page/action/API/persistence/state/storage/scanner/worker/resource/error/acceptance contracts, then scenario/threat/test design and literal RED before code. No completed B3/rollout repetition.",
+  "no_changes": "No ingestion route/model/migration/dependency/worker/scanner/storage/provider/UI/flag/live data or settings changed; no paid resources, reset credits or real patient data"
+}

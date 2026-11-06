@@ -10,6 +10,16 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
+## Fresh usage stop and ingestion planning draft —6 November2026
+
+Authenticated primary8%/weekly63% remaining triggers NEW stop at2026-11-06T14:48:06UTC. No new implementation/review/assignment/deployment before2026-11-06T20:18:06UTC (7November01:48:06AM IST), then only all applicable windows available>10. No resetcredit/waiver; all previous stops/history retained, never extend this fresh deadline for repeated low readings. All specialists finished; no duplicate team or test process remains.
+
+Completed B3/budget sourcebdbe8c6 is live/core0009/metadataFalse with sourceCI42234437948SUCCESS,2039PG/132frontend/98actualingress/251canonicalfiles/34tablepostrestore/currentkey/fresh52otherconfigs21containers/Windowspreservation verified. Final MD publication4e031ca remoteverified; exact4eCI42236483685SUCCESS observed by SHA run, not decoded. Do NOT repeat completed B1/B2a/B2b/B3/bootstrap/schema/rollout.
+
+New [private ingestion reconciliation](docs/implementation/document-ingestion-design.md) is DRAFT ONLY, written before this usage stop. Independent bounded contract/security and UIUX triage completed; nine backend/contract and eight UX decision groups are preserved in [planning checkpoint](docs/operations/document-ingestion-planning-checkpoint-2026-11-06.json). Actual UIUXProMax query and officialOWASP/ClamAV research inform planning, not implementation or scanner acceptance. Old24October PDF/clinical/offset-count/awaiting_upload suggestions must not override current registrationJPEGPNG/keyset/no-count/pending-expired-withdrawn contracts. R04entry/bytes/ready/scan/storage/download remainunimplemented/disabled; no newAPI/schema/flag/worker/provider/dependency/livechange/testresult.
+
+First resume: reconcile this draft and triage; complete exact page/action/API/permission/state/schema/storage/scanning/worker/resource/failure/acceptance contract and independent gates before RED/code. No numerical parser/scanner/resource limits, productionprovider or usefulUI acceptance is frozen by this checkpoint. Browser/keyboard/staff/phone, clinical/finance/MCP/dataops/fullhospitalrelease remainopen. Sameheartbeat330min best effort; stop duringcooldown even if primaryrecovers sooner.
+
 ## B3 HTTP and budget correction deployed —6 November2026
 
 Restricted synthetic https://hms.praritsidana.com now runs bdbe8c65625c726a8af1cce3b83f0e7d86296c16 at `/opt/hms/releases/preview-20261106-bdbe8c6`, switched2026-11-06T14:36:52.623096513UTC, core0009 and actual metadataFalse (environment key absent/defaultFalse). Exact source push/remoteSHA and CI42234437948 allthreejobsSUCCESS verified; decoded2039PG/7SQLite-onlyskips/168subtests177.89s,132frontend/typecheck/build126ms,19root/38edge/fullschema/Compose/docs. Rootseparate full2039PG/168subtests182.26s/check0/no drift. Oldc0CI42232041716 failure remains historical; it was not retried into a false pass.
