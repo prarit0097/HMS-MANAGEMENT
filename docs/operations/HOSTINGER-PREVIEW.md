@@ -1,6 +1,20 @@
 # Hostinger HMS preview
 
-Status: latest implemented source deployed3November2026, release260eeb9/core0009/flagFalse; original preview established23October. No hospital production cutover. URL: https://hms.praritsidana.com . Owner authorised this environment. The28October04:54UTC continuation lifted the prior manualhold without a waiver; the later07:17:44UTC explicit ownerCONTINUE waived ONLY the10:40:38UTC cooldown deadline with authenticated99primary/100weekly remaining. No resetcredit consumed. The23October deployment-only waiver is historical.
+Status: latest implemented source deployed6November2026, releasebdbe8c6/core0009/flagFalse; original preview established23October. No hospital production cutover. URL: https://hms.praritsidana.com . Owner authorised this environment. The28October04:54UTC continuation lifted the prior manualhold without a waiver; the later07:17:44UTC explicit ownerCONTINUE waived ONLY the10:40:38UTC cooldown deadline with authenticated99primary/100weekly remaining. No resetcredit consumed. The23October deployment-only waiver is historical.
+
+## B3 HTTP and budget correction deployed —6 November2026
+
+Restricted synthetic https://hms.praritsidana.com now runs bdbe8c65625c726a8af1cce3b83f0e7d86296c16 at `/opt/hms/releases/preview-20261106-bdbe8c6`, switched2026-11-06T14:36:52.623096513UTC, core0009 and actual metadataFalse (environment key absent/defaultFalse). Exact source push/remoteSHA and CI42234437948 allthreejobsSUCCESS verified; decoded2039PG/7SQLite-onlyskips/168subtests177.89s,132frontend/typecheck/build126ms,19root/38edge/fullschema/Compose/docs. Rootseparate full2039PG/168subtests182.26s/check0/no drift. Oldc0CI42232041716 failure remains historical; it was not retried into a false pass.
+
+Final canonical Git source251files passed98actual isolated Nginx/Gunicorn HTTP1.1/H2 checks, manifest5eafd8e67a5676b64b4e63bec2115cbd227f0c2960153f64bc89993928c4d0a1. [Final ingress](./document-http-framing-final-evidence-2026-11-06.json) supersedes earlier working-tree/c0 proofs only for final-source acceptance. Ingress limits remain: canonical missing-client-lengthH2 became4096/201, valid first framed entity may commit; no hidden-byte rollback or complete protocol-security certification.
+
+Fresh backup/retained-key restore verified exact34tables before separate disabledHTTP and enabledHTTP rehearsals. Ordinary synthetic reception real password/session/CSRF: valid disabled collectionGET503 retained independent count1 with no business/audit access; enabled sevenHTTPcalls/keyedreplays produced exactly1intent/2receipts/7linked disclosureevents with per-call admission/frozenprojections/attribution/fingerprints/unrelated rows preserved. Rehearsed exact prior260 against retained nonempty rows/CurrentUser and realownerMFA/session/reads/logout. Clone-only actor/fixture changes were never promoted to live; prior mode-markerfalse fields are not failed equality checks.
+
+HMS-only protected source switch verified all251hashes/twoworkers/oldworkersgone/34tableszero-rowchange before auth; noDDL/install/migrate/bootstrap/flag/policy/key/grant/MFAreset. LiveBasic/session/password/TOTP/CSRF/network/scopedreads/foreignbranch/bed101+/logout/statichash/HEAD/range/wildcardno304/privateforwardspoof checks passed. New document routes verified with empty HEAD/OPTIONS405/exactAllow/no-store/VaryCookie/nosniff/fixederror only; NO supported live document GET/POST or admission/business invocation. All four metadata tables unchanged; expected owner auth deltas checked byrow/field, recovery/password/operator/network retained.
+
+Postchange dump/checksum/list restored into fresh receipt-owned TLS PG: exact34tables/current factor decryption/password/recovery/operator/policy matched; helper/container/network/runtime/listeners removed. Fresh inventory preserved52otherNginxhashes/21existingcontainerIDs/HBA/env/keys/static/venv; these actual owner-era counts supersede historical48/18 as the comparison baseline. Windowsindependently verified maintenance503 then Basic401/shell200/wildcardno304/private404underfakeheaders/origin+helperportsclosed and5othersites200 (reachability only). [Rollout evidence](./document-http-preview-evidence-2026-11-06.json) carries observed CI/source/runtime/clone/live/restore limits. No complete host/per-appUID isolation or encrypted off-host DR claim.
+
+OpenAPI/page map0.7.2 now50sourceimplementedHTTP, four B3 operations `synthetic-preview-deployed-feature-disabled`; R04controlfalse. [Rollout plan](../implementation/document-http-preview-rollout-plan.md) executed after concrete review/reclose/receipt-gate corrections. Next first incomplete slice is useful private document ingestion design (exact page/action/API/permissions/bytes/storage/scanning/failure contract before RED/code), not a repeat of B1/B2a/B2b/B3/bootstrap/schema/rollout. Browser/keyboard/staff/owner-phone import and remaining clinical/finance/MCP/dataops/fullrelease stayOPEN. This records completed code->verifiedpush->reviewedpreview->liveverify->MD; documentation-only publication does not restart this runtime.
 
 ## Current audited business-service rollout —3 November2026
 
@@ -42,7 +56,7 @@ This version contains login/MFA/account security, dashboard, patient registratio
 
 | Resource | Dedicated HMS value |
 |---|---|
-| Root/source | `/opt/hms`, `/opt/hms/releases/preview-20261103-260eeb9`, `/opt/hms/current` symlink |
+| Root/source | `/opt/hms`, `/opt/hms/releases/preview-20261106-bdbe8c6`, `/opt/hms/current` symlink |
 | User/service | `hms-preview`, `hms-preview.service` |
 | Backend | Python3.12 virtualenv `/opt/hms/releases/venv-20261026`, Gunicorn26.2.0, two workers, loopback127.0.0.1:8185 |
 | Static app | `/opt/hms/static`, React production build; no Vite/runserver exposure |

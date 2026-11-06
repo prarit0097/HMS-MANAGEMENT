@@ -1,7 +1,21 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.50.0 | Updated: 6 November 2026, Asia/Calcutta
+Document version: 1.51.0 | Updated: 6 November 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
+## B3 HTTP and budget correction deployed —6 November2026
+
+Restricted synthetic https://hms.praritsidana.com now runs bdbe8c65625c726a8af1cce3b83f0e7d86296c16 at `/opt/hms/releases/preview-20261106-bdbe8c6`, switched2026-11-06T14:36:52.623096513UTC, core0009 and actual metadataFalse (environment key absent/defaultFalse). Exact source push/remoteSHA and CI42234437948 allthreejobsSUCCESS verified; decoded2039PG/7SQLite-onlyskips/168subtests177.89s,132frontend/typecheck/build126ms,19root/38edge/fullschema/Compose/docs. Rootseparate full2039PG/168subtests182.26s/check0/no drift. Oldc0CI42232041716 failure remains historical; it was not retried into a false pass.
+
+Final canonical Git source251files passed98actual isolated Nginx/Gunicorn HTTP1.1/H2 checks, manifest5eafd8e67a5676b64b4e63bec2115cbd227f0c2960153f64bc89993928c4d0a1. [Final ingress](docs/operations/document-http-framing-final-evidence-2026-11-06.json) supersedes earlier working-tree/c0 proofs only for final-source acceptance. Ingress limits remain: canonical missing-client-lengthH2 became4096/201, valid first framed entity may commit; no hidden-byte rollback or complete protocol-security certification.
+
+Fresh backup/retained-key restore verified exact34tables before separate disabledHTTP and enabledHTTP rehearsals. Ordinary synthetic reception real password/session/CSRF: valid disabled collectionGET503 retained independent count1 with no business/audit access; enabled sevenHTTPcalls/keyedreplays produced exactly1intent/2receipts/7linked disclosureevents with per-call admission/frozenprojections/attribution/fingerprints/unrelated rows preserved. Rehearsed exact prior260 against retained nonempty rows/CurrentUser and realownerMFA/session/reads/logout. Clone-only actor/fixture changes were never promoted to live; prior mode-markerfalse fields are not failed equality checks.
+
+HMS-only protected source switch verified all251hashes/twoworkers/oldworkersgone/34tableszero-rowchange before auth; noDDL/install/migrate/bootstrap/flag/policy/key/grant/MFAreset. LiveBasic/session/password/TOTP/CSRF/network/scopedreads/foreignbranch/bed101+/logout/statichash/HEAD/range/wildcardno304/privateforwardspoof checks passed. New document routes verified with empty HEAD/OPTIONS405/exactAllow/no-store/VaryCookie/nosniff/fixederror only; NO supported live document GET/POST or admission/business invocation. All four metadata tables unchanged; expected owner auth deltas checked byrow/field, recovery/password/operator/network retained.
+
+Postchange dump/checksum/list restored into fresh receipt-owned TLS PG: exact34tables/current factor decryption/password/recovery/operator/policy matched; helper/container/network/runtime/listeners removed. Fresh inventory preserved52otherNginxhashes/21existingcontainerIDs/HBA/env/keys/static/venv; these actual owner-era counts supersede historical48/18 as the comparison baseline. Windowsindependently verified maintenance503 then Basic401/shell200/wildcardno304/private404underfakeheaders/origin+helperportsclosed and5othersites200 (reachability only). [Rollout evidence](docs/operations/document-http-preview-evidence-2026-11-06.json) carries observed CI/source/runtime/clone/live/restore limits. No complete host/per-appUID isolation or encrypted off-host DR claim.
+
+OpenAPI/page map0.7.2 now50sourceimplementedHTTP, four B3 operations `synthetic-preview-deployed-feature-disabled`; R04controlfalse. [Rollout plan](docs/implementation/document-http-preview-rollout-plan.md) executed after concrete review/reclose/receipt-gate corrections. Next first incomplete slice is useful private document ingestion design (exact page/action/API/permissions/bytes/storage/scanning/failure contract before RED/code), not a repeat of B1/B2a/B2b/B3/bootstrap/schema/rollout. Browser/keyboard/staff/owner-phone import and remaining clinical/finance/MCP/dataops/fullrelease stayOPEN. This records completed code->verifiedpush->reviewedpreview->liveverify->MD; documentation-only publication does not restart this runtime.
+
 ## Shared budget boundary correction —6 November2026
 
 Exactc0cc636 CI42232041716 backend failed one prior final-before-commit deadline case:2019pass/1fail/7skips/168subtests171.84s; frontend/contracts jobsSUCCESS. Rootdecoded job logs, did not retry to hide failure. Independent genuine-context reproduction found rounded subtraction may turn representable deadline into4.999999999999886. The specific captured CI origin is unavailable, so direct attribution remains an inference. Root froze a narrow shared-budget amendment before production: one absolute deadline comparison, no epsilon/remint/longer budget or authority/timeout/API/schema change.
@@ -108,19 +122,18 @@ Four raw-input services in new document_services.py will call admission once and
 
 Task1/3 actual executable RED tests precede production. No service success/race/fault/query-plan result exists yet; prior1530PG/132frontend are foundation evidence only. Current recorded preview833ffc67/core0009/flagFalse is unchanged. No model/migration/dependency/settings/grants/HTTP/OpenAPI/frontend/activation change is planned. B2b/B2c source tests/review/CI/reviewed preview/live/records remain pending; four metadata HTTP operations and ingestion/UI/full release remain open.
 
-## Consolidated current status —2 November 2026
+## Consolidated current status —6 November2026
 
 This is the current inventory of work completed to date. Dated progress/checkpoint sections below preserve what was true at that time; they do not override this inventory or the latest execution evidence. This update audits existing source and recorded evidence only: it adds no application capability, deployment, live probe or hospital-release approval.
 
 | Identity | Latest verified record |
 |---|---|
-| Application source / recorded preview | `260eeb9a6ed3b1af8824ef821cfc23205bde4d2b`, deployed3November2026; core0009 |
-| Recorded runtime | `/opt/hms/releases/preview-20261103-260eeb9`; two workers; retained venv/static/environment/security |
-| Documentation baseline audited | `ae09652ac66dba4d981961687d52861910f1bca7`; documentation-only CI41308824615 passed all three jobs |
-| Source CI | [41602149023](https://github.com/prarit0097/HMS-MANAGEMENT/actions/runs/41602149023): exact260eeb9 head and all3jobs SUCCESS; logs not decoded. Separate root1683PG/7skips/168subtests plus19root/15edge; no new frontend acceptance claimed |
-| Independent actual database verification | Isolated TLS PostgreSQL17.11:1683 passed/7 SQLite-only skips/168 subtests,181.11s; check0/no migration drift |
-| API contract | OpenAPI0.7.1:50 catalogued operations,46 implemented HTTP operations and4 planned document metadata operations |
-| Document activation | Actual recorded metadata flag False; no metadata HTTP, storage, download or document UI capability |
+| Application source / preview | `bdbe8c65625c726a8af1cce3b83f0e7d86296c16`, deployed6November2026; core0009 |
+| Runtime | `/opt/hms/releases/preview-20261106-bdbe8c6`;251canonicalfiles/twoworkers; retained venv/static/env/security |
+| Source CI | [42234437948](https://github.com/prarit0097/HMS-MANAGEMENT/actions/runs/42234437948): exactbdbe8c6/all3SUCCESS; decoded2039PG/7skips/168subtests177.89s,132frontend/typecheck/build126ms,19root/38edge/schema/Compose/docs |
+| Independent database/ingress | TLS PG17.11:2039pass/7SQLite-onlyskips/168subtests182.26s/check0/no drift;98actualisolated final-source HTTP1.1/H2 checks |
+| API contract | OpenAPI0.7.2:50sourceimplementedHTTP; four B3 source/previewverified, featuredisabled |
+| Activation/recovery | MetadataFalse; no file storage/upload/download/R04UI. Exact34table postbackup/current-key restore; browser/staff/phone/offhost recovery/fullrelease remainopen |
 
 ### Completed capabilities and their boundaries
 
@@ -134,7 +147,7 @@ This is the current inventory of work completed to date. Dated progress/checkpoi
 | Identity | Password/session/CSRF,9 self-security APIs, TOTP enrollment/login/step-up, single-use recovery codes, password changes and session epochs/revocation; recent MFA for privileged writes | Human recovery, WebAuthn, comprehensive sensitive-read/immutable audit and staff acceptance remain open |
 | History | Scoped administration history/detail and own security activity, bounded redacted projections and lazy UI | No unrestricted audit browser, archive/export or immutable/read-audit assurance |
 | Network | Trusted-proxy resolution; environment AND durable policy; owner plus separate operator plus fresh MFA;6 management APIs/private probe/UI, timed rollback and audited out-of-band recovery | Restricted-preview verification only; new portal/file/MCP paths require their own enforcement/acceptance |
-| Document foundation |3 dormant models/core0008, rate-window/core0009, B1 parsing/cursor/fingerprint helpers, B2a-A authority helpers/reception grant ceilings and B2a-L durable admission/known-commit proof | Flag False. B2b audited business services/quotas/replay/disclosure events implemented, source verified and preview deployed. B3 HTTP and ingestion/upload/scanning/bytes/storage/ready/download/UI remain open |
+| Document foundation |3 dormant models/core0008, rate-window/core0009, B1 parsing/cursor/fingerprint helpers, B2a-A authority helpers/reception grant ceilings and B2a-L durable admission/known-commit proof | Flag False. B2b audited business services/quotas/replay/disclosure events implemented, source verified and preview deployed. B3 HTTP source/previewverified6November; ingestion/upload/scanning/bytes/storage/ready/download/UI remain open |
 | Operations | Restricted HTTPS preview, Basic AND network gate, private backend/database, backup timer and isolated database+key restore verification | Shared-host/www-data trust boundary; local plaintext dumps are not encrypted off-host recovery; browser/keyboard/staff/owner-phone import remain open |
 
 ### Evidence and next unfinished work
@@ -1225,3 +1238,7 @@ Corrected337HTTP/full2020PG/168subtests/check0/nodrift, fresh adapter review; fr
 ### CHG-0076 —6 November2026 — Correct representable cooperative deadline
 
 Decoded failed exactCI; genuine-context portable/actualPG RED, one-line absolute deadline comparison, scoped review/focused/fullPG GREEN. No budget extension/permission/API/schema change. New sourceCI/ingress/preview rollout pending; live260unchanged.
+
+### CHG-0077 —6 November2026 — Deploy verified B3 source and close recovery gates
+
+Exactbdbe8c6CI/source/251files/98actualframing/HTTPrestoredclones/prior260/safemethodlive/noinvocation/34tablepostrestore/currentkeys/fresh52configs21containers/Windows preservation verified. MetadataFalse/R04noUI/fullreleaseopen; livingreference/APIacceptancedisposition/operations updated. Documentation publication does not restart unchanged code.

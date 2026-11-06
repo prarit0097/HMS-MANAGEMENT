@@ -123,9 +123,9 @@ Every LOCAL success/error/initial/405 response: Cache-Control no-store, merged V
 ### Task4 — runtime/framing and publication
 
 - [x] Actual isolated Nginx/Gunicorn framing acceptance under frozen harness passes on exact final source; retain raw protocol/status/allowance effects without credentials/payload logging. This remains a release gate, not a unit-test inference.
-- [ ] Update OpenAPI/page map implemented status only for source-accepted operations, separately list runtime flagFalse and UI deferred. Source-verified normal push/remoteSHA and exact successful CI before immutable preview candidate.
-- [ ] Freeze reviewed HMS-only source rollout amendment: fresh backup/key/inventory/state, isolated disabled HTTP request allowance retention proof and prior260 source compatibility with all rows retained; no live admission/business invocation or flag enablement. Verify existing live behavior plus new safe route availability/failure boundaries without invoking live command paths. No DDL/bootstrap/policy/other-app change.
-- [ ] Reviewed rollout/live preservation/postbackup restore/key/cleanup, explicit source/deployed distinction and final HMS/plan/ledger/evidence push/remote verification. Code cannot be declared completed/deployed until these gates pass. Browser/staff/phone, useful ingestion/UI/full release stay open.
+- [x] Update OpenAPI/page map implemented status only for source-accepted operations, separately list runtime flagFalse and UI deferred. Source-verified normal push/remoteSHA and exact successful CI before immutable preview candidate.
+- [x] Freeze reviewed HMS-only source rollout amendment: fresh backup/key/inventory/state, isolated disabled HTTP request allowance retention proof and prior260 source compatibility with all rows retained; no live admission/business invocation or flag enablement. Verify existing live behavior plus new safe route availability/failure boundaries without invoking live command paths. No DDL/bootstrap/policy/other-app change.
+- [x] Reviewed rollout/live preservation/postbackup restore/key/cleanup, explicit source/deployed distinction and final HMS/plan/ledger/evidence push/remote verification. Code cannot be declared completed/deployed until these gates pass. Browser/staff/phone, useful ingestion/UI/full release stay open.
 
 ## Draft disposition
 
@@ -166,3 +166,7 @@ Exactc0cc636 CI42232041716 failed one prior admission final-before-commit exact-
 - Fresh scoped timing/security review, focused/whole actualPG/check/no drift and exact successful new source CI. Rebind canonical protocol/rollout source identities and manifests before any rollout. Existing c0 proofs are historical narrow evidence, not acceptance of changed bytes.
 
 Coordinator ruling: absolute-deadline comparison implements the already frozen expiry-at-five rule without a tolerance. Incorrectly treating a deadline as unexpired is the reproduced failure; uncertainty remains failclosed. Source-acceptance disposition above is provisional until this gate closes.
+
+## Execution closed —6 November2026
+
+Exactbdbe8c6 sourceCI42234437948 allthreeSUCCESS; final251canonicalfile/98actualprotocol acceptance, reviewed concrete HTTP clones/prior260, protected live switch/safe405 probes/no live admission/business,34tablepostrestore/currentkey and other52configs21containers preservation verified. See [measured rollout](../operations/document-http-preview-evidence-2026-11-06.json). Historical pending statements above describe their dated phase; this execution result supersedes them. MetadataFalse, UI/ingestion/browser/staff/phone/fullrelease remainopen.

@@ -1,0 +1,800 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "version Django",
+      "passed": true
+    },
+    {
+      "name": "version djangorestframework",
+      "passed": true
+    },
+    {
+      "name": "version psycopg",
+      "passed": true
+    },
+    {
+      "name": "version gunicorn",
+      "passed": true
+    },
+    {
+      "name": "Nginx reviewed version/modules",
+      "passed": true
+    },
+    {
+      "name": "actual isolated TLS PG identity",
+      "passed": true
+    },
+    {
+      "name": "disposable DB initially empty",
+      "passed": true
+    },
+    {
+      "name": "disposable app role least privilege",
+      "passed": true
+    },
+    {
+      "name": "bounded normal response",
+      "passed": true
+    },
+    {
+      "name": "real TLS CSRF cookie",
+      "passed": true
+    },
+    {
+      "name": "bounded normal response",
+      "passed": true
+    },
+    {
+      "name": "real ordinary reception password login",
+      "passed": true
+    },
+    {
+      "name": "bounded normal response",
+      "passed": true
+    },
+    {
+      "name": "finite create4096: exactly one minute-safe allowance",
+      "passed": true
+    },
+    {
+      "name": "finite create4096: expected durable effects",
+      "passed": true
+    },
+    {
+      "name": "create4096 succeeds",
+      "passed": true
+    },
+    {
+      "name": "bounded normal response",
+      "passed": true
+    },
+    {
+      "name": "list: exactly one minute-safe allowance",
+      "passed": true
+    },
+    {
+      "name": "list: expected durable effects",
+      "passed": true
+    },
+    {
+      "name": "list succeeds",
+      "passed": true
+    },
+    {
+      "name": "bounded normal response",
+      "passed": true
+    },
+    {
+      "name": "detail: exactly one minute-safe allowance",
+      "passed": true
+    },
+    {
+      "name": "detail: expected durable effects",
+      "passed": true
+    },
+    {
+      "name": "detail succeeds",
+      "passed": true
+    },
+    {
+      "name": "bounded normal response",
+      "passed": true
+    },
+    {
+      "name": "finite withdraw4096: exactly one minute-safe allowance",
+      "passed": true
+    },
+    {
+      "name": "finite withdraw4096: expected durable effects",
+      "passed": true
+    },
+    {
+      "name": "withdraw4096 succeeds",
+      "passed": true
+    },
+    {
+      "name": "create4097: explicit rejection or confirmed close",
+      "passed": true,
+      "status": 413,
+      "confirmed_close": true
+    },
+    {
+      "name": "create4097: zero allowance/business/audit effects",
+      "passed": true
+    },
+    {
+      "name": "missing: explicit rejection or confirmed close",
+      "passed": true,
+      "status": 400,
+      "confirmed_close": true
+    },
+    {
+      "name": "missing: zero allowance/business/audit effects",
+      "passed": true
+    },
+    {
+      "name": "short-json: explicit rejection or confirmed close",
+      "passed": true,
+      "status": 400,
+      "confirmed_close": true
+    },
+    {
+      "name": "short-json: zero allowance/business/audit effects",
+      "passed": true
+    },
+    {
+      "name": "incomplete: explicit rejection or confirmed close",
+      "passed": true,
+      "status": null,
+      "confirmed_close": true
+    },
+    {
+      "name": "incomplete: zero allowance/business/audit effects",
+      "passed": true
+    },
+    {
+      "name": "duplicate: explicit rejection or confirmed close",
+      "passed": true,
+      "status": 400,
+      "confirmed_close": true
+    },
+    {
+      "name": "duplicate: zero allowance/business/audit effects",
+      "passed": true
+    },
+    {
+      "name": "conflicting: explicit rejection or confirmed close",
+      "passed": true,
+      "status": 400,
+      "confirmed_close": true
+    },
+    {
+      "name": "conflicting: zero allowance/business/audit effects",
+      "passed": true
+    },
+    {
+      "name": "te-cl: explicit rejection or confirmed close",
+      "passed": true,
+      "status": 400,
+      "confirmed_close": true
+    },
+    {
+      "name": "te-cl: zero allowance/business/audit effects",
+      "passed": true
+    },
+    {
+      "name": "bad-chunk: explicit rejection or confirmed close",
+      "passed": true,
+      "status": 400,
+      "confirmed_close": true
+    },
+    {
+      "name": "bad-chunk: zero allowance/business/audit effects",
+      "passed": true
+    },
+    {
+      "name": "bad-terminal: explicit rejection or confirmed close",
+      "passed": true,
+      "status": 400,
+      "confirmed_close": true
+    },
+    {
+      "name": "bad-terminal: zero allowance/business/audit effects",
+      "passed": true
+    },
+    {
+      "name": "conflicting-te: explicit rejection or confirmed close",
+      "passed": true,
+      "status": 400,
+      "confirmed_close": true
+    },
+    {
+      "name": "conflicting-te: zero allowance/business/audit effects",
+      "passed": true
+    },
+    {
+      "name": "withdraw4097: explicit rejection or confirmed close",
+      "passed": true,
+      "status": 413,
+      "confirmed_close": true
+    },
+    {
+      "name": "withdraw4097: zero allowance/business/audit effects",
+      "passed": true
+    },
+    {
+      "name": "missing: explicit rejection or confirmed close",
+      "passed": true,
+      "status": 400,
+      "confirmed_close": true
+    },
+    {
+      "name": "missing: zero allowance/business/audit effects",
+      "passed": true
+    },
+    {
+      "name": "short-json: explicit rejection or confirmed close",
+      "passed": true,
+      "status": 400,
+      "confirmed_close": true
+    },
+    {
+      "name": "short-json: zero allowance/business/audit effects",
+      "passed": true
+    },
+    {
+      "name": "incomplete: explicit rejection or confirmed close",
+      "passed": true,
+      "status": null,
+      "confirmed_close": true
+    },
+    {
+      "name": "incomplete: zero allowance/business/audit effects",
+      "passed": true
+    },
+    {
+      "name": "duplicate: explicit rejection or confirmed close",
+      "passed": true,
+      "status": 400,
+      "confirmed_close": true
+    },
+    {
+      "name": "duplicate: zero allowance/business/audit effects",
+      "passed": true
+    },
+    {
+      "name": "conflicting: explicit rejection or confirmed close",
+      "passed": true,
+      "status": 400,
+      "confirmed_close": true
+    },
+    {
+      "name": "conflicting: zero allowance/business/audit effects",
+      "passed": true
+    },
+    {
+      "name": "te-cl: explicit rejection or confirmed close",
+      "passed": true,
+      "status": 400,
+      "confirmed_close": true
+    },
+    {
+      "name": "te-cl: zero allowance/business/audit effects",
+      "passed": true
+    },
+    {
+      "name": "bad-chunk: explicit rejection or confirmed close",
+      "passed": true,
+      "status": 400,
+      "confirmed_close": true
+    },
+    {
+      "name": "bad-chunk: zero allowance/business/audit effects",
+      "passed": true
+    },
+    {
+      "name": "bad-terminal: explicit rejection or confirmed close",
+      "passed": true,
+      "status": 400,
+      "confirmed_close": true
+    },
+    {
+      "name": "bad-terminal: zero allowance/business/audit effects",
+      "passed": true
+    },
+    {
+      "name": "conflicting-te: explicit rejection or confirmed close",
+      "passed": true,
+      "status": 400,
+      "confirmed_close": true
+    },
+    {
+      "name": "conflicting-te: zero allowance/business/audit effects",
+      "passed": true
+    },
+    {
+      "name": "get-body: explicit rejection or confirmed close",
+      "passed": true,
+      "status": 400,
+      "confirmed_close": true
+    },
+    {
+      "name": "get-body: zero allowance/business/audit effects",
+      "passed": true
+    },
+    {
+      "name": "chunk4096 actual app observation",
+      "passed": true
+    },
+    {
+      "name": "chunk4096 canonical length succeeds",
+      "passed": true
+    },
+    {
+      "name": "chunk4096: exactly one persisted allowance",
+      "passed": true
+    },
+    {
+      "name": "chunk4097: explicit rejection or confirmed close",
+      "passed": true,
+      "status": 413,
+      "confirmed_close": true
+    },
+    {
+      "name": "chunk4097: zero allowance/business/audit effects",
+      "passed": true
+    },
+    {
+      "name": "valid first entity observation",
+      "passed": true,
+      "status": 201,
+      "first_command_may_commit": true,
+      "intent_delta": 1,
+      "event_delta": 1
+    },
+    {
+      "name": "existing curl supports HTTP2",
+      "passed": true
+    },
+    {
+      "name": "h2-list: actual negotiated HTTP2",
+      "passed": true
+    },
+    {
+      "name": "h2-list: success",
+      "passed": true
+    },
+    {
+      "name": "h2-list: real durable effects",
+      "passed": true
+    },
+    {
+      "name": "h2-list: exactly one persisted allowance",
+      "passed": true
+    },
+    {
+      "name": "h2-create4096: actual negotiated HTTP2",
+      "passed": true
+    },
+    {
+      "name": "h2-create4096: success",
+      "passed": true
+    },
+    {
+      "name": "h2-create4096: real durable effects",
+      "passed": true
+    },
+    {
+      "name": "h2-create4096: exactly one persisted allowance",
+      "passed": true
+    },
+    {
+      "name": "h2-create4097: actual negotiated HTTP2",
+      "passed": true
+    },
+    {
+      "name": "h2-create4097: explicit rejection",
+      "passed": true
+    },
+    {
+      "name": "h2-create4097: zero persisted effects",
+      "passed": true
+    },
+    {
+      "name": "h2-missing: actual negotiated HTTP2",
+      "passed": true
+    },
+    {
+      "name": "h2-missing: one actual app observation",
+      "passed": true
+    },
+    {
+      "name": "h2-missing: canonical or absent length",
+      "passed": true
+    },
+    {
+      "name": "h2-missing: success",
+      "passed": true
+    },
+    {
+      "name": "h2-missing: real durable effects",
+      "passed": true
+    },
+    {
+      "name": "h2-missing: exactly one persisted allowance",
+      "passed": true
+    },
+    {
+      "name": "h2-mismatch: actual negotiated HTTP2",
+      "passed": true
+    },
+    {
+      "name": "h2-mismatch: explicit rejection",
+      "passed": true
+    },
+    {
+      "name": "h2-mismatch: zero persisted effects",
+      "passed": true
+    },
+    {
+      "name": "candidate listeners closed",
+      "passed": true
+    }
+  ],
+  "failure": null,
+  "cleanup_errors": [],
+  "observations": [
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "csrf",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 200,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "login",
+      "length": 91,
+      "transfer_encoding": "absent",
+      "status": 200,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "create4096",
+      "length": 4096,
+      "transfer_encoding": "absent",
+      "status": 201,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "list",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 200,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "detail",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 200,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "withdraw4096",
+      "length": 4096,
+      "transfer_encoding": "absent",
+      "status": 200,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "create4097",
+      "length": 4097,
+      "transfer_encoding": "absent",
+      "status": 413,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "missing",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 400,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "short-json",
+      "length": 1,
+      "transfer_encoding": "absent",
+      "status": 400,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "withdraw4097",
+      "length": 4097,
+      "transfer_encoding": "absent",
+      "status": 413,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "missing",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 400,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "short-json",
+      "length": 1,
+      "transfer_encoding": "absent",
+      "status": 400,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "get-body",
+      "length": 1,
+      "transfer_encoding": "absent",
+      "status": 400,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "chunk4096",
+      "length": 4096,
+      "transfer_encoding": "absent",
+      "status": 201,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "chunk4097",
+      "length": 4097,
+      "transfer_encoding": "absent",
+      "status": 413,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "valid-first",
+      "length": 189,
+      "transfer_encoding": "absent",
+      "status": 201,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "h2-list",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 200,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "h2-create4096",
+      "length": 4096,
+      "transfer_encoding": "absent",
+      "status": 201,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "h2-create4097",
+      "length": 4097,
+      "transfer_encoding": "absent",
+      "status": 413,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    },
+    {
+      "scenario": "h2-missing",
+      "length": 4096,
+      "transfer_encoding": "absent",
+      "status": 201,
+      "app_reached": true
+    },
+    {
+      "scenario": "unknown",
+      "length": "absent",
+      "transfer_encoding": "absent",
+      "status": 204,
+      "app_reached": true
+    }
+  ],
+  "versions": {
+    "Django": "5.2.18",
+    "djangorestframework": "3.16.1",
+    "psycopg": "3.2.12",
+    "gunicorn": "26.2.0",
+    "nginx": "nginx/1.24.0",
+    "postgresql": 170011,
+    "curl": "curl 8.5.0 (x86_64-pc-linux-gnu) libcurl/8.5.0 OpenSSL/3.0.13 zlib/1.3 brotli/1.1.0 zstd/1.5.5 libidn2/2.3.7 libpsl/0.21.2 (+libidn2/2.3.7) libssh/0.10.6/openssl/zlib nghttp2/1.59.0 librtmp/2.3 OpenLDAP/2.6.10"
+  },
+  "manifest_sha256": "5eafd8e67a5676b64b4e63bec2115cbd227f0c2960153f64bc89993928c4d0a1",
+  "limits": [
+    "Chunked support follows observed server-delivered length only.",
+    "Valid first entity may commit despite inaccessible trailing bytes.",
+    "Scoped protocol compatibility, not complete request-smuggling certification.",
+    "Coordinator must run owned PG helper down after ORM/process closure.",
+    "No live deployment, dependency install or global service mutation."
+  ],
+  "isolated_deviations": {
+    "client_body_timeout_seconds": 2,
+    "socket_timeout_seconds": 6,
+    "case_deadline_seconds": 10
+  }
+}

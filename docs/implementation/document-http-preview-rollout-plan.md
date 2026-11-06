@@ -29,28 +29,28 @@ Review risks and owning gates: old GET404 smoke invokes new disabled admission (
 
 **Interface:** accepted exact sourceSHA + actual current prior -> complete canonical archive/configuration/inventory/backup baseline consumed by Tasks2–4.
 
-- [ ] Require final337 actualPG HTTP/full backend/check/no drift, fresh adapter review, corrected framing safety review and actual isolated HTTP1.1/HTTP2/process/effect/cleanup gate on exact final bytes. Preserve labelled limitations and actual warnings/skips.
-- [ ] Normal push/remote fullSHA equality and exact successful CI head/allthreejobs before immutable preview candidate. Promote four OpenAPI/page-action source implementation dispositions after source and isolated-protocol acceptance; preview deployment verification, flag/UI/release status remain separate.
-- [ ] Build archive from committed canonical Git blobs, exact complete file set/hash manifest/archive checksum. Test archives from working-tree files or ignored test settings are never release artifacts.
-- [ ] Freshly attest prior/current symlink/workers/listeners/core0009, effective booleanFalse and provenance, default-only DB/no routers/PG floor/empty migration plan, all-table deterministic row receipts, security/password/recovery/operator/network state and actual retained factor decryption. Retain env/key/static/HBA/service/timer/config/other-app inventory. No migration execution or forced historical state.
-- [ ] Review exact new helper source/paths/cleanup ownership. Replace old identities/counts/CI claims. Unsafe helper behavior returns to literal RED/minimal fix/review before use.
+- [x] Require final337 actualPG HTTP/full backend/check/no drift, fresh adapter review, corrected framing safety review and actual isolated HTTP1.1/HTTP2/process/effect/cleanup gate on exact final bytes. Preserve labelled limitations and actual warnings/skips.
+- [x] Normal push/remote fullSHA equality and exact successful CI head/allthreejobs before immutable preview candidate. Promote four OpenAPI/page-action source implementation dispositions after source and isolated-protocol acceptance; preview deployment verification, flag/UI/release status remain separate.
+- [x] Build archive from committed canonical Git blobs, exact complete file set/hash manifest/archive checksum. Test archives from working-tree files or ignored test settings are never release artifacts.
+- [x] Freshly attest prior/current symlink/workers/listeners/core0009, effective booleanFalse and provenance, default-only DB/no routers/PG floor/empty migration plan, all-table deterministic row receipts, security/password/recovery/operator/network state and actual retained factor decryption. Retain env/key/static/HBA/service/timer/config/other-app inventory. No migration execution or forced historical state.
+- [x] Review exact new helper source/paths/cleanup ownership. Replace old identities/counts/CI claims. Unsafe helper behavior returns to literal RED/minimal fix/review before use.
 
 ## Task2 — restored-data HTTP and prior-source rehearsal
 
 **Files:** fresh dump/checksum/restore list, verified receipt-owned isolated TLS targets and HTTP-specific clone helper. Consume Task1 exact source/prior/baseline; produce HTTP/current-data/key/rollback evidence.
 
-- [ ] Restore fresh snapshot into a verified owned isolated target; positively assert DB name/user/host/port/TLS/ownership before writes. Verify pristine all-table equality/current factor-key decryption/core0009 before fixtures/auth. Inconsistent snapshot/dump requires a new consistent pair.
-- [ ] Disabled clone uses separate ordinary synthetic reception actor/session, genuine full middleware/CSRF and exact candidate routes. One valid collection GET under effectiveFalse returns fixed503 and persists exactly one allowance, independently observed. Capture SQL/all-row state around this call: no patient/intent/receipt/event/audit access/change; distinguish fixture/login effects. Do not require retained owner rate rows absent or delete them.
-- [ ] Separate fresh enabled clone, verified pristine/key first; ordinary synthetic reception actor with genuine authenticated session/current branch grants/real CSRF, True only in child process. Genuine HTTP initial list/create/create replay/detail/withdraw/withdraw replay/final list with original bytes/idempotency headers/realCSRF. Require one intent/two receipts/seven linked disclosure events, per-call minute-safe admission, frozen projections/attribution and unrelated-row preservation. Direct services are not substitute transport evidence.
-- [ ] Exit enabled process, run exact prior260eeb9/False over the same retained nonempty clone. Real password/TOTP/session/scoped reads/logout, all four metadata tables identical before and after logout, narrowly explained auth effects. No reverse migration or row purge.
+- [x] Restore fresh snapshot into a verified owned isolated target; positively assert DB name/user/host/port/TLS/ownership before writes. Verify pristine all-table equality/current factor-key decryption/core0009 before fixtures/auth. Inconsistent snapshot/dump requires a new consistent pair.
+- [x] Disabled clone uses separate ordinary synthetic reception actor/session, genuine full middleware/CSRF and exact candidate routes. One valid collection GET under effectiveFalse returns fixed503 and persists exactly one allowance, independently observed. Capture SQL/all-row state around this call: no patient/intent/receipt/event/audit access/change; distinguish fixture/login effects. Do not require retained owner rate rows absent or delete them.
+- [x] Separate fresh enabled clone, verified pristine/key first; ordinary synthetic reception actor with genuine authenticated session/current branch grants/real CSRF, True only in child process. Genuine HTTP initial list/create/create replay/detail/withdraw/withdraw replay/final list with original bytes/idempotency headers/realCSRF. Require one intent/two receipts/seven linked disclosure events, per-call minute-safe admission, frozen projections/attribution and unrelated-row preservation. Direct services are not substitute transport evidence.
+- [x] Exit enabled process, run exact prior260eeb9/False over the same retained nonempty clone. Real password/TOTP/session/scoped reads/logout, all four metadata tables identical before and after logout, narrowly explained auth effects. No reverse migration or row purge.
 
 ## Task3 — protected source-only switch and safe live verification
 
 **Files:** reviewed HTTP-specific maintenance/switch/open/live-acceptance helpers and fresh quiesced receipts; consume successful Tasks1/2 and current usage; produce actual source/runtime/live preservation evidence.
 
-- [ ] Recheck no intervening operator/source change; close only HMS with established maintenance controls, stop HMS writers, quiesced backup/row snapshot, switch only accepted source. Verify canonical files/two workers/no old workers, socket ownership/principals, actualFalse/core0009 and zero table-row change before auth. Preserve other applications/env/keys/HBA/static/venv/security.
-- [ ] Reopen under retained protection and run existing Basic/MFA/CSRF/scoped read/logout/network/static/private-spoof checks with current owner state preserved.
-- [ ] Replace the old live metadata GET404 loop completely. Authenticated empty HEAD and OPTIONS only, on canonical synthetic UUID strings, after successful global action authority; fixed405, exactAllow and no admission/object lookup:
+- [x] Recheck no intervening operator/source change; close only HMS with established maintenance controls, stop HMS writers, quiesced backup/row snapshot, switch only accepted source. Verify canonical files/two workers/no old workers, socket ownership/principals, actualFalse/core0009 and zero table-row change before auth. Preserve other applications/env/keys/HBA/static/venv/security.
+- [x] Reopen under retained protection and run existing Basic/MFA/CSRF/scoped read/logout/network/static/private-spoof checks with current owner state preserved.
+- [x] Replace the old live metadata GET404 loop completely. Authenticated empty HEAD and OPTIONS only, on canonical synthetic UUID strings, after successful global action authority; fixed405, exactAllow and no admission/object lookup:
 
 | Shape | Authority | Allow |
 |---|---|---|
@@ -59,16 +59,20 @@ Review risks and owning gates: old GET404 smoke invokes new disabled admission (
 | detail + `withdraw/` | intent.withdraw (write permission) | POST |
 
   OPTIONS fixedJSON method_not_allowed; HEAD empty wire body. Require no-store/VaryCookie/nosniff. Verify HTTP route availability without supported command paths.
-- [ ] Exactly compare all four live metadata tables with quiesced baseline, separate expected auth row/field deltas; other data unchanged. Any failed post-reopen probe or unexplained data/security delta immediately re-closes HMS only, preserves post-attempt evidence and enters rehearsed rollback/recovery. Unknown state stays closed; never blanket auth-table exclusions.
+- [x] Exactly compare all four live metadata tables with quiesced baseline, separate expected auth row/field deltas; other data unchanged. Any failed post-reopen probe or unexplained data/security delta immediately re-closes HMS only, preserves post-attempt evidence and enters rehearsed rollback/recovery. Unknown state stays closed; never blanket auth-table exclusions.
 
 Rollback selects only rehearsed prior260eeb9, retaining0009/all current rows and repeating existing worker/auth/security/preservation checks. Never restore an older dump over subsequent legitimate activity. Uncertain state stays protected/closed for recovery.
 
 ## Task4 — recovery, cleanup and truthful records
 
-- [ ] Fresh postchange backup/checksum/list, pristine owned restore, exact all-table/current key/password/recovery/operator/network checks; clean only receipt-owned helpers and verify process/listener absence. Independently compare other apps/configs/containers/HBA/env/static/keys.
-- [ ] Record actual deployed fullSHA/file hashes/time/protocol/clone/live/restore evidence in HMS/plan/ledger/operations; verify normal push/remoteSHA. No invented inherited booleans. Documentation-only publication does not restart unchanged runtime.
-- [ ] Keep browser/keyboard/staff/phone import, useful ingestion/storage/scanning/UI and remaining clinical/finance/MCP/dataops/full-release gates explicitly open. Synthetic preview is not hospital real-data release.
+- [x] Fresh postchange backup/checksum/list, pristine owned restore, exact all-table/current key/password/recovery/operator/network checks; clean only receipt-owned helpers and verify process/listener absence. Independently compare other apps/configs/containers/HBA/env/static/keys.
+- [x] Record actual deployed fullSHA/file hashes/time/protocol/clone/live/restore evidence in HMS/plan/ledger/operations; verify normal push/remoteSHA. No invented inherited booleans. Documentation-only publication does not restart unchanged runtime.
+- [x] Keep browser/keyboard/staff/phone import, useful ingestion/storage/scanning/UI and remaining clinical/finance/MCP/dataops/full-release gates explicitly open. Synthetic preview is not hospital real-data release.
 
 ## Concrete helper amendment map
 
 Old `.local/business_live_acceptance.py` metadata GET loop must disappear in the new copy. Old `business_db_ops.py` direct disabled/enabled service proofs become HTTP clone proofs; prior compatibility comparisons through logout remain, repinned260eeb9. Build/stage/preclose/close/switch/open/grants/finish copies need fresh literal identities and evidence, not replayed dated scripts or truthy old success claims. Root reviews these concrete copies before any state-changing rollout action.
+
+## Execution closed —6 November2026
+
+Exactbdbe8c6 sourceCI42234437948 allthreeSUCCESS; final251canonicalfile/98actualprotocol acceptance, reviewed concrete HTTP clones/prior260, protected live switch/safe405 probes/no live admission/business,34tablepostrestore/currentkey and other52configs21containers preservation verified. See [measured rollout](../operations/document-http-preview-evidence-2026-11-06.json). Historical pending statements above describe their dated phase; this execution result supersedes them. MetadataFalse, UI/ingestion/browser/staff/phone/fullrelease remainopen.
