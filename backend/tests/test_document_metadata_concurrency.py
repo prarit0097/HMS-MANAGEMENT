@@ -435,10 +435,18 @@ def test_original_cooperative_budget_rejects_before_phase_without_allowance(acto
 
 
 @pytest.mark.parametrize('stage,retained', [('final_before_commit', False), ('after_acknowledged_commit', True)])
+@pytest.mark.parametrize('origin', [None, 1023.9999999999997, 65535.99999999998],
+                         ids=['real_origin', 'cross_1024', 'cross_65536'])
 def test_original_budget_exact_boundary_rolls_back_or_retains_known_commit(
-        actor, clock, monkeypatch, stage, retained):
+        actor, clock, monkeypatch, stage, retained, origin):
     api = import_module('apps.core.document_access')
-    context = capture_document_context(actor.request, 'intent.list')
+    if origin is None:
+        context = capture_document_context(actor.request, 'intent.list')
+    else:
+        # Genuine issuance with an adversarial origin, never a replacement context.
+        with monkeypatch.context() as capture_clock:
+            capture_clock.setattr('apps.core.document_authority.time.monotonic', lambda: origin)
+            context = capture_document_context(actor.request, 'intent.list')
     elapsed = [0.1]
     monkeypatch.setattr(api, 'monotonic', lambda: context.monotonic_started_at + elapsed[0])
     constraints, commits = [], []

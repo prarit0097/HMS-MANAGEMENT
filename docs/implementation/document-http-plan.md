@@ -154,3 +154,15 @@ Three disjoint test owners expanded contract162→168cases, real-CSRF114cases an
 ## Accepted source/isolated ingress —6 November2026
 
 Corrected337HTTP and full2020PG/168subtests/check0/nodrift; independent adapter review clear. Safety defects reproduced/fixed/reviewed;98actual protocol/process/effect/cleanup checks passed. See [validation](../operations/document-http-validation-2026-11-05.json) and [actual ingress](../operations/document-http-framing-evidence-2026-11-06.json). OpenAPI0.7.2 source status is distinct from pending CI/preview rollout/defaultFalse/UI. No prior completed slice repeated.
+
+## Narrow shared-budget defect amendment —6 November2026
+
+Exactc0cc636 CI42232041716 failed one prior admission final-before-commit exact-five-second case (2019passed/7skipped/168subtests171.84s); source is NOT a release candidate. Decoded logs do not contain its captured monotonic start, so a specific rounding cause for that run is an inference. Independent diagnosis reproduced a genuine-context portable RED1fail3.31s: start1023.9999999999997; representable current=start+5 is1028.9999999999995; subtracting yields4.999999999999886 and incorrectly passes the deadline gate. This separately reproduced shared defect authorises only the following amendment before another source publication.
+
+- Preserve original context, all finite/backward/wall-time checks and five-second cooperative budget, before/after commit behavior, actual PostgreSQL timeouts and all authority/network rules. No epsilon, deadline extension, remint, HTTP/COMMIT SLA or new permission/API/schema.
+- Add permanent genuine-context tests with explicit floating origins crossing powers of two, exact representable deadline/one representable tick before/after. Observe RED at the deadline before production. Keep the captured context authentic through the existing session fixture; do not construct a trusted context manually.
+- Minimal production delta in `backend/apps/core/document_access.py::_budget`: compare current against the absolute representable deadline `started + 5`, instead of rounded elapsed subtraction. Business services already reuse this helper; no second implementation or refactor.
+- Reproduce actualPG final-before-commit rollback and after-acknowledged-commit retained allowance under adversarial origins, with real constraint/commit hooks and independent persisted-state checks. No CI retry to conceal the failure.
+- Fresh scoped timing/security review, focused/whole actualPG/check/no drift and exact successful new source CI. Rebind canonical protocol/rollout source identities and manifests before any rollout. Existing c0 proofs are historical narrow evidence, not acceptance of changed bytes.
+
+Coordinator ruling: absolute-deadline comparison implements the already frozen expiry-at-five rule without a tolerance. Incorrectly treating a deadline as unexpired is the reproduced failure; uncertainty remains failclosed. Source-acceptance disposition above is provisional until this gate closes.

@@ -15,7 +15,7 @@
 ## Constraints, interfaces and review focus
 
 - Recorded prior260eeb9a6ed3b1af8824ef821cfc23205bde4d2b at `/opt/hms/releases/preview-20261103-260eeb9`, core0009/effectiveFalse, must be freshly reconciled. Historical row/config/container counts never override actual owner activity.
-- Expected application delta is document_api.py and three string URL patterns. Tests/isolated runner/contracts/records accompany it. No changed B1/admission/business/models/migrations/settings/grants/frontend/live proxy/dependencies without a separate reproduced defect and scope amendment.
+- Expected application delta is document_api.py, three string URL patterns and the separately reproduced/frozen one-line absolute budget-deadline correction in document_access.py. Tests/isolated runner/contracts/records accompany it. No changed B1/admission/business/models/migrations/settings/grants/frontend/live proxy/dependencies without a separate reproduced defect and scope amendment.
 - No supported live document GET/POST, admission/business invocation, flag enablement, bootstrap, recovery consumption, reenrollment, policy/grant change, shared HBA/proxy edit or older-dump overwrite. Preserve Basic AND network/session/CSRF/MFA security.
 - Existing registration permissions, current organisation/branch authority and real session/CSRF apply. Master status creates no clinical rights. Only isolated clearly labelled synthetic fixtures may be written for rehearsal.
 - Coordinator alone Git/VPS, authenticated usage at start/boundaries and mandatory fresh<=10 stop. No paid provisioning or real patient/lead data. Secrets stay in private root-owned files and never enter redacted receipts/Git.

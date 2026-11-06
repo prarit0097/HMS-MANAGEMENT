@@ -1,7 +1,15 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.49.0 | Updated: 6 November 2026, Asia/Calcutta
+Document version: 1.50.0 | Updated: 6 November 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
+## Shared budget boundary correction —6 November2026
+
+Exactc0cc636 CI42232041716 backend failed one prior final-before-commit deadline case:2019pass/1fail/7skips/168subtests171.84s; frontend/contracts jobsSUCCESS. Rootdecoded job logs, did not retry to hide failure. Independent genuine-context reproduction found rounded subtraction may turn representable deadline into4.999999999999886. The specific captured CI origin is unavailable, so direct attribution remains an inference. Root froze a narrow shared-budget amendment before production: one absolute deadline comparison, no epsilon/remint/longer budget or authority/timeout/API/schema change.
+
+Permanent portable2RED13pass2.54s; actualTLS PG old production6RED15pass4.17s, including real before-commit rollback/after-ACK retained-count assertions. Minimal fix focused120pass36PGskips6.68s; independent review clear51pass42PGskips6.77s. RootactualPG21focusedGREEN4.01s and final2039pass/7SQLite-onlyskips/168subtests182.26s, check0/no drift, helper/DB/container/network removed15549closed/live active. [Budget evidence](docs/operations/document-budget-boundary-evidence-2026-11-06.json) records precise limits. A separate canonical c0 package also passed98ingress checks/248Gitblobfiles/manifest71f7d565ddeb577f2fdcfffaedf52a472ed63bb2c0e89a67fcb8d28dc85e681d; it predates the budget fix and cannot establish final-source runtime acceptance.
+
+Concrete HTTP rollout helpers reviewed with genuine ordinary-reception HTTP restored-clone proofs, safe live HEAD/OPTIONS only, exact nonempty receipt/call/count gates, and verified503 reclose on any post-open failure. No helper has staged/switched live. New source publication/CI/canonical ingress/restored clones/prior260 compatibility/HMS-only live/restore remainOPEN. Current recorded260eeb9/core0009/False unchanged. No resetcredit, live document call, flag/policy/schema change or claim of full HMS release.
+
 ## B3 source and actual ingress accepted —6 November2026
 
 Continuation after the elapsed4November cooldown authenticated94primary85weekly on5November; after host continuation6November14:07:26UTC authenticated94primary76weekly, no new cooldown/waiver/resetcredit. Historical stop retained. Corrected HTTP adapter source passed337actualTLS PG17.11 cases37.08s and full2020pass/7explicitSQLite-onlyskips/168subtests157.00s, Django check0/no drift; helper/container/network removed15549closed/live active. Independent adapter source review clear; focused39/76local checks overlap, not added to backend totals. Root19projecttests10.262s.
@@ -1213,3 +1221,7 @@ Elapsed-deadline resume95primary20weekly; precode328PGRED/1pass and8framingRED, 
 ### CHG-0075 —6 November2026 — Accept B3 source and isolated ingress
 
 Corrected337HTTP/full2020PG/168subtests/check0/nodrift, fresh adapter review; framing safety RED/GREEN and98actualHTTP1.1/H2/cleanup checks accepted. OpenAPI/page map0.7.2 marks four APIs sourceimplemented, no UI/activation/deployment claim. Reviewed rollout amendment saved; exact finalCI/concrete helpers/clones/live/restore pending. Prior260preview unchanged, no resetcredit.
+
+### CHG-0076 —6 November2026 — Correct representable cooperative deadline
+
+Decoded failed exactCI; genuine-context portable/actualPG RED, one-line absolute deadline comparison, scoped review/focused/fullPG GREEN. No budget extension/permission/API/schema change. New sourceCI/ingress/preview rollout pending; live260unchanged.

@@ -10,6 +10,14 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
+## Shared budget boundary correction —6 November2026
+
+Exactc0cc636 CI42232041716 backend failed one prior final-before-commit deadline case:2019pass/1fail/7skips/168subtests171.84s; frontend/contracts jobsSUCCESS. Rootdecoded job logs, did not retry to hide failure. Independent genuine-context reproduction found rounded subtraction may turn representable deadline into4.999999999999886. The specific captured CI origin is unavailable, so direct attribution remains an inference. Root froze a narrow shared-budget amendment before production: one absolute deadline comparison, no epsilon/remint/longer budget or authority/timeout/API/schema change.
+
+Permanent portable2RED13pass2.54s; actualTLS PG old production6RED15pass4.17s, including real before-commit rollback/after-ACK retained-count assertions. Minimal fix focused120pass36PGskips6.68s; independent review clear51pass42PGskips6.77s. RootactualPG21focusedGREEN4.01s and final2039pass/7SQLite-onlyskips/168subtests182.26s, check0/no drift, helper/DB/container/network removed15549closed/live active. [Budget evidence](docs/operations/document-budget-boundary-evidence-2026-11-06.json) records precise limits. A separate canonical c0 package also passed98ingress checks/248Gitblobfiles/manifest71f7d565ddeb577f2fdcfffaedf52a472ed63bb2c0e89a67fcb8d28dc85e681d; it predates the budget fix and cannot establish final-source runtime acceptance.
+
+Concrete HTTP rollout helpers reviewed with genuine ordinary-reception HTTP restored-clone proofs, safe live HEAD/OPTIONS only, exact nonempty receipt/call/count gates, and verified503 reclose on any post-open failure. No helper has staged/switched live. New source publication/CI/canonical ingress/restored clones/prior260 compatibility/HMS-only live/restore remainOPEN. Current recorded260eeb9/core0009/False unchanged. No resetcredit, live document call, flag/policy/schema change or claim of full HMS release.
+
 ## B3 source and actual ingress accepted —6 November2026
 
 Continuation after the elapsed4November cooldown authenticated94primary85weekly on5November; after host continuation6November14:07:26UTC authenticated94primary76weekly, no new cooldown/waiver/resetcredit. Historical stop retained. Corrected HTTP adapter source passed337actualTLS PG17.11 cases37.08s and full2020pass/7explicitSQLite-onlyskips/168subtests157.00s, Django check0/no drift; helper/container/network removed15549closed/live active. Independent adapter source review clear; focused39/76local checks overlap, not added to backend totals. Root19projecttests10.262s.

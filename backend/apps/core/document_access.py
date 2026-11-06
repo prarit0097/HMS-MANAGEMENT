@@ -132,7 +132,7 @@ def _budget(context):
     now = timezone.now()
     if (type(started) not in (int, float) or type(current) not in (int, float)
             or not math.isfinite(started) or not math.isfinite(current)
-            or current < started or current - started >= 5
+            or current < started or current >= started + 5
             or not authority._aware(context.operation_started_at) or not authority._aware(now)
             or now < context.operation_started_at):
         _fail('document_metadata_unavailable')

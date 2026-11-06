@@ -1,0 +1,54 @@
+{
+  "status": "Corrected shared budget verified in isolation; new exact source CI and preview rollout remain pending",
+  "failed_source": "c0cc6364b7d91959176d7e8eeb626f9ac0bfab39",
+  "failed_ci": {
+    "run": 42232041716,
+    "job": 127940093269,
+    "decoded": "1failed/2019passed/7SQLite-onlyskips/168subtests171.84s",
+    "failure": "test_original_budget_exact_boundary_rolls_back_or_retains_known_commit[final_before_commit-False]: DID NOT RAISE DocumentServiceError",
+    "other_jobs": "frontend and contracts-and-docs SUCCESS"
+  },
+  "cause_scope": "Deterministically reproduced shared-budget floating subtraction defect; failing CI actual captured start was not logged, so specific attribution is an inference",
+  "example": {
+    "started": 1023.9999999999997,
+    "current": 1028.9999999999995,
+    "rounded_elapsed": 4.999999999999886
+  },
+  "frozen_amendment": "docs/implementation/document-http-plan.md narrow shared-budget defect amendment before production",
+  "change": "current >= started + 5 instead of current - started >= 5; no epsilon, remint, budget extension, API/schema/permission/timeout change",
+  "red": {
+    "temporary_genuine_context": "1fail3.31s",
+    "permanent_portable": "2fail13pass2.54s",
+    "actual_tls_pg17_11": "old c0 production with final tests:6fail15pass30deselected1warning4.17s; all six exact boundary failures, no setup errors"
+  },
+  "green": {
+    "focused_portable": "120pass36PG-onlyskips6.68s",
+    "independent_review": "51pass42PGskips6.77s; scoped source/security review no Critical/Important finding",
+    "actual_tls_pg_focused": "21pass30deselected1known maintenance fallback warning4.01s",
+    "actual_tls_pg_full": "2039pass/7explicitSQLite-onlyskips/7warnings/168subtests182.26s",
+    "checks": "Django check0; no migration drift",
+    "cleanup": "receipt-owned DB/container/network removed;15549closed;live preview active"
+  },
+  "source_sha256": {
+    "backend/apps/core/document_access.py": "5cabe693b590a754fdd74d6fb5da53436e5dbfa292c85f2ed44151142e308745",
+    "backend/tests/test_document_budget_boundary.py": "ce9c28114c8c2af7d1c65608b1aadffd627444d5f9b4c4c31da4b9921ed37f46",
+    "backend/tests/test_document_metadata_concurrency.py": "85f135b605191f45ed00931a9e6f5570ec363c903f9004dba960d28f282f0c24"
+  },
+  "prior_canonical_ingress": {
+    "source": "c0cc6364b7d91959176d7e8eeb626f9ac0bfab39",
+    "canonical_files": 248,
+    "evidence": "document-http-framing-canonical-evidence-2026-11-06.json",
+    "passed": 98,
+    "manifest_sha256": "71f7d565ddeb577f2fdcfffaedf52a472ed63bb2c0e89a67fcb8d28dc85e681d",
+    "limitation": "predates budget correction; no acceptance inference for changed final source"
+  },
+  "rollout_helpers": "Concrete source/HTTP clone/safe live HEAD+OPTIONS/reclose/receipt gates reviewed; need repinning to accepted final source/CI before use",
+  "live": "Unchanged recorded260eeb9/core0009/False; no new deployment/live document/admission/business invocation",
+  "remaining": [
+    "exact new source successful CI",
+    "canonical final ingress rebind",
+    "reviewed restored HTTP clones/prior260 compatibility",
+    "HMS-only switch/live preservation/postbackup restore/records",
+    "remaining full HMS/UI/ingestion/staff/browser/phone gates"
+  ]
+}
