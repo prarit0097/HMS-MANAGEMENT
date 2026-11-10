@@ -1,0 +1,40 @@
+{
+  "status": "Concrete ingestion completion DRAFTs; not implementation or full contract freeze",
+  "resume_at_utc": "2026-11-10T08:33:57Z",
+  "authenticated_remaining_at_entry": {
+    "primary": 99,
+    "weekly": 35
+  },
+  "prior_stop": "8November07:23:43UTC/5primary39weekly; earliest12:53:43UTC elapsed before this resume; no waiver/resetcredit",
+  "recovered_publication": "92075c242db715ed1ca761e3dc1feb0d96920802 committed/pushed and exact remoteSHA verified before further design; earlier uncommitted8November draft/checkpoint preserved",
+  "completed": "Three exact persistence, one-use sealing and owned runtime/restore DRAFT contracts, independent six-point cross-review, coordinator alignment; no app source change",
+  "contract_sha256": {
+    "docs/implementation/document-ingestion-persistence-contract.md": "e94e869de1a7d60e4048b40c3e83a437cc92c079cef1fe2c2fd26dd8be20b05d",
+    "docs/implementation/document-ingestion-sealing-contract.md": "94f5b3c2a5d8fa98826df0d80005d852651bfb5669b412bee5807e304cc8bfcf",
+    "docs/implementation/document-ingestion-runtime-contract.md": "837cc3e73aea7cabe0db250cc528e2a1d68b6a263afec2ef7bd878a4edefd3db"
+  },
+  "directions": [
+    "Original5proposedmodels plus3control/actor/reservation rows; UUID equality fencing; every-operation actor admission independent B3",
+    "Trusted declaration reservation beforebody; bounded memory observed-byte verification; one-use known-commit seal; exact same-key bound replay creates no object/generation/scan",
+    "Separate random256-bit per-generation DEK AES-GCM once; nonce-free RFC3394 AES-KW32to40 under documentKEK; immutable initial seal keyid/AAD, deferred rewrap mutation",
+    "Exact proposed180byteAAD/78byteheader; exclusive part/link/fsync protocol, terminal partial identity, completefinal reconciliation underoriginalcutoff",
+    "Envelope-inclusive logical storagecharge, retaineduntilprovenwritertermination/purge; durable first-check/hold evidence required beforepurge",
+    "Originalpost-auth/realCSRFcontext cutoff60s plus30min declaration; finalprecommitcheck notHTTP/COMMIT acknowledgement promise",
+    "Reservationterminal/purging/purged unbound projectionunavailable/no receive; oldparentwithdrawaloverrides",
+    "Dedicatedscanner-ownedgeneration/reload/timeout/confirmedstop; final-before-first-byte authorisedaudit, no perblock promise",
+    "External restore target epoch must survive snapshot and be installed afterDBrestore beforeworkers/gates; restoreexecution and renewableauthority explicitlydeferred",
+    "Ingest cycles receipttimed; futurerestorecycle firstknownclaimtimed once; no retryextension or historyreset"
+  ],
+  "primitive_feasibility": "document-ingestion-primitive-feasibility-2026-11-10.json:18syntheticWindowslibrarychecks with pinnedcryptography50.0.2,1byte/10MiB; two stdlib180/78widthassertions. Not productioncodec/parser/filesystem/DB/scanner/HTTP/RSS/swap/clinicalcapacity acceptance.",
+  "dependency_proposals": "Official sources researchedClamAV1.4.6LTS/Pillow13.0.0; requirements not changed or installed. Runtime6GiB/2CPU proposal includes4GiBscanner versus oldunverified2GiB; no actual reservation.",
+  "still_open": [
+    "Exact full API/current-user/page-action/error/state/model/resource consistency and independentfreeze",
+    "Durable hold registry/purge authorisation; no absentregistry as nohold",
+    "Recovery authorisation/scope/expiry/renewal workflow and restoreactivation acceptance",
+    "Real engine/version/decoder/container/signature/timeout/process/isolation/clinicalworkload evidence",
+    "Public shared TLS front plaintext/swap/core boundary; isolated listener proof cannot establish sharedfront safety"
+  ],
+  "tests": "18standaloneprimitivechecks+2stdliblayoutchecks and docs link/API map/whitespace checks only. No app/schema/migration/scanner/DB/API/UI/runtime test or deployment.",
+  "environment": "Existing localDjango versions differ from source pin; no package/global environment changed. Primitive version guard50.0.2 matched existing source dependency.",
+  "runtime": "No model/route/grant/flag/worker/byte capability/provider/live configuration change. Last verified previewbdbe8c6/core0009/False remains6November historical evidence, not a fresh10November probe."
+}

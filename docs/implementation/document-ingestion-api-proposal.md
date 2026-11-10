@@ -79,3 +79,7 @@ Download stages and verifies the immutable accepted generation outside locks, th
 ## Freeze blockers and next evidence
 
 Coordinator accepts the additive linked-content direction and CurrentUser discovery instead of probe-only routes. Before freeze reconcile five additional operations/CurrentUser closed schema, accepted files surviving declaration expiry, creator withdrawal after30minutes, exact worker delegation and resource/storage budgets. Then OpenAPI/page-action freeze; scenario/threat/test reviews; literal RED; actualPG upload/withdraw/revoke/lease/ACK races; real storage/scanner faults; bounded ingress/backup/object/key restore; R04 browser/keyboard/staff acceptance; exact CI/reviewed preview. No ingestion test or production change was run for this proposal.
+
+## Coordinator cross-contract correction —10 November2026
+
+Unified projection must also left-link the reservation, not only content. A pending declaration whose unbound reservation is held_terminal/purging/purged projects unavailable with can_receive/can_download/can_withdraw=false and the safe next step to select the file through a new declaration. A new key cannot revive that intent. Parent withdrawal still projects withdrawn first; accepted content after declaration expiry is not confused with unbound expiry. Receiving/sealing in progress never advertises a second receive action. Exact revised schema/messages require the final API freeze; this paragraph is not an implemented endpoint.

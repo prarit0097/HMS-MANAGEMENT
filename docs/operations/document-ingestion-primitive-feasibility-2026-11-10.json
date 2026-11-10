@@ -1,0 +1,52 @@
+{
+  "status": "Design feasibility only, not application/storage/crypto protocol acceptance",
+  "cryptography": "50.0.2",
+  "platform": "Windows",
+  "python": "3.13.5",
+  "checks": [
+    "1:32byte key wraps to40bytes",
+    "1:unwrap exact",
+    "1:wrong wrapping key",
+    "1:corrupt wrapped key",
+    "1:one seal and exact decrypt",
+    "1:wrong context AAD",
+    "1:corrupt ciphertext",
+    "1:swapped wrapped key",
+    "1:rewrap does not alter payload/AAD",
+    "10485760:32byte key wraps to40bytes",
+    "10485760:unwrap exact",
+    "10485760:wrong wrapping key",
+    "10485760:corrupt wrapped key",
+    "10485760:one seal and exact decrypt",
+    "10485760:wrong context AAD",
+    "10485760:corrupt ciphertext",
+    "10485760:swapped wrapped key",
+    "10485760:rewrap does not alter payload/AAD"
+  ],
+  "passed": 18,
+  "measurements": [
+    {
+      "bytes": 1,
+      "roundtrip_seconds": 0.002081,
+      "traced_python_peak_bytes": 221
+    },
+    {
+      "bytes": 10485760,
+      "roundtrip_seconds": 0.024871,
+      "traced_python_peak_bytes": 20971739
+    }
+  ],
+  "limitations": [
+    "Only installed pinned library primitives with synthetic memory bytes; no image parsing or malware scanner.",
+    "AAD here is a test fixture, not the proposed canonical binary envelope.",
+    "tracemalloc excludes native allocations and plaintext existed before tracing; not total RSS/cgroup/swap capacity.",
+    "No file system atomicity/fsync, concurrency/crash, restore, framework, HTTP, clinical load or real-data test.",
+    "One AESGCM encryption per fresh per-size key/nonce; later operations only decrypt or key-wrap.",
+    "No installed dependency, runtime configuration, app source, persistent secret or live resource changed."
+  ],
+  "standalone_struct_width_checks": {
+    "aad": 180,
+    "envelope_header": 78
+  },
+  "standalone_struct_width_scope": "Two stdlib layout-width assertions only; no production parser/encoder or canonical field validation exercised."
+}

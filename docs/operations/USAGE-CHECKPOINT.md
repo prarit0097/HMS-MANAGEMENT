@@ -1,17 +1,39 @@
 # Usage-aware HMS continuation
 
 State: COOLDOWN
-checkpoint_at_utc: 2026-11-08T07:23:43Z
-resume_not_before_utc: 2026-11-08T12:53:43Z
+checkpoint_at_utc: 2026-11-10T09:19:44Z
+resume_not_before_utc: 2026-11-10T14:49:44Z
 owner_resume_at_utc: 2026-11-02 (explicit NOW CONTINUE; predates fresh stop)
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330 (fresh4November weekly stop; all prior history retained)
 automation_runtime_status_at_2026_11_02T04_20Z: ACTIVE (same heartbeat updated under standing cooldown rule after explicit owner NOW CONTINUE)
 automation_runtime_status_at_2026_11_01T12_54Z: PAUSED (existing persisted status preserved)
-latest_authenticated_usage_at_utc: 2026-11-08T07:23:43Z
-latest_authenticated_remaining: primary5percent weekly39percent
+latest_authenticated_usage_at_utc: 2026-11-10T09:19:44Z
+latest_authenticated_remaining: primary10percent weekly21percent
 latest_verified_application_source: bdbe8c65625c726a8af1cce3b83f0e7d86296c16
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## Fresh usage checkpoint —10 November2026
+
+Authenticated primary10%/weekly21% remaining triggers a NEW mandatory stop at2026-11-10T09:19:44UTC. No implementation, review, assignment or deployment before2026-11-10T14:49:44UTC (10November8:19:44PM IST), then only all applicable coding windows available and>10%. Earlier08:33 continuation predates this stop; no waiver/resetcredit. All previous history remains. Do not extend this deadline for repeated low readings.
+
+Concrete persistence/sealing/runtime DRAFTs, independent six-point review and coordinator alignment are saved in the [completion evidence](./document-ingestion-completion-evidence-2026-11-10.json). Actual18libraryprimitive assertions plus2layout widths have limited design-feasibility scope, not app/codec/filesystem/scanner/PG/API/clinical results. No new application code, model, migration, dependency, UI, capability, provider, live configuration or deployment occurred. Recovered8Novemberdrafts/checkpoint were safely published92075c2 with exactremoteSHA verified; its CI is not checked here.
+
+Active reviewer was interrupted immediately at threshold while preparing a narrowly scoped S0 pure envelope-format plan. No `document-envelope-format-plan.md` existed at checkpoint; it is NOT frozen and no production code is authorised by that unfinished task. All other specialists finished; no live test/deploy/resource process remains. [Checkpoint](./document-ingestion-checkpoint-2026-11-10.json) records first resume: finish/review exact S0 leaf plan for180byteAAD/78byteheader shape-only stdlib helpers over immutable bytes and trusted expected facts, then executableRED before code. No encryption/storage/authority/IO side effects or capability exposure belongs to that leaf. Broader ingestion remains DRAFT with recovery/hold/isolation/fullAPI gates; do not repeat completed B3 or broad gap triage.
+
+Historical recorded previewbdbe8c6/core0009/False from6November remains unchanged by this work, not freshly attested today. Doc-only commits do not restart it. Sameheartbeat330minutes remains best effort; no new work during cooldown even if primary recovers sooner.
+
+## Ingestion contract completion work —10 November2026
+
+Scheduled continuation authenticated99%primary/35%weekly at2026-11-10T08:33:57UTC after saved8November12:53:43UTC deadline elapsed. No waiver/resetcredit; original history retained. Recovered pending8November drafts/checkpoint were checked, committed/pushed as92075c242db715ed1ca761e3dc1feb0d96920802 and remoteSHA verified before further design. Source files were not changed or redeployed.
+
+Three specialists completed concrete [persistence](../implementation/document-ingestion-persistence-contract.md), [one-use sealing](../implementation/document-ingestion-sealing-contract.md) and [runtime](../implementation/document-ingestion-runtime-contract.md) DRAFT contracts. A fresh independent cross-review found six precise consistency issues; coordinator alignment records terminal-unbound projection, durable purge-check evidence, post-auth/precommit cutoff, external restore epoch, deferred recovery authority and UUID/cycle timing. These contracts still require full API/schema/page-action/resource consistency and scoped review before implementation freeze; they are not delivered models, services or upload capability.
+
+Actual design-only primitive evidence: installed pinnedcryptography50.0.2 passed18synthetic1byte/10MiB assertions for AES-KW key wrapping, AES-GCM one-use payload/tamper/scope rejection and rewrap feasibility. Two stdlib assertions confirm proposed180byteAAD/78byteheader widths. [Primitive receipt](./document-ingestion-primitive-feasibility-2026-11-10.json) explicitly excludes canonical encoder/parser, filesystem/crash, database, HTTP, scanner, totalRSS/cgroup/swap and clinical-capacity acceptance. Rewrap mutation remains deferred despite primitive feasibility; no keys or patient data were persisted.
+
+The runtime proposal researches ClamAV1.4.6LTS/Pillow13.0.0 and corrects the unverified2GiB scanner assumption to a proposed4GiB scanner/6GiB aggregate isolated envelope. No dependency or resource was installed/provisioned. Public shared TLS-front buffering/swap/core custody is an activation gate that isolated test Nginx cannot prove; other applications/globalswap/proxy settings were not changed. Complete recovery grants and hold-registry/purge authority remain explicit future gates. Restored copied-ready flags can never automatically re-enable downloads.
+
+[Completion evidence](./document-ingestion-completion-evidence-2026-11-10.json) distinguishes actual assertions from proposals. OpenAPI remains0.7.2/50implemented HTTP operations. No ingestion API/model/migration/worker/UI/code/flag/storage/scanner/provider/live change occurred. Historical B3 sourcebdbe8c6/core0009/False and2039PG/132frontend/98ingress are not new ingestion tests or a fresh10November live attestation. Next reconcile exact contracts and remaining gates, then freeze and executableRED before production; do not repeat completed B3/rollout or initial gap triage.
 
 ## Fresh usage checkpoint —8 November2026
 

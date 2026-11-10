@@ -1,7 +1,29 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.54.0 | Updated: 8 November 2026, Asia/Calcutta
+Document version: 1.56.0 | Updated: 10 November 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
+## Fresh usage checkpoint —10 November2026
+
+Authenticated primary10%/weekly21% remaining triggers a NEW mandatory stop at2026-11-10T09:19:44UTC. No implementation, review, assignment or deployment before2026-11-10T14:49:44UTC (10November8:19:44PM IST), then only all applicable coding windows available and>10%. Earlier08:33 continuation predates this stop; no waiver/resetcredit. All previous history remains. Do not extend this deadline for repeated low readings.
+
+Concrete persistence/sealing/runtime DRAFTs, independent six-point review and coordinator alignment are saved in the [completion evidence](docs/operations/document-ingestion-completion-evidence-2026-11-10.json). Actual18libraryprimitive assertions plus2layout widths have limited design-feasibility scope, not app/codec/filesystem/scanner/PG/API/clinical results. No new application code, model, migration, dependency, UI, capability, provider, live configuration or deployment occurred. Recovered8Novemberdrafts/checkpoint were safely published92075c2 with exactremoteSHA verified; its CI is not checked here.
+
+Active reviewer was interrupted immediately at threshold while preparing a narrowly scoped S0 pure envelope-format plan. No `document-envelope-format-plan.md` existed at checkpoint; it is NOT frozen and no production code is authorised by that unfinished task. All other specialists finished; no live test/deploy/resource process remains. [Checkpoint](docs/operations/document-ingestion-checkpoint-2026-11-10.json) records first resume: finish/review exact S0 leaf plan for180byteAAD/78byteheader shape-only stdlib helpers over immutable bytes and trusted expected facts, then executableRED before code. No encryption/storage/authority/IO side effects or capability exposure belongs to that leaf. Broader ingestion remains DRAFT with recovery/hold/isolation/fullAPI gates; do not repeat completed B3 or broad gap triage.
+
+Historical recorded previewbdbe8c6/core0009/False from6November remains unchanged by this work, not freshly attested today. Doc-only commits do not restart it. Sameheartbeat330minutes remains best effort; no new work during cooldown even if primary recovers sooner.
+
+## Ingestion contract completion work —10 November2026
+
+Scheduled continuation authenticated99%primary/35%weekly at2026-11-10T08:33:57UTC after saved8November12:53:43UTC deadline elapsed. No waiver/resetcredit; original history retained. Recovered pending8November drafts/checkpoint were checked, committed/pushed as92075c242db715ed1ca761e3dc1feb0d96920802 and remoteSHA verified before further design. Source files were not changed or redeployed.
+
+Three specialists completed concrete [persistence](docs/implementation/document-ingestion-persistence-contract.md), [one-use sealing](docs/implementation/document-ingestion-sealing-contract.md) and [runtime](docs/implementation/document-ingestion-runtime-contract.md) DRAFT contracts. A fresh independent cross-review found six precise consistency issues; coordinator alignment records terminal-unbound projection, durable purge-check evidence, post-auth/precommit cutoff, external restore epoch, deferred recovery authority and UUID/cycle timing. These contracts still require full API/schema/page-action/resource consistency and scoped review before implementation freeze; they are not delivered models, services or upload capability.
+
+Actual design-only primitive evidence: installed pinnedcryptography50.0.2 passed18synthetic1byte/10MiB assertions for AES-KW key wrapping, AES-GCM one-use payload/tamper/scope rejection and rewrap feasibility. Two stdlib assertions confirm proposed180byteAAD/78byteheader widths. [Primitive receipt](docs/operations/document-ingestion-primitive-feasibility-2026-11-10.json) explicitly excludes canonical encoder/parser, filesystem/crash, database, HTTP, scanner, totalRSS/cgroup/swap and clinical-capacity acceptance. Rewrap mutation remains deferred despite primitive feasibility; no keys or patient data were persisted.
+
+The runtime proposal researches ClamAV1.4.6LTS/Pillow13.0.0 and corrects the unverified2GiB scanner assumption to a proposed4GiB scanner/6GiB aggregate isolated envelope. No dependency or resource was installed/provisioned. Public shared TLS-front buffering/swap/core custody is an activation gate that isolated test Nginx cannot prove; other applications/globalswap/proxy settings were not changed. Complete recovery grants and hold-registry/purge authority remain explicit future gates. Restored copied-ready flags can never automatically re-enable downloads.
+
+[Completion evidence](docs/operations/document-ingestion-completion-evidence-2026-11-10.json) distinguishes actual assertions from proposals. OpenAPI remains0.7.2/50implemented HTTP operations. No ingestion API/model/migration/worker/UI/code/flag/storage/scanner/provider/live change occurred. Historical B3 sourcebdbe8c6/core0009/False and2039PG/132frontend/98ingress are not new ingestion tests or a fresh10November live attestation. Next reconcile exact contracts and remaining gates, then freeze and executableRED before production; do not repeat completed B3/rollout or initial gap triage.
+
 ## Fresh usage checkpoint —8 November2026
 
 Authenticated primary5%/weekly39% remaining caused a NEW mandatory stop at2026-11-08T07:23:43UTC. No implementation, review, assignment or deployment before2026-11-08T12:53:43UTC (8November6:23:43PM IST), then only all coding windows available and>10%. Earlier07:06 continuation predates this stop; no waiver/resetcredit. Preserve history and do not extend this deadline on repeated low readings. All five proposal/review specialists finished; no active runtime test or deployer remains.
@@ -1288,3 +1310,11 @@ Elapsed-cooldown resume verified80primary51weekly; concrete API/schema/security/
 ### CHG-0080 —8 November2026 — Save reviewed ingestion drafts at usage stop
 
 Fresh5primary39weekly stop07:23:43UTC; earliestresume12:53:43UTC/allwindows>10. Three proposals, independent reviews, coordinator choices and open design gates recoverable; no ingestion implementation or live change. All specialists finished; safe Git publication and same heartbeat330min/noresetcredits.
+
+### CHG-0081 —10 November2026 — Complete concrete ingestion drafts and primitive feasibility
+
+Recovered8Novembercheckpoint safely published92075c2; elapsed-deadline resume99primary35weekly. Three concrete persistence/sealing/runtime drafts, independent cross-review/alignment,18libraryprimitive+2layout assertions recorded with limits. No app implementation/dependency/activation/deployment; full contract/recovery/hold/isolation gates remain open.
+
+### CHG-0082 —10 November2026 — Checkpoint concrete ingestion contracts at usage stop
+
+Fresh10primary21weekly stop09:19:44UTC/earliest14:49:44UTC. Completed drafts/review/alignment and18primitive+2width assertions preserved; unfinished pure-format leaf plan interrupted/no file/no freeze. No ingestion production source or live change. Sameheartbeat330minutes/noresetcredits; safe publication required.
