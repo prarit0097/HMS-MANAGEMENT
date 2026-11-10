@@ -1,17 +1,31 @@
 # Usage-aware HMS continuation
 
 State: COOLDOWN
-checkpoint_at_utc: 2026-11-06T14:48:06Z
-resume_not_before_utc: 2026-11-06T20:18:06Z
+checkpoint_at_utc: 2026-11-08T07:23:43Z
+resume_not_before_utc: 2026-11-08T12:53:43Z
 owner_resume_at_utc: 2026-11-02 (explicit NOW CONTINUE; predates fresh stop)
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330 (fresh4November weekly stop; all prior history retained)
 automation_runtime_status_at_2026_11_02T04_20Z: ACTIVE (same heartbeat updated under standing cooldown rule after explicit owner NOW CONTINUE)
 automation_runtime_status_at_2026_11_01T12_54Z: PAUSED (existing persisted status preserved)
-latest_authenticated_usage_at_utc: 2026-11-06T14:48:06Z
-latest_authenticated_remaining: primary8percent weekly63percent
+latest_authenticated_usage_at_utc: 2026-11-08T07:23:43Z
+latest_authenticated_remaining: primary5percent weekly39percent
 latest_verified_application_source: bdbe8c65625c726a8af1cce3b83f0e7d86296c16
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## Fresh usage checkpoint —8 November2026
+
+Authenticated primary5%/weekly39% remaining caused a NEW mandatory stop at2026-11-08T07:23:43UTC. No implementation, review, assignment or deployment before2026-11-08T12:53:43UTC (8November6:23:43PM IST), then only all coding windows available and>10%. Earlier07:06 continuation predates this stop; no waiver/resetcredit. Preserve history and do not extend this deadline on repeated low readings. All five proposal/review specialists finished; no active runtime test or deployer remains.
+
+Completed planning is saved: three concrete DRAFT proposals, two independent reviews, coordinator reconciliation and six explicit remaining gate groups. [Design evidence](./document-ingestion-design-evidence-2026-11-08.json) and [checkpoint](./document-ingestion-checkpoint-2026-11-08.json) distinguish completed review from unclosed design. No API/schema/page-action freeze or ingestion code/worker/scanner/storage/UI/test/activation occurred. Do not rerun initial gap triage; resolve exact reservation/crypto/accounting, scanner supervision/isolation and restore contracts, then fresh review before freeze/OpenAPI/RED/code.
+
+Entrydc33feb exactCI42237488535SUCCESS was observed by SHA run, not decoded. Last verified application remains6Novemberbdbe8c6/core0009/False; no live source/configuration/flag change was made. Historical2039PG/132frontend/98ingress results are B3 evidence, not new ingestion tests. Source-compatible local test environment must be explicit: inspected backendvenvDjango5.2.7 and globalDjango6.0 differ from pinned5.2.18. Sameheartbeat330minutes is best effort; no new work during cooldown even if primary recovers early.
+
+## Scheduled ingestion design continuation —8 November2026
+
+Entry heartbeat2026-11-08T07:06:44UTC authenticated80%primary/51%weekly remaining after saved6November20:18:06UTC deadline elapsed. No waiver/resetcredit; original stop/history retained. Cleantree atdc33feb8fce7064a8c0700c6d71bb3939c335f96, exactcheckpointCI42237488535SUCCESS observed by SHA run (job logs not decoded). All prior specialists finished; three disjoint proposal owners resume API/schema, storage/scanner/worker security and R04UI contract design. No ingestion production code or runtime configuration is authorised by draft status; root alone Git/VPS.
+
+Root readonly host resource inventory:4CPU,15992MiBtotal/10961MiBavailable memory,4095MiBswap and122259MiBdiskavailable; no clamd/clamscan binary on PATH. This is a dated availability snapshot, not reserved capacity or scanner feasibility. Local backendvenv reportsDjango5.2.7 while requirements pin5.2.18; cryptography50.0.2 matches pin, Pillow/clamd modules absent. No package/environment was changed, and no local test result is claimed from the drifted venv. Existing deployed sourcebdbe8c6/core0009/False is historical verified baseline, not freshly reattested by these resource checks.
 
 ## Fresh usage stop and ingestion planning draft —6 November2026
 

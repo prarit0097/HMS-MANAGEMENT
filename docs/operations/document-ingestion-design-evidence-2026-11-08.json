@@ -1,0 +1,83 @@
+{
+  "status": "DRAFT reconciliation only; pre-code design gate not closed",
+  "resume": "2026-11-08T07:06:44Z after saved6November20:18:06Z deadline elapsed",
+  "authenticated_remaining_at_entry": {
+    "primary": 80,
+    "weekly": 51
+  },
+  "reset_credit_consumed": false,
+  "entry_git": "dc33feb8fce7064a8c0700c6d71bb3939c335f96; clean working tree; exactCI42237488535 SUCCESS observed, logs not decoded",
+  "specialist_work": "Three disjoint API/schema, security/operations and R04 proposals completed; two fresh independent API/scenario and crypto/operations reviews completed. No application code authored.",
+  "proposal_sha256": {
+    "docs/implementation/document-ingestion-design.md": "e6ca59e67f1442f4faf701ba880dee68f7cd4ee1c78eccb6eb5b6049b1f3e2bf",
+    "docs/implementation/document-ingestion-api-proposal.md": "87717b4f830a4f300f3fec80f021ab8693393db42ec0fc1b330a8cabd651bcc5",
+    "docs/implementation/document-ingestion-security-proposal.md": "3a5765321aa1934ca5579a18274a29a38c7714e7390c1a8de3a84bd5ffaa7bd3",
+    "docs/implementation/document-ingestion-ui-proposal.md": "0a9d8f2df5106b5998383680cb5ed87b566ed199d9eaf324b70e615c19079ee9"
+  },
+  "root_directions": [
+    "Preserve four B3 contracts and linked content/work with separate unified projection",
+    "Keep existing patient dialog; reconcile one CurrentUser version/branches vocabulary with absent/malformed denial",
+    "Separate read/withdraw availability from intake readiness; routine scanner outage does not revoke accepted evidence",
+    "Replay verifies supplied bytes in memory without new encrypted generation; distinguish reservation identity from final observed binding",
+    "Durable crypto metadata and one-use sealing before object creation; exclusive immutable object and explicit partial-write recovery",
+    "60seconds is proposed intake-to-binding cutoff, not network/COMMIT SLA; existing B3 context remains5seconds",
+    "Final current authorisation/audit over verified staged generation before first byte; no carried-forward per-block authority promise",
+    "Ordinary logout does not cancel committed scan; epoch/grant/current origin policy changes block promotion",
+    "Restored downloads stay disabled until a separate valid restore-epoch/evidence workflow; do not reset historical scan attempts"
+  ],
+  "independent_api_findings": [
+    "Missing durable reservation/crypto/counter/fence/readiness persistence",
+    "Receive reservation/replay identity contradictions",
+    "Two CurrentUser shapes",
+    "Scanner outage versus accepted download/entry contradiction",
+    "Every-operation admission/rate accounting missing",
+    "Inconsistent cutoff/expiry/whole-response promise",
+    "Requested-time UI field missing from closed projection",
+    "Per-block download revocation/conditional behavior differs"
+  ],
+  "independent_crypto_findings": [
+    "Replay generation/expiry mismatch",
+    "Key/nonce/partial-write crash window",
+    "Durable capacity/fencing cannot be enforced by proposed schema",
+    "Scanner generation/reload/timeout supervision unspecified",
+    "Process/UID/cgroup/swap/buffering/temporary storage not deployably proven",
+    "Download authority lifetime contradiction",
+    "Restore rescan cannot use old3attempt/10minute ingest-only worker"
+  ],
+  "still_open": [
+    "Exact durable schema/accounting/lock order",
+    "Crypto sealing/crash/KEK wrapping nonce uniqueness",
+    "Owned scanner supervisor generation/reload/kill protocol",
+    "Pinned decoder/scanner and measured full isolation/workload limits",
+    "Restore epoch/current authority/history/key-object dependency",
+    "Exact API/current-user/page-action/test matrices and fresh review/freeze"
+  ],
+  "read_only_host": {
+    "cpus": 4,
+    "memory_total_mib": 15992,
+    "memory_available_mib": 10961,
+    "swap_total_mib": 4095,
+    "disk_available_mib": 122259,
+    "clamd_clamscan_on_path": false,
+    "limits": "Dated changing inventory, no reservation or scanner acceptance"
+  },
+  "local_environment": {
+    "backend_venv": {
+      "Django": "5.2.7",
+      "cryptography": "50.0.2",
+      "Pillow": "absent",
+      "clamd": "absent"
+    },
+    "global_python": {
+      "Django": "6.0",
+      "cryptography": "50.0.2",
+      "Pillow": "13.0.0",
+      "psycopg": "absent"
+    },
+    "source_pin": "Django5.2.18/DRF3.16.1/psycopg3.2.12/cryptography50.0.2",
+    "meaning": "Neither inspected interpreter is assumed source-compatible; no package changed or Django test run"
+  },
+  "tests": "No application/decoder/scanner/crypto/runtime tests. Documentation link/API mapping checks only at publication.",
+  "runtime": "No source deployment, migration, flag, storage, scanner, worker, dependency or live configuration change. Recorded preview bdbe8c6/core0009/False from6November is not freshly re-attested by these resource checks.",
+  "next": "Close specific schema/crypto/supervisor/isolation/restore/API blockers, reconcile proposals into exact contract with scoped independent review, then OpenAPI/page-action freeze and RED before production. No repeated B3/bootstrap/rollout."
+}
