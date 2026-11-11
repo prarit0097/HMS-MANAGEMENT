@@ -1,6 +1,6 @@
 # Usage-aware HMS continuation
 
-State: COOLDOWN
+State: ACTIVE — saved cooldown elapsed; authenticated windows permit continuation
 checkpoint_at_utc: 2026-11-10T09:19:44Z
 resume_not_before_utc: 2026-11-10T14:49:44Z
 owner_resume_at_utc: 2026-11-02 (explicit NOW CONTINUE; predates fresh stop)
@@ -8,10 +8,16 @@ automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330 (fresh4November weekly stop; all prior history retained)
 automation_runtime_status_at_2026_11_02T04_20Z: ACTIVE (same heartbeat updated under standing cooldown rule after explicit owner NOW CONTINUE)
 automation_runtime_status_at_2026_11_01T12_54Z: PAUSED (existing persisted status preserved)
-latest_authenticated_usage_at_utc: 2026-11-10T09:19:44Z
-latest_authenticated_remaining: primary10percent weekly21percent
+latest_authenticated_usage_at_utc: 2026-11-11T15:55:36Z
+latest_authenticated_remaining: primary93percent weekly67percent
 latest_verified_application_source: bdbe8c65625c726a8af1cce3b83f0e7d86296c16
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## Scheduled envelope-format planning resume —11 November2026
+
+Continuation authenticated primary93%/weekly67% remaining at2026-11-11T15:55:36UTC after the saved10November14:49:44UTC deadline elapsed. No waiver/reset credit; original09:19:44 stop and all history remain. Guard now permits continuation. Exact entry9b7d2b247e0017434d0d664902c7bd47cc33013f CI42790338446 and all three jobs observed SUCCESS; job logs not decoded. Working tree was clean at entry. No new live attestation or application change is implied.
+
+First incomplete work is the bounded S0 envelope-format leaf plan, then independent scenario/threat/test review before freeze and executable RED. Broader ingestion remains DRAFT; no crypto/storage/worker/API/UI/flag activation is inferred. The interrupted reviewer resumes only its unfinished plan; completed B3 and prior rollout are not repeated. Historical6November previewbdbe8c6/core0009/False remains the last verified live baseline. Documentation-only changes do not restart it.
 
 ## Fresh usage checkpoint —10 November2026
 

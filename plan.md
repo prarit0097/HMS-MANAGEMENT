@@ -10,6 +10,18 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
+## S0 format leaf frozen —11 November2026
+
+The [S0 envelope-format plan](docs/implementation/document-envelope-format-plan.md) is leaf-only frozen after independent security and scenario/test-design reviews and coordinator approval. It specifies three pure stdlib helpers, exact180byteAAD/78byteheader, bounded immutable-byte inputs, trusted expected facts and fixed validation errors. Success establishes shape only, never cryptographic integrity, authority or safe disclosure. No page/action/API/model/migration/caller/flag changes; OpenAPI0.7.2/50HTTP operations remain unchanged. Parent ingestion stays DRAFT.
+
+Ruling: approve exact runtime types, immutable bytes-only input and a readonly shared view to avoid coercion and mutable-buffer races; cost is future callers must canonicalise trusted facts before invoking helpers. Fixed errors contain no supplied values. Literal vectors must be independent of the implementation and tests must deliberately accept ciphertext/tag tampering at this shape-only layer. No executable format test or production code exists at freeze. Next write/run missing-module RED before minimal code; full actualPG/source review/exactCI/reviewed HMS-only rollout/live preservation remain completion gates.
+
+## Scheduled envelope-format planning resume —11 November2026
+
+Continuation authenticated primary93%/weekly67% remaining at2026-11-11T15:55:36UTC after the saved10November14:49:44UTC deadline elapsed. No waiver/reset credit; original09:19:44 stop and all history remain. Guard now permits continuation. Exact entry9b7d2b247e0017434d0d664902c7bd47cc33013f CI42790338446 and all three jobs observed SUCCESS; job logs not decoded. Working tree was clean at entry. No new live attestation or application change is implied.
+
+First incomplete work is the bounded S0 envelope-format leaf plan, then independent scenario/threat/test review before freeze and executable RED. Broader ingestion remains DRAFT; no crypto/storage/worker/API/UI/flag activation is inferred. The interrupted reviewer resumes only its unfinished plan; completed B3 and prior rollout are not repeated. Historical6November previewbdbe8c6/core0009/False remains the last verified live baseline. Documentation-only changes do not restart it.
+
 ## Fresh usage checkpoint —10 November2026
 
 Authenticated primary10%/weekly21% remaining triggers a NEW mandatory stop at2026-11-10T09:19:44UTC. No implementation, review, assignment or deployment before2026-11-10T14:49:44UTC (10November8:19:44PM IST), then only all applicable coding windows available and>10%. Earlier08:33 continuation predates this stop; no waiver/resetcredit. All previous history remains. Do not extend this deadline for repeated low readings.
