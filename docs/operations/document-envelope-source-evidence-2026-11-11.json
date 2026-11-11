@@ -1,0 +1,99 @@
+{
+  "status": "S0 passive helper source verified; publication/CI/reviewed preview rollout pending",
+  "plan_commit": "4c52c4e6017d0772b393215ce53eb749e83de7db",
+  "red": {
+    "command": "python -m unittest discover -s tests -p test_document_envelope_format.py -v",
+    "cwd": "backend",
+    "interpreter": "Python3.13.5",
+    "exit_code": 1,
+    "result": "One loader error: ModuleNotFoundError apps.core.document_envelope_format, before production existed"
+  },
+  "green": {
+    "root_windows": {
+      "test_groups": 19,
+      "seconds": 0.033,
+      "interpreter": "Python3.13.5"
+    },
+    "independent_reviewer": {
+      "test_groups": 19,
+      "seconds": 0.039,
+      "vectors": "Four independently reconstructed literals, without production struct/codec"
+    },
+    "linux": "19groups passed in retained Python3.12.3/Django5.2.18 candidate environment"
+  },
+  "actual_pg": {
+    "version": "17.11 isolated TLS existing fixed receipt-owned lifecycle",
+    "passed": 2058,
+    "skipped": 7,
+    "skip_scope": "Seven SQLite-only cases",
+    "warnings": 7,
+    "subtests_passed": 978,
+    "seconds": 204.58,
+    "junit_tests_including_subtests_and_skips": 3043,
+    "errors": 0,
+    "failures": 0,
+    "check": "0 issues",
+    "migration_drift": "No changes detected",
+    "properties_retained": [
+      "active20",
+      "rolling1000",
+      "first_keyset101",
+      "next_keyset101"
+    ]
+  },
+  "warning_scope": [
+    "Maintenance postgres DB is intentionally inaccessible; Django used only positively pinned isolated default database, never live DB",
+    "Intentional DATABASES override warnings",
+    "JUnit xunit2 record_property compatibility warnings; all four properties independently observed in XML"
+  ],
+  "repository_checks": {
+    "root_unittest": "19passed11.188s",
+    "edge_source": "38passed0.750s",
+    "openapi_schema": "Passed in existing checks-venv; global Python lacked validator and was not repaired",
+    "links_api_map": "Passed",
+    "whitespace": "Passed"
+  },
+  "production_scope": {
+    "new_module": "backend/apps/core/document_envelope_format.py",
+    "callers": 0,
+    "public_functions": [
+      "encode_aad",
+      "encode_header",
+      "validate_envelope_shape"
+    ],
+    "aad_bytes": 180,
+    "header_bytes": 78,
+    "size_bounds": [
+      1,
+      10485760
+    ],
+    "authentication": false,
+    "encryption": false,
+    "io": false,
+    "schema_or_flag_or_api_or_ui_change": false
+  },
+  "source_review": "Fresh independent source/test review clear; strict types, fixederrors, independentvectors, header/length tamper, immutable sharedview and deliberately unauthenticated ciphertext/tag acceptance verified",
+  "test_artifact": {
+    "kind": "Working-tree candidate-only, NEVER deployable release",
+    "archive_sha256": "ba0aed28d6e8c4042634cfe1bbc49cb97e8ea8c8c994bb1632915a6ed53587be",
+    "files": 103,
+    "production_sha256": "a7dd290b9b8f0e67b74db94550d276da7aa33b3b08367de305eb540a3730e9fd",
+    "tests_sha256": "560d55eb61207dc364f67937a12869711fc597775f84d79a0f97711415fc53a6"
+  },
+  "operations": {
+    "plan": "document-envelope-preview-plan.md",
+    "old_shell_runner": "Rejected before execution; root trap-order assertion RED",
+    "new_python_runner": "Independently reviewed before Linux; same-instance lifecycle finally active before up; canonical helper byte-pinned",
+    "synthetic_cleanup_tests": "4passed0.001s; no actual crash/process proof",
+    "actual_cleanup": "Owned helper/container/network removed;15549closed; live service active after validation",
+    "transfer_note": "Wrapper precheck used hyphenated basename instead of actual underscores; fresh remote birth/ctime at transfer plus exact matching SHA independently confirmed new regular root file before execution; modes then0600",
+    "live_helper_provenance": "251-file current release exactly matches its retained deployed manifest; helper differs from Git canonical only CRLF-to-LF. No live edits. Candidate helper taken from canonical Git blob with separate byte pin."
+  },
+  "live_status": "Readonly live symlinkbdbe8c6 active and251retainedmanifest hashes match; no new source/config/schema/policy/flag/deployment/live document invocation",
+  "remaining": [
+    "Normal source commit/push/remoteSHA/exactCI",
+    "Canonical release+fresh reviewed HMS-only preview/rehearsal/live/restore/preservation",
+    "Parent ingestion DRAFT: authority/storage/scanner/worker/API/UI/restore/hold/resource gates",
+    "Browser/staff/owner-phone/fullhospital release"
+  ]
+}

@@ -10,6 +10,14 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
+## S0 envelope-format source verified; rollout pending —11 November2026
+
+The frozen leaf now has three unused stdlib helpers in `backend/apps/core/document_envelope_format.py`:180byteAAD,78byteheader and strict shape validation over immutable bytes with a shared readonly ciphertext/tag view. No caller, authentication, encryption, IO, page/API/permission/schema/dependency/UI/flag changes. Shape-valid tampered ciphertext deliberately passes this layer; later authenticated decryption remains mandatory. Parent ingestion is still DRAFT and unavailable.
+
+Root observed literal missing-module RED before production. Final root portable19groups passed0.033s/Python3.13.5; fresh independent source/test review clear,19groups0.039s and four independent literal vectors verified. Actual isolated TLS PG17.11 full backend2058passed/7SQLite-only skips/7warnings/978subtests204.58s, check0/no drift. Four EXPLAIN properties retained in XML. Warnings cover intentionally unavailable maintenance postgres DB, DATABASES overrides and JUnit compatibility; isolated default identity was pinned and no live fallback existed. Root19checks11.188s,38edge0.750s, schema in existing checks-venv and links/API map/whitespace passed. Global validator absence was not hidden or repaired. No frontend suite rerun yet; exact pushed CI remains pending.
+
+[Source evidence](docs/operations/document-envelope-source-evidence-2026-11-11.json) and [reviewed operations amendment](docs/implementation/document-envelope-preview-plan.md) preserve rejected runner/RED, four synthetic cleanup checks, fresh new runner review and actual isolated cleanup/15549closed/liveactive. Readonly251-file live manifest matches its retained manifest, including a documented canonical-vs-deployed helper newline difference; candidate helper uses canonical pinned bytes. No live source switch, document invocation, flag/policy/schema/key change or other-app mutation. Next normal push/exactCI then canonical reviewed preview rollout/rehearsal/live/restore and MD; S0 is not deployment-complete. Last live source remainsbdbe8c6/core0009/False.
+
 ## S0 format leaf frozen —11 November2026
 
 The [S0 envelope-format plan](docs/implementation/document-envelope-format-plan.md) is leaf-only frozen after independent security and scenario/test-design reviews and coordinator approval. It specifies three pure stdlib helpers, exact180byteAAD/78byteheader, bounded immutable-byte inputs, trusted expected facts and fixed validation errors. Success establishes shape only, never cryptographic integrity, authority or safe disclosure. No page/action/API/model/migration/caller/flag changes; OpenAPI0.7.2/50HTTP operations remain unchanged. Parent ingestion stays DRAFT.
