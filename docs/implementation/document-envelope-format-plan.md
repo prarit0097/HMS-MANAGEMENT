@@ -52,8 +52,8 @@ Shape validation checks immutable envelope type and exact total length `78 + siz
 - [x] Test each UUID changed independently, digest/media/key-ID/nonce/size swaps, both magics/versions, every header-byte mutation, truncated0..77-byte headers, body/tag truncation and one extra byte. Check size0/+1, negative/huge/bool/float; wrong-length binary values; wrong types; empty/65-character/non-ASCII/path/newline/NUL key IDs; exact1/64-character valid IDs; media aliases/parameters rejected.
 - [x] Test readonly shared ciphertext memoryview and rejection of mutable/view envelope inputs. Show valid-shape garbage ciphertext passes without authentication; altered expected facts fail. Keep maximum-size buffers bounded and fixtures synthetic.
 - [x] Implement only the three helpers with minimal shared validation. Run the portable suite GREEN, preserving initial RED and final case counts. Inspect imports/no callers/no side effects; fresh independent source/test review must verify vectors and boundary coverage.
-- [ ] Coordinator runs full backend actual PostgreSQL regression/check/no-migration-drift using source-compatible pinned environment, required repository/schema checks and exact pushed-SHA CI. Pure-leaf results do not substitute for these gates or become ingestion/PG feature tests.
-- [ ] Following owner policy, coordinator performs reviewed source-only preview rollout/live preservation verification, backup/rollback checks and same-change documentation. No migration, ingestion call, scanner or flag activation. Record verified remote SHA, live source and unfinished parent gates before declaring S0 complete; doc-only plan publication does not restart the app.
+- [x] Coordinator runs full backend actual PostgreSQL regression/check/no-migration-drift using source-compatible pinned environment, required repository/schema checks and exact pushed-SHA CI. Pure-leaf results do not substitute for these gates or become ingestion/PG feature tests.
+- [x] Following owner policy, coordinator performs reviewed source-only preview rollout/live preservation verification, backup/rollback checks and same-change documentation. No migration, ingestion call, scanner or flag activation. Record verified remote SHA, live source and unfinished parent gates before declaring S0 complete; doc-only plan publication does not restart the app.
 
 ## Self-review and disposition
 
@@ -64,3 +64,7 @@ Coordinator approves these four choices: they avoid coercion and mutable-buffer 
 ## Source verification —11 November2026
 
 Root literalRED missing module beforecode; final19portablegroups and independent review passed. FullactualTLS PG2058passed/7SQLite-onlyskips/7warnings/978subtests204.58s/check0/nodrift; repository/root/schema checks passed. See [source evidence](../operations/document-envelope-source-evidence-2026-11-11.json). Exact publicationCI and reviewed preview rollout remain open; unchecked last gates deliberately remain. Source-only verified, not deployment-complete.
+
+## Delivery closed —11 November2026
+
+Source1976cba exactCI43056339113/all3SUCCESS; rootfullPG and independent review passed. Reviewed source-only rollout verified271canonicalfiles/34tables/key/currentsecurity/otherapps and postrestore, actual metadataFalse. [Measured evidence](../operations/document-envelope-preview-evidence-2026-11-11.json). All S0 tasks complete, no parent ingestion or browser/staff/fullrelease approval.

@@ -1,0 +1,254 @@
+{
+  "status": "deployed restricted synthetic preview; not full hospital release",
+  "application_source_sha": "1976cbad660e8a336fad4376a2367779220815df",
+  "deployed_release_sha": "1976cbad660e8a336fad4376a2367779220815df",
+  "release_path": "/opt/hms/releases/preview-20261111-1976cba",
+  "baseline_source_sha": "bdbe8c65625c726a8af1cce3b83f0e7d86296c16",
+  "source_switched_at_utc": "2026-11-11T16:24:17.344925969Z",
+  "maintenance_started_utc": "2026-11-11T16:23:58.774089+00:00",
+  "maintenance_ended_utc": "2026-11-11T16:24:28.255454+00:00",
+  "attested_at_utc": "2026-11-11T16:26:33.628896+00:00",
+  "archive_sha256": "e5ada800924195894be384ce0f6371de555f8fe52c5bfea835e1f8c3c356d14c",
+  "source_files_verified": 271,
+  "source_ci": {
+    "sha": "1976cbad660e8a336fad4376a2367779220815df",
+    "run": 43056339113,
+    "all3jobs": "success",
+    "verification": "Exact run head and all three job conclusions verified; three decoded logs inspected",
+    "backend_postgres_passed": 2058,
+    "sqlite_only_skipped": 7,
+    "warnings": 4,
+    "subtests": 978,
+    "backend_seconds": 142.28,
+    "frontend_passed": 132,
+    "frontend_typecheck_build": "passed; build157ms",
+    "root_tests": 19,
+    "edge_tests": 38,
+    "schema_compose_docs": "passed",
+    "root_actual_postgres_passed": 2058,
+    "root_actual_seconds": 204.58,
+    "root_actual_warnings": 7,
+    "new_ingress_execution": false,
+    "ingress_disposition": "Reviewed passive-no-caller scope amendment; no HTTP/authority/business/settings/proxy/dependency delta. Historical98 checks are not a fresh execution."
+  },
+  "isolated_disabled_retention": {
+    "effective_flag_false": true,
+    "valid_disabled_http_get503": true,
+    "ordinary_reception_real_password_session_csrf": true,
+    "actor_id": 2,
+    "count1_independent_connection": true,
+    "call_only_all_other_tables_unchanged": true,
+    "no_patient_document_receipt_event_audit_query": true
+  },
+  "live_no_invocation_rate_preservation": {
+    "no_live_admission_invocation": true,
+    "exact_rate_rows_unchanged": true,
+    "exact_intent_receipt_event_rows_unchanged": true,
+    "no_live_business_invocation": true,
+    "metadata_enabled": false
+  },
+  "clone_rehearsal": {
+    "all_tables_preserved": 34,
+    "empty_migration_plan_no_ddl": true,
+    "core0009_empty_plan": true,
+    "beds": 120,
+    "patients": 0,
+    "network_revision": 6,
+    "no_pending": true,
+    "recovery_code_rows": 9,
+    "rate_rows": 0,
+    "actual_key_decryption": true,
+    "password_valid": true,
+    "operator_active": true,
+    "app_tls_nocreatedb_nonsuper": true,
+    "metadata_enabled": false,
+    "flag_provenance": "absent environment key/defaultFalse"
+  },
+  "prior_source_auth": {
+    "password_totp_session_reads_logout": true,
+    "core0009_retained": true,
+    "prior_nonempty_http_rows_compatibility": true,
+    "candidate_owner_projection_retained": false
+  },
+  "isolated_enabled_http": {
+    "isolated_only": true,
+    "seven_real_http_calls_and_keyed_replays": true,
+    "ordinary_reception_real_password_session_csrf": true,
+    "actor_id": 2,
+    "intents": 1,
+    "receipts": 2,
+    "required_events": 7,
+    "original_request_and_response_bytes": true,
+    "unrelated_rows_preserved": true,
+    "effective_false_restored": true,
+    "calls": [
+      {
+        "method": "GET",
+        "operation": "intent.list",
+        "status": 200,
+        "window_started_at": "2026-11-11T16:23:00+00:00",
+        "admitted_count": 1
+      },
+      {
+        "method": "POST",
+        "operation": "intent.create_result",
+        "status": 201,
+        "window_started_at": "2026-11-11T16:23:00+00:00",
+        "admitted_count": 2
+      },
+      {
+        "method": "POST",
+        "operation": "intent.create_result",
+        "status": 201,
+        "window_started_at": "2026-11-11T16:23:00+00:00",
+        "admitted_count": 3
+      },
+      {
+        "method": "GET",
+        "operation": "intent.detail",
+        "status": 200,
+        "window_started_at": "2026-11-11T16:23:00+00:00",
+        "admitted_count": 4
+      },
+      {
+        "method": "POST",
+        "operation": "intent.withdraw_result",
+        "status": 200,
+        "window_started_at": "2026-11-11T16:23:00+00:00",
+        "admitted_count": 5
+      },
+      {
+        "method": "POST",
+        "operation": "intent.withdraw_result",
+        "status": 200,
+        "window_started_at": "2026-11-11T16:23:00+00:00",
+        "admitted_count": 6
+      },
+      {
+        "method": "GET",
+        "operation": "intent.list",
+        "status": 200,
+        "window_started_at": "2026-11-11T16:23:00+00:00",
+        "admitted_count": 7
+      }
+    ]
+  },
+  "candidate_auth": {
+    "password_totp_session_reads_logout": true,
+    "core0009_retained": true,
+    "prior_nonempty_http_rows_compatibility": false,
+    "candidate_owner_projection_retained": true
+  },
+  "source_switch_preservation": {
+    "all_tables_exact_rows_preserved": 34,
+    "no_ddl": true,
+    "core0009_empty_plan": true,
+    "beds": 120,
+    "patients": 0,
+    "network_revision": 6,
+    "no_pending": true,
+    "recovery_code_rows": 9,
+    "rate_rows": 0,
+    "actual_key_decryption": true,
+    "password_valid": true,
+    "operator_active": true,
+    "app_tls_nocreatedb_nonsuper": true,
+    "metadata_enabled": false,
+    "flag_provenance": "absent environment key/defaultFalse"
+  },
+  "live_checks": {
+    "https_basic_mfa_session_csrf_reads_logout": true,
+    "retained_static_hash_head_range_wildcard": true,
+    "private_spoof_denial": true,
+    "policy_revision": 6,
+    "no_pending": true,
+    "no_policy_mutation": true,
+    "no_enrollment_or_recovery_consumption": true,
+    "CurrentUser_scoped_document_strings": true,
+    "browser_staff_import": "OPEN",
+    "document_HEAD_OPTIONS_only": true
+  },
+  "postchange_restore": {
+    "all_tables_exact_rowhash_match": 34,
+    "core0009_empty_plan": true,
+    "beds": 120,
+    "patients": 0,
+    "network_revision": 6,
+    "no_pending": true,
+    "recovery_code_rows": 9,
+    "rate_rows": 0,
+    "actual_key_decryption": true,
+    "password_valid": true,
+    "operator_active": true,
+    "app_tls_nocreatedb_nonsuper": true,
+    "metadata_enabled": false,
+    "flag_provenance": "absent environment key/defaultFalse"
+  },
+  "preservation": {
+    "all_nginx_hashes": 55,
+    "other_nginx_hashes": 53,
+    "existing_container_ids": 23,
+    "all_private_config_key_hashes": true,
+    "all_static_hashes": true,
+    "hba_sha256": "b4a6dc70d99ae202e10943a2ced997988f5a1f7ad8a11c0874d415559c171161",
+    "workers": 2,
+    "old_workers_gone": true,
+    "final_socket": "0660 root:www-data",
+    "parent": "0750 root:www-data; no extra POSIX ACL",
+    "retained_venv": "/opt/hms/releases/venv-20261026",
+    "helper_cleaned_ports_closed": true,
+    "no_migrate_no_ddl": true
+  },
+  "expected_auth_deltas": "Fresh password/TOTP challenge consumption, last_login, sessions/logout and security audit/throttle state; all existing rows were preserved across the source switch before these probes. No recovery, enrollment, policy, membership or data mutation was performed.",
+  "open": [
+    "live browser/keyboard/staff walkthrough",
+    "owner phone authenticator import",
+    "remaining full HMS real-data release gates"
+  ],
+  "live_auth_delta_verification": {
+    "owner_last_login_and_factor_controls_only": true,
+    "all_other_auth_users_and_security_fields_preserved": true,
+    "existing_sessions_challenges_audits_preserved": true,
+    "new_challenges_audits_owner_only": true,
+    "at_most_one_network_budget_delta": true
+  },
+  "canonical_manifest_policy": "Exact Git archive members and initial extracted file set; runtime source set excludes inherited frontend/dist and interpreter __pycache__ only.",
+  "windows_external": {
+    "external_windows_https": true,
+    "hms_shell200_wildcard_never304": true,
+    "basic_required401": true,
+    "private_routes404_under_forged_forwarded_probe_headers": true,
+    "other_sites_current_status": {
+      "pdf.praritsidana.com": 200,
+      "postzyo.com": 200,
+      "riimshospitals.com": 200,
+      "rezoom.praritsidana.com": 200,
+      "nirogidhara.com": 200
+    },
+    "external_origin_helper_ports_open": {
+      "8185": false,
+      "5548": false,
+      "15549": false,
+      "18185": false,
+      "18186": false
+    },
+    "limits": "HTTPS/API probes, not React/browser/staff acceptance; other-site reachability only"
+  },
+  "s0_clone_proof": {
+    "sha": "1976cbad660e8a336fad4376a2367779220815df",
+    "test_groups": 19,
+    "candidate_tests_returned_zero": true,
+    "both_clone_cycles_and_owned_cleanup_completed": true
+  },
+  "s0_scope": "Unused pure stdlib encoding/shape checking only; no authentication/encryption/IO/caller/API/UI/model/migration/dependency/flag activation. Parent ingestion DRAFT.",
+  "reviewed_ingress_disposition": "No fresh98-case ingress run: passive-no-caller diff amendment approved before execution; transport/authority/business/settings/proxy/dependencies unchanged.",
+  "clone_ownership_amendment": "Rejected unconditional fixed-prefix cleanup before execution. Each fresh Lifecycle instance uses reviewed hash-pinned root-private run_owned guard; finally before up; in-memory run/resources matched before cleanup. Explicit S0 success receipt gated preclose.",
+  "limits": [
+    "HTTP/HTTPS assertions are not React/browser/keyboard/staff acceptance",
+    "Owner phone authenticator import remains open",
+    "Private root backups/key restore are not encrypted off-host DR",
+    "Shared www-data socket trust retained, not per-app OS identity isolation",
+    "No supported live document GET/POST/admission/business/helper invocation or flag/policy/schema/key mutation",
+    "No clinical/hospital real-data release"
+  ]
+}

@@ -10,8 +10,18 @@ automation_runtime_status_at_2026_11_02T04_20Z: ACTIVE (same heartbeat updated u
 automation_runtime_status_at_2026_11_01T12_54Z: PAUSED (existing persisted status preserved)
 latest_authenticated_usage_at_utc: 2026-11-11T15:55:36Z
 latest_authenticated_remaining: primary93percent weekly67percent
-latest_verified_application_source: bdbe8c65625c726a8af1cce3b83f0e7d86296c16
+latest_verified_application_source: 1976cbad660e8a336fad4376a2367779220815df
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## S0 passive envelope helpers deployed —11 November2026
+
+Restricted synthetic `https://hms.praritsidana.com` now runs source1976cbad660e8a336fad4376a2367779220815df at `/opt/hms/releases/preview-20261111-1976cba`, switched2026-11-11T16:24:17.344925969UTC. All271canonicalGit files verified, two candidate workers/old workers gone, core0009/actual metadataFalse. Exact push/remoteSHA and CI43056339113/allthreejobsSUCCESS verified; decoded2058PG/7SQLite-onlyskips/4warnings/978subtests142.28s,132frontend/typecheck/build157ms,19root38edge/schema/Compose/docs. Separate root actual2058PG/7skips/7warnings/978subtests204.58s/check0/nodrift remains distinct.
+
+Fresh consistent34table/key restore, disabled genuineHTTP503 retaining count1, separate enabled sevenHTTPcalls/nonempty1intent2receipts7events and exact priorbdbe auth/read/logout compatibility passed. Candidate19format tests and same-instance owned cleanup passed; explicit fresh success receipt gated maintenance. Source-only switch changed zero rows across34tables before intentional owner auth. Live Basic/MFA/session/CSRF/current-user/scoped reads/foreign denial/network/static/hash/wildcardno304/private-spoof/logout and only safe document HEAD/OPTIONS405 passed. NO supported live document GET/POST, admission/business/helper invocation or flag/policy/key/schema change.
+
+Postchange backup/checksum/list and pristine actualTLS restore preserved all34tables/current key/password/recovery/operator/network state. Fresh53otherNginxhashes/23existingcontainerIDs/HBA/env/keys/static/venv preserved; these measured counts supersede historical52/21, not forced values. Owned helpers removed/ports closed. Windows independently observed maintenance503, normal Basic401/shell200/no304/private404underfakeheaders/origin+helperportsclosed and five other sites200 (reachability only). [Measured rollout](./document-envelope-preview-evidence-2026-11-11.json) records concrete outcomes and limits. Separate source/review evidence is not silently promoted into scanner/HTTP-ingestion acceptance.
+
+S0 is implemented/sourceverified/previewdeployed, with no caller or user capability; shape validity is not authentication. Broader ingestion/storage/scanner/worker/API/UI/hold/recovery/isolation contracts remain DRAFT. Browser/keyboard/staff/phone import, clinical/finance/MCP/dataops/fullhospital release remain open. Next finish the first incomplete parent-contract gates with exact design/scenario/threat/test review before another leaf freeze/RED/code. Do not repeat S0/B3/bootstrap/schema/rollout. This publication is documentation-only and does not restart unchanged source1976cba.
 
 ## Scheduled envelope-format planning resume —11 November2026
 
