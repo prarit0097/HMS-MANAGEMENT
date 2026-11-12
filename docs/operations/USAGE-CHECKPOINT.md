@@ -1,17 +1,23 @@
 # Usage-aware HMS continuation
 
-State: ACTIVE — saved cooldown elapsed; authenticated windows permit continuation
-checkpoint_at_utc: 2026-11-10T09:19:44Z
-resume_not_before_utc: 2026-11-10T14:49:44Z
+State: COOLDOWN
+checkpoint_at_utc: 2026-11-11T16:42:10Z
+resume_not_before_utc: 2026-11-11T22:12:10Z
 owner_resume_at_utc: 2026-11-02 (explicit NOW CONTINUE; predates fresh stop)
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330 (fresh4November weekly stop; all prior history retained)
 automation_runtime_status_at_2026_11_02T04_20Z: ACTIVE (same heartbeat updated under standing cooldown rule after explicit owner NOW CONTINUE)
 automation_runtime_status_at_2026_11_01T12_54Z: PAUSED (existing persisted status preserved)
-latest_authenticated_usage_at_utc: 2026-11-11T15:55:36Z
-latest_authenticated_remaining: primary93percent weekly67percent
+latest_authenticated_usage_at_utc: 2026-11-11T16:42:10Z
+latest_authenticated_remaining: primary6percent weekly54percent
 latest_verified_application_source: 1976cbad660e8a336fad4376a2367779220815df
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## Fresh usage checkpoint —11 November2026
+
+Authenticated primary6%/weekly54% remaining triggers a NEW mandatory stop at2026-11-11T16:42:10UTC. No implementation, review, assignment or deployment before2026-11-11T22:12:10UTC (12November03:42:10AM IST), then only all applicable coding windows available and>10%. Earlier resumed work predates this fresh stop. Preserve every historical stop; no waiver/resetcredit or repeated-low deadline extension. All specialists completed, no active runtime validator/owned helper remains.
+
+Completed S0 source1976cba IS LIVE, verified271canonicalfiles/twoworkers/core0009/metadataFalse/34tablekeypostrestore/53otherconfigs23containers/Windows checks. ExactsourceCI43056339113all3SUCCESS and separate rootPG results are in rollout evidence; deployment recordsdbfff74remoteverified with exactdocCI43058804681SUCCESS observed, logs notdecoded. Do not repeat S0/B3/bootstrap/schema/rollout. Current parent transport/retention candidates and four scoped review resolutions are saved DRAFT only; no ingestion implementation/activation. [Fresh checkpoint](./document-ingestion-checkpoint-2026-11-11.json) names remaining guard-read/lock and full contract/runtime/release gates. Safe documentation publication updates this same heartbeat330minutes; no runtime restart for docs.
 
 ## S0 passive envelope helpers deployed —11 November2026
 
