@@ -1,7 +1,31 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.60.0 | Updated: 11 November 2026, Asia/Calcutta
+Document version: 1.62.0 | Updated: 12 November 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
+## Fresh rolling-quota stop —12 November2026
+
+Authenticated five-hour windowDurationMins300 has10% remaining (used90) at2026-11-12T07:34:48UTC; weekly70% is a separate window and not the reserve trigger. Stop starting work/assignments/reviews now; minimal safe checkpoint/publication only. Existing project cooldown earliest2026-11-12T13:04:48UTC (12November6:34:48PM IST), then only authorised continuation with available windows above reserve. Earlier morning resume predates this fresh stop. No reset-credit/account/model bypass tool called; all history remains, never extend on repeated low readings.
+
+All specialist authors/reviewers finished and no test/deploy process is active. Guard/validator DRAFTs and exact pending review rulings are preserved; no parent freeze, new tests, implementation or live activation. Recovered prior checkpoint7d3c17d5494d29bf8a5fb84108b518499e502c20 was pushed/remoteverified; its CI is unchecked. [Fresh checkpoint](docs/operations/document-ingestion-planning-checkpoint-2026-11-12.json) is authoritative for next work. Last verified deployed source1976cba remains unchanged. Safe Git publication and same-heartbeat update preserve recovery without restarting the app.
+
+## Guard-authority and image-validator candidates —12 November2026
+
+New [guard-authority DRAFT](docs/implementation/document-ingestion-guard-authority-contract.md) proposes outside-lock fresh observations, locked Control identity/gates as database authority, and a fresh postcommit read before a patient projection/first byte. It explicitly disclaims atomic filesystem/DB selection and instantaneous revocation. Known commits survive suppressed replies; cleanup only reduces authority after proven cessation. Root maintenance closes DB gates, closes the external guard, confirms all owned processes/streams stopped, then durably changes the closed restore epoch before any offline replacement. No first-slice restore reopening is added.
+
+Independent review approves the core guard-I/O resolution but found missing readiness-publication fencing and optional CurrentUser discovery boundaries. Author amended these with owned immutable supervisor launch identity (never adopt a queried current UUID), no automatic gate opening, staged read-only API startup, and G/locked selection/postselection G suppression of only the optional discovery field. Exact OS launch-proof transport, durable expected-instance schema and final scoped rereview remain pending; parent is not frozen.
+
+New [validator DRAFT](docs/implementation/document-ingestion-validator-contract.md) researches official Pillow13.0.0/ClamAV1.4.6 releases/APIs/advisories and proposes restricted original-byte JPEG/PNG/container/metadata/decode/scanning/resource rules. It preserves originals, forbids silent resizing/re-encoding and claims neither sanitisation nor universal harmlessness. Independent review returns five rulings: distinguish internal scanner limit FOUND from generic rejection; bound JPEG parser responsibilities without another decoder; one complete attempt deadline including handoff/IO/transactions/cessation; explicitly evaluate common-phone compatibility (4032x3024 exceeds12million) before adopting a larger pixel ceiling; retain conjunctive full decode/same-original scanner clean/current promotion. These rulings are saved but NOT yet reconciled or tested. Proposed16,777,216 pixels/same256MiB is unmeasured and not adopted.
+
+No application/schema/API/UI/dependency/guard/group/scanner/provider/worker/key/flag/live change or executable app/validator/PG/OS test occurred for this planning. Current source1976cba live proof remains dated11November; doc-only changes do not redeploy it. [Planning checkpoint](docs/operations/document-ingestion-planning-checkpoint-2026-11-12.json) records actual work and first resume. Complete those precise rulings, scoped review and full parent contracts before next freeze/RED/code; do not repeat delivered S0/B3 or broad initial triage.
+
+## Scheduled continuation and recovered checkpoint —12 November2026
+
+After saved11November22:12:10UTC deadline elapsed, live usage12November07:15:35UTC showed98% remaining in the300minute five-hour window and84% weekly; the bounded07:19:11UTC reading showed81%/81%. No reset-credit/account/model-switch tool was called. Earlier stop/history remains; guard permits continuation. The owner-confirmed rolling five-hour reserve is identified by windowDurationMins=300, not the weekly percentage; quota is shared across work/agents and checked before substantial phases.
+
+The interrupted11November save had left thirteen documentation files uncommitted. They were rechecked, committed/pushed as7d3c17d5494d29bf8a5fb84108b518499e502c20 and exact remoteSHA verified before new planning. Postcommit documentation/API gate and staged private-credential comparison passed; its new CI is not yet verified. No application source or live runtime was changed/redeployed by recovering this checkpoint. Last actual live proof remains11November source1976cba/271files/core0009/metadataFalse, not freshly attested today.
+
+First incomplete planning now tackles exact external-guard read placement versus no filesystemIO under business locks; a separate primary-source validator contract defines original JPEG/PNG handling and decoder/scanner acceptance. Two disjoint document owners are working on these DRAFTs only. Parent/API/model/runtime/OS/schema freeze and executableRED remain prerequisites for new implementation. Do not repeat completed S0/B3/bootstrap/schema/rollout. No new ingestion capability, scanner/provider/dependency/flag/group/guard/runtime is installed or enabled.
+
 ## Fresh usage checkpoint —11 November2026
 
 Authenticated primary6%/weekly54% remaining triggers a NEW mandatory stop at2026-11-11T16:42:10UTC. No implementation, review, assignment or deployment before2026-11-11T22:12:10UTC (12November03:42:10AM IST), then only all applicable coding windows available and>10%. Earlier resumed work predates this fresh stop. Preserve every historical stop; no waiver/resetcredit or repeated-low deadline extension. All specialists completed, no active runtime validator/owned helper remains.
@@ -1382,3 +1406,11 @@ Two exact candidates plus independent fourfinding review/coordinator corrections
 ### CHG-0087 —11 November2026 — Save completed S0 delivery and planning at fresh usage stop
 
 Fresh6primary54weekly stop16:42:10UTC/earliest22:12:10UTC (12Nov03:42IST). All specialists finished; latestcode1976cba already verifiedlive, laterplanningdoconly. Safe push/remoteverification and sameheartbeat330min; history retained/noresetcredits.
+
+### CHG-0088 —12 November2026 — Recover publication and develop guard/validator candidates
+
+Pending13docfiles published7d3c17d/remoteverified; elapseddeadline/authenticatedrollingquota resumed. Newguard/validatorDRAFTs, coreguardreview/twoauthoramendments andfivevalidatorrulings preserved. No new appcode/tests/dependencies/runtime/activation or newliveattestation.
+
+### CHG-0089 —12 November2026 — Preserve rolling five-hour reserve
+
+Fresh300minute10%remaining/weekly70% at07:34:48UTC; earliestprojectresume13:04:48UTC(6:34:48PMIST). All specialistsfinished, minimal checkpoint/publication only. Exactpendingrulings saved; no quota bypass/newassignment afterstop.

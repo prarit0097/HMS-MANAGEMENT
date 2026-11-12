@@ -1,17 +1,31 @@
 # Usage-aware HMS continuation
 
 State: COOLDOWN
-checkpoint_at_utc: 2026-11-11T16:42:10Z
-resume_not_before_utc: 2026-11-11T22:12:10Z
+checkpoint_at_utc: 2026-11-12T07:34:48Z
+resume_not_before_utc: 2026-11-12T13:04:48Z
 owner_resume_at_utc: 2026-11-02 (explicit NOW CONTINUE; predates fresh stop)
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330 (fresh4November weekly stop; all prior history retained)
 automation_runtime_status_at_2026_11_02T04_20Z: ACTIVE (same heartbeat updated under standing cooldown rule after explicit owner NOW CONTINUE)
 automation_runtime_status_at_2026_11_01T12_54Z: PAUSED (existing persisted status preserved)
-latest_authenticated_usage_at_utc: 2026-11-11T16:42:10Z
-latest_authenticated_remaining: primary6percent weekly54percent
+latest_authenticated_usage_at_utc: 2026-11-12T07:34:48Z
+latest_authenticated_remaining: rolling300minute10percent weekly10080minute70percent
 latest_verified_application_source: 1976cbad660e8a336fad4376a2367779220815df
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## Fresh rolling-quota stop —12 November2026
+
+Authenticated five-hour windowDurationMins300 has10% remaining (used90) at2026-11-12T07:34:48UTC; weekly70% is a separate window and not the reserve trigger. Stop starting work/assignments/reviews now; minimal safe checkpoint/publication only. Existing project cooldown earliest2026-11-12T13:04:48UTC (12November6:34:48PM IST), then only authorised continuation with available windows above reserve. Earlier morning resume predates this fresh stop. No reset-credit/account/model bypass tool called; all history remains, never extend on repeated low readings.
+
+All specialist authors/reviewers finished and no test/deploy process is active. Guard/validator DRAFTs and exact pending review rulings are preserved; no parent freeze, new tests, implementation or live activation. Recovered prior checkpoint7d3c17d5494d29bf8a5fb84108b518499e502c20 was pushed/remoteverified; its CI is unchecked. [Fresh checkpoint](./document-ingestion-planning-checkpoint-2026-11-12.json) is authoritative for next work. Last verified deployed source1976cba remains unchanged. Safe Git publication and same-heartbeat update preserve recovery without restarting the app.
+
+## Scheduled continuation and recovered checkpoint —12 November2026
+
+After saved11November22:12:10UTC deadline elapsed, live usage12November07:15:35UTC showed98% remaining in the300minute five-hour window and84% weekly; the bounded07:19:11UTC reading showed81%/81%. No reset-credit/account/model-switch tool was called. Earlier stop/history remains; guard permits continuation. The owner-confirmed rolling five-hour reserve is identified by windowDurationMins=300, not the weekly percentage; quota is shared across work/agents and checked before substantial phases.
+
+The interrupted11November save had left thirteen documentation files uncommitted. They were rechecked, committed/pushed as7d3c17d5494d29bf8a5fb84108b518499e502c20 and exact remoteSHA verified before new planning. Postcommit documentation/API gate and staged private-credential comparison passed; its new CI is not yet verified. No application source or live runtime was changed/redeployed by recovering this checkpoint. Last actual live proof remains11November source1976cba/271files/core0009/metadataFalse, not freshly attested today.
+
+First incomplete planning now tackles exact external-guard read placement versus no filesystemIO under business locks; a separate primary-source validator contract defines original JPEG/PNG handling and decoder/scanner acceptance. Two disjoint document owners are working on these DRAFTs only. Parent/API/model/runtime/OS/schema freeze and executableRED remain prerequisites for new implementation. Do not repeat completed S0/B3/bootstrap/schema/rollout. No new ingestion capability, scanner/provider/dependency/flag/group/guard/runtime is installed or enabled.
 
 ## Fresh usage checkpoint —11 November2026
 
