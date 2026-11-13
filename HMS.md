@@ -1,7 +1,21 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.62.0 | Updated: 12 November 2026, Asia/Calcutta
+Document version: 1.63.0 | Updated: 13 November 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
+## Validator reconciliation and S1 facts leaf freeze —13 November2026
+
+Five saved validator rulings are reconciled in the validator/runtime/persistence DRAFTs and independently approved at draft level: closed limit-family precedence before generic FOUND, bounded JPEG structural responsibilities distinct from native compressed-image semantics, one preclaim45second attempt with absolute5/10/15/35/40/45 boundaries nested under cycle/lease, unchanged synthetic12M pixel proposal and unadopted16,777,216 candidate, and conjunctive decode/same-original scanner clean/current promotion. Official tagged sources rechecked; actual engine/native/OS/PG/timing/staff acceptance remains unexecuted. Parent is not frozen and no capability is enabled.
+
+Scoped guard review confirms readiness/discovery amendments and corrected bootstrap wording: API-enabled is not read-only; ordinary ingress and HTTP/UI/MCP/direct-job/byte callers remain stopped through bootstrap, only the owned readiness publisher runs, then readiness and separately approved intake/download gates precede ordinary startup. Exact OS launch provenance/expected-instance persistence remain gates. Guard metadata now uses exact six-fraction ASCII UTC; every future authoritative use must reject reason=restore even if mode active.
+
+The [S1 guard-record plan](docs/implementation/document-ingestion-guard-record-plan.md) is leaf-only frozen after independent scenario/threat/test review and coordinator alignment. One pure bounded JSON decoder returns immutable facts, not GuardObservation or access permission. No caller/IO/clock/DB/API/page/schema/settings/dependency/flag change is permitted. Syntax-valid active+restore deliberately parses data only. Next literal missing-module unittest RED, minimal code and fresh verification/review before source publication/CI/reviewed preview; nothing is implemented or deployed by this freeze.
+
+## Scheduled review reconciliation resumed —13 November2026
+
+Saved12November13:04:48UTC cooldown elapsed; authenticated entry rolling300minute100%/weekly38%, then08:06:37UTC rolling94%/weekly37%. The separate weekly value is not the five-hour reserve. No reset-credit/account/model bypass tool called. Original12November07:34:48 stop/history retained, guard permits continuation. Working tree clean at945c8dccd61265eec49a7bec23347d654a13cc07 and exact remoteSHA matched. ExactcheckpointCI43176665147/allthreejobsSUCCESS observed; earlier7d3c17d CI43174116278SUCCESS observed bySHA. Logs not decoded for these documentation runs.
+
+First incomplete work is the five saved validator-review rulings, with disjoint draft edits for limit classification, bounded parser responsibility, whole attempt deadline, unchanged unmeasured pixel/phone policy and conjunctive clean evidence. A separate scoped reviewer checks the two amended readiness/discovery guard boundaries. Parent remains DRAFT; no new implementation/OS provisioning is authorised by a proposal. No repeat of completed S0/B3/bootstrap/schema/rollout. Last actual live attestation remains11November source1976cba/core0009/metadataFalse; no fresh13November host verification, runtime change or app restart is implied by this planning.
+
 ## Fresh rolling-quota stop —12 November2026
 
 Authenticated five-hour windowDurationMins300 has10% remaining (used90) at2026-11-12T07:34:48UTC; weekly70% is a separate window and not the reserve trigger. Stop starting work/assignments/reviews now; minimal safe checkpoint/publication only. Existing project cooldown earliest2026-11-12T13:04:48UTC (12November6:34:48PM IST), then only authorised continuation with available windows above reserve. Earlier morning resume predates this fresh stop. No reset-credit/account/model bypass tool called; all history remains, never extend on repeated low readings.
@@ -1414,3 +1428,7 @@ Pending13docfiles published7d3c17d/remoteverified; elapseddeadline/authenticated
 ### CHG-0089 —12 November2026 — Preserve rolling five-hour reserve
 
 Fresh300minute10%remaining/weekly70% at07:34:48UTC; earliestprojectresume13:04:48UTC(6:34:48PMIST). All specialistsfinished, minimal checkpoint/publication only. Exactpendingrulings saved; no quota bypass/newassignment afterstop.
+
+### CHG-0090 —13 November2026 — Reconcile validator/guard drafts and freeze S1 facts leaf
+
+Elapsed-deadline resume, exact945c8dcCI43176665147all3SUCCESS observed; five validator rulings and guard bootstrap wording independently reviewed. Parent stillDRAFT; strict timestamp/restore alignment and unused S1factsdecoder leaf plan frozen before RED/code. No new tests/runtime/activation claim.

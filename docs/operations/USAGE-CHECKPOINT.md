@@ -1,6 +1,6 @@
 # Usage-aware HMS continuation
 
-State: COOLDOWN
+State: ACTIVE — saved cooldown elapsed; authenticated windows permit continuation
 checkpoint_at_utc: 2026-11-12T07:34:48Z
 resume_not_before_utc: 2026-11-12T13:04:48Z
 owner_resume_at_utc: 2026-11-02 (explicit NOW CONTINUE; predates fresh stop)
@@ -8,10 +8,16 @@ automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330 (fresh4November weekly stop; all prior history retained)
 automation_runtime_status_at_2026_11_02T04_20Z: ACTIVE (same heartbeat updated under standing cooldown rule after explicit owner NOW CONTINUE)
 automation_runtime_status_at_2026_11_01T12_54Z: PAUSED (existing persisted status preserved)
-latest_authenticated_usage_at_utc: 2026-11-12T07:34:48Z
-latest_authenticated_remaining: rolling300minute10percent weekly10080minute70percent
+latest_authenticated_usage_at_utc: 2026-11-13T08:06:37Z
+latest_authenticated_remaining: rolling300minute94percent weekly10080minute37percent
 latest_verified_application_source: 1976cbad660e8a336fad4376a2367779220815df
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## Scheduled review reconciliation resumed —13 November2026
+
+Saved12November13:04:48UTC cooldown elapsed; authenticated entry rolling300minute100%/weekly38%, then08:06:37UTC rolling94%/weekly37%. The separate weekly value is not the five-hour reserve. No reset-credit/account/model bypass tool called. Original12November07:34:48 stop/history retained, guard permits continuation. Working tree clean at945c8dccd61265eec49a7bec23347d654a13cc07 and exact remoteSHA matched. ExactcheckpointCI43176665147/allthreejobsSUCCESS observed; earlier7d3c17d CI43174116278SUCCESS observed bySHA. Logs not decoded for these documentation runs.
+
+First incomplete work is the five saved validator-review rulings, with disjoint draft edits for limit classification, bounded parser responsibility, whole attempt deadline, unchanged unmeasured pixel/phone policy and conjunctive clean evidence. A separate scoped reviewer checks the two amended readiness/discovery guard boundaries. Parent remains DRAFT; no new implementation/OS provisioning is authorised by a proposal. No repeat of completed S0/B3/bootstrap/schema/rollout. Last actual live attestation remains11November source1976cba/core0009/metadataFalse; no fresh13November host verification, runtime change or app restart is implied by this planning.
 
 ## Fresh rolling-quota stop —12 November2026
 
