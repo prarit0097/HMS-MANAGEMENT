@@ -1,17 +1,39 @@
 # Usage-aware HMS continuation
 
-State: COOLDOWN
-checkpoint_at_utc: 2026-11-13T08:23:22Z
-resume_not_before_utc: 2026-11-13T13:53:22Z
+State: COOLDOWN — project weekly-window safeguard; rolling reserve not triggered
+checkpoint_at_utc: 2026-11-13T14:11:33Z
+resume_not_before_utc: 2026-11-13T19:41:33Z
 owner_resume_at_utc: 2026-11-02 (explicit NOW CONTINUE; predates fresh stop)
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330 (fresh4November weekly stop; all prior history retained)
 automation_runtime_status_at_2026_11_02T04_20Z: ACTIVE (same heartbeat updated under standing cooldown rule after explicit owner NOW CONTINUE)
 automation_runtime_status_at_2026_11_01T12_54Z: PAUSED (existing persisted status preserved)
-latest_authenticated_usage_at_utc: 2026-11-13T08:23:22Z
-latest_authenticated_remaining: rolling300minute10percent weekly10080minute24percent
-latest_verified_application_source: 1976cbad660e8a336fad4376a2367779220815df
+latest_authenticated_usage_at_utc: 2026-11-13T14:11:33Z
+latest_authenticated_remaining: rolling300minute19percent weekly10080minute10percent
+latest_verified_application_source: e7ab28fdd9976c4e4491fa32f01538c726ec46f8
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
+
+## Fresh project weekly-window checkpoint —13 November2026
+
+At2026-11-13T14:11:33UTC rolling300minute has19%remaining and weekly10080minute has10%. The rolling reserve is NOTtriggered; the project handoff's additional any-applicable-window<=10 safeguard triggers this STOP. No new implementation/review/assignment/deployment: minimal safe documentation/publication only. Earliestprojectresume2026-11-13T19:41:33UTC (14November01:11:33AM IST) ANDallapplicablewindowsavailable>10; weekly recovery may take longer. No reset-credit/account/modelbypass tool called, originalmorningstop/historyretained, no repeatedlow extension.
+
+S1sourcee7 IS LIVE and verified; no WIProllout remains. Allspecialistsfinished, ownedhelpersremoved, no activetest/deployprocess. [Deliverycheckpoint](./document-guard-record-delivery-checkpoint-2026-11-13.json) records nextwork/openlimits. Save/push/remoteSHA and sameheartbeat330min only; do not repeat S1 or redeploydoc-onlyupdates.
+
+## S1 facts decoder verified and preview deployed —13 November2026
+
+Restricted synthetic https://hms.praritsidana.com now runs e7ab28fdd9976c4e4491fa32f01538c726ec46f8 at `/opt/hms/releases/preview-20261113-e7ab28f`, switched2026-11-13T14:08:19.709910562UTC. All282canonicalGit files/two candidateworkers/old workersgone/core0009/actualmetadataFalse verified. ExactCI43393175625/allthreejobsSUCCESS decoded2076PG/7SQLite-onlyskips/4warnings/1218subtests156.49s,132frontend/typecheck/build121ms,19root38edge/schemaComposeDocs. Separate rootactualTLS PG17.11 full2076passed/7SQLite-onlyskips/7warnings/1218subtests228.29s/check0/no drift, four EXPLAIN properties retained. Warnings cover isolated maintenanceDB unavailability, deliberate settings overrides and JUnitpropertycompatibility; no live DB fallback. Existing checks-venv schema and docs/API map passed.
+
+Canonical105filetestartifact was separate from282filecommittedrelease. Independent validation/helper review, fresh consistent34table/currentkey backuprestore, candidate18facts tests/ownerauth, separate disabledrealHTTP503 retainedcount1 and enabledsevenHTTPcalls/nonempty1intent2receipts7events, exact prior1976auth/read/logout compatibility allpassed. Same-instance owned cleanup/fresh18test proof gated preclose. HMS-only protected switch changed zero rows across34tables before intentional ownerauth. Live Basic/MFA/session/CSRF/CurrentUser/scopedreads/foreign denial/network/static/no304/private-spoof/logout and only documentHEAD/OPTIONS405 passed. NO supportedlive documentGETPOST/admission/business/guard/helper call, flag/policy/key/schema/grant/recovery/enrollment mutation.
+
+Postchange backup/checksum/list/pristineTLS restore preserved all34tables/current factor key/password/recovery/operator/policy; helper/container/network removed and portsclosed. Fresh53otherNginxhashes/23existingcontainerIDs/HBA/env/keys/static/venv preserved. Windows observed maintenance503 then Basic401/shell200/no304/private404 underforgedheaders/origin+helperportsclosed and fiveothersites200 (reachabilityonly). [Measured evidence](./document-guard-record-preview-evidence-2026-11-13.json) records exactCI/rootPG/clone/live/postrestore/limitations. One inline Windows quoting error was corrected before the successful external closed proof; a stale descriptive release label was fixed beforetransfer, executable targets were alreadycorrect. No repeated98caseframingrun under reviewed unused-module/no-transport-delta scope.
+
+S1 is implemented/sourceverified/previewdeployed: a pure bounded JSON facts decoder, NOT an OSreader/GuardObservation/access grant. Syntaxvalidactive+restore intentionallyreturns data only; allfuture authoritative use must independentlyrejectrestore and require trustedfreshOS/Control/currentrights. Parent ingestion, realguard/group/key provisioning/scanner/storage/worker/upload/download/UI remainUNFROZEN/unimplemented. Browser/keyboard/staff/phoneimport/retention/recovery/capacity/publicTLSspill/clinical/finance/MCP/dataops/fullhospitalrelease remainOPEN. Sharedwww-data trust and rootprivatebackups withoutencryptedoffhostDR remainexplicitlimits. Next is fullparentexpected-instance/OSlaunch/schema/API/accounting/native/runtime contract, notrepeatS1/S0/B3delivery. Documentation-only publication does not restart unchangede7source.
+
+## S1 delivery validation resumed —13 November2026 afternoon
+
+Saved13November13:53:22UTC cooldown elapsed; authenticated entryrolling98%/weekly22%, bounded13:57:53UTC rolling88%/weekly21%. No waiver/reset/account/model bypass tool called; historical08:23:22 stop remains. Exactsourcee7ab28fdd9976c4e4491fa32f01538c726ec46f8 CI43393175625/allthreejobsSUCCESS decoded2076PG/7SQLite-onlyskips/4warnings/1218subtests156.49s,132frontend/typecheck/build121ms,19root38edge/schema/Compose/docs. This verifies CI, not new live deployment. No repeated unchanged Windows portable tests.
+
+The [S1 preview amendment](../implementation/document-guard-record-preview-plan.md) and concrete canonical test/release artifacts were independently reviewed before execution;105-file isolated test package is never a deployable artifact,282-file complete Git archive is separate. Same-instance cleanup protects both fullPG and future clone cycles; explicit18group success receipt gates preclose. One stale descriptive release label was corrected before transfer; executable assertions already targetede7. Root readonly preflight found current1976release active/pinned3.12.3/Django5.2.18/pytest9.1.1 and free candidate/helper paths. Full isolated PG/check/drift is running, not yet acceptance. No appsource switch/schema/key/flag/guard provisioning or live document invocation occurred at this resumption. Parent remains UNFROZEN.
 
 ## Fresh rolling-quota checkpoint; S1 verification incomplete —13 November2026
 

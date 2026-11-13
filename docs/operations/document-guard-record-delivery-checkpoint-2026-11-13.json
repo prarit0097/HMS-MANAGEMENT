@@ -1,0 +1,25 @@
+{
+  "status": "Fresh project weekly-window safeguard stop after S1 delivery; rolling reserve NOTtriggered",
+  "checkpoint_at_utc": "2026-11-13T14:11:33Z",
+  "resume_not_before_utc": "2026-11-13T19:41:33Z",
+  "authenticated_remaining": {
+    "rolling300_minutes": 19,
+    "weekly10080_minutes": 10
+  },
+  "trigger": "Project handoff says any applicable window<=10; weeklyused90 triggered, rollingused81 still19",
+  "reset_credit_tool_called_by_agent": false,
+  "history": "Earlier08:23:22 rollingstop/13:53:22deadline preserved; afternoonresume98rolling22weekly afterdeadlineelapsed predatesthisfreshstop",
+  "live_source": "e7ab28fdd9976c4e4491fa32f01538c726ec46f8",
+  "source_switched_at_utc": "2026-11-13T14:08:19.709910562Z",
+  "release_path": "/opt/hms/releases/preview-20261113-e7ab28f",
+  "source_files": 282,
+  "core": "0009",
+  "metadata_enabled": false,
+  "source_ci": 43393175625,
+  "source_ci_result": "Exacthead/all3SUCCESS decoded2076PG7SQLite-skips4warnings1218subtests156.49/132fronttypebuild121ms/19root38edge/schemaComposeDocs",
+  "root_actual_pg": "2076pass7SQLite-skips7warnings1218subtests228.29/check0/nodrift;4EXPLAINproperties retained",
+  "delivery": "Fresh34table/currentkeypristine restores, candidate18facts tests+auth, disabledHTTPcount1->503, separateenabled7HTTP/nonempty records/prior1976compatibility, zero-row switch, liveauth/security/safe405/postrestore/53otherNginxhashes23containers/HBA/env/keys/static/Windowsverified",
+  "next": "Verify newdocumentationpublicationGitCI; S1deliverycomplete, doNOTrepeatS1/S0/B3/bootstrap/schema/rollout or unchanged18tests. Next parent: exact expected-supervisor-instance persistence/OSlaunch proof and fullAPI/model/accounting/native/runtime acceptance agreement before nextleaf plan/freeze/RED/code. No more work until projectdeadlineandapplicablewindows>10; weekly may require longer than330min.",
+  "open": "No ingestionfeature/guardprovisioning/scanner/storage/worker/API/UIactivation; parentDRAFT. Productionretention/recovery/capacity/publicTLSspill/browser/staff/phone/clinical/finance/MCP/dataops/fullhospitalrelease open.",
+  "processes": "All specialists completed, owned helpers removed/portsclosed, HMSserviceactive/backup timerenabled; no pendingdeployment/testprocess."
+}

@@ -65,8 +65,8 @@ Every invalid input raises exactly `ValueError("Invalid guard record.")`, suppre
 - [x] Align parent timestamp/restore wording; independent scenario/permission and threat/test reviews, then coordinator leaf-only freeze before code.
 - [x] Write synthetic unittest matrix importing the absent module. From `backend`, record interpreter and run `python -m unittest discover -s tests -p test_document_guard_record.py -v`; retain literal missing-module RED before production.
 - [x] Implement only this contract; run identical portable command GREEN. Fresh independent source/test review verifies independent fixtures, expected exception boundaries and no callers/side effects.
-- [ ] Coordinator runs source-compatible pinned Django5.2.18 full actual isolated PostgreSQL regression/check/no-migration-drift and required schema/repository checks; record commands/results and isolation. No environment repair or live fallback; portable GREEN alone is insufficient.
-- [ ] Coordinator commits/pushes, verifies remote SHA and exact-SHA CI, then reviewed source-only HMS preview rehearsal/backup/rollback/live preservation/postrestore and same-change MD evidence. No guard provisioning, migration, ingestion invocation or flag activation. Docs-only publication does not restart unchanged runtime.
+- [x] Coordinator runs source-compatible pinned Django5.2.18 full actual isolated PostgreSQL regression/check/no-migration-drift and required schema/repository checks; record commands/results and isolation. No environment repair or live fallback; portable GREEN alone is insufficient.
+- [x] Coordinator commits/pushes, verifies remote SHA and exact-SHA CI, then reviewed source-only HMS preview rehearsal/backup/rollback/live preservation/postrestore and same-change MD evidence. No guard provisioning, migration, ingestion invocation or flag activation. Docs-only publication does not restart unchanged runtime.
 
 Self-review: exact interfaces/types/errors and bounded parsing are specified; parent alignment and independent reviews remain open. No code or executable test was written/run for this draft. Shared rolling300minute reserve applies; stop new work at<=10%, preserve checkpoint/history, no resets/account/model bypass.
 
@@ -75,3 +75,7 @@ Coordinator ruling: exact facts-only decoding is independently testable and need
 ## WIP checkpoint —13 November2026
 
 RootmissingmoduleRED beforecode; actual18portablegroups0.380s andindependentreview18groups0.322s/no findings. Sourceimplemented andportableverified ONLY, full actualPG/check/drift/requiredchecks/exactCI/reviewedpreview/live/postrestore remainunchecked; not complete/deployed. See [checkpoint](../operations/document-guard-record-checkpoint-2026-11-13.json). No parentfreeze/capability or OSguardreading claim.
+
+## Delivery closed —13 November2026
+
+Exacte7CI43393175625all3SUCCESS; rootfull2076PG7skips7warnings1218subtests228.29s/check0/nodrift, reviewed282filecanonicalsource-only rollout/fresh18test+prior1976clones/live/postrestore/otherappsverified. [Measured evidence](../operations/document-guard-record-preview-evidence-2026-11-13.json). S1complete, no parentfreeze oraccesscapability. HistoricalWIPstatements above describeearlierphase.
