@@ -10,6 +10,16 @@
 
 **Spec:** [HMS.md](HMS.md), [consolidated research](docs/research/HMS_CONSOLIDATED_RESEARCH_BASELINE.md), latest owner instructions.
 
+## Fresh rolling-quota checkpoint; S1 verification incomplete —13 November2026
+
+Authenticated rolling300minute remaining10% (used90) at2026-11-13T08:23:22UTC triggers STOP; weekly24% is separate. No new assignments/review/implementation/deployment, minimal safe publication only. Project earliestresume2026-11-13T13:53:22UTC (13November7:23:22PM IST), then available authorisedquota above reserve/project gates. Earlier resumedwork predates this stop. Preserve all history, no reset-credit/account/model bypass or repeated-low deadline extension. All specialists completed; no active test/deployment process.
+
+S1 WIP adds `backend/apps/core/document_guard_record.py` and `backend/tests/test_document_guard_record.py`: one pure bounded JSON facts decoder/frozen dataclass, no GuardObservation, IO/clock/authority/DB/caller/API/settings/dependency/flag. Syntax-valid active+restore remains non-authoritative facts. Root literal missing-module RED preceded code; final root18unittestgroups0.380s/Python3.13.5 and fresh independent review18groups0.322s passed/no findings. Worker manual19count corrected by actual18/AST18distinctmethods, no duplicate loss. No fullPG/check/drift/repository/exactsourceCI/reviewedpreview acceptance yet; code is NOT deployment-complete and MUST NOT be deployed as WIP.
+
+[Checkpoint evidence](docs/operations/document-guard-record-checkpoint-2026-11-13.json) records changed files/hashes/commands/remaining gates. First resume full source-compatible isolated PG/check/no drift and repository acceptance, exact pushCI, canonical reviewed HMS-only preview rehearsal/backup/rollback/live/postrestore/preservation and MD. Do not repeat closed S0/B3/bootstrap/schema or rerun portable18 without changed code/findings. Last actual live proof remains11November1976cba/core0009/False/271files; no host was accessed or changed13November. Docs-only changes do not restart it; parent ingestion stays UNFROZEN/unavailable.
+
+Five validator rulings and guard readiness/discovery/bootstrap are reconciled/scoped-reviewed at DRAFT level; independent S1 leaf freezeb8691a77f3a6a60f3d0c7e75cc6af5b41eee4977 was pushed/remoteverified, CIunchecked. Native engine/OS/timing/phone/clinical capacity/recovery acceptance and full typed model/API/OS launch proof remain open. Source18unit results are not scanner/guardIO/PG/clinical tests.
+
 ## Validator reconciliation and S1 facts leaf freeze —13 November2026
 
 Five saved validator rulings are reconciled in the validator/runtime/persistence DRAFTs and independently approved at draft level: closed limit-family precedence before generic FOUND, bounded JPEG structural responsibilities distinct from native compressed-image semantics, one preclaim45second attempt with absolute5/10/15/35/40/45 boundaries nested under cycle/lease, unchanged synthetic12M pixel proposal and unadopted16,777,216 candidate, and conjunctive decode/same-original scanner clean/current promotion. Official tagged sources rechecked; actual engine/native/OS/PG/timing/staff acceptance remains unexecuted. Parent is not frozen and no capability is enabled.

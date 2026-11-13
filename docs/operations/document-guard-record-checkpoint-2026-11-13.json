@@ -1,0 +1,64 @@
+{
+  "status": "Fresh rolling reserve STOP; S1 source+portable verification only, not accepted/deployed",
+  "checkpoint_at_utc": "2026-11-13T08:23:22Z",
+  "resume_not_before_utc": "2026-11-13T13:53:22Z",
+  "authenticated_remaining": {
+    "rolling300_minutes": 10,
+    "weekly10080_minutes": 24
+  },
+  "reserve_trigger": "300minuteused90, notweekly",
+  "reset_credit_tool_called_by_agent": false,
+  "planning_publication": "b8691a77f3a6a60f3d0c7e75cc6af5b41eee4977 pushed/remoteSHAexact; frozenleaf plusreconciledparentdrafts, CIunchecked",
+  "entry_ci": "945c8dc exactCI43176665147/all3SUCCESS;7d3c17dCI43174116278SUCCESS observed, logsnotdecoded",
+  "completed_planning": [
+    "Fivevalidatorrulings reconciled and scopedindependentapproval; actualengine/native/timing/phone testsnotrun",
+    "Guardreadiness/discovery amendments scopedapproved and apiEnabled-not-readonly bootstrap correction approved",
+    "S1 factsdecoder independently scenario/threat/testreviewed, strictASCII sixfractionUTC/restoreauthority parentalignment before leaf-onlyfreeze"
+  ],
+  "production_scope": {
+    "file": "backend/apps/core/document_guard_record.py",
+    "public_api": "parse_guard_record(raw:bytes)->GuardRecordFacts",
+    "facts": "Frozen dataclass/version/UUIDs/mode/reason/UTCtimestamp/null-or-lowerhexmanifest",
+    "limits": "Exactbytes1..4096/strictUTF8/closedJSON/no duplicate/coercion/nonfinite/extra/missing",
+    "authority": "NONE: active+restore syntaxfacts deliberatelyallowed; notGuardObservation, noIO/clock/DB/permissions/callers/API/settings/flag changes"
+  },
+  "actual_red": {
+    "interpreter": "Python3.13.5",
+    "command": "python -m unittest discover -s tests -p test_document_guard_record.py -v",
+    "cwd": "backend",
+    "exit": 1,
+    "result": "One loader error ModuleNotFoundError apps.core.document_guard_record beforeproduction existed"
+  },
+  "actual_green": {
+    "root_unittest_groups": 18,
+    "seconds": 0.38,
+    "independent_review_unittest_groups": 18,
+    "review_seconds": 0.322,
+    "review": "No findings; strict grammar/types/exception boundary/no callers/IO verified",
+    "test_count_note": "Initial worker manual19 was inaccurate; actualroot/reviewer18, AST18distinctmethods/no duplicates"
+  },
+  "working_tree_hashes": {
+    "backend/apps/core/document_guard_record.py": "f7495b28cab0f36817739fcfa98f0a532716cc0743e5d8eaec5940c38b92d915",
+    "backend/tests/test_document_guard_record.py": "3c8906323d4e6511444d7aaa182dcc721b491558f6e8456646724a5dede758c3"
+  },
+  "not_run": [
+    "Fullsource-compatible actualisolatedPG regression/check/nodrift",
+    "Required fullrepository/schema checks for S1 source beyondpublicationdocgate",
+    "ExactnewsourcepushCI",
+    "Canonicalsourceartifact/reviewedpreviewplan/freshbackup+clone/rollback/live/postrestore/preservation"
+  ],
+  "live": "Lastactual11November verified1976cbad660e8a336fad4376a2367779220815df/core0009/metadataFalse/271files remainsbaseline; no13Novemberhostaccess/source/flag/key/schema/policy/OSchange or deployment",
+  "next": "Finish S1 fullactualPG/check/nodrift/repositorychecks and anyfindings; verifiedpush/exactCI then reviewedHMS-onlysource rollout/freshrehearsal/live/postrestore/otherapp preservation andMD. DoNOTdeployWIP, repeatS0/B3/bootstrap/schema or rerun18portabletests withoutnewfinding/change. Then nextparentgate.",
+  "parent_status": "UNFROZEN/no ingestioncapability. OSlaunchproof/expected-instance persistence/fullAPI/model/accounting/native/scanner/OS/publicTLSspill/clinicalcapacity/retention/recovery/browser/staff/fullhospitalrelease remainopen.",
+  "changed_files": [
+    "backend/apps/core/document_guard_record.py",
+    "backend/tests/test_document_guard_record.py",
+    "HMS.md",
+    "plan.md",
+    "docs/implementation/ledger.md",
+    "docs/implementation/document-ingestion-guard-record-plan.md",
+    "AGENTS.md",
+    "docs/operations/USAGE-CHECKPOINT.md"
+  ],
+  "processes": "Allspecialistscompleted; no activevalidation/deployprocess. No newassignments/reviews/implementation afterthreshold."
+}
