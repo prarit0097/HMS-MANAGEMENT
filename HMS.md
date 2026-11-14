@@ -1,7 +1,20 @@
 # The Circadian Rhythm Hospital — HMS living project reference
 
-Document version: 1.66.2 | Updated: 14 November 2026, Asia/Calcutta
+Document version: 1.66.3 | Updated: 15 November 2026, Asia/Calcutta
 Repository: https://github.com/prarit0097/HMS-MANAGEMENT
+
+## Launch primitive feasibility and permission review —15 November2026 IST
+
+Scheduled continuation authenticated rolling300minute44%/weekly10080minute47% remaining, later38/46,33/45 and25/44; no cooldown/waiver/reset-credit/account/model-bypass tool called. Entry3ad301f exactCI43614136679 completedSUCCESS observed (logs/jobs not decoded this check). Existing worktree was clean. Three independent specialist roles covered identity mapping, publisher SQL boundary and pre-execution probe safety.
+
+New DRAFT candidates: generation-map proposes one expected supervisor launch instance (no redundant launch-generation UUID) and separate scanner_generation across Control/claim/attempt/IPC; publisher-db-boundary proposes a dedicated EXECUTE-only login and typed restricted functions. Neither SQL nor matching UUIDs proves OS/scanner evidence. Cross-review found scanner-registration-before-readiness bootstrap and renewal-versus-inflight exact-token semantics still blocking. The SQL candidate explicitly leaves protected schema/role ownership, receipt/status and actual function contracts open; existing app database-owner compromise is outside publisher-login isolation. Parent and all candidates remain UNFROZEN; no production code or migration authorised by these documents.
+
+A reviewed test-only feasibility probe ran once via pinnedPython3.12.3 under server timeout30s/kill-after2s. All seven reported assertions passed: four memfd seals, EPERM write/truncate denial, CLOEXEC flags, self pidfd open, inherited bytes readable by distinct fork child, normal exact-child reaping/FD closure. This verifies primitive behavior and demonstrates descriptor possession is insufficient for process identity; no root provenance/actualexec/PIDreuse/cgroup cessation/PG/clinical acceptance. Read-only inventory observed Linux6.8.0-90/systemd255/cgroup2fs/currente7 symlink, preview service active before/after. No persistent remote file, DB, key, service/config/package/runtime mutation or app restart. Full release/other-app preservation was not re-attested. Evidence and plan are linked below; previous2076backend/132frontend tests were NOT rerun.
+
+Next: freeze scanner-registration transition, renewal/claim timing policy and exact trusted launch handshake/DB role contracts, then reconcile whole schema/API/accounting/native/runtime design before the next leaf freeze/RED/code. S0/S1/B3 remain delivered; existing preview remains restricted synthetic/no ingestion capability. This documentation-only publication does not redeploy unchanged source.
+
+References: [probe plan/result](docs/implementation/document-ingestion-launch-feasibility-plan.md), [generation map](docs/implementation/document-ingestion-generation-map.md), [publisher boundary](docs/implementation/document-ingestion-publisher-db-boundary.md).
+
 
 ## Scheduled continuation — 14 November 2026 evening
 

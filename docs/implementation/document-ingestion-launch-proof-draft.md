@@ -62,3 +62,7 @@ The [systemd execution reference](https://www.freedesktop.org/software/systemd/m
 - [ ] Complete native validator/scanner/resource/public-TLS spill/retention/recovery and staff/browser acceptance before any upload or real-data activation.
 
 No executable test, provisioning or passing acceptance is claimed by this document. S0/S1/B3 source and restricted preview remain unchanged.
+
+## Scoped feasibilityand reconciliation —15 November2026
+
+The [primitive plan/result](document-ingestion-launch-feasibility-plan.md) demonstrates seal mutation denial and fork inheritance on the pinned host, not root launch provenance. The [generation mapping candidate](document-ingestion-generation-map.md) reduces launch identity to one expected instance UUID, independent from scanner_generation; it proposes dropping redundant supervisor_launch_generation. This is a minimal candidate direction, not an adopted migration. The [publisher DB boundary](document-ingestion-publisher-db-boundary.md) proposes EXECUTE-only typed publication/status with no publisher table DML. Scanner registration before readiness and renewal-versus-issued-token policy remain explicit bootstrap/concurrency gates. These candidates do not freeze the parent or authorise code/OS provisioning.

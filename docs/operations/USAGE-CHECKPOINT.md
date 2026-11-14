@@ -1,5 +1,16 @@
 # Usage-aware HMS continuation
 
+## Launch primitive feasibility and permission review —15 November2026 IST
+
+Scheduled continuation authenticated rolling300minute44%/weekly10080minute47% remaining, later38/46,33/45 and25/44; no cooldown/waiver/reset-credit/account/model-bypass tool called. Entry3ad301f exactCI43614136679 completedSUCCESS observed (logs/jobs not decoded this check). Existing worktree was clean. Three independent specialist roles covered identity mapping, publisher SQL boundary and pre-execution probe safety.
+
+New DRAFT candidates: generation-map proposes one expected supervisor launch instance (no redundant launch-generation UUID) and separate scanner_generation across Control/claim/attempt/IPC; publisher-db-boundary proposes a dedicated EXECUTE-only login and typed restricted functions. Neither SQL nor matching UUIDs proves OS/scanner evidence. Cross-review found scanner-registration-before-readiness bootstrap and renewal-versus-inflight exact-token semantics still blocking. The SQL candidate explicitly leaves protected schema/role ownership, receipt/status and actual function contracts open; existing app database-owner compromise is outside publisher-login isolation. Parent and all candidates remain UNFROZEN; no production code or migration authorised by these documents.
+
+A reviewed test-only feasibility probe ran once via pinnedPython3.12.3 under server timeout30s/kill-after2s. All seven reported assertions passed: four memfd seals, EPERM write/truncate denial, CLOEXEC flags, self pidfd open, inherited bytes readable by distinct fork child, normal exact-child reaping/FD closure. This verifies primitive behavior and demonstrates descriptor possession is insufficient for process identity; no root provenance/actualexec/PIDreuse/cgroup cessation/PG/clinical acceptance. Read-only inventory observed Linux6.8.0-90/systemd255/cgroup2fs/currente7 symlink, preview service active before/after. No persistent remote file, DB, key, service/config/package/runtime mutation or app restart. Full release/other-app preservation was not re-attested. Evidence and plan are linked below; previous2076backend/132frontend tests were NOT rerun.
+
+Next: freeze scanner-registration transition, renewal/claim timing policy and exact trusted launch handshake/DB role contracts, then reconcile whole schema/API/accounting/native/runtime design before the next leaf freeze/RED/code. S0/S1/B3 remain delivered; existing preview remains restricted synthetic/no ingestion capability. This documentation-only publication does not redeploy unchanged source.
+
+
 ## Scheduled continuation — 14 November 2026 evening
 
 Saved08:10:57UTC rolling-stop deadline13:40:57UTC elapsed. Scheduled check authenticated rolling300minute97%/weekly10080minute69% remaining; bounded reading91%/68%. No waiver or reset-credit/account/model-bypass tool called. Historical stop records remain. Entry914bb3458eeb8d674eee31a50b02def3ff71a896 has exactCI43574639247 completedSUCCESS with contracts-and-docs/frontend/backend-postgres allSUCCESS; logs not decoded and no new application tests run.
@@ -22,8 +33,8 @@ automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330 (fresh4November weekly stop; all prior history retained)
 automation_runtime_status_at_2026_11_02T04_20Z: ACTIVE (same heartbeat updated under standing cooldown rule after explicit owner NOW CONTINUE)
 automation_runtime_status_at_2026_11_01T12_54Z: PAUSED (existing persisted status preserved)
-latest_authenticated_usage_at_utc: 2026-11-14T16:05:18Z
-latest_authenticated_remaining: rolling300minute90percent weekly10080minute68percent
+latest_authenticated_usage_at_utc: 2026-11-14T21:36:06Z
+latest_authenticated_remaining: rolling300minute20percent weekly10080minute43percent
 latest_verified_application_source: e7ab28fdd9976c4e4491fa32f01538c726ec46f8
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
 

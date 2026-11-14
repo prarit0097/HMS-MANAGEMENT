@@ -1,0 +1,35 @@
+{
+  "status": "isolated synthetic primitive feasibility only",
+  "observed_at_utc": "2026-11-14T21:33:16Z",
+  "platform": {
+    "kernel": "6.8.0-90-generic",
+    "systemd": "255 (255.4-1ubuntu8.18)",
+    "python": "3.12.3",
+    "cgroup": "cgroup2fs"
+  },
+  "command": "timeout --kill-after=2s 30s /opt/hms/releases/venv-20261026/bin/python -I -B -",
+  "script_sha256": "79691b35aec4b935a104c35eb69747366250ba7946113f8ebb3328d73027745a",
+  "results": {
+    "all_four_seals_observed": true,
+    "write_denied": true,
+    "truncate_denied": true,
+    "memfd_cloexec": true,
+    "pidfd_self_open_cloexec": true,
+    "fork_inherits_bytes_despite_distinct_pid": true,
+    "owned_descriptors_closed_child_reaped": true
+  },
+  "exit_code": 0,
+  "pre_post_service": "hms-preview.service active",
+  "preview_symlink_observed": "/opt/hms/releases/preview-20261113-e7ab28f",
+  "limitations": [
+    "No trusted launch provenance, user isolation or executable/cgroup attestation proved",
+    "No actual exec test, pidreuse/reboot/cessation race or PostgreSQL test",
+    "No OS file/config/unit/package/key/DB/runtime schema change or app restart",
+    "No full live release/security/other-app preservation attestation this check",
+    "No production ingestion capability or approval"
+  ],
+  "sources": [
+    "https://man7.org/linux/man-pages/man2/memfd_create.2.html",
+    "https://docs.python.org/3.12/library/os.html#os.pidfd_open"
+  ]
+}
