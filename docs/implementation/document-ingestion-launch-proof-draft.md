@@ -1,0 +1,64 @@
+# Supervisor launch provenance and expected instance
+
+**DRAFT — 14 November 2026.** Design candidate only, not frozen, approved, implemented, tested or provisioned. Read with [guard authority](document-ingestion-guard-authority-contract.md), [runtime](document-ingestion-runtime-contract.md), [persistence](document-ingestion-persistence-contract.md) and [S1 facts decoder](document-ingestion-guard-record-plan.md). This does not change the 50 implemented HTTP operations, add an operator API, enable ingestion or reopen restore. No code, migration, dependency, OS service, key, live invocation or deployment accompanies this document.
+
+## Decision to review
+
+Prefer a fixed root-controlled launch descriptor for the first bounded launch contract, rather than introduce a continuously privileged readiness broker. It must bind an exact process instance, not merely supply UUIDs. This is a proposal: descriptor provenance and instance enforcement still need Linux feasibility and independent review before a leaf can freeze. If those checks cannot be demonstrated on the pinned host, keep readiness unavailable; do not downgrade to UID-only authentication or a copied environment variable.
+
+| Candidate | What it supplies | What it does not supply / cost |
+|---|---|---|
+| Private Unix socket with kernel peer credentials | Local PID/UID/GID evidence and a filesystem-controlled access path | SO_PEERCRED is connection-time identity, not an executable/manifest attestation. A socket is inheritable/passable; a same-UID process is not automatically the approved supervisor. Per-message credentials, process-instance binding and a trusted endpoint lifecycle still need design. A new continuously privileged broker expands scope. |
+| Root-prepared, inherited read-only descriptor | A fixed immutable launch record delivered by the reviewed launcher, without a caller-supplied pathname or public endpoint | Record bytes alone are copyable facts. Forks inherit descriptors, reexec preserves some descriptors and a compromised approved process can act through its own credentials. Every use needs the trusted reader plus exact current-process and current-Control comparisons; descriptor possession is not a grant. |
+
+Linux documents SO_PEERCRED and descriptor/credential passing in [unix(7)](https://man7.org/linux/man-pages/man7/unix.7.html). The above security comparison is a design inference, not a claim that Linux authenticates Python objects or application manifests.
+
+## Bounded candidate launch protocol
+
+1. Under the existing closed-ingress maintenance procedure, root verifies fixed launcher/unit/executable/config hashes and the approved runtime manifest. No unit name, PID, executable, environment, arbitrary path or command comes from HTTP/MCP/jobs. Root closes intake/readiness and fences the previous launch in Control, then releases all database locks before any process inspection/stop/start.
+2. Confirm the previous owned supervisor and its entire owned process group/cgroup have ceased. PID disappearance alone is insufficient. Uncertain cessation blocks replacement and slot release. Preserve the parent rule that API/readiness activation is separately reviewed and ordinary callers remain stopped during bootstrap.
+3. A proposed fixed launcher creates one stopped/not-yet-authoritative supervisor child. It records installation/epoch, a fresh launch-instance UUID, a fresh `supervisor_launch_generation` UUID, boot UUID, child PID, kernel process-start identity, fixed unit identity and runtime-manifest SHA256. Proposed `scanner_generation` is a separate identity: a daemon reload is not evidence of a new supervisor process. Existing contracts overload `supervisor_generation` for daemon/config/signature lifecycle; source-to-destination field mapping, migration and all claim/promotion consumers remain unresolved and must freeze together before implementation.
+4. Root creates the bounded launch record and supplies only a read-only descriptor to that exact child. The record must be root-owned, immutable to the child, not reachable through an attacker-selected path, with no writable duplicate reaching the child. Exact Linux descriptor creation, ownership/sealing/ACL checks, namespace interpretation and launch handshake are **unresolved acceptance details**, not implemented guarantees. An environment string containing record JSON, an arbitrary memfd, a deserialised receipt or a file in a service-writable directory is not a substitute.
+5. In a short Control-only transaction, root installs the expected launch tuple with readiness false. It never holds Control across descriptor/process I/O. Only after a known commit may the exact child attempt readiness publication. Unknown install ACK requires authoritative reread of the same tuple under maintenance; do not generate a second launch or infer rollback. All normal gates remain separately controlled.
+6. The future trusted reader validates descriptor provenance and immutable record shape, then compares the live invoking process to the recorded boot/PID/start/unit/manifest context outside locks. A fork inheriting the descriptor must fail the PID/start comparison. Reexec is not silently accepted: approved launch must specify its single final executable and exact allowed exec transition before authority begins; later executable/manifest change invalidates the launch. Never pass the descriptor to scanner/decoder/updater/worker children, and never inherit database/key descriptors into them. Descriptor closure and close-on-exec handling need explicit per-FD tests, not an assumption that a global flag fits the initial exec handoff.
+7. Construct an invocation-local immutable launch observation only through that trusted path. The readiness transaction receives bounded detached facts, performs no OS I/O while locked, and requires equality with the entire expected Control tuple plus current guard/API/epoch/policy checks. After waits and known commit, perform the parent fresh outside-lock guard/process check before advertising readiness. Neither this observation nor a database UUID can renew its own provenance.
+
+`pidfd_open` supplies a descriptor referring to a task, with documented child-reaping/race qualifications; it does not validate executable or cgroup identity. A future launcher may retain a pidfd for exact-child lifecycle observation, but cold reconstruction from a stale PID is not equivalent. Reboot changes the boot identity; process-start identity prevents treating a recycled PID in the same boot as the old process. See [pidfd_open(2)](https://man7.org/linux/man-pages/man2/pidfd_open.2.html). The exact race-free child/descriptor sequence remains a feasibility gate.
+
+## Proposed durable Control amendment
+
+These fields extend the existing singleton, not a new automatically created authority table. Existing persistence currently lacks the full tuple. SQL types/expressions/indexes and migration ordering require a separate frozen schema leaf.
+
+| Field group | Candidate representation and invariant |
+|---|---|
+| Stable namespace | `installation_id uuid NOT NULL` and existing `restore_epoch uuid`; both match the independently retained external guard. Copying a restored row cannot establish a fresh launch. |
+| Expected launch | Nullable `expected_supervisor_instance uuid`, `expected_supervisor_boot_id uuid`, `expected_supervisor_pid bigint`, `expected_supervisor_start_ticks bigint`, `expected_supervisor_unit varchar(128)`, `expected_supervisor_manifest_sha256 varchar(64)` plus proposed `supervisor_launch_generation uuid`. Proposed `scanner_generation uuid` remains separate; exact replacement/mapping of existing `supervisor_generation` is an open cross-contract/schema gate, not an adopted migration. The six nullable fields are all absent or all present; positive PID/nonnegative start ticks; canonical fixed unit and lowercase64-hex hash. Kernel tick width/range and PID-namespace treatment must be frozen against the pinned platform. |
+| Readiness linkage | Existing readiness token/evidence plus `readiness_supervisor_instance uuid nullable`. Readiness true requires the complete expected tuple and linked instance equal to expected instance. Existing <=60s evidence validity remains, without extending actual observation age. Clear the whole readiness tuple on launch replacement, generation/manifest change, close or uncertainty. |
+
+Expected launch equality is a service check under Control lock, not proof that SQL authenticates a Linux process. Ordinary publisher code cannot install/replace expected fields or flip any gate. The exact database-role/function boundary preventing a publisher credential from bypassing this ceiling is still **open**; model validation alone is insufficient. No new root database credential distribution is selected here. Require a dedicated supervisor UID, no overlapping authorised supervisor instances, protected process/ptrace access and verified descriptor custody as runtime assumptions. Ordinary unrelated same-UID processes cannot satisfy the exact immutable instance tuple, but arbitrary same-UID compromise or descriptor theft is not covered merely by those equality checks. Trusted application code is part of the boundary; this document makes no claim to withstand root compromise, arbitrary code execution within the approved supervisor, same-UID ptrace/descriptor theft or hostile whole-VM rollback.
+
+## Required races and failure tests before freeze/implementation
+
+| Case | Required result |
+|---|---|
+| Old publisher pauses before Control; root replaces launch | Old observation fails expected-instance/generation equality; cannot learn/adopt replacement UUIDs and restore readiness. |
+| Ordinary wrong-instance process (including same UID) / same unit name / recycled PID / reboot / wrong namespace | Under the dedicated-UID/ptrace/FD-custody assumptions above, no readiness from partial identity matching; this is not an arbitrary same-UID-compromise guarantee. Runtime manifest and full exact launch context must be checked; missing evidence is unavailable. |
+| Same supervisor across scanner restart / new supervisor with unchanged scanner snapshot | Launch and scanner generations are independently fenced; neither identity is inferred from the other. Verify the final frozen mapping across readiness, claims and promotion. |
+| Fork, exec, FD passing, writable duplicate, forged descriptor and JSON | No launch authority from copied bytes or inherited descriptor alone. Prove children do not receive launch/key/DB handles and same-UID isolation assumptions hold. |
+| Guard/DB closes between OS observation and lock / after commit | Locked API/current identity denies stale selection; postcommit failure stays locally unready. No claimed instantaneous OS+DB revocation. |
+| Install/publish commit ACK lost | Reconcile original tuple/token without reminting launch/generation/deadline or flipping gates. |
+| Root launcher crashes at every handoff boundary | Closed/unready state; no orphan authoritative process or speculative replacement. Verify owned cleanup without touching other apps. |
+| Supervisor dies but descendant survives | No replacement/slot release until owned cessation proven; cgroup emptiness is distinct from pidfd task death. |
+| Restored copied enabled Control / retained old descriptor | External epoch mismatch and absent new expected launch keep publication/bytes disabled. No restore re-enable in this slice. |
+
+The [systemd execution reference](https://www.freedesktop.org/software/systemd/man/latest/systemd.exec.html) describes service credentials and sandbox configuration, not a complete proof for this design. Its current online version is not evidence of installed-host support. Pin and inspect actual systemd/kernel/Python behavior in an isolated candidate before choosing directives or building a launcher. No existing VPS inspection or package install was performed here.
+
+## Explicit exit gates
+
+- [ ] Independent scenario/threat review accepts a bounded mechanism and identifies its trusted computing base.
+- [ ] Freeze exact descriptor wire grammar, creation/immutability/provenance, fork/exec/FD custody, PID namespace and pinned OS support; retain no unsupported unforgeability claim.
+- [ ] Reconcile all Control/schema/API/accounting/runtime/guard documents, especially scanner versus supervisor identity and publisher database privilege ceiling.
+- [ ] Freeze a separate smallest implementation leaf with literal RED tests, actual Linux race/ownership/cessation tests and actual PostgreSQL unknown-ACK/lock tests before code.
+- [ ] Complete native validator/scanner/resource/public-TLS spill/retention/recovery and staff/browser acceptance before any upload or real-data activation.
+
+No executable test, provisioning or passing acceptance is claimed by this document. S0/S1/B3 source and restricted preview remain unchanged.
