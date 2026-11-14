@@ -1,5 +1,12 @@
 # SDD ledger — plan: plan.md
 
+## Rolling five-hour reserve checkpoint — 14 November 2026
+
+Authenticated usage at the scheduled check: rolling300minute used95%, remaining5%; weekly10080minute used15%, remaining85%. The prior weekly stop deadline elapsed, but the rolling reserve now blocks continuation. Checkpoint2026-11-14T08:10:57Z; earliest resume2026-11-14T13:40:57Z (7:10:57PM IST), then only all applicable windows available above10%. No implementation, review, assignment, test or deployment started. Historical stops remain intact; this is a newly observed rolling-window trigger, not an extension of the former weekly stop. No reset credit/account/model-bypass tool was called by this agent; account-wide usage changes are not attributed.
+
+Existing source e7ab28f remains last verified live on13November; no fresh VPS attestation today. S1 remains delivered and parent ingestion remains DRAFT. Next work is the exact OS launch proof/expected-instance/schema/API/accounting/native/runtime contract before another leaf freeze/RED/code. Documentation-only checkpoint does not restart the app. Prior publication bd9deb2 was remote-verified; its CI has not been checked this turn. Verification for this checkpoint is documentation/API links, whitespace and staged private-credential checks only; no application test claims.
+
+
 ## Fresh project weekly-window checkpoint —13 November2026
 
 At2026-11-13T14:11:33UTC rolling300minute has19%remaining and weekly10080minute has10%. The rolling reserve is NOTtriggered; the project handoff's additional any-applicable-window<=10 safeguard triggers this STOP. No new implementation/review/assignment/deployment: minimal safe documentation/publication only. Earliestprojectresume2026-11-13T19:41:33UTC (14November01:11:33AM IST) ANDallapplicablewindowsavailable>10; weekly recovery may take longer. No reset-credit/account/modelbypass tool called, originalmorningstop/historyretained, no repeatedlow extension.

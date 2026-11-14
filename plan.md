@@ -1,5 +1,12 @@
 # Circadian HMS implementation plan
 
+## Rolling five-hour reserve checkpoint — 14 November 2026
+
+Authenticated usage at the scheduled check: rolling300minute used95%, remaining5%; weekly10080minute used15%, remaining85%. The prior weekly stop deadline elapsed, but the rolling reserve now blocks continuation. Checkpoint2026-11-14T08:10:57Z; earliest resume2026-11-14T13:40:57Z (7:10:57PM IST), then only all applicable windows available above10%. No implementation, review, assignment, test or deployment started. Historical stops remain intact; this is a newly observed rolling-window trigger, not an extension of the former weekly stop. No reset credit/account/model-bypass tool was called by this agent; account-wide usage changes are not attributed.
+
+Existing source e7ab28f remains last verified live on13November; no fresh VPS attestation today. S1 remains delivered and parent ingestion remains DRAFT. Next work is the exact OS launch proof/expected-instance/schema/API/accounting/native/runtime contract before another leaf freeze/RED/code. Documentation-only checkpoint does not restart the app. Prior publication bd9deb2 was remote-verified; its CI has not been checked this turn. Verification for this checkpoint is documentation/API links, whitespace and staged private-credential checks only; no application test claims.
+
+
 > **For agentic workers:** REQUIRED SUB-SKILL: use Superpowers `executing-plans` or, when selected, `subagent-driven-development` task-by-task. Use `writing-plans`, `test-driven-development`, `systematic-debugging`, `verification-before-completion` and review skills as applicable. Apply UI/UX Pro Max to UI planning, implementation and review. Checklist status must reflect evidence, not intent.
 
 **Goal:** Build a secure cloud HMS for the operating hospital, with connected Ayurveda/OPD/IPD/finance workflows, expandable branches/capacity, a master-admin control plane, controlled MCP and future call-center integration boundaries.

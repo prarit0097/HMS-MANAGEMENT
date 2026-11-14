@@ -1,15 +1,22 @@
 # Usage-aware HMS continuation
 
-State: COOLDOWN — project weekly-window safeguard; rolling reserve not triggered
-checkpoint_at_utc: 2026-11-13T14:11:33Z
-resume_not_before_utc: 2026-11-13T19:41:33Z
+## Rolling five-hour reserve checkpoint — 14 November 2026
+
+Authenticated usage at the scheduled check: rolling300minute used95%, remaining5%; weekly10080minute used15%, remaining85%. The prior weekly stop deadline elapsed, but the rolling reserve now blocks continuation. Checkpoint2026-11-14T08:10:57Z; earliest resume2026-11-14T13:40:57Z (7:10:57PM IST), then only all applicable windows available above10%. No implementation, review, assignment, test or deployment started. Historical stops remain intact; this is a newly observed rolling-window trigger, not an extension of the former weekly stop. No reset credit/account/model-bypass tool was called by this agent; account-wide usage changes are not attributed.
+
+Existing source e7ab28f remains last verified live on13November; no fresh VPS attestation today. S1 remains delivered and parent ingestion remains DRAFT. Next work is the exact OS launch proof/expected-instance/schema/API/accounting/native/runtime contract before another leaf freeze/RED/code. Documentation-only checkpoint does not restart the app. Prior publication bd9deb2 was remote-verified; its CI has not been checked this turn. Verification for this checkpoint is documentation/API links, whitespace and staged private-credential checks only; no application test claims.
+
+
+State: COOLDOWN — rolling five-hour reserve triggered
+checkpoint_at_utc: 2026-11-14T08:10:57Z
+resume_not_before_utc: 2026-11-14T13:40:57Z
 owner_resume_at_utc: 2026-11-02 (explicit NOW CONTINUE; predates fresh stop)
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330 (fresh4November weekly stop; all prior history retained)
 automation_runtime_status_at_2026_11_02T04_20Z: ACTIVE (same heartbeat updated under standing cooldown rule after explicit owner NOW CONTINUE)
 automation_runtime_status_at_2026_11_01T12_54Z: PAUSED (existing persisted status preserved)
-latest_authenticated_usage_at_utc: 2026-11-13T14:11:33Z
-latest_authenticated_remaining: rolling300minute19percent weekly10080minute10percent
+latest_authenticated_usage_at_utc: 2026-11-14T08:10:57Z
+latest_authenticated_remaining: rolling300minute5percent weekly10080minute85percent
 latest_verified_application_source: e7ab28fdd9976c4e4491fa32f01538c726ec46f8
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
 
