@@ -1,0 +1,26 @@
+{
+  "status": "reviewed synthetic Linux feasibility, not production launch acceptance",
+  "observed_at_utc": "2026-11-15T08:01:40Z",
+  "command": "timeout --kill-after=2s 30s /usr/bin/python3.12 -I -B -",
+  "interpreter": "/usr/bin/python3.12 root:root 0755 / Python3.12.3",
+  "script_sha256": "9ba15ba840b2222b1994299158c135faf23a28ca3abbb385d5d92e9f838149b4",
+  "checks": {
+    "ids_and_four_capability_sets_dropped": true,
+    "root_owned_readonly_sealed_fd_survives_exec": true,
+    "pid_start_boot_match_after_exec": true,
+    "cannot_regain_root": true,
+    "unprivileged_sealed_copy_not_root_owned": true,
+    "cannot_forge_root_ownership": true,
+    "exact_child_reaped_exit0": true
+  },
+  "exit_code": 0,
+  "post_service_observed": "hms-preview.service active",
+  "review": "Independent exact-source safety review accepted server-timeout processgroup / isolated nonoptimised Python / fixed exec / numeric child-only privilege drop / synthetic bytes / unknownFD closure / exact reaping. No production approval.",
+  "limits": [
+    "Selected FD remains inheritable after handoff; no future-child custody claim",
+    "No systemd/cgroup/real app descriptors/expected-Control-install/SQL/unknownACK or PIDreuse/reboot acceptance",
+    "No persistent remote file/user/group/config/unit/package/key/DB/schema/runtime mutation or app restart",
+    "No real patient data/scanner/storage/ingestion enabled",
+    "Post service observation is not full live release/other-app preservation attestation"
+  ]
+}

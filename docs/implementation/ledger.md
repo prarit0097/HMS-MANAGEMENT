@@ -1,5 +1,20 @@
 # SDD ledger — plan: plan.md
 
+## Scanner lifecycle and same-PID launch design —15 November2026
+
+Scheduled continuation authenticated rolling300minute100%/weekly10080minute41% remaining. Bounded08:10:18UTC31%/30%; no fresh usage stop, waiver, reset-credit/account/model-bypass tool called. Entry46547ab exactCI43643748472 run and all three jobs SUCCESS observed; logs not decoded. All specialists finished, no owned test/deploy process remains.
+
+Independent scenario/threat reviews refined the existing DRAFT contracts: new scanner registration uses retained-state predecessor CAS/server UUID/current-operation status without another history table; normal readiness renewal rotates only with scans=0 under the common Control lock, while safety invalidation may fence busy work without releasing capacity. Claims preserve original attempt time and require attempt_end strictly before readiness expiry after final lock waits. Bounded Control field/privilege candidates now include publication operation/fingerprint/current-status reconciliation; exact SQL/role/migration and production acceptance remain unfrozen. The previous startup/renewal ambiguities have concrete candidate resolutions, not passing executable concurrency evidence.
+
+The launch candidate is simplified to one fixed root wrapper that commits its own expected instance, drops privileges and execs the supervisor in the same PID. No custom fork/SCM handshake or permanent root helper is selected. Restart=no/no automatic boot registration, immutable root code/import closure, private credential closure, failed-exec/unknownACK handling, cgroup escape prevention and fixed runtime UID/GID/IPC mapping remain explicit acceptance gates. Parent ingestion is still DRAFT; no new leaf/production capability is frozen.
+
+A pre-reviewed synthetic root-owned descriptor/drop/exec probe ran once at08:01:40UTC via isolated systemPython3.12.3/server timeout. Six child groups plus parent exact-child reaping passed, exit0: real/effective/saved IDs65534 and four capability setszero; root-owned O_RDONLY/seals survive exec; PID/start/boot match; no root regain; sealed unprivileged copy cannot acquire rootowner. Selected descriptor deliberately remains inheritable after this probe's handoff; no future-child custody, cgroup/real app/SQL/PIDreuse/reboot/production launch claim. Preview service active afterwards; no persistent file/user/group/unit/config/key/DB/runtime change or restart. No supported live document calls, app test rerun or full live/other-app release attestation. Root-owned system interpreter was stat0755/version3.12.3 checked, no package install.
+
+Next: exact launch-record grammar/cgroup/UID-GID-privateIPC profile and Control SQL/schema/ownership leaf review, whole native/runtime/API alignment before literal RED/code. S0/S1/B3 remain delivered; runtime last fully verifiede7ab28f/core0009/metadataFalse from13November unchanged by this work. Security/UI/browser/staff/phone/clinical/finance/MCP/dataops/fullhospital release gates remain open. Documentation checks/whitespace/staged-credential comparison are publication checks only, not application acceptance.
+
+References: [launch candidate](document-ingestion-launch-proof-draft.md), [generation mapping](document-ingestion-generation-map.md), [publisher schema/privileges](document-ingestion-publisher-db-boundary.md), [reviewed exec probe/result](document-ingestion-launch-exec-probe-plan.md).
+
+
 ## Launch primitive feasibility and permission review —15 November2026 IST
 
 Scheduled continuation authenticated rolling300minute44%/weekly10080minute47% remaining, later38/46,33/45 and25/44; no cooldown/waiver/reset-credit/account/model-bypass tool called. Entry3ad301f exactCI43614136679 completedSUCCESS observed (logs/jobs not decoded this check). Existing worktree was clean. Three independent specialist roles covered identity mapping, publisher SQL boundary and pre-execution probe safety.
