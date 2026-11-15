@@ -1,5 +1,12 @@
 # Usage-aware HMS continuation
 
+## Weekly-window safeguard stop —16 November2026 IST
+
+At2026-11-15T19:11:53UTC authenticated rolling300minute used57%/remaining43%, weekly10080minute used97%/remaining3%. The project any-applicable-window safeguard blocks continuation; the rolling five-hour reserve is NOT the trigger. No implementation, review, delegation, application test, VPS access or deployment began. Minimal safe checkpoint/publication only. Earliest resume2026-11-16T00:41:53UTC (16November06:11:53AM IST), then only all applicable windows available above10%; weekly recovery may take longer. Preserve all historical stops; repeated low readings do not extend this deadline. No reset-credit/account/model-bypass tool called; no attribution of account-wide usage changes.
+
+Entrya668eac3151e90e4ba858960645e6381a977aa58 was clean and previously remote-verified; its CI remains unchecked this turn. No new source changes or active delegated/test/deploy operation. Existing OS profile/14-key launch/projection contracts remain DRAFT, with exact profile/projection schemas, kernel namespace/procfs/child enforcement, typed Control SQL/roles/migration and whole API/native/runtime agreement pending before leaf freeze/RED/code. Do not repeat S0/S1/B3 or deploy drafts. Last full preview proof remains13Novembere7ab28f/core0009/metadataFalse; no fresh host attestation. Documentation-only checkpoint does not restart unchanged app. Publication verification is limited to documentation/API links, whitespace and staged private-credential checks, not application acceptance.
+
+
 ## OS access profile and namespace review —15 November2026
 
 Scheduled continuation authenticated rolling300minute100%/weekly10080minute27% remaining; bounded13:51:16UTC59%/21%. No threshold stop, cooldown waiver, reset-credit/account/model-bypass tool called. Entryb941fb4 exactCI43693336419 run/allthreejobsSUCCESS observed, logs not decoded. All three specialists completed. No VPS access, source/runtime/model/API/schema/role/package/service/group/key/flag change, executable test or redeployment occurred in this batch.
@@ -49,16 +56,16 @@ Authenticated usage at the scheduled check: rolling300minute used95%, remaining5
 Existing source e7ab28f remains last verified live on13November; no fresh VPS attestation today. S1 remains delivered and parent ingestion remains DRAFT. Next work is the exact OS launch proof/expected-instance/schema/API/accounting/native/runtime contract before another leaf freeze/RED/code. Documentation-only checkpoint does not restart the app. Prior publication bd9deb2 was remote-verified; its CI has not been checked this turn. Verification for this checkpoint is documentation/API links, whitespace and staged private-credential checks only; no application test claims.
 
 
-State: ACTIVE — scheduled continuation after elapsed cooldown
-checkpoint_at_utc: 2026-11-14T08:10:57Z
-resume_not_before_utc: 2026-11-14T13:40:57Z
+State: COOLDOWN — project weekly-window safeguard, not rolling reserve
+checkpoint_at_utc: 2026-11-15T19:11:53Z
+resume_not_before_utc: 2026-11-16T00:41:53Z
 owner_resume_at_utc: 2026-11-02 (explicit NOW CONTINUE; predates fresh stop)
 automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330 (fresh4November weekly stop; all prior history retained)
 automation_runtime_status_at_2026_11_02T04_20Z: ACTIVE (same heartbeat updated under standing cooldown rule after explicit owner NOW CONTINUE)
 automation_runtime_status_at_2026_11_01T12_54Z: PAUSED (existing persisted status preserved)
-latest_authenticated_usage_at_utc: 2026-11-15T13:51:16Z
-latest_authenticated_remaining: rolling300minute59percent weekly10080minute21percent
+latest_authenticated_usage_at_utc: 2026-11-15T19:11:53Z
+latest_authenticated_remaining: rolling300minute43percent weekly10080minute3percent
 latest_verified_application_source: e7ab28fdd9976c4e4491fa32f01538c726ec46f8
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
 
