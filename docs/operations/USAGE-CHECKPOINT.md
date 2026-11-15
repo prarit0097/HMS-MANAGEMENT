@@ -1,5 +1,16 @@
 # Usage-aware HMS continuation
 
+## OS access profile and namespace review —15 November2026
+
+Scheduled continuation authenticated rolling300minute100%/weekly10080minute27% remaining; bounded13:51:16UTC59%/21%. No threshold stop, cooldown waiver, reset-credit/account/model-bypass tool called. Entryb941fb4 exactCI43693336419 run/allthreejobsSUCCESS observed, logs not decoded. All three specialists completed. No VPS access, source/runtime/model/API/schema/role/package/service/group/key/flag change, executable test or redeployment occurred in this batch.
+
+The DRAFT OS access profile now enumerates exact role-specific private IPC/object/signature groups, numeric allocation through future collision-checked root installation, UID-private credential leaves, guard ownership and non-group-writable socket directories. Launcher clears inherited groups then installs the exact approved whitelist. Runtime receives a readable metadata-only own-service projection bound to the manifest; it never reopens the root0600 profile. Raw profile/projection hashes and relative image closure bind without a self-hash cycle.
+
+Independent review found and corrected three material design gaps: guard-only/empty-group wording versus four supervisor groups; root-only profile versus runtime context checks; and missing USER-namespace proof behind namespace-relative UID0 metadata. The launch record candidate now has14 closed canonical ASCII JSON keys, explicit user/pid/mnt/cgroup namespace inode map, fixed FD3, exact sealed-root/O_RDONLY metadata and bounded reads. Host user/PID/cgroup+boot anchors are profile-bound; private mount identity is dynamically root-captured. Reboot requires manual closed-maintenance profile/manifest refresh, never automatic adoption. Scoped rereview found no further Important contradiction in those fixes. This is design review, not executable namespace/authentication evidence.
+
+No new helper or user capability is introduced. Existing synthetic probes never tested this14-key parser, real service groups, namespace attacks or live Control agreement. Exact Linux/procfs/nsfs/child/credential/unit enforcement, canonical profile/projection schema, typed Control SQL/schema/roles/migration and complete API/native/runtime agreement remain freeze gates before production code. S0/S1/B3 delivery and lastfullyverified13Novembere7ab28f/core0009/metadataFalse are unchanged; no fresh service/release attestation today. Full hospital/browser/staff/clinical/finance/MCP/dataops release remains unfinished.
+
+
 ## Scanner lifecycle and same-PID launch design —15 November2026
 
 Scheduled continuation authenticated rolling300minute100%/weekly10080minute41% remaining. Bounded08:10:18UTC31%/30%; no fresh usage stop, waiver, reset-credit/account/model-bypass tool called. Entry46547ab exactCI43643748472 run and all three jobs SUCCESS observed; logs not decoded. All specialists finished, no owned test/deploy process remains.
@@ -46,8 +57,8 @@ automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330 (fresh4November weekly stop; all prior history retained)
 automation_runtime_status_at_2026_11_02T04_20Z: ACTIVE (same heartbeat updated under standing cooldown rule after explicit owner NOW CONTINUE)
 automation_runtime_status_at_2026_11_01T12_54Z: PAUSED (existing persisted status preserved)
-latest_authenticated_usage_at_utc: 2026-11-15T08:10:18Z
-latest_authenticated_remaining: rolling300minute31percent weekly10080minute30percent
+latest_authenticated_usage_at_utc: 2026-11-15T13:51:16Z
+latest_authenticated_remaining: rolling300minute59percent weekly10080minute21percent
 latest_verified_application_source: e7ab28fdd9976c4e4491fa32f01538c726ec46f8
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
 
