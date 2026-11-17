@@ -1,5 +1,25 @@
 # SDD ledger — plan: plan.md
 
+## Fresh rolling reserve stop —17 November2026
+
+Authenticated rolling300minute remaining8%(used92), weekly10080minute71%(used29) triggers STOP at2026-11-17T02:01:38UTC. No new work/review/delegation/application tests/deployment; minimal safe publication only. Earliest resume2026-11-17T07:31:38UTC (17November1:01:38PM IST), then all applicable windows available above10%. Earlier scheduled resume predates this fresh stop; preserve every historical stop, no deadline extension on repeated low readings, no reset-credit/account/model-bypass tool called.
+
+All specialists completed; no active test/deploy/VPS process. The bounded DOCstructural artifact checks and independent review finished before this stop:71cases(55expectedrejections,9schema-limitpositives)+5raw-wire information-loss examples GREEN0.0999s, application tests0. Schema/fixtures are documentation data, not an app consumer/parser, profile/provisioning or capability. Publication/doc gates and remoteSHA must be truthfully recorded; new CI remains pending verification. Next incomplete is canonical/semantic equality enforcement and real OS/procfs/nsfs/child/credential/unit plus typedControlSQL/schema/migration/API/native agreement before production leaf freeze/RED/code. Do not repeat completed S0/S1/B3 or these unchanged fixtures without a new finding. Last full live proof e7ab28f13November remains unchanged/unattested this turn. No docs-only app restart or WIP deployment.
+
+
+## Executable profile contract-data checks —17 November2026
+
+Scheduled resume after the saved16November00:41:53UTC deadline authenticated rolling300minute85%/weekly10080minute83% remaining. No waiver or reset-credit/account/model-bypass tool was called; account-wide usage/credit changes are not attributed. Entry028c34b CI43751142254 and a668eac CI43721361429 completedSUCCESS observed; logs/jobs not decoded. Entry tree was clean.
+
+The bounded documentation-data slice now has a reviewed exact6-key root profile and8-key AVCTL-only projection contract, deterministic ProjectAvctl(P,B) whole-byte derivation and the existing14-key launch shape. A local-only Draft2020-12 schema bundle and synthetic fixture catalogue make structural constraints executable without adding a parser/helper or app consumer. Other-role projections/child launch and the parent remain DRAFT. Schema acceptance is never authority.
+
+Literal RED: existing checksPython3.13.5/jsonschema4.26.0 loaded/applied71prepared fixture cases before failing only the missing schema artifact. GREEN after schema:71cases,55expected structural rejections,9schema-limit positives and5additional raw-wire information-loss examples;0failures,0.0999s; application tests0. The five raw examples show ordinary json.loads acceptance after information loss, NOT canonical-wire enforcement. Independent design/scenario/threat/test and final artifact reviews found no remaining Important defect; coverage is representative, not exhaustive. No package install, VPS access, actual OS/permission/namespace/SQL/scanner test, source/model/API/service/key/role/flag change or deployment occurred.
+
+Documentation schema/fixtures are not imported by the app and do not change50HTTP operations or preview source. Last full live proof remains13Novembere7ab28f/core0009/metadataFalse; no fresh host attestation. Next is semantic/canonical profile enforcement plus actual OS/procfs/nsfs/child/credential/unit and typedControlSQL/schema/migration/API/native/runtime gates before an independently frozen production leaf. Do not add another unused facts helper. Living docs/public fixture artifacts preserve the actual result; documentation-only publication does not restart the app.
+
+References: [bounded data contract](document-ingestion-profile-data-contract.md), [shape execution plan](document-ingestion-profile-shape-plan.md), [structural schema](schemas/ingestion-profile-data-v1.schema.json), [synthetic fixtures](fixtures/ingestion-profile-data-v1.json).
+
+
 ## Weekly-window safeguard stop —16 November2026 IST
 
 At2026-11-15T19:11:53UTC authenticated rolling300minute used57%/remaining43%, weekly10080minute used97%/remaining3%. The project any-applicable-window safeguard blocks continuation; the rolling five-hour reserve is NOT the trigger. No implementation, review, delegation, application test, VPS access or deployment began. Minimal safe checkpoint/publication only. Earliest resume2026-11-16T00:41:53UTC (16November06:11:53AM IST), then only all applicable windows available above10%; weekly recovery may take longer. Preserve all historical stops; repeated low readings do not extend this deadline. No reset-credit/account/model-bypass tool called; no attribution of account-wide usage changes.

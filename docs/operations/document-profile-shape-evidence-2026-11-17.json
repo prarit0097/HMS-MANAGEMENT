@@ -1,0 +1,45 @@
+{
+  "status": "DOC structural-contract checks only; no application/OS/authority acceptance",
+  "checked_at_utc": "2026-11-17T01:59:12Z",
+  "environment": {
+    "python": "3.13.5",
+    "jsonschema": "4.26.0",
+    "source": "existing ignored .local/checks-venv, no install"
+  },
+  "red": {
+    "cause": "schema artifact absent",
+    "prepared_fixture_cases": 71,
+    "application_tests": 0
+  },
+  "green": {
+    "result": "GREEN",
+    "cases": 71,
+    "wire_limit_cases": 5,
+    "schema_validity": true,
+    "expected_structural_rejections": 55,
+    "schema_limit_cases": 9,
+    "failed": [],
+    "elapsed_seconds": 0.0999,
+    "application_tests": 0
+  },
+  "artifact_identity": {
+    "method": "SHA256 of parsed artifact re-encoded sorted compact ASCII JSON; NOT a raw wire-profile hash",
+    "schema": "4af13f4c050e908c96cccb7e0a0b8c5f6872e61f5c6e116c2bdc363887550e76",
+    "fixtures": "9bd3b9c30c9b58bb482bf25275bfb4a89868b25f999b62abe2782bd2a0bc9a8d"
+  },
+  "command": ".local/checks-venv/Scripts/python.exe .local/check_profile_contract_20261117.py",
+  "limits": [
+    "71cases comprise structural and schema-valid limitation examples;55 expected rejects,9 limitation positives;5additional raw-wire information-loss examples",
+    "No canonical-wire/duplicate-key/strictlexicalinteger/bytecap validation implemented",
+    "No production helper/parser/schema consumer/OSprofile/account/unit/role/API/runtime change or VPS access",
+    "No live app/namespace/kernel/permission/SQL/scanner tests or preview rollout",
+    "All IDs, namespaces and hashes are synthetic, never installation allocation or authority"
+  ],
+  "stop": {
+    "checkpoint_at_utc": "2026-11-17T02:01:38Z",
+    "resume_not_before_utc": "2026-11-17T07:31:38Z",
+    "rolling_remaining": 8,
+    "weekly_remaining": 71
+  },
+  "independent_artifact_review": "No Important defect found; localrefs/closedshape/limits matched. Raw-wire examples are information-loss demonstrations only. Representative, not exhaustive."
+}

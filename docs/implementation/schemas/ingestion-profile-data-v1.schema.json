@@ -1,0 +1,256 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hms.praritsidana.com/contracts/draft/ingestion-profile-data-v1.schema.json",
+  "title": "DRAFT ingestion profile, AVCTL projection and launch-record structural shapes",
+  "$comment": "DRAFT structural validation only. Valid data conveys no OS, database, process, patient or launch authority. This schema does not validate canonical ASCII bytes, duplicate JSON keys, byte limits, strict lexical integers, sorted arrays, mapped group/peer equality, profile derivation, hashes against trusted files or live namespace/Control facts. JSON Schema integer semantics intentionally allow integral numbers such as 1.0. Required semantic, wire and OS checks remain separate.",
+  "oneOf": [
+    { "$ref": "#/$defs/rootProfile" },
+    { "$ref": "#/$defs/avctlProjection" },
+    { "$ref": "#/$defs/launchRecord" }
+  ],
+  "$defs": {
+    "version": {
+      "type": "integer",
+      "const": 1
+    },
+    "identityNumber": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4294967294
+    },
+    "namespaceInode": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 18446744073709551615
+    },
+    "nonzeroUuid": {
+      "type": "string",
+      "minLength": 36,
+      "maxLength": 36,
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "not": { "const": "00000000-0000-0000-0000-000000000000" }
+    },
+    "sha256": {
+      "type": "string",
+      "minLength": 64,
+      "maxLength": 64,
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "gidSet": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/identityNumber" },
+      "maxItems": 4,
+      "uniqueItems": true
+    },
+    "fourGids": {
+      "allOf": [
+        { "$ref": "#/$defs/gidSet" },
+        { "minItems": 4, "maxItems": 4 }
+      ]
+    },
+    "hostNamespaces": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["user", "pid", "cgroup"],
+      "properties": {
+        "user": { "$ref": "#/$defs/namespaceInode" },
+        "pid": { "$ref": "#/$defs/namespaceInode" },
+        "cgroup": { "$ref": "#/$defs/namespaceInode" }
+      }
+    },
+    "launchNamespaces": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["user", "pid", "mnt", "cgroup"],
+      "properties": {
+        "user": { "$ref": "#/$defs/namespaceInode" },
+        "pid": { "$ref": "#/$defs/namespaceInode" },
+        "mnt": { "$ref": "#/$defs/namespaceInode" },
+        "cgroup": { "$ref": "#/$defs/namespaceInode" }
+      }
+    },
+    "host": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["boot_id", "namespaces"],
+      "properties": {
+        "boot_id": { "$ref": "#/$defs/nonzeroUuid" },
+        "namespaces": { "$ref": "#/$defs/hostNamespaces" }
+      }
+    },
+    "roleIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["uid", "primary_gid", "supplementary_gids"],
+      "properties": {
+        "uid": { "$ref": "#/$defs/identityNumber" },
+        "primary_gid": { "$ref": "#/$defs/identityNumber" },
+        "supplementary_gids": { "$ref": "#/$defs/gidSet" }
+      }
+    },
+    "identityZeroGroups": {
+      "allOf": [
+        { "$ref": "#/$defs/roleIdentity" },
+        { "properties": { "supplementary_gids": { "maxItems": 0 } } }
+      ]
+    },
+    "identityOneGroup": {
+      "allOf": [
+        { "$ref": "#/$defs/roleIdentity" },
+        { "properties": { "supplementary_gids": { "minItems": 1, "maxItems": 1 } } }
+      ]
+    },
+    "identityTwoGroups": {
+      "allOf": [
+        { "$ref": "#/$defs/roleIdentity" },
+        { "properties": { "supplementary_gids": { "minItems": 2, "maxItems": 2 } } }
+      ]
+    },
+    "identityThreeGroups": {
+      "allOf": [
+        { "$ref": "#/$defs/roleIdentity" },
+        { "properties": { "supplementary_gids": { "minItems": 3, "maxItems": 3 } } }
+      ]
+    },
+    "identityFourGroups": {
+      "allOf": [
+        { "$ref": "#/$defs/roleIdentity" },
+        { "properties": { "supplementary_gids": { "$ref": "#/$defs/fourGids" } } }
+      ]
+    },
+    "avctlExecution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unit", "cgroup", "mount_policy"],
+      "properties": {
+        "unit": { "type": "string", "const": "hms-ingest-avctl.service" },
+        "cgroup": { "type": "string", "const": "/system.slice/hms-ingest-avctl.service" },
+        "mount_policy": { "type": "string", "const": "unit-private" }
+      }
+    },
+    "avExecution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unit", "cgroup", "mount_policy"],
+      "properties": {
+        "unit": { "type": "string", "const": "hms-ingest-clamd.service" },
+        "cgroup": { "type": "string", "const": "/system.slice/hms-ingest-clamd.service" },
+        "mount_policy": { "type": "string", "const": "unit-private" }
+      }
+    },
+    "namedGroups": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hms-preview", "hms-ingest-bytes", "hms-ingest-work", "hms-ingest-avctl",
+        "hms-ingest-av", "hms-ingest-image", "hms-ingest-update", "hms-ingest-guard-read",
+        "hms-ingest-object-read", "hms-ingest-scan-ipc", "hms-ingest-av-ipc", "hms-ingest-signature-read"
+      ],
+      "properties": {
+        "hms-preview": { "$ref": "#/$defs/identityNumber" },
+        "hms-ingest-bytes": { "$ref": "#/$defs/identityNumber" },
+        "hms-ingest-work": { "$ref": "#/$defs/identityNumber" },
+        "hms-ingest-avctl": { "$ref": "#/$defs/identityNumber" },
+        "hms-ingest-av": { "$ref": "#/$defs/identityNumber" },
+        "hms-ingest-image": { "$ref": "#/$defs/identityNumber" },
+        "hms-ingest-update": { "$ref": "#/$defs/identityNumber" },
+        "hms-ingest-guard-read": { "$ref": "#/$defs/identityNumber" },
+        "hms-ingest-object-read": { "$ref": "#/$defs/identityNumber" },
+        "hms-ingest-scan-ipc": { "$ref": "#/$defs/identityNumber" },
+        "hms-ingest-av-ipc": { "$ref": "#/$defs/identityNumber" },
+        "hms-ingest-signature-read": { "$ref": "#/$defs/identityNumber" }
+      }
+    },
+    "namedServices": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hms-preview", "hms-ingest-bytes", "hms-ingest-work", "hms-ingest-avctl",
+        "hms-ingest-av", "hms-ingest-image", "hms-ingest-update"
+      ],
+      "properties": {
+        "hms-preview": { "$ref": "#/$defs/identityOneGroup" },
+        "hms-ingest-bytes": { "$ref": "#/$defs/identityTwoGroups" },
+        "hms-ingest-work": { "$ref": "#/$defs/identityThreeGroups" },
+        "hms-ingest-avctl": { "$ref": "#/$defs/identityFourGroups" },
+        "hms-ingest-av": { "$ref": "#/$defs/identityTwoGroups" },
+        "hms-ingest-image": { "$ref": "#/$defs/identityZeroGroups" },
+        "hms-ingest-update": { "$ref": "#/$defs/identityZeroGroups" }
+      }
+    },
+    "rootExecution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hms-ingest-avctl", "hms-ingest-av"],
+      "properties": {
+        "hms-ingest-avctl": { "$ref": "#/$defs/avctlExecution" },
+        "hms-ingest-av": { "$ref": "#/$defs/avExecution" }
+      }
+    },
+    "rootProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "installation_id", "host", "groups", "services", "execution"],
+      "properties": {
+        "version": { "$ref": "#/$defs/version" },
+        "installation_id": { "$ref": "#/$defs/nonzeroUuid" },
+        "host": { "$ref": "#/$defs/host" },
+        "groups": { "$ref": "#/$defs/namedGroups" },
+        "services": { "$ref": "#/$defs/namedServices" },
+        "execution": { "$ref": "#/$defs/rootExecution" }
+      }
+    },
+    "avctlPeerUids": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hms-ingest-work", "hms-ingest-av"],
+      "properties": {
+        "hms-ingest-work": { "$ref": "#/$defs/identityNumber" },
+        "hms-ingest-av": { "$ref": "#/$defs/identityNumber" }
+      }
+    },
+    "avctlProjection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version", "service", "source_profile_sha256", "installation_id",
+        "host", "identity", "peer_uids", "execution"
+      ],
+      "properties": {
+        "version": { "$ref": "#/$defs/version" },
+        "service": { "type": "string", "const": "hms-ingest-avctl" },
+        "source_profile_sha256": { "$ref": "#/$defs/sha256" },
+        "installation_id": { "$ref": "#/$defs/nonzeroUuid" },
+        "host": { "$ref": "#/$defs/host" },
+        "identity": { "$ref": "#/$defs/identityFourGroups" },
+        "peer_uids": { "$ref": "#/$defs/avctlPeerUids" },
+        "execution": { "$ref": "#/$defs/avctlExecution" }
+      }
+    },
+    "launchRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version", "installation_id", "restore_epoch", "supervisor_launch_instance", "boot_id",
+        "pid", "start_ticks", "unit", "cgroup", "runtime_manifest_sha256",
+        "uid", "gid", "supplementary_gids", "namespaces"
+      ],
+      "properties": {
+        "version": { "$ref": "#/$defs/version" },
+        "installation_id": { "$ref": "#/$defs/nonzeroUuid" },
+        "restore_epoch": { "$ref": "#/$defs/nonzeroUuid" },
+        "supervisor_launch_instance": { "$ref": "#/$defs/nonzeroUuid" },
+        "boot_id": { "$ref": "#/$defs/nonzeroUuid" },
+        "pid": { "type": "integer", "minimum": 1, "maximum": 2147483647 },
+        "start_ticks": { "type": "integer", "minimum": 0, "maximum": 9223372036854775807 },
+        "unit": { "type": "string", "const": "hms-ingest-avctl.service" },
+        "cgroup": { "type": "string", "const": "/system.slice/hms-ingest-avctl.service" },
+        "runtime_manifest_sha256": { "$ref": "#/$defs/sha256" },
+        "uid": { "$ref": "#/$defs/identityNumber" },
+        "gid": { "$ref": "#/$defs/identityNumber" },
+        "supplementary_gids": { "$ref": "#/$defs/fourGids" },
+        "namespaces": { "$ref": "#/$defs/launchNamespaces" }
+      }
+    }
+  }
+}

@@ -1,0 +1,1115 @@
+{
+  "status": "DRAFT structural fixture catalogue only",
+  "synthetic_only": true,
+  "warning": "All numbers and identities are illustrative, never installation allocation, host observations or authority.",
+  "bases": {
+    "root_profile": {
+      "version": 1,
+      "installation_id": "11111111-1111-4111-8111-111111111111",
+      "host": {
+        "boot_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "namespaces": {
+          "user": 101,
+          "pid": 102,
+          "cgroup": 103
+        }
+      },
+      "groups": {
+        "hms-preview": 20001,
+        "hms-ingest-bytes": 20002,
+        "hms-ingest-work": 20003,
+        "hms-ingest-avctl": 20004,
+        "hms-ingest-av": 20005,
+        "hms-ingest-image": 20006,
+        "hms-ingest-update": 20007,
+        "hms-ingest-guard-read": 30001,
+        "hms-ingest-object-read": 30002,
+        "hms-ingest-scan-ipc": 30003,
+        "hms-ingest-av-ipc": 30004,
+        "hms-ingest-signature-read": 30005
+      },
+      "services": {
+        "hms-preview": {
+          "uid": 10001,
+          "primary_gid": 20001,
+          "supplementary_gids": [
+            30001
+          ]
+        },
+        "hms-ingest-bytes": {
+          "uid": 10002,
+          "primary_gid": 20002,
+          "supplementary_gids": [
+            30001,
+            30002
+          ]
+        },
+        "hms-ingest-work": {
+          "uid": 10003,
+          "primary_gid": 20003,
+          "supplementary_gids": [
+            30001,
+            30002,
+            30003
+          ]
+        },
+        "hms-ingest-avctl": {
+          "uid": 10004,
+          "primary_gid": 20004,
+          "supplementary_gids": [
+            30001,
+            30003,
+            30004,
+            30005
+          ]
+        },
+        "hms-ingest-av": {
+          "uid": 10005,
+          "primary_gid": 20005,
+          "supplementary_gids": [
+            30004,
+            30005
+          ]
+        },
+        "hms-ingest-image": {
+          "uid": 10006,
+          "primary_gid": 20006,
+          "supplementary_gids": []
+        },
+        "hms-ingest-update": {
+          "uid": 10007,
+          "primary_gid": 20007,
+          "supplementary_gids": []
+        }
+      },
+      "execution": {
+        "hms-ingest-avctl": {
+          "unit": "hms-ingest-avctl.service",
+          "cgroup": "/system.slice/hms-ingest-avctl.service",
+          "mount_policy": "unit-private"
+        },
+        "hms-ingest-av": {
+          "unit": "hms-ingest-clamd.service",
+          "cgroup": "/system.slice/hms-ingest-clamd.service",
+          "mount_policy": "unit-private"
+        }
+      }
+    },
+    "supervisor_projection": {
+      "version": 1,
+      "service": "hms-ingest-avctl",
+      "source_profile_sha256": "f14acefadb45b93652ba7e1d11b5a3d22ff4d79b7a08803a0da72543073f4422",
+      "installation_id": "11111111-1111-4111-8111-111111111111",
+      "host": {
+        "boot_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "namespaces": {
+          "user": 101,
+          "pid": 102,
+          "cgroup": 103
+        }
+      },
+      "identity": {
+        "uid": 10004,
+        "primary_gid": 20004,
+        "supplementary_gids": [
+          30001,
+          30003,
+          30004,
+          30005
+        ]
+      },
+      "peer_uids": {
+        "hms-ingest-work": 10003,
+        "hms-ingest-av": 10005
+      },
+      "execution": {
+        "unit": "hms-ingest-avctl.service",
+        "cgroup": "/system.slice/hms-ingest-avctl.service",
+        "mount_policy": "unit-private"
+      }
+    },
+    "launch_record": {
+      "version": 1,
+      "installation_id": "11111111-1111-4111-8111-111111111111",
+      "restore_epoch": "22222222-2222-4222-8222-222222222222",
+      "supervisor_launch_instance": "33333333-3333-4333-8333-333333333333",
+      "boot_id": "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      "pid": 1234,
+      "start_ticks": 56789,
+      "unit": "hms-ingest-avctl.service",
+      "cgroup": "/system.slice/hms-ingest-avctl.service",
+      "runtime_manifest_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "uid": 10004,
+      "gid": 20004,
+      "supplementary_gids": [
+        30001,
+        30003,
+        30004,
+        30005
+      ],
+      "namespaces": {
+        "user": 101,
+        "pid": 102,
+        "cgroup": 103,
+        "mnt": 104
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "root_profile-baseline",
+      "kind": "root_profile",
+      "valid": true,
+      "layer": "structural",
+      "patch": []
+    },
+    {
+      "id": "root_profile-missing-version",
+      "kind": "root_profile",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "remove",
+          "path": "/version"
+        }
+      ]
+    },
+    {
+      "id": "root_profile-unknown-top",
+      "kind": "root_profile",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/unexpected",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "root_profile-version-bool",
+      "kind": "root_profile",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/version",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "root_profile-version-two",
+      "kind": "root_profile",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/version",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "supervisor_projection-baseline",
+      "kind": "supervisor_projection",
+      "valid": true,
+      "layer": "structural",
+      "patch": []
+    },
+    {
+      "id": "supervisor_projection-missing-version",
+      "kind": "supervisor_projection",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "remove",
+          "path": "/version"
+        }
+      ]
+    },
+    {
+      "id": "supervisor_projection-unknown-top",
+      "kind": "supervisor_projection",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/unexpected",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "supervisor_projection-version-bool",
+      "kind": "supervisor_projection",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/version",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "supervisor_projection-version-two",
+      "kind": "supervisor_projection",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/version",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "launch_record-baseline",
+      "kind": "launch_record",
+      "valid": true,
+      "layer": "structural",
+      "patch": []
+    },
+    {
+      "id": "launch_record-missing-version",
+      "kind": "launch_record",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "remove",
+          "path": "/version"
+        }
+      ]
+    },
+    {
+      "id": "launch_record-unknown-top",
+      "kind": "launch_record",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/unexpected",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "id": "launch_record-version-bool",
+      "kind": "launch_record",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/version",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "launch_record-version-two",
+      "kind": "launch_record",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/version",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "root-missing-role",
+      "kind": "root_profile",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "remove",
+          "path": "/services/hms-ingest-work"
+        }
+      ]
+    },
+    {
+      "id": "root-unknown-role",
+      "kind": "root_profile",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/services/other-app",
+          "value": {
+            "uid": 10003,
+            "primary_gid": 20003,
+            "supplementary_gids": [
+              30001,
+              30002,
+              30003
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "root-missing-group",
+      "kind": "root_profile",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "remove",
+          "path": "/groups/hms-ingest-scan-ipc"
+        }
+      ]
+    },
+    {
+      "id": "root-unknown-group",
+      "kind": "root_profile",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/groups/sudo",
+          "value": 27
+        }
+      ]
+    },
+    {
+      "id": "root-zero-uid",
+      "kind": "root_profile",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/services/hms-ingest-work/uid",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "root-uid-overflow",
+      "kind": "root_profile",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/services/hms-ingest-work/uid",
+          "value": 4294967295
+        }
+      ]
+    },
+    {
+      "id": "root-bool-gid",
+      "kind": "root_profile",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/groups/hms-ingest-work",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "root-fraction-uid",
+      "kind": "root_profile",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/services/hms-ingest-work/uid",
+          "value": 1.5
+        }
+      ]
+    },
+    {
+      "id": "root-wrong-cardinality",
+      "kind": "root_profile",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/services/hms-ingest-avctl/supplementary_gids",
+          "value": [
+            30001
+          ]
+        }
+      ]
+    },
+    {
+      "id": "root-duplicate-gid",
+      "kind": "root_profile",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/services/hms-ingest-avctl/supplementary_gids",
+          "value": [
+            30001,
+            30001,
+            30001,
+            30001
+          ]
+        }
+      ]
+    },
+    {
+      "id": "root-decoder-group",
+      "kind": "root_profile",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/services/hms-ingest-image/supplementary_gids",
+          "value": [
+            30001
+          ]
+        }
+      ]
+    },
+    {
+      "id": "root-unknown-identity-key",
+      "kind": "root_profile",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/services/hms-ingest-work/admin",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "root-wrong-unit",
+      "kind": "root_profile",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/execution/hms-ingest-avctl/unit",
+          "value": "other.service"
+        }
+      ]
+    },
+    {
+      "id": "root-unit-newline",
+      "kind": "root_profile",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/execution/hms-ingest-avctl/unit",
+          "value": "hms-ingest-avctl.service\n"
+        }
+      ]
+    },
+    {
+      "id": "root-extra-execution",
+      "kind": "root_profile",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/execution/hms-ingest-image",
+          "value": {
+            "unit": "hms-ingest-avctl.service",
+            "cgroup": "/system.slice/hms-ingest-avctl.service",
+            "mount_policy": "unit-private"
+          }
+        }
+      ]
+    },
+    {
+      "id": "root-wrong-mount-policy",
+      "kind": "root_profile",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/execution/hms-ingest-av/mount_policy",
+          "value": "host"
+        }
+      ]
+    },
+    {
+      "id": "root-nil-uuid",
+      "kind": "root_profile",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/installation_id",
+          "value": "00000000-0000-0000-0000-000000000000"
+        }
+      ]
+    },
+    {
+      "id": "root-uppercase-boot",
+      "kind": "root_profile",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/host/boot_id",
+          "value": "AAAAAAAA-AAAA-4AAA-8AAA-AAAAAAAAAAAA"
+        }
+      ]
+    },
+    {
+      "id": "projection-wrong-service",
+      "kind": "supervisor_projection",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/service",
+          "value": "hms-ingest-work"
+        }
+      ]
+    },
+    {
+      "id": "projection-missing-peer",
+      "kind": "supervisor_projection",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "remove",
+          "path": "/peer_uids/hms-ingest-work"
+        }
+      ]
+    },
+    {
+      "id": "projection-extra-peer",
+      "kind": "supervisor_projection",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/peer_uids/other-app",
+          "value": 12345
+        }
+      ]
+    },
+    {
+      "id": "projection-unknown-identity-key",
+      "kind": "supervisor_projection",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/identity/root",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "projection-hash-short",
+      "kind": "supervisor_projection",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/source_profile_sha256",
+          "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        }
+      ]
+    },
+    {
+      "id": "projection-hash-newline",
+      "kind": "supervisor_projection",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/source_profile_sha256",
+          "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n"
+        }
+      ]
+    },
+    {
+      "id": "projection-hash-uppercase",
+      "kind": "supervisor_projection",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/source_profile_sha256",
+          "value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        }
+      ]
+    },
+    {
+      "id": "projection-wrong-cgroup",
+      "kind": "supervisor_projection",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/execution/cgroup",
+          "value": "/other.slice/hms-ingest-avctl.service"
+        }
+      ]
+    },
+    {
+      "id": "projection-null-host",
+      "kind": "supervisor_projection",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/host",
+          "value": null
+        }
+      ]
+    },
+    {
+      "id": "launch-pid-zero",
+      "kind": "launch_record",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/pid",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "launch-pid-overflow",
+      "kind": "launch_record",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/pid",
+          "value": 2147483648
+        }
+      ]
+    },
+    {
+      "id": "launch-ticks-negative",
+      "kind": "launch_record",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/start_ticks",
+          "value": -1
+        }
+      ]
+    },
+    {
+      "id": "launch-ticks-overflow",
+      "kind": "launch_record",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/start_ticks",
+          "value": 9223372036854775808
+        }
+      ]
+    },
+    {
+      "id": "launch-uid-string",
+      "kind": "launch_record",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/uid",
+          "value": "10004"
+        }
+      ]
+    },
+    {
+      "id": "launch-gid-bool",
+      "kind": "launch_record",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/gid",
+          "value": true
+        }
+      ]
+    },
+    {
+      "id": "launch-gid-overflow",
+      "kind": "launch_record",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/gid",
+          "value": 4294967295
+        }
+      ]
+    },
+    {
+      "id": "launch-ns-zero",
+      "kind": "launch_record",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/namespaces/user",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "launch-ns-overflow",
+      "kind": "launch_record",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/namespaces/mnt",
+          "value": 18446744073709551616
+        }
+      ]
+    },
+    {
+      "id": "launch-ns-extra",
+      "kind": "launch_record",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/namespaces/net",
+          "value": 105
+        }
+      ]
+    },
+    {
+      "id": "launch-hash-nonhex",
+      "kind": "launch_record",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/runtime_manifest_sha256",
+          "value": "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"
+        }
+      ]
+    },
+    {
+      "id": "launch-uuid-malformed",
+      "kind": "launch_record",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/restore_epoch",
+          "value": "bad"
+        }
+      ]
+    },
+    {
+      "id": "launch-unit-template",
+      "kind": "launch_record",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/unit",
+          "value": "hms-ingest-avctl@x.service"
+        }
+      ]
+    },
+    {
+      "id": "launch-groups-object",
+      "kind": "launch_record",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/supplementary_gids",
+          "value": {}
+        }
+      ]
+    },
+    {
+      "id": "launch-groups-duplicate",
+      "kind": "launch_record",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/supplementary_gids",
+          "value": [
+            1,
+            1,
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": "launch-missing-user-ns",
+      "kind": "launch_record",
+      "valid": false,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "remove",
+          "path": "/namespaces/user"
+        }
+      ]
+    },
+    {
+      "id": "launch-min-ticks",
+      "kind": "launch_record",
+      "valid": true,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/start_ticks",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "launch-max-pid",
+      "kind": "launch_record",
+      "valid": true,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/pid",
+          "value": 2147483647
+        }
+      ]
+    },
+    {
+      "id": "launch-max-ticks",
+      "kind": "launch_record",
+      "valid": true,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/start_ticks",
+          "value": 9223372036854775807
+        }
+      ]
+    },
+    {
+      "id": "launch-max-ns",
+      "kind": "launch_record",
+      "valid": true,
+      "layer": "structural",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/namespaces/mnt",
+          "value": 18446744073709551615
+        }
+      ]
+    },
+    {
+      "id": "root-role-uid-alias",
+      "kind": "root_profile",
+      "valid": true,
+      "layer": "schema-limit",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/services/hms-ingest-work/uid",
+          "value": 10004
+        }
+      ]
+    },
+    {
+      "id": "root-named-gid-alias",
+      "kind": "root_profile",
+      "valid": true,
+      "layer": "schema-limit",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/groups/hms-ingest-object-read",
+          "value": 30001
+        }
+      ]
+    },
+    {
+      "id": "root-wrong-mapped-group-set",
+      "kind": "root_profile",
+      "valid": true,
+      "layer": "schema-limit",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/services/hms-ingest-avctl/supplementary_gids",
+          "value": [
+            30001,
+            30002,
+            30003,
+            30004
+          ]
+        }
+      ]
+    },
+    {
+      "id": "projection-wrong-peer",
+      "kind": "supervisor_projection",
+      "valid": true,
+      "layer": "schema-limit",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/peer_uids/hms-ingest-work",
+          "value": 10004
+        }
+      ]
+    },
+    {
+      "id": "projection-wrong-source-hash",
+      "kind": "supervisor_projection",
+      "valid": true,
+      "layer": "schema-limit",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/source_profile_sha256",
+          "value": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+        }
+      ]
+    },
+    {
+      "id": "launch-unsorted-gids",
+      "kind": "launch_record",
+      "valid": true,
+      "layer": "schema-limit",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/supplementary_gids",
+          "value": [
+            30005,
+            30004,
+            30003,
+            30001
+          ]
+        }
+      ]
+    },
+    {
+      "id": "launch-integral-float",
+      "kind": "launch_record",
+      "valid": true,
+      "layer": "schema-limit",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/version",
+          "value": 1.0
+        }
+      ]
+    },
+    {
+      "id": "launch-negative-zero-float",
+      "kind": "launch_record",
+      "valid": true,
+      "layer": "schema-limit",
+      "patch": [
+        {
+          "op": "set",
+          "path": "/start_ticks",
+          "value": -0.0
+        }
+      ]
+    },
+    {
+      "id": "launch-forged-host-facts",
+      "kind": "launch_record",
+      "valid": true,
+      "layer": "schema-limit",
+      "patch": []
+    }
+  ],
+  "wire_limit_cases": [
+    {
+      "id": "wire-integral-float",
+      "kind": "launch_record",
+      "raw": "{\"boot_id\":\"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa\",\"cgroup\":\"/system.slice/hms-ingest-avctl.service\",\"gid\":20004,\"installation_id\":\"11111111-1111-4111-8111-111111111111\",\"namespaces\":{\"cgroup\":103,\"mnt\":104,\"pid\":102,\"user\":101},\"pid\":1234,\"restore_epoch\":\"22222222-2222-4222-8222-222222222222\",\"runtime_manifest_sha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"start_ticks\":56789,\"supervisor_launch_instance\":\"33333333-3333-4333-8333-333333333333\",\"supplementary_gids\":[30001,30003,30004,30005],\"uid\":10004,\"unit\":\"hms-ingest-avctl.service\",\"version\":1.0}"
+    },
+    {
+      "id": "wire-duplicate-version",
+      "kind": "launch_record",
+      "raw": "{\"boot_id\":\"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa\",\"cgroup\":\"/system.slice/hms-ingest-avctl.service\",\"gid\":20004,\"installation_id\":\"11111111-1111-4111-8111-111111111111\",\"namespaces\":{\"cgroup\":103,\"mnt\":104,\"pid\":102,\"user\":101},\"pid\":1234,\"restore_epoch\":\"22222222-2222-4222-8222-222222222222\",\"runtime_manifest_sha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"start_ticks\":56789,\"supervisor_launch_instance\":\"33333333-3333-4333-8333-333333333333\",\"supplementary_gids\":[30001,30003,30004,30005],\"uid\":10004,\"unit\":\"hms-ingest-avctl.service\",\"version\":1,\"version\":1}"
+    },
+    {
+      "id": "wire-whitespace",
+      "kind": "launch_record",
+      "raw": " \n{\"boot_id\":\"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa\",\"cgroup\":\"/system.slice/hms-ingest-avctl.service\",\"gid\":20004,\"installation_id\":\"11111111-1111-4111-8111-111111111111\",\"namespaces\":{\"cgroup\":103,\"mnt\":104,\"pid\":102,\"user\":101},\"pid\":1234,\"restore_epoch\":\"22222222-2222-4222-8222-222222222222\",\"runtime_manifest_sha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"start_ticks\":56789,\"supervisor_launch_instance\":\"33333333-3333-4333-8333-333333333333\",\"supplementary_gids\":[30001,30003,30004,30005],\"uid\":10004,\"unit\":\"hms-ingest-avctl.service\",\"version\":1}\n"
+    },
+    {
+      "id": "wire-reordered-keys",
+      "kind": "launch_record",
+      "raw": "{\"version\":1,\"installation_id\":\"11111111-1111-4111-8111-111111111111\",\"restore_epoch\":\"22222222-2222-4222-8222-222222222222\",\"supervisor_launch_instance\":\"33333333-3333-4333-8333-333333333333\",\"boot_id\":\"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa\",\"pid\":1234,\"start_ticks\":56789,\"unit\":\"hms-ingest-avctl.service\",\"cgroup\":\"/system.slice/hms-ingest-avctl.service\",\"runtime_manifest_sha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"uid\":10004,\"gid\":20004,\"supplementary_gids\":[30001,30003,30004,30005],\"namespaces\":{\"user\":101,\"pid\":102,\"cgroup\":103,\"mnt\":104}}"
+    },
+    {
+      "id": "wire-oversized-whitespace",
+      "kind": "launch_record",
+      "raw": "{\"boot_id\":\"aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa\",\"cgroup\":\"/system.slice/hms-ingest-avctl.service\",\"gid\":20004,\"installation_id\":\"11111111-1111-4111-8111-111111111111\",\"namespaces\":{\"cgroup\":103,\"mnt\":104,\"pid\":102,\"user\":101},\"pid\":1234,\"restore_epoch\":\"22222222-2222-4222-8222-222222222222\",\"runtime_manifest_sha256\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"start_ticks\":56789,\"supervisor_launch_instance\":\"33333333-3333-4333-8333-333333333333\",\"supplementary_gids\":[30001,30003,30004,30005],\"uid\":10004,\"unit\":\"hms-ingest-avctl.service\",\"version\":1}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    "
+    }
+  ]
+}
