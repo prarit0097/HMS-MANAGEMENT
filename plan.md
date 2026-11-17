@@ -1,5 +1,20 @@
 # Circadian HMS implementation plan
 
+## Document-checker tests-only WIP and rolling stop —17 November2026
+
+Scheduled12:43UTC continuation authenticated rolling300minute48%/weekly10080minute54% after saved07:31:38UTC deadline elapsed. No waiver/reset-credit/account/model-bypass tool called. Entry9af0840 exactCI44000083528 completedSUCCESS observed; logs/jobs not decoded. Prior historical stops remain intact.
+
+The next bounded plan selects an actual repository/CI developer checker for canonical profile bytes and semantic bundle equality, not another unused runtime facts helper. Independent pre-code scenario/threat/test review required no external/dynamic schema references, symlink/escape/nonregular fixed-input rejection before reads, bounded inputs and closed generic status/count output. Focused tests independently rederive Q/L after P changes to avoid false stalehash-only failures. Plan specifies existing local/CI4.26 versus server4.10.3 compatible-subset verification with no dependency install to force success.
+
+Saved tests-only WIP: scripts/tests/test_ingestion_profile_data.py has19AST-confirmed test methods; catalogue71cases now has semantic_valid8true/63false plus5wire examples. LiteralRED ran `.local/checks-venv/Scripts/python.exe -m unittest discover -s scripts/tests -p test_ingestion_profile_data.py -v`: ONE loader error ModuleNotFoundError for absentcheck_ingestion_profile_data, not19executed test failures. Implementation/CIstep/dependency pin are NOTwritten, noGREEN/review/sourceCI/tooldeploy acceptance. Tests-author interrupted at threshold after saving; all other agents completed. Do NOTdeploy this WIP; newCI expectedRED until implementation.
+
+Fresh stop2026-11-17T12:55:14UTC rolling7%(used93)/weekly47%(used53); earliestresume2026-11-17T18:25:14UTC (17November11:55:14PM IST), then all applicable windows available above10%. No new implementation/review/assignment/test/deployment after threshold; minimal safecheckpoint only. Repeatedlowreadings neverextenddeadline. Next resume review savedtests/fixture contract, implement minimal checker under frozen tooling scope, focusedGREEN/fullrootchecks/freshreview/exactpushCI, then reviewed private HMS-tool deployment/live-preservation/MD. RootaloneGitVPS.
+
+Readonly VPSpreflight saw currente7 symlink and previewserviceactive; corrected stdin versionprobe observed systemPython jsonschema4.10.3, privatevalidationvenvhasnone. Initial inline Python versioncommand failed quoting (no mutation), corrected without install. No live app/source/schema/config/key/policy/auth/group/role/package change, database or supported document call or deployment. Only new developer-tool plan/tests exist; existing e7 application remains unchanged, no full live/security/other-app attestation. Parent ingestion/OS/SQL/API/clinical gates stillopen. Historic structural artifact GREEN evidence is for prior9af snapshot; added semantic expectations are WIP, not new passing application tests.
+
+[Frozen tooling scope and pending gates](docs/implementation/document-ingestion-data-checker-plan.md).
+
+
 ## Fresh rolling reserve stop —17 November2026
 
 Authenticated rolling300minute remaining8%(used92), weekly10080minute71%(used29) triggers STOP at2026-11-17T02:01:38UTC. No new work/review/delegation/application tests/deployment; minimal safe publication only. Earliest resume2026-11-17T07:31:38UTC (17November1:01:38PM IST), then all applicable windows available above10%. Earlier scheduled resume predates this fresh stop; preserve every historical stop, no deadline extension on repeated low readings, no reset-credit/account/model-bypass tool called.
