@@ -110,3 +110,7 @@ SQL equality does not authenticate Linux. Publisher uses only the separately des
 The [feasibility plan](document-ingestion-launch-feasibility-plan.md) and redacted probe reports are limited evidence. No production launch implementation, systemd provisioning, passing full acceptance or ingestion capability is claimed here; existing S0/S1/B3 source and restricted preview are unchanged by this DRAFT.
 
 Pinned references checked during coordinator review: [systemd255 kill](https://www.freedesktop.org/software/systemd/man/255/systemd.kill.html), [systemd255 service](https://www.freedesktop.org/software/systemd/man/255/systemd.service.html). KillMode is a lifecycle policy, not evidence that every descendant is gone; service active/exec success is not readiness. Installed-host unit behavior still needs isolated acceptance.
+
+## 18 November observation-boundary amendment candidate
+
+The [proc anchor candidate](document-ingestion-proc-anchor-contract.md) explicitly proposes FD4 beside FD3, bounded pinned-task observations and AVCTL-only projection scope. It does not silently replace the earlier one-FD/path wording or freeze a runtime implementation. Resolve its traversal, namespace-link, boot-lifetime and syscall acceptance gates before choosing the executable leaf. No host/provisioning or authority change.

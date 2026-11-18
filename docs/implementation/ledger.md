@@ -1,5 +1,14 @@
 # SDD ledger — plan: plan.md
 
+## AVCTL kernel-observation boundary candidate —18 November2026 afternoon
+
+Scheduled13:36UTC continuation authenticated rolling300minute100%/weekly10080minute15% remaining; bounded87%/13%. Saved cooldown elapsed, no waiver/reset-credit/account/model-bypass tool called. Entryb02bf296ed1ad4dd76ed46e8053e962466659c94 exactCI44260998773 completedSUCCESS observed; logs/jobs not decoded. Checker/code delivery is complete and was not repeated.
+
+Independent security/scenario reviews selected a consumed root-to-post-drop startup path instead of another unused facts helper. New proc-anchor DRAFT proposes exact own-task FD4 beside sealed FD3, direct own-process checks, constrained ordinary-file traversal and a separately constrained namespace magic-link exception. It explicitly records changing proc task ownership, missing boot_id under a task directory, child fork/exec custody, AVCTL-only current projection scope and the absence of atomic observations/OS or DB authority. Scoped independent security/scenario review incorporated root/runtime descriptor baselines, all temporary-handle cleanup and same-native-thread confinement; no blocking DRAFT contradiction remains. Related launch/OS drafts link the amendment; earlier one-FD/path assumptions are not silently treated as replaced or implemented.
+
+No production leaf frozen, app/source/API/schema/dependency/role/unit/host configuration changed, executable test run or VPS access/deployment occurred. No full live attestation this phase; applicatione7ab28f/core0009/metadataFalse remains last verified13November, with only service/symlink preservation comparison18November morning. Exact syscall/ABI/read bounds, secure proc/ns acquisition, boot-lifetime review, consumed launcher image/credential/unit/child custody and typedControlSQL agreement remain before RED/code. Full ingestion/browser/staff/clinical/finance/MCP/dataops/hospital release remains unfinished. [Observation candidate](../implementation/document-ingestion-proc-anchor-contract.md) records concrete scenario/threat/acceptance gates. Documentation-only changes do not restart unchanged app.
+
+
 ## Documentation checker delivery verified —18 November2026
 
 Source2cb316db9f7d0e42e74773284357df325b9c315a is pushed/remoteSHA verified. Exact CI44259948825 all three jobs SUCCESS, decoded40root tests/0skip5.170s,38edge0.163s,2076PGpass/7SQLite-onlyskips/4warnings/1218subtests178.66s/check0/no drift,132frontendtests/typecheck/build112ms plus schema/Compose/docs. Earlier Windows40methods39pass1FIFOskip remains historical; actual Linux now exercises FIFO and ancestor-symlink regressions without skips.

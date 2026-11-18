@@ -77,3 +77,7 @@ Byte/worker key copies and scoped DB credentials are delivered separately to the
 | Shared preview/public TLS ancestor | Existing www-data trust is not converted to per-service isolation by this draft. Full ingress spill/swap/core/resource and other-app preservation evidence still gates bytes/real-data activation. |
 
 No groups/IDs/paths/units/permissions are actually installed and no test result is claimed. Freeze requires exact syscall/namespace/credential-provider/child-launch and cgroup profiles, cross-contract reconciliation, independent threat/scenario review, literal RED and actual isolated Linux/PostgreSQL acceptance. Public ingress, native validator/scanner capacity, retention/recovery and hospital staff/browser release gates remain open.
+
+## 18 November observation-boundary amendment candidate
+
+The [proc anchor candidate](document-ingestion-proc-anchor-contract.md) explicitly proposes FD4 beside FD3, bounded pinned-task observations and AVCTL-only projection scope. It does not silently replace the earlier one-FD/path wording or freeze a runtime implementation. Resolve its traversal, namespace-link, boot-lifetime and syscall acceptance gates before choosing the executable leaf. No host/provisioning or authority change.

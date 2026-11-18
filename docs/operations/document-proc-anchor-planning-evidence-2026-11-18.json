@@ -1,0 +1,59 @@
+{
+  "status": "planning draft only; production leaf not frozen",
+  "entry_ci": {
+    "head_sha": "b02bf296ed1ad4dd76ed46e8053e962466659c94",
+    "run_id": 44260998773,
+    "status": "completed",
+    "conclusion": "success",
+    "logs_decoded": false,
+    "jobs_decoded": false
+  },
+  "usage_entry": {
+    "rolling_duration_minutes": 300,
+    "rolling_remaining_percent": 100,
+    "weekly_duration_minutes": 10080,
+    "weekly_remaining_percent": 15
+  },
+  "usage_bounded": {
+    "rolling_remaining_percent": 87,
+    "weekly_remaining_percent": 13
+  },
+  "design": "root-pinned exact own-task FD4 plus sealed launch FD3, consumed startup handoff candidate; not another unused runtime facts helper",
+  "review_findings": [
+    {
+      "finding": "earlier one-FD whitelist does not include FD4",
+      "disposition": "explicit amendment candidate, not silent replacement or freeze"
+    },
+    {
+      "finding": "task anchor does not include boot_id; filesystem type alone is insufficient trust",
+      "disposition": "trusted root initial proc acquisition plus lifetime conjunction, constrained file and separate nsfs traversal; exact syscall and attack evidence remain open"
+    },
+    {
+      "finding": "per-role projections exceed current AVCTL-only data contract",
+      "disposition": "current AVCTL-only scope explicit, other projections deferred"
+    },
+    {
+      "finding": "root task device/inode snapshot not transported",
+      "disposition": "root acquisition stability versus runtime own baseline clarified; no extra record fields"
+    },
+    {
+      "finding": "temporary observation handles need explicit lifetime",
+      "disposition": "CLOEXEC and closure on all outcomes for ordinary/ns/parent/duplicate handles"
+    },
+    {
+      "finding": "FD4 pins main task but getpid alone also matches other threads",
+      "disposition": "require independent native gettid equality with capturedPID before and after every observation including postwait/postcommit; no cross-thread fallback"
+    }
+  ],
+  "application_tests_run": 0,
+  "vps_access": false,
+  "code_change": false,
+  "deployment": false,
+  "limits": [
+    "No actual procfs/nsfs/mount/fork/FD/drop/exec acceptance or syscall/ABI/read-budget freeze.",
+    "No ControlSQL/schema/migration/API/credential/unit/native agreement freeze.",
+    "No full fresh application/live-security/other-app attestation; application e7 remains last fully proved13November.",
+    "No ingestion capability or full hospital release; no package/host/role/key/policy/auth/flag change."
+  ],
+  "review": "independent security and scenario reviews no blocking contradiction for DRAFT startup-and-exit scope after six clarifications; production freeze gates remain"
+}
