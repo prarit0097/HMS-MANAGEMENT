@@ -19,7 +19,7 @@ Validate local schema shapes with jsonschema, reject nonlocal$refs before any re
 - [x] Independent scenario/permission, threat/abuse and test review accepts narrow tooling boundaries.
 - [x] Tests first: canonical edge cases, projection/hash/identity/group errors, data versus OS authority, nonlocalref denial, fixedpaths/readbounds, privacy and real catalogue+CLI. Record literal missing-module RED after dependency/fixtures prerequisites pass.
 - [x] Minimal implementation+CI consumer, then focused GREEN/full root checks+schema/docs and fresh independent review. Do not rerun backend/frontend without runtime change/new concern; pushCI independently runs its configured jobs.
-- [ ] Every completed code change updates HMS/plan/ledger, verified push/exactCI, scoped HMS-only tool deployment and actual validation, then final docs. No WIP deployment.
+- [x] Every completed code change updates HMS/plan/ledger, verified push/exactCI, scoped HMS-only tool deployment and actual validation, then final docs. No WIP deployment.
 
 ## Scoped VPS tooling deployment (review before execution)
 
@@ -42,3 +42,7 @@ Closed report keys: status,structural_cases,structural_rejections,semantic_cases
 ## Source acceptance18November
 
 Missing-moduleRED is closed by implementedconsumedCItool. Root40scripts methods27.137s/39pass1WindowsFIFOskip plus CLI71/55structural,71/63semantic,5/5wire,authority0. Source/security/testreviews clear; LinuxFIFO/jsonschema4.10.3 and exactCI/private tool deployment remain OPEN. Backend/frontend/hostinger/edge runtime diff e7 empty, so no app release swap/restart is within this scoped delivery.
+
+## Final source and scoped delivery acceptance18November
+
+Exact source2cb316d CI44259948825 allthreejobsSUCCESS, decoded40root/38edge/2076PG7skips1218subtests/132frontend plus schema/docs. Actual privateVPS Python3.12.3/jsonschema4.10.3 ran21tests0skip (includingFIFO) and exact71/55/71/63/5/5/0 CLI report. FiveGitblobhashes verified at new rootprivate target; no packages installed, no app restart or release swap. e7 application PID/start/symlink unchanged. Tool source/delivery complete, no OS/runtimeauthority or ingestion capability. [Delivery evidence](../operations/document-profile-checker-delivery-evidence-2026-11-18.json).

@@ -1,0 +1,66 @@
+{
+  "source_sha": "2cb316db9f7d0e42e74773284357df325b9c315a",
+  "target": "/opt/hms/validation/profile-data-check-20261117-2cb316db9f7d",
+  "files": {
+    "docs/implementation/fixtures/ingestion-profile-data-v1.json": "4be485fbbcd65ddee649bb1ed8d22a152aec342a67011e7d9a829360c5ed35e1",
+    "docs/implementation/schemas/ingestion-profile-data-v1.schema.json": "f4ec6ee9d9b3e2d6b6edff9bd6db5ab9e75b91a711b8f2a830a97c46c3488a88",
+    "infra/requirements-checks.txt": "d5c07e9ad742faa9401c6a8369b201bf90afc37b3131437a7379ebb462d20b79",
+    "scripts/check_ingestion_profile_data.py": "e1b4110e6203a0c146921365d5abb7e993e68cf4e38afbe6baf04644e88deac4",
+    "scripts/tests/test_ingestion_profile_data.py": "5a80a1235dc890ddc517f65d363b05bb10d586990c2967691380f7635a71107a"
+  },
+  "python": "3.12.3",
+  "jsonschema": "4.10.3",
+  "focused_tests": 21,
+  "skips": 0,
+  "report": {
+    "authority_checks": 0,
+    "semantic_cases": 71,
+    "semantic_rejections": 63,
+    "status": "passed",
+    "structural_cases": 71,
+    "structural_rejections": 55,
+    "wire_examples": 5,
+    "wire_rejections": 5
+  },
+  "before": {
+    "current": "/opt/hms/releases/preview-20261113-e7ab28f",
+    "service": "MainPID=906629\nActiveState=active\nActiveEnterTimestampMonotonic=2327875502331\n"
+  },
+  "after": {
+    "current": "/opt/hms/releases/preview-20261113-e7ab28f",
+    "service": "MainPID=906629\nActiveState=active\nActiveEnterTimestampMonotonic=2327875502331\n"
+  },
+  "application_restarted": false,
+  "app_release_swapped": false,
+  "packages_installed": false,
+  "status": "verified private developer-tool delivery; application unchanged",
+  "delivered_at_utc": "2026-11-18T07:38:52.309121+00:00",
+  "exact_source_ci": {
+    "run_id": 44259948825,
+    "head_sha": "2cb316db9f7d0e42e74773284357df325b9c315a",
+    "conclusion": "success",
+    "jobs": "all three success; logs decoded",
+    "root_tests": 40,
+    "root_skips": 0,
+    "root_seconds": 5.17,
+    "edge_tests": 38,
+    "edge_seconds": 0.163,
+    "backend_passed": 2076,
+    "backend_skipped": 7,
+    "backend_subtests": 1218,
+    "backend_warnings": 4,
+    "backend_seconds": 178.66,
+    "django_check": 0,
+    "migration_drift": false,
+    "frontend_tests": 132,
+    "frontend_build_ms": 112
+  },
+  "package_sha256": "f11060f60e27c4919fc80b246de6a53dfa125fece46e481bbdf70cff40371b37",
+  "delivery_review": "Hash and parse same captured archive bytes; reject group/world-writable upload; bounded owned process-group timeout cleanup reviewed. No timeout fault triggered. No Important blocker in final review.",
+  "limits": [
+    "Data consistency only; authority_checks=0. No OS/procfs/nsfs/namespace/child/credential/unit or current Control authentication.",
+    "No application deployment, restart, database/schema/key/policy/auth/flag/group/role change or supported live document invocation.",
+    "Service/symlink comparison is not fresh full HTTP/security/browser/other-application acceptance.",
+    "No ingestion/upload/download/scanner capability; parent ingestion and full hospital release remain open."
+  ]
+}

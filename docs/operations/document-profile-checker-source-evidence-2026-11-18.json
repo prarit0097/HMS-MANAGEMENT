@@ -23,5 +23,10 @@
     "Developer/CItool only,no runtimeauthority",
     "LinuxFIFO/4.10.3/exactCI/private tool delivery stillpending",
     "No app/dependencyinstallation/runtime/schema/auth/policy/keychange"
-  ]
+  ],
+  "final_acceptance": {
+    "status": "exact CI and private tool delivery verified",
+    "evidence": "document-profile-checker-delivery-evidence-2026-11-18.json",
+    "historical_status_note": "Original status/limits above describe source publication before CI and delivery."
+  }
 }

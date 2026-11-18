@@ -1,5 +1,18 @@
 # Usage-aware HMS continuation
 
+## Documentation checker delivery verified —18 November2026
+
+Source2cb316db9f7d0e42e74773284357df325b9c315a is pushed/remoteSHA verified. Exact CI44259948825 all three jobs SUCCESS, decoded40root tests/0skip5.170s,38edge0.163s,2076PGpass/7SQLite-onlyskips/4warnings/1218subtests178.66s/check0/no drift,132frontendtests/typecheck/build112ms plus schema/Compose/docs. Earlier Windows40methods39pass1FIFOskip remains historical; actual Linux now exercises FIFO and ancestor-symlink regressions without skips.
+
+Reviewed private tool delivered at2026-11-18T07:38:52.309121UTC to /opt/hms/validation/profile-data-check-20261117-2cb316db9f7d. Five exact committed Git-blob files/hashmanifest passed; existing Python3.12.3/jsonschema4.10.3 ran21tests/0skip and exact CLI71/55structural,71/63semantic,5/5wire,authority0. No package installation. Archive same-byte hash/parse and owned-process timeout cleanup were independently reviewed; no timeout fault was triggered. Package removed after success, private tool/evidence retained.
+
+Application remains /opt/hms/releases/preview-20261113-e7ab28f: current symlink, active service PID906629 and start timestamp identical before/after. Runtime diff against e7 is empty for backend/frontend/hostinger/edge. This is a developer-tool delivery, not a hospital app release or new ingestion capability. No app restart/database/schema/key/policy/auth/flag/group/role change, supported live document invocation or other-app mutation. Service comparison is not full fresh HTTP/security/browser acceptance. Last full application proof remains13November; no documentation-only restart.
+
+Checker slice complete; do not repeat it or S0/S1/B3/bootstrap/rollout. Next incomplete is actual privileged OS/procfs/nsfs/namespace/child/credential/unit enforcement and typedControlSQL/schema/migration/native/API agreement under the unfrozen ingestion parent; freeze an independently reviewed exact runtime leaf before RED/code. Browser/staff/phone/clinical/finance/MCP/dataops/fullhospital release remain open. Bounded authenticated quota at07:40UTC rolling300minute35%/weekly10080minute20% remaining, no new cooldown/waiver/reset-credit/account/model-bypass tool called. All specialists finished; no owned test/deploy process remains.
+
+Evidence: [private-tool delivery and decoded CI](../operations/document-profile-checker-delivery-evidence-2026-11-18.json). Documentation publication verification/remoteSHA is recorded separately; new doc-only CI must not be assumed successful.
+
+
 ## Canonical/semantic documentation checker implemented —18 November2026
 
 Scheduled resume after saved17November18:25:14UTC deadline authenticated rolling300minute92%/weekly10080minute29% remaining; bounded07:33:02UTC55%/23%. No waiver/reset-credit/account/model-bypass tool called. Entry0aa05a2 CI44088020763 failed as expected for tests-only missingmodule; it was never a release candidate. Sourceapp stillunchanged.
