@@ -2,6 +2,7 @@
 from copy import deepcopy
 from hashlib import sha256
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -78,10 +79,11 @@ class IngestionProfileDataTests(unittest.TestCase):
             destination.write_bytes((ROOT / relative).read_bytes())
         return root
 
-    def cli(self, root):
+    def cli(self, root, timeout=None):
         return subprocess.run(
             [sys.executable, str(SCRIPTS / 'check_ingestion_profile_data.py'),
-             '--root', str(root)], capture_output=True, text=True, check=False,
+            '--root', str(root)], capture_output=True, text=True, check=False,
+            timeout=timeout,
         )
 
     def test_coherent_bundle_returns_no_authority(self):
@@ -277,6 +279,36 @@ class IngestionProfileDataTests(unittest.TestCase):
             self.skipTest('Platform cannot create a synthetic symlink.')
         with self.assertRaises(ValueError):
             checker.check_catalogue(root)
+
+    def test_fixed_input_ancestor_cannot_link_outside_selected_root(self):
+        root = self.temporary_catalogue()
+        outside_directory = tempfile.TemporaryDirectory()
+        self.addCleanup(outside_directory.cleanup)
+        outside = Path(outside_directory.name)
+        self.assertFalse(outside.resolve().is_relative_to(root.resolve()))
+        target = root / SCHEMA_PATH
+        (outside / target.name).write_bytes(target.read_bytes())
+        target.unlink()
+        target.parent.rmdir()
+        try:
+            target.parent.symlink_to(outside, target_is_directory=True)
+        except OSError:
+            self.skipTest('Platform cannot create a synthetic directory symlink.')
+        with self.assertRaises(ValueError):
+            checker.check_catalogue(root)
+
+    @unittest.skipUnless(hasattr(os, 'mkfifo'), 'Platform has no POSIX FIFO primitive.')
+    def test_nonregular_fifo_is_rejected_with_bounded_cli(self):
+        root = self.temporary_catalogue()
+        target = root / SCHEMA_PATH
+        target.unlink()
+        os.mkfifo(target, 0o600)
+        result = self.cli(root, timeout=5)
+        self.assertEqual(result.returncode, 1)
+        self.assertEqual(json.loads(result.stdout), {
+            'status': 'failed', 'code': 'invalid_contract_data',
+        })
+        self.assertEqual(result.stderr, '')
 
     def test_cli_success_and_fixed_private_failure(self):
         success = self.cli(ROOT)

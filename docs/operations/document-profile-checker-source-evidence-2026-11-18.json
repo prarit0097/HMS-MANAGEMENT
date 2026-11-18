@@ -1,0 +1,27 @@
+{
+  "status": "source locally verified; exact CI and scoped tool delivery pending",
+  "tdd_red": "prior literal one ModuleNotFoundError,19savedmethods notexecuted",
+  "root_tests": {
+    "methods": 40,
+    "passed": 39,
+    "skipped": 1,
+    "skip": "Windows has no POSIX FIFO",
+    "seconds": 27.137
+  },
+  "cli": {
+    "structural_cases": 71,
+    "structural_rejections": 55,
+    "semantic_cases": 71,
+    "semantic_rejections": 63,
+    "wire_examples": 5,
+    "wire_rejections": 5,
+    "authority_checks": 0
+  },
+  "review": "independent source/security/test reviews no Important defect; added outside-ancestor andFIFOregressions",
+  "runtime_diff_e7": "empty for backend/frontend/infra-hostinger/infra-edge",
+  "limits": [
+    "Developer/CItool only,no runtimeauthority",
+    "LinuxFIFO/4.10.3/exactCI/private tool delivery stillpending",
+    "No app/dependencyinstallation/runtime/schema/auth/policy/keychange"
+  ]
+}

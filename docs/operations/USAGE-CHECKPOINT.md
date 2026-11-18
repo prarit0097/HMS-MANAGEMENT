@@ -1,5 +1,16 @@
 # Usage-aware HMS continuation
 
+## Canonical/semantic documentation checker implemented —18 November2026
+
+Scheduled resume after saved17November18:25:14UTC deadline authenticated rolling300minute92%/weekly10080minute29% remaining; bounded07:33:02UTC55%/23%. No waiver/reset-credit/account/model-bypass tool called. Entry0aa05a2 CI44088020763 failed as expected for tests-only missingmodule; it was never a release candidate. Sourceapp stillunchanged.
+
+Implemented scripts/check_ingestion_profile_data.py as a consumed repository/CI developer gate, with explicit workflow step and existing jsonschema4.26.0 checks dependency pin. It enforces bounded canonical ASCII bytes/duplicates/floats/nonfinite/negativezero, closed local-only reference evaluation, role UID/GID/group semantics, exact ProjectAvctl sourcehash/wholeprojection equality and launch-data copies. Fixed input reads reject ancestor/leaf symlinks/nonregulars before bounded nofollow/nonblock reads; closed generic reports disclose no fixture IDs/paths/values. No authority object/currentControl/OS authentication or runtime loader is supplied.
+
+TDD completed from the prior literal missing-module RED: implementer19testsGREEN9.450s, then independent review added two concrete filesystem regressions. Root full scripts/tests run40methods27.137s,39passed/1WindowsFIFOskip; CLI reports71structuralcases/55rejects,71semanticcases/63rejects,5wireexamples/5rejects,authority_checks0. Actual Windows leaf+outside-ancestor symlink cases passed. FIFO must still execute on Linux. Fresh independent source/security/test reviews found no Important defect. Documentation/API and whitespace checks passed. No backend/frontend/hostinger/edge runtime diff against e7; no unrelated backend/frontend rerun. ExactpushCI and reviewed privateVPS tool delivery are pending and must not be inferred from localGREEN.
+
+This is developer tooling only: no hospital page/API/MCP/job capability, database/schema/key/network/policy/role/group/profile/service change or application restart. Planned delivery is only committed tool/schema/syntheticfixture files to a new root-private HMSvalidation directory, with actual Linux/jsonschema4.10.3 compatibility/FIFO tests and beforeafter e7symlink/service comparison. No packages are installed to force validation. Runtime ingestion/OS/SQL/clinical/browser/staff/phone/finance/MCP/dataops release gates remain open; existing restricted synthetic application source stays e7ab28f.
+
+
 ## Document-checker tests-only WIP and rolling stop —17 November2026
 
 Scheduled12:43UTC continuation authenticated rolling300minute48%/weekly10080minute54% after saved07:31:38UTC deadline elapsed. No waiver/reset-credit/account/model-bypass tool called. Entry9af0840 exactCI44000083528 completedSUCCESS observed; logs/jobs not decoded. Prior historical stops remain intact.
@@ -87,7 +98,7 @@ Authenticated usage at the scheduled check: rolling300minute used95%, remaining5
 Existing source e7ab28f remains last verified live on13November; no fresh VPS attestation today. S1 remains delivered and parent ingestion remains DRAFT. Next work is the exact OS launch proof/expected-instance/schema/API/accounting/native/runtime contract before another leaf freeze/RED/code. Documentation-only checkpoint does not restart the app. Prior publication bd9deb2 was remote-verified; its CI has not been checked this turn. Verification for this checkpoint is documentation/API links, whitespace and staged private-credential checks only; no application test claims.
 
 
-State: COOLDOWN — rolling reserve, tests-only WIP
+State: ACTIVE — scheduled resume, source verified delivery pending
 checkpoint_at_utc: 2026-11-17T12:55:14Z
 resume_not_before_utc: 2026-11-17T18:25:14Z
 owner_resume_at_utc: 2026-11-02 (explicit NOW CONTINUE; predates fresh stop)
@@ -95,8 +106,8 @@ automation_id: continue-hms-after-usage-cooldown
 automation_interval_minutes: 330 (fresh4November weekly stop; all prior history retained)
 automation_runtime_status_at_2026_11_02T04_20Z: ACTIVE (same heartbeat updated under standing cooldown rule after explicit owner NOW CONTINUE)
 automation_runtime_status_at_2026_11_01T12_54Z: PAUSED (existing persisted status preserved)
-latest_authenticated_usage_at_utc: 2026-11-17T12:55:14Z
-latest_authenticated_remaining: rolling300minute7percent weekly10080minute47percent
+latest_authenticated_usage_at_utc: 2026-11-18T07:33:02Z
+latest_authenticated_remaining: rolling300minute55percent weekly10080minute23percent
 latest_verified_application_source: e7ab28fdd9976c4e4491fa32f01538c726ec46f8
 owner_schedule_override_at_utc: 2026-10-25T20:26:25Z
 
