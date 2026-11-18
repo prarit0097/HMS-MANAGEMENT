@@ -1,5 +1,14 @@
 # Circadian HMS implementation plan
 
+## Save proc-anchor probe at usage-visibility hold —18 November2026
+
+Reviewed observation-design768cf0b076e607cbac2d5a21281fd49cc0ed99d5 was pushed and remote fullSHAexactverified. Narrow test-only probe plan accepted by independent scope/security review; ignored local synthetic source saved and allthree literal source layers syntax compiled only. Final exactsource review is PENDING after preview-preservation amendment; reviewer pending_init was interrupted when visibility hold applied. No executable application test or VPS access/run/deployment occurred. Last full application sourcee7ab28f remains unchanged; do not infer runtime/ingestion acceptance.
+
+At2026-11-18T15:27:14UTC checkpoint, two consecutive authenticated usage results expose primaryduration10080 used0 and secondarynull, with no300minute window. The last visible300minute reading was80%remaining/weekly12%; it is historical, not a currentfivehour guarantee. Fivehour reserve cannot be verified, so substantial phases are held pending restored visibility or explicit owner preference revision. This is NOT a fresh<=10stop and creates no330minute cooldown. No resetcredit/account/model-bypass tool called; no attribution of account-wide service/window changes.
+
+Next: resolve usage visibility, fresh exactsource review of saved probe, then actual bounded test-only drop/exec/FD4/fork/CLOEXEC experiment under reviewed scope; no host mounts/users/packages/DB/config changes. Production syscall/namespace/credential/unit/Control agreement and leaf freeze still pending. All agents stopped/completed; no active owned test/deploy process. [Probe plan](docs/implementation/document-ingestion-proc-anchor-probe-plan.md) and [checkpoint](docs/operations/document-proc-anchor-probe-checkpoint-2026-11-18.json) preserve changedfiles/actualverification/remaining steps. Doc-only publication does not restart unchanged app.
+
+
 ## AVCTL kernel-observation boundary candidate —18 November2026 afternoon
 
 Scheduled13:36UTC continuation authenticated rolling300minute100%/weekly10080minute15% remaining; bounded87%/13%. Saved cooldown elapsed, no waiver/reset-credit/account/model-bypass tool called. Entryb02bf296ed1ad4dd76ed46e8053e962466659c94 exactCI44260998773 completedSUCCESS observed; logs/jobs not decoded. Checker/code delivery is complete and was not repeated.

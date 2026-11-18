@@ -1,0 +1,32 @@
+{
+  "status": "usage visibility hold; probe source WIP, not executed or deployed",
+  "checkpoint_at_utc": "2026-11-18T15:27:14Z",
+  "new_cooldown_created": false,
+  "reason": "two authenticated results lack duration300; primary duration10080 used0, secondary null. Fivehour reserve cannot be verified. No<=10 reading triggered a new330minute stop.",
+  "last_visible_fivehour_remaining_percent": 80,
+  "last_visible_weekly_remaining_percent": 12,
+  "latest_visible_window": {
+    "windowDurationMins": 10080,
+    "usedPercent": 0,
+    "remainingPercent": 100
+  },
+  "usage_action": "No agent resetcredit/account/model-bypass tool called; no inference about cause of account-wide service/window changes. Pause substantive phases until fivehour visibility is resolved or owner explicitly revises preference.",
+  "published_design_sha": "768cf0b076e607cbac2d5a21281fd49cc0ed99d5",
+  "probe_scope_review": "Independent scenario/security scope review accepted experiment; secondexec specifically requiresEBADF.",
+  "probe_source": {
+    "local_ignored_path": ".local/proc_anchor_probe_20261118.py",
+    "sha256": "1f92c72849e6b05f2fd2078710f8e96e3950b9d7ea66f9df553471acb7744966",
+    "verification": "Final allthree source layers syntax parsed/compiled only; no execution. Initial nested-string SyntaxError and Windowsfcntl import probe failed locally before AST-only check; no VPS contact.",
+    "exact_final_source_review": "pending; reviewer pending_init interrupted during usage visibility hold"
+  },
+  "probe_vps_runs": 0,
+  "application_tests": 0,
+  "vps_access": false,
+  "deployment": false,
+  "remaining": [
+    "Resolve authenticated300minute usage visibility or explicit owner preference change; no arbitrary cooldown extension.",
+    "Fresh exact-source review of saved probe and final preview-preservation amendment before any execution.",
+    "Actual bounded experiment under frozen test-only scope; record result and ownedcleanup/preservation truthfully.",
+    "Hostileproc/nsfs/syscall/ABI/boot/FD custody/Control schema SQL and production startup leaf freeze remain open."
+  ]
+}
