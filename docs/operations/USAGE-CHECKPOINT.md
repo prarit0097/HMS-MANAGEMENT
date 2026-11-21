@@ -1,5 +1,14 @@
 # Usage-aware HMS continuation
 
+## Fresh weekly safeguard stop —21 November2026
+
+Authenticated checkpoint2026-11-21T01:06:24UTC: rateLimitsByLimitId.codex.primary duration10080 used95%, remaining5%; secondarynull and no300minute window. Weekly safeguard triggers the project any-applicable-window rule; this is not a measured fivehour-reserve trigger. No implementation/review/assignment/application test/VPS access/deployment started. Prior18November usage-visibility hold and all historical stops remain; no resetcredit/account/model-bypass tool called or attribution of shared account usage.
+
+No new substantive work before2026-11-21T06:36:24UTC (21November12:06:24PM IST), then only all applicable windows available above10% AND the existing fivehour visibility requirement resolved or explicitly revised by owner. Weekly recovery may take longer. Repeatedlowreadings do not extend this deadline. Minimal documentation save/verification/publication only; no app restart or release change.
+
+Entry9d1d71b37311d729b643c7c9899d9ac161ccbdfc tree clean; prior docCI remains unchecked this turn. Completed checker/private-tool delivery and e7 app source are not repeated. Saved probe .local/proc_anchor_probe_20261118.py remains syntax-only and unexecuted, finalsource review pending. Next after gates: exactsource review against document-ingestion-proc-anchor-probe-plan.md, then bounded isolated experiment, followed by unresolved proc/nsfs/syscall/credential/unit/ControlSQL production design gates. HMS/plan/ledger/USAGE are the only changed files in this stop; no new application verification claimed. Existing source remains recoverable, no new owned process/team launched.
+
+
 ## Save proc-anchor probe at usage-visibility hold —18 November2026
 
 Reviewed observation-design768cf0b076e607cbac2d5a21281fd49cc0ed99d5 was pushed and remote fullSHAexactverified. Narrow test-only probe plan accepted by independent scope/security review; ignored local synthetic source saved and allthree literal source layers syntax compiled only. Final exactsource review is PENDING after preview-preservation amendment; reviewer pending_init was interrupted when visibility hold applied. No executable application test or VPS access/run/deployment occurred. Last full application sourcee7ab28f remains unchanged; do not infer runtime/ingestion acceptance.
